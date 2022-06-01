@@ -11,14 +11,16 @@ public class MarketCardDisplay : MonoBehaviour
 
     int price;
     
+    //TODO rework this
     public void DisplayCard(Card card)
     {
-        cardDisplay.transform.parent = transform;
-        cardDisplay.transform.position = new Vector3(0f, 120f, 0f);
+        cardDisplay.transform.SetParent(transform);
+        cardDisplay.transform.localPosition = new Vector3(0f, 120f, 0f);
         cardDisplay.DisplayCard(card);
         float truePrice = card.buyCostMultiplayer * MarketCardManager.instance.basePrice * spotCostMultiplayer;
         price = Mathf.FloorToInt( truePrice - (truePrice % 10));
         priceText.text = price.ToString();
+        priceText.transform.parent.gameObject.SetActive(true);
     }
 
     public void BuyCard()
@@ -26,6 +28,7 @@ public class MarketCardDisplay : MonoBehaviour
         if (Money.instance.TryPaying(price))
         {
             Discard.instance.DiscardCardFromHand(cardDisplay);
+            priceText.transform.parent.gameObject.SetActive(false);
         }
     }
 

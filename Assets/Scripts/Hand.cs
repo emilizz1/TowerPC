@@ -63,9 +63,14 @@ public class Hand : MonoSingleton<Hand>
         yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < 5; i++)
-        {
-            DrawCard();
-            yield return new WaitForSeconds(0.5f);
+        {            
+            DrawCard(); 
+            if (Deck.instance.deckCards.Count == 0)
+            {
+                Discard.instance.ShuffleDiscard();
+                yield return new WaitForSeconds(0.75f);
+            }
+            yield return new WaitForSeconds(0.25f);
         }
         TurnController.FinishedDrawing();
     }

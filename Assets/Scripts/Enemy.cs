@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     public void ReachedEnd()
     {
-        PlayerLife.instance.ChangeHealthAmount(damage);
+        PlayerLife.instance.ChangeHealthAmount(-damage);
         DestroyImmediate(gameObject);
     }
 

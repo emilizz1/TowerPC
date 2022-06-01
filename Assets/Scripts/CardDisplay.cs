@@ -128,4 +128,12 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
     }
+
+    public IEnumerator ResetAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        front.SetActive(false);
+        back.SetActive(false);
+        displayedCard = null;
+    }
 }

@@ -6,9 +6,8 @@ using TMPro;
 public class Deck : MonoSingleton<Deck>
 {
     [SerializeField] TextMeshProUGUI amountText;
-    [SerializeField] ParticleSystem shuffleAnimation;
 
-    List<Card> deckCards;
+    internal List<Card> deckCards;
 
     protected override void Awake()
     {
@@ -20,12 +19,10 @@ public class Deck : MonoSingleton<Deck>
     {
         if(deckCards.Count == 0)
         {
-            Discard.instance.ShuffleDiscard();
             if (deckCards.Count == 0)
             {
                 return null;
             }
-            shuffleAnimation.Play();
         }
 
         Card cardToDraw = deckCards[Random.Range(0, deckCards.Count)];
