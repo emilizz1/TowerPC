@@ -17,6 +17,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] TextMeshProUGUI costMoney;
     [SerializeField] TextMeshProUGUI costMana;
     [SerializeField] TextMeshProUGUI description;
+    [SerializeField] bool handCard;
 
     internal Card displayedCard;
 
@@ -59,13 +60,19 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        dragging = true;
-        StartCoroutine(Dragging());
+        if (handCard)
+        {
+            dragging = true;
+            StartCoroutine(Dragging());
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        dragging = false;
+        if (handCard)
+        {
+            dragging = false;
+        }
     }
 
     IEnumerator Dragging()
