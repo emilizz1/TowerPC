@@ -6,7 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject front;
     [SerializeField] GameObject back;
@@ -73,6 +73,16 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             dragging = false;
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        HandCardSlotController.instance.RearrengeCardSlotsWithSelectedCard(HandCardSlotController.instance.cardDisplays.IndexOf(this));
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HandCardSlotController.instance.RearrangeCardSlots();
     }
 
     IEnumerator Dragging()
