@@ -119,7 +119,15 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     HandCardSlotController.instance.RearrangeCardSlots();
 
                 }
+            }
 
+            if (displayedCard.cardType == CardType.action)
+            {
+                ActionCard actionCard = (ActionCard)displayedCard;
+                actionCard.PlayAction();
+                Discard.instance.DiscardCardFromHand(this);
+                displayedCard = null;
+                HandCardSlotController.instance.RearrangeCardSlots();
             }
         }
     }
@@ -128,20 +136,28 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f && front.activeSelf)
         {
-            front.SetActive(false);
             if(displayedCard.cardType == CardType.tower)
             {
+                front.SetActive(false);
                 TowerCard towerCard = (TowerCard)displayedCard;
                 TowerPlacer.towerToPlace = towerCard.towerPrefab;
             }
-            
-        }
+            if (displayedCard.cardType == CardType.action)
+            { 
+
+            }
+
+            }
         else if(myCamera.ScreenToViewportPoint(transform.position).y < 0.3f && !front.activeSelf)
         {
-            front.SetActive(true);
             if (displayedCard.cardType == CardType.tower)
             {
+                front.SetActive(true);
                 TowerPlacer.towerToPlace = null;
+            }
+            if (displayedCard.cardType == CardType.action)
+            { 
+
             }
         }
     }

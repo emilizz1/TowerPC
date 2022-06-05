@@ -9,6 +9,7 @@ public enum CardType
 {
     tower,
     action,
+    spell,
     basicEvent
 }
 

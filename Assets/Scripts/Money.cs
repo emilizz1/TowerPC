@@ -28,7 +28,7 @@ public class Money : MonoSingleton<Money>
         return false;
     }
 
-    public void AddMoney(int amount, bool instant)
+    public void AddCurrency(int amount, bool instant)
     {
         if (instant)
         {
@@ -45,8 +45,8 @@ public class Money : MonoSingleton<Money>
     {
         int currentValue = startingValue;
         float timePassed = 0f;
-        SoundsController.instance.PlayOneShot("RM-buy-currency-premium");
-        yield return new WaitForSeconds(0.5f);
+        //Play sound
+        //yield return new WaitForSeconds(0.5f);
         while (currentValue < finishValue)
         {
             yield return null;

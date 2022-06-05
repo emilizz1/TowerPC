@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Mana : MonoBehaviour
+public class Mana : MonoSingleton<Mana>
 {
     [SerializeField] TextMeshProUGUI amountText;
     //TODO this should come from heroes
@@ -28,7 +28,7 @@ public class Mana : MonoBehaviour
         return false;
     }
 
-    public void AddMoney(int amount, bool instant)
+    public void AddCurrency(int amount, bool instant)
     {
         if (instant)
         {
@@ -45,8 +45,8 @@ public class Mana : MonoBehaviour
     {
         int currentValue = startingValue;
         float timePassed = 0f;
-        SoundsController.instance.PlayOneShot("RM-buy-currency-premium");
-        yield return new WaitForSeconds(0.5f);
+        //Play sound
+        //yield return new WaitForSeconds(0.5f);
         while (currentValue < finishValue)
         {
             yield return null;
