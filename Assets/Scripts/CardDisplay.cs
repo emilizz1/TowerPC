@@ -35,7 +35,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         front.SetActive(true);
         image.sprite = cardToDisplay.cardImage;
 
-        if(cardToDisplay.moneyCost > 0)
+        if (cardToDisplay.moneyCost > 0)
         {
             costMoney.transform.parent.gameObject.SetActive(true);
             costMoney.text = cardToDisplay.moneyCost.ToString();
@@ -104,11 +104,11 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void CheckIfPlayed()
     {
-        if(myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f)
+        if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f)
         {
             if (displayedCard.cardType == CardType.tower)
             {
-                if (TowerPlacer.towerPlaced) 
+                if (TowerPlacer.towerPlaced)
                 {
                     TowerPlacer.towerToPlace = null;
                     Hand.instance.DestroyCard(displayedCard);
@@ -129,6 +129,21 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 displayedCard = null;
                 HandCardSlotController.instance.RearrangeCardSlots();
             }
+
+
+            if (displayedCard.cardType == CardType.spell)
+            {
+                if (SpellPlacer.spellPlaced)
+                {
+                    //Place spell in the indicator spot
+                    SpellPlacer.spellToPlace = null;
+                }
+                else
+                {
+                    front.SetActive(true);
+                    HandCardSlotController.instance.RearrangeCardSlots();
+                }
+            }
         }
     }
 
@@ -136,19 +151,26 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f && front.activeSelf)
         {
-            if(displayedCard.cardType == CardType.tower)
+            if (displayedCard.cardType == CardType.tower)
             {
                 front.SetActive(false);
                 TowerCard towerCard = (TowerCard)displayedCard;
                 TowerPlacer.towerToPlace = towerCard.towerPrefab;
             }
             if (displayedCard.cardType == CardType.action)
-            { 
+            {
 
             }
-
+            if (displayedCard.cardType == CardType.spell)
+            {
+                //Activate spell range indicator
+                front.SetActive(false);
+                SpellCard spellCard = (SpellCard)displayedCard;
+                SpellPlacer.spellToPlace = spellCard.spellPrefab;
             }
-        else if(myCamera.ScreenToViewportPoint(transform.position).y < 0.3f && !front.activeSelf)
+
+        }
+        else if (myCamera.ScreenToViewportPoint(transform.position).y < 0.3f && !front.activeSelf)
         {
             if (displayedCard.cardType == CardType.tower)
             {
@@ -156,8 +178,13 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 TowerPlacer.towerToPlace = null;
             }
             if (displayedCard.cardType == CardType.action)
-            { 
+            {
 
+            }
+            if (displayedCard.cardType == CardType.spell)
+            {
+                front.SetActive(true);
+                SpellPlacer.spellToPlace = null;
             }
         }
     }

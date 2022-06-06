@@ -65,7 +65,6 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void BuildTower()
     {
-        print("built");
         if (spotTower != null)
         {
             spotTower.GetComponent<Tower>().Activate();
