@@ -57,8 +57,10 @@ public class ResearchNode : MonoBehaviour
 
     public void StartResearch()
     {
+        print("One");
         if (unlocked && !researched)
         {
+            print("Two");
             ResearchWindow.instance.NewResearchSelected(this);
         }
     }
