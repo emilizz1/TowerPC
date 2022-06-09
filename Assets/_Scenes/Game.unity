@@ -1857,6 +1857,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1982847876}
     m_Modifications:
+    - target: {fileID: 8268071098274602524, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
+      propertyPath: data.Array.data[0].duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268071098274602524, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
+      propertyPath: data.Array.data[1].duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268071098274602526, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
+      propertyPath: data.Array.data[0].duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268071098274602526, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
+      propertyPath: data.Array.data[1].duration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8268071099466209728, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
       propertyPath: m_Name
       value: Currencies

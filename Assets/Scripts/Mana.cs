@@ -8,6 +8,7 @@ public class Mana : MonoSingleton<Mana>
     [SerializeField] TextMeshProUGUI amountText;
     //TODO this should come from heroes
     [SerializeField] int startingAmount;
+    [SerializeField] TweenAnimator animator;
 
     int currentAmount;
 
@@ -26,6 +27,18 @@ public class Mana : MonoSingleton<Mana>
             return true;
         }
         return false;
+    }
+    public bool CheckAmount(int amount)
+    {
+        if (amount <= currentAmount)
+        {
+            return true;
+        }
+        else
+        {
+            animator.PerformTween(0);
+            return false;
+        }
     }
 
     public void AddCurrency(int amount, bool instant)

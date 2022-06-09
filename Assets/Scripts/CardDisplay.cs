@@ -23,6 +23,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     bool dragging;
     Camera myCamera;
+    Coroutine draggingCoroutine;
 
     private void Start()
     {
@@ -63,7 +64,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (handCard)
         {
             dragging = true;
-            StartCoroutine(Dragging());
+            draggingCoroutine = StartCoroutine(Dragging());
         }
     }
 
@@ -98,7 +99,6 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             yield return null;
         }
 
-        //animator.PerformTween(0);
         CheckIfPlayed();
     }
 
@@ -106,6 +106,9 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f)
         {
+            Money.instance.TryPaying(displayedCard.moneyCost);
+            Mana.instance.TryPaying(displayedCard.manaCost);
+
             if (displayedCard.cardType == CardType.tower)
             {
                 if (TowerPlacer.towerPlaced)
@@ -117,8 +120,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 {
                     front.SetActive(true);
                     HandCardSlotController.instance.RearrangeCardSlots();
-
                 }
+                return;
             }
 
             if (displayedCard.cardType == CardType.action)
@@ -128,6 +131,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 Discard.instance.DiscardCardFromHand(this);
                 displayedCard = null;
                 HandCardSlotController.instance.RearrangeCardSlots();
+                return;
             }
 
 
@@ -143,6 +147,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     front.SetActive(true);
                     HandCardSlotController.instance.RearrangeCardSlots();
                 }
+                return;
             }
         }
     }
@@ -151,23 +156,17 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f && front.activeSelf)
         {
-            if (displayedCard.cardType == CardType.tower)
+            if (!CheckIfCardCanBePaid())
             {
-                front.SetActive(false);
-                TowerCard towerCard = (TowerCard)displayedCard;
-                TowerPlacer.towerToPlace = towerCard.towerPrefab;
+                dragging = false;
+                if(draggingCoroutine != null)
+                {
+                    StopCoroutine(draggingCoroutine);
+                }
+                HandCardSlotController.instance.RearrangeCardSlots();
+                return;
             }
-            if (displayedCard.cardType == CardType.action)
-            {
-
-            }
-            if (displayedCard.cardType == CardType.spell)
-            {
-                //Activate spell range indicator
-                front.SetActive(false);
-                SpellCard spellCard = (SpellCard)displayedCard;
-                SpellPlacer.spellToPlace = spellCard.spellPrefab;
-            }
+            ActivateCard();
 
         }
         else if (myCamera.ScreenToViewportPoint(transform.position).y < 0.3f && !front.activeSelf)
@@ -186,6 +185,32 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 front.SetActive(true);
                 SpellPlacer.spellToPlace = null;
             }
+        }
+    }
+
+    bool CheckIfCardCanBePaid()
+    {
+        return Money.instance.CheckAmount(displayedCard.moneyCost) && Mana.instance.CheckAmount(displayedCard.manaCost);
+    }
+
+    private void ActivateCard()
+    {
+        if (displayedCard.cardType == CardType.tower)
+        {
+            front.SetActive(false);
+            TowerCard towerCard = (TowerCard)displayedCard;
+            TowerPlacer.towerToPlace = towerCard.towerPrefab;
+        }
+        if (displayedCard.cardType == CardType.action)
+        {
+
+        }
+        if (displayedCard.cardType == CardType.spell)
+        {
+            //Activate spell range indicator
+            front.SetActive(false);
+            SpellCard spellCard = (SpellCard)displayedCard;
+            SpellPlacer.spellToPlace = spellCard.spellPrefab;
         }
     }
 
