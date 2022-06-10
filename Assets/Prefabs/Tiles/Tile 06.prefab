@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7939622127777914738}
 --- !u!1 &89231887460615509
 GameObject:
@@ -340,7 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4929464473882415046}
 --- !u!1 &255325981721025776
 GameObject:
@@ -571,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3560143357441721346}
 --- !u!1 &512260364592695055
 GameObject:
@@ -682,7 +679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7100028290769338644}
 --- !u!1 &551557202958070776
 GameObject:
@@ -823,7 +819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6754834420579194442}
 --- !u!1 &571122581000832274
 GameObject:
@@ -934,7 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8561278237813131467}
 --- !u!1 &670906152105639861
 GameObject:
@@ -1075,7 +1069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2223204567927096997}
 --- !u!1 &857515748559449862
 GameObject:
@@ -1245,7 +1238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &973879310463029449
 GameObject:
@@ -1356,7 +1348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7197620898076424024}
 --- !u!1 &989068567070113710
 GameObject:
@@ -1527,7 +1518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6313025078971766348}
 --- !u!1 &1098921412880402253
 GameObject:
@@ -1638,7 +1628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3478421829543755511}
 --- !u!1 &1164707136968971729
 GameObject:
@@ -1749,7 +1738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6550044365376865839}
 --- !u!1 &1165207147403920228
 GameObject:
@@ -1890,7 +1878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3561975186483984526}
 --- !u!1 &1380904964728803884
 GameObject:
@@ -2000,7 +1987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &1413176612399804011
 GameObject:
@@ -2141,7 +2127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4104185972300887642}
 --- !u!1 &1511962858737547158
 GameObject:
@@ -2282,7 +2267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5033947001555108694}
 --- !u!1 &1564046904633442518
 GameObject:
@@ -2513,7 +2497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3301454022104870124}
 --- !u!1 &2046725483357313899
 GameObject:
@@ -2624,7 +2607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 670906152105639861}
 --- !u!1 &2063490309750161373
 GameObject:
@@ -2764,7 +2746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &2219812418851117928
 GameObject:
@@ -2874,7 +2855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &2223204567927096997
 GameObject:
@@ -3075,7 +3055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2278713889098900421}
 --- !u!1 &2453158164646807275
 GameObject:
@@ -3216,7 +3195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1413176612399804011}
 --- !u!1 &2484225443143410477
 GameObject:
@@ -3327,7 +3305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 443184603670879065}
 --- !u!1 &2521251013861283862
 GameObject:
@@ -3438,7 +3415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5287583626349288768}
 --- !u!1 &2568249941704789698
 GameObject:
@@ -3549,7 +3525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3875363299569879386}
 --- !u!1 &2675539070696743056
 GameObject:
@@ -3660,7 +3635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 156082491060271389}
 --- !u!1 &2820892361790799451
 GameObject:
@@ -3771,7 +3745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8272803906504621650}
 --- !u!1 &2876773006282074881
 GameObject:
@@ -3942,7 +3915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8599150866962934258}
 --- !u!1 &3036297246111872959
 GameObject:
@@ -4083,7 +4055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6949128578086236059}
 --- !u!1 &3136483571898789936
 GameObject:
@@ -4254,7 +4225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2063490309750161373}
 --- !u!1 &3215126160953324019
 GameObject:
@@ -4365,7 +4335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3136483571898789936}
 --- !u!1 &3272214719238962162
 GameObject:
@@ -4535,7 +4504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &3416055857810435529
 GameObject:
@@ -4676,7 +4644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3602318261493008172}
 --- !u!1 &3478421829543755511
 GameObject:
@@ -4817,7 +4784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1165207147403920228}
 --- !u!1 &3496873292307767701
 GameObject:
@@ -5078,7 +5044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4417783054785728618}
 --- !u!1 &3602318261493008172
 GameObject:
@@ -5219,7 +5184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3496873292307767701}
 --- !u!1 &3729590438731411408
 GameObject:
@@ -5330,7 +5294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6659809341414862935}
 --- !u!1 &3742029810620364305
 GameObject:
@@ -5501,7 +5464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5801749890145881481}
 --- !u!1 &3817363653958824684
 GameObject:
@@ -5612,7 +5574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2878056163115244390}
 --- !u!1 &3817363654019363539
 GameObject:
@@ -5723,7 +5684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1654150671518806871}
 --- !u!1 &3817363654096672986
 GameObject:
@@ -5834,7 +5794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8307396046872647941}
 --- !u!1 &3817363654127395331
 GameObject:
@@ -5945,7 +5904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8753615877514746771}
 --- !u!1 &3817363654392276572
 GameObject:
@@ -6056,7 +6014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6796989966527329442}
 --- !u!1 &3817363654738006085
 GameObject:
@@ -6167,7 +6124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8727811991426018400}
 --- !u!1 &3817363654890154439
 GameObject:
@@ -6278,7 +6234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1664160224869046989}
 --- !u!1 &3817363654971042197
 GameObject:
@@ -6304,7 +6259,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3817363654971042197}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6538,7 +6493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &3817363655230102677
 GameObject:
@@ -6800,7 +6754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6011234238402019344}
 --- !u!1 &3875363299569879386
 GameObject:
@@ -6941,7 +6894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4730012956471327095}
 --- !u!1 &3896455698211543265
 GameObject:
@@ -7052,7 +7004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8452011889644637825}
 --- !u!1 &3936289518625672814
 GameObject:
@@ -7163,7 +7114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 551557202958070776}
 --- !u!1 &3980817679968865076
 GameObject:
@@ -7274,7 +7224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1012505052157486244}
 --- !u!1 &4002162497250721691
 GameObject:
@@ -7385,7 +7334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3742029810620364305}
 --- !u!1 &4051469625901632368
 GameObject:
@@ -7495,7 +7443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &4094545032739541315
 GameObject:
@@ -7606,7 +7553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1511962858737547158}
 --- !u!1 &4104185972300887642
 GameObject:
@@ -7747,7 +7693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5634365474690242381}
 --- !u!1 &4127939454555723802
 GameObject:
@@ -7858,7 +7803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2453158164646807275}
 --- !u!1 &4201995575386440479
 GameObject:
@@ -7969,7 +7913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3036297246111872959}
 --- !u!1 &4272372676268127251
 GameObject:
@@ -8080,7 +8023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6488165385806874729}
 --- !u!1 &4276221118088643120
 GameObject:
@@ -8221,7 +8163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 89231887460615509}
 --- !u!1 &4417783054785728618
 GameObject:
@@ -8362,7 +8303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6231007730925775341}
 --- !u!1 &4459582174140089314
 GameObject:
@@ -8503,7 +8443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4750258211119329046}
 --- !u!1 &4557479637594519184
 GameObject:
@@ -8643,7 +8582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &4708362263843151003
 GameObject:
@@ -8754,7 +8692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7235010558490149826}
 --- !u!1 &4730012956471327095
 GameObject:
@@ -8955,7 +8892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 857515748559449862}
 --- !u!1 &4929464473882415046
 GameObject:
@@ -9096,7 +9032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4459582174140089314}
 --- !u!1 &5033947001555108694
 GameObject:
@@ -9237,7 +9172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7117098491895862372}
 --- !u!1 &5167766794951681338
 GameObject:
@@ -9348,7 +9282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7575929807036576845}
 --- !u!1 &5266751179196443172
 GameObject:
@@ -9459,7 +9392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7732680022587587578}
 --- !u!1 &5276522685326625529
 GameObject:
@@ -9570,7 +9502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4276221118088643120}
 --- !u!1 &5287583626349288768
 GameObject:
@@ -9741,7 +9672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6717156773940582995}
 --- !u!1 &5467527833831893295
 GameObject:
@@ -9882,7 +9812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6140953986444387213}
 --- !u!1 &5530640261367828299
 GameObject:
@@ -10083,7 +10012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8445040011475345600}
 --- !u!1 &5601207216748290511
 GameObject:
@@ -10224,7 +10152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8395524760825618568}
 --- !u!1 &5634365474690242381
 GameObject:
@@ -10497,7 +10424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5601207216748290511}
 --- !u!1 &5924748091860040523
 GameObject:
@@ -10608,7 +10534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8819398447549111439}
 --- !u!1 &5958252292396063389
 GameObject:
@@ -10839,7 +10764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6715473865083755944}
 --- !u!1 &6251339241124566397
 GameObject:
@@ -10950,7 +10874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5539082501850367134}
 --- !u!1 &6251562697196254609
 GameObject:
@@ -11091,7 +11014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8202216573327206097}
 --- !u!1 &6313025078971766348
 GameObject:
@@ -11291,7 +11213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &6543579212326200384
 GameObject:
@@ -11402,7 +11323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 387962733578837818}
 --- !u!1 &6550044365376865839
 GameObject:
@@ -11573,7 +11493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 9191082717294604485}
 --- !u!1 &6610315088069693291
 GameObject:
@@ -11864,7 +11783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2876773006282074881}
 --- !u!1 &6754834420579194442
 GameObject:
@@ -12035,7 +11953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3742705077929033396}
 --- !u!1 &6949128578086236059
 GameObject:
@@ -12176,7 +12093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 255325981721025776}
 --- !u!1 &6974010766183937103
 GameObject:
@@ -12287,7 +12203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8738253607934686406}
 --- !u!1 &6984376058392564616
 GameObject:
@@ -12398,7 +12313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5686353098319575534}
 --- !u!1 &7014768650529498623
 GameObject:
@@ -12509,7 +12423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5958252292396063389}
 --- !u!1 &7055018366128684525
 GameObject:
@@ -12620,7 +12533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 9072786429568340816}
 --- !u!1 &7100028290769338644
 GameObject:
@@ -12761,7 +12673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5551917383000068161}
 --- !u!1 &7117098491895862372
 GameObject:
@@ -12902,7 +12813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3272214719238962162}
 --- !u!1 &7197620898076424024
 GameObject:
@@ -13073,7 +12983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5730075460240586432}
 --- !u!1 &7340898573181242054
 GameObject:
@@ -13184,7 +13093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6551167573393533722}
 --- !u!1 &7389093943560297223
 GameObject:
@@ -13295,7 +13203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 2224229600412376315}
 --- !u!1 &7440970474683643889
 GameObject:
@@ -13405,7 +13312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &7470930975753884009
 GameObject:
@@ -13516,7 +13422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5530640261367828299}
 --- !u!1 &7527026261123893235
 GameObject:
@@ -13627,7 +13532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1564046904633442518}
 --- !u!1 &7575929807036576845
 GameObject:
@@ -13828,7 +13732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3590411087325955284}
 --- !u!1 &7867981832201282396
 GameObject:
@@ -13939,7 +13842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4557479637594519184}
 --- !u!1 &7909072588237029183
 GameObject:
@@ -14050,7 +13952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3416055857810435529}
 --- !u!1 &7939622127777914738
 GameObject:
@@ -14221,7 +14122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6645211613504802331}
 --- !u!1 &8041485547708237814
 GameObject:
@@ -14332,7 +14232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 4838649748405252598}
 --- !u!1 &8156010367006585606
 GameObject:
@@ -14443,7 +14342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5467527833831893295}
 --- !u!1 &8194403566370388854
 GameObject:
@@ -14554,7 +14452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3544040249154818144}
 --- !u!1 &8202216573327206097
 GameObject:
@@ -14695,7 +14592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6251562697196254609}
 --- !u!1 &8272803906504621650
 GameObject:
@@ -14866,7 +14762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5776062938358136936}
 --- !u!1 &8395524760825618568
 GameObject:
@@ -15006,7 +14901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1 &8445040011475345600
 GameObject:
@@ -15147,7 +15041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 1823179842247053277}
 --- !u!1 &8452011889644637825
 GameObject:
@@ -15288,7 +15181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 216755749303212133}
 --- !u!1 &8498976444556756324
 GameObject:
@@ -15399,7 +15291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 5325268035030263047}
 --- !u!1 &8505209982649304250
 GameObject:
@@ -15510,7 +15401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7969156689472871248}
 --- !u!1 &8508185006649283840
 GameObject:
@@ -15621,7 +15511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6446113213091919535}
 --- !u!1 &8528636687624155216
 GameObject:
@@ -15732,7 +15621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 3195012281290290843}
 --- !u!1 &8541752901645371516
 GameObject:
@@ -15933,7 +15821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 882267251562554005}
 --- !u!1 &8727811991426018400
 GameObject:
@@ -16164,7 +16051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6610315088069693291}
 --- !u!1 &8867635061182026022
 GameObject:
@@ -16275,7 +16161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 6735774556388162699}
 --- !u!1 &8895622584827622984
 GameObject:
@@ -16386,7 +16271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 989068567070113710}
 --- !u!1 &8926687940943916845
 GameObject:
@@ -16497,7 +16381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 156310581940409460}
 --- !u!1 &8941985272432786669
 GameObject:
@@ -16608,7 +16491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 7806934281653131832}
 --- !u!1 &8997912618191872274
 GameObject:
@@ -16719,7 +16601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 9024375504728313310}
 --- !u!1 &9024375504728313310
 GameObject:
@@ -16890,7 +16771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 477873918829310980}
 --- !u!1 &9191082717294604485
 GameObject:
@@ -17031,7 +16911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
   spawnPoint: {fileID: 8541752901645371516}
 --- !u!1001 &3817363654437858306
 PrefabInstance:

@@ -16,7 +16,7 @@ public class ResearchNode : MonoBehaviour
     public bool unlocked;
     internal bool researched;
 
-    int currentProgress;
+    internal int currentProgress;
 
     private void Start()
     {
@@ -52,15 +52,14 @@ public class ResearchNode : MonoBehaviour
 
     public void Unlocked()
     {
+        unlocked = true;
         animator.SetTrigger("Unlocked");
     }
 
     public void StartResearch()
     {
-        print("One");
         if (unlocked && !researched)
         {
-            print("Two");
             ResearchWindow.instance.NewResearchSelected(this);
         }
     }
