@@ -11,10 +11,14 @@ public class ResearchNode : MonoBehaviour
     [SerializeField] Image icon;
     [SerializeField] Image progress;
     [SerializeField] TextMeshProUGUI explanation;
+    [SerializeField] TextMeshProUGUI timeToComplete;
     [SerializeField] Animator animator;
 
     public bool unlocked;
     internal bool researched;
+
+    bool playedCompletedAnimation;
+    bool playedUnlockAnimation;
 
     internal int currentProgress;
 
@@ -24,6 +28,7 @@ public class ResearchNode : MonoBehaviour
         {
             icon.sprite = research.sprite;
             explanation.text = research.explanation;
+            timeToComplete.text = "Time to complete: <b>" + research.timeToResearch.ToString() + "</b> turns";
             if (unlocked)
             {
                 Unlocked();
@@ -52,8 +57,7 @@ public class ResearchNode : MonoBehaviour
 
     public void Unlocked()
     {
-        unlocked = true;
-        animator.SetTrigger("Unlocked");
+        unlocked = true;    
     }
 
     public void StartResearch()
@@ -61,6 +65,21 @@ public class ResearchNode : MonoBehaviour
         if (unlocked && !researched)
         {
             ResearchWindow.instance.NewResearchSelected(this);
+        }
+    }
+
+    public void PlayAnimations()
+    {
+        if(!playedCompletedAnimation && researched)
+        {
+            playedCompletedAnimation = true;
+            animator.SetTrigger("Completed");
+        }
+
+        if (!playedUnlockAnimation && unlocked)
+        {
+            playedUnlockAnimation = true;
+            animator.SetTrigger("Unlocked");
         }
     }
 }

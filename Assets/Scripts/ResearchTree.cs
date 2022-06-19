@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ResearchTree : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] List<ResearchNode> nodes;
+
+    public void PlayAnimations()
     {
-        
+        StartCoroutine(PlayAnimationsAfterDelay(0.75f));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator PlayAnimationsAfterDelay(float delay)
     {
-        
+        yield return new WaitForSeconds(delay);
+
+        foreach (ResearchNode node in nodes)
+        {
+            node.PlayAnimations();
+        }
     }
 }

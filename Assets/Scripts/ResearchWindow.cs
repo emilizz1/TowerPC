@@ -7,6 +7,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 {
     [SerializeField] TweenAnimator tweenAnimator;
     [SerializeField] Image currentlyResearchingImage;
+    [SerializeField] List<ResearchTree> trees;
 
     ResearchNode currentlyResearching;
 
@@ -34,6 +35,10 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     public void Open()
     {
         tweenAnimator.PerformTween(1);
+        foreach(ResearchTree tree in trees)
+        {
+            tree.PlayAnimations();
+        }
     }
 
     public void Close()
