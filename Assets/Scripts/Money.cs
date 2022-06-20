@@ -7,14 +7,13 @@ public class Money : MonoSingleton<Money>
 {
     [SerializeField] TextMeshProUGUI amountText;
     //TODO this should come from heroes
-    [SerializeField] int startingAmount;
     [SerializeField] TweenAnimator animator;
 
     int currentAmount;
 
     private void Start()
     {
-        currentAmount = startingAmount;
+        currentAmount = CharacterSelector.firstCharacter.startingMoney + CharacterSelector.secondCharacter.startingMoney;
         amountText.text = currentAmount.ToString();
     }
 

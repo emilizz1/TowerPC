@@ -12,18 +12,19 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
 
 
 
-    int currentlySelected;
+    List<Character> currentlySelected = new List<Character>();
 
     private void Start()
     {
         UpdateText();
+        currentlySelected = new List<Character>();
     }
 
-    public bool TrySelecting()
+    public bool TrySelecting(Character character)
     {
-        if(currentlySelected < MAX_SELECTED)
+        if(currentlySelected.Count < MAX_SELECTED)
         {
-            currentlySelected++;
+            currentlySelected.Add(character);
             UpdateText();
             return true;
         }
@@ -33,20 +34,22 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
         }
     }
 
-    public void Deselected()
+    public void Deselected(Character character)
     {
-        currentlySelected--;
+        currentlySelected.Remove(character);
         UpdateText();
     }
 
     void UpdateText()
     {
         selectedCount.text = "Selected " + currentlySelected + " / " + MAX_SELECTED;
-        nextButton.SetActive(currentlySelected == MAX_SELECTED);
+        nextButton.SetActive(currentlySelected.Count == MAX_SELECTED);
     }
 
     public void StartGame()
     {
+        CharacterSelector.firstCharacter = currentlySelected[0];
+        CharacterSelector.secondCharacter = currentlySelected[1];
         SceneManager.instance.LoadScene(SceneManager.GAME);
     }
 }

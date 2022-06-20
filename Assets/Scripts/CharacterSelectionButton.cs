@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterSelectionButton : MonoBehaviour
 {
     [SerializeField] Image selectedBg;
+    [SerializeField] Character character;
 
     bool selected;
 
@@ -18,13 +19,13 @@ public class CharacterSelectionButton : MonoBehaviour
     {
         if (selected)
         {
-            CharacterSelectionController.instance.Deselected();
+            CharacterSelectionController.instance.Deselected(character);
             selected = false;
             selectedBg.gameObject.SetActive(false);
         }
         else
         {
-            if (CharacterSelectionController.instance.TrySelecting())
+            if (CharacterSelectionController.instance.TrySelecting(character))
             {
                 selectedBg.gameObject.SetActive(true);
                 selected = true;

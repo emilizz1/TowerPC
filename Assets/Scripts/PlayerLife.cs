@@ -9,15 +9,13 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     [SerializeField] TextMeshProUGUI amountText;
     [SerializeField] Image fill;
 
-    [SerializeField] int startingHealth;
-
     int maxHp;
     int currentHP;
 
     private void Start()
     {
-        maxHp = startingHealth;
-        currentHP = startingHealth;
+        maxHp = CharacterSelector.firstCharacter.startingMaxHealth + CharacterSelector.secondCharacter.startingMaxHealth;
+        currentHP = maxHp;
         UpdateHealth();
     }
 
