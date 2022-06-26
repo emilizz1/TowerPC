@@ -1457,6 +1457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Market
       objectReference: {fileID: 0}
+    - target: {fileID: 5357744666556472416, guid: 03947a528fd0b1241a7c32b1e2280fe4, type: 3}
+      propertyPath: marketCards
+      value: 
+      objectReference: {fileID: 11400000, guid: 7197d7db3bee0a74085ff8409560d92f, type: 2}
     - target: {fileID: 5357744667079644393, guid: 03947a528fd0b1241a7c32b1e2280fe4, type: 3}
       propertyPath: m_TargetGraphic
       value: 

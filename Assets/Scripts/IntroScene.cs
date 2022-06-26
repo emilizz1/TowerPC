@@ -6,6 +6,6 @@ public class IntroScene : MonoBehaviour
 {
     void Start()
     {
-        SceneManager.instance.LoadScene(SceneManager.MENU);
+        SceneManager.LoadScene(SceneManager.MENU);
     }
 }

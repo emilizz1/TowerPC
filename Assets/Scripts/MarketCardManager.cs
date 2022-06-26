@@ -6,7 +6,7 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
 {
     [SerializeField] List<MarketCardDisplay> marketCardDisplays;
     public int basePrice;
-    [SerializeField] List<Card> baseCards;
+    [SerializeField] CardHolder marketCards;
 
     List<Card> marketDeck;
     internal List<Card> marketDiscard;
@@ -16,7 +16,26 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
         marketDeck = new List<Card>();
         marketDiscard = new List<Card>();
 
-        marketDeck.AddRange(baseCards);
+        CreateStartingMarket();
+    }
+
+    void CreateStartingMarket()
+    {
+        foreach(Card card in marketCards.cards)
+        {
+            marketDeck.Add(card);
+        }
+
+        foreach (Card card in CharacterSelector.firstCharacter.marketCards.cards)
+        {
+            marketDeck.Add(card);
+        }
+
+        foreach (Card card in CharacterSelector.secondCharacter.marketCards.cards)
+        {
+            marketDeck.Add(card);
+        }
+
     }
 
     public void DisplayNewMarket()
@@ -42,4 +61,6 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             display.DiscardMarketCard();
         }
     }
+
+    
 }

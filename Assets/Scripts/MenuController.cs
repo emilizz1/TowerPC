@@ -6,7 +6,7 @@ public class MenuController : MonoSingleton<MenuController>
 {
     public void PressedPlay()
     {
-        SceneManager.instance.LoadScene(SceneManager.CHARACTER_SELECTION);
+        SceneManager.LoadScene(SceneManager.CHARACTER_SELECTION);
     }
 
     public void PressedCollection()

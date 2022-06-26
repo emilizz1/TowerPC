@@ -11,4 +11,7 @@ public class Character : ScriptableObject
     public int startingMoney;
     public int startingMana;
     public int startingMaxHealth;
+    public CardHolder startingCards;
+    public CardHolder marketCards;
+    public TechTreeHolder techTree;
 }

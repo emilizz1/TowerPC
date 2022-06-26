@@ -42,7 +42,7 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
 
     void UpdateText()
     {
-        selectedCount.text = "Selected " + currentlySelected + " / " + MAX_SELECTED;
+        selectedCount.text = "Selected " + currentlySelected.Count + " / " + MAX_SELECTED;
         nextButton.SetActive(currentlySelected.Count == MAX_SELECTED);
     }
 
@@ -50,6 +50,6 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
     {
         CharacterSelector.firstCharacter = currentlySelected[0];
         CharacterSelector.secondCharacter = currentlySelected[1];
-        SceneManager.instance.LoadScene(SceneManager.GAME);
+        SceneManager.LoadScene(SceneManager.GAME);
     }
 }

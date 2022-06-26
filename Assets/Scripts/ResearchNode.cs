@@ -22,7 +22,7 @@ public class ResearchNode : MonoBehaviour
 
     internal int currentProgress;
 
-    private void Start()
+    public void Setup()
     {
         if (research != null)
         {

@@ -8,8 +8,16 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     [SerializeField] TweenAnimator tweenAnimator;
     [SerializeField] Image currentlyResearchingImage;
     [SerializeField] List<ResearchTree> trees;
+    [SerializeField] TechTreeHolder defaultTechTree;
 
     ResearchNode currentlyResearching;
+
+    private void Start()
+    {
+        trees[0].SetupTree(defaultTechTree);
+        trees[1].SetupTree(CharacterSelector.firstCharacter.techTree);
+        trees[2].SetupTree(CharacterSelector.secondCharacter.techTree);
+    }
 
     public void AdvanceResearch()
     {

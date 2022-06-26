@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a726bc8b2057c0743af7cc4ce798412c, type: 3}
   timeToResearch: 1
+  tier: 1
   explanation: Very good research

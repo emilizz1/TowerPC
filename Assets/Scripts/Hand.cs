@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Hand : MonoSingleton<Hand>
 {
-    [SerializeField] List<Card> startingCards;
     [SerializeField] Transform cardsParent;
     [SerializeField] GameObject cardDisplayPrefab;
 
@@ -19,12 +18,23 @@ public class Hand : MonoSingleton<Hand>
 
     private void Start()
     {
-        foreach(Card card in startingCards)
+        CreateStartingDeck();
+
+        DrawNewHand();
+    }
+
+    private static void CreateStartingDeck()
+    {
+        foreach (Card card in CharacterSelector.firstCharacter.startingCards.cards)
         {
             Deck.instance.AddCard(Instantiate(card));
         }
 
-        DrawNewHand();
+
+        foreach (Card card in CharacterSelector.secondCharacter.startingCards.cards)
+        {
+            Deck.instance.AddCard(Instantiate(card));
+        }
     }
 
     public void DrawCard()
