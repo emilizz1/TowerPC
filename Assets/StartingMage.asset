@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f092dc82316d1fe468bd567ba784cd7e, type: 3}
   m_Name: StartingMage
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}

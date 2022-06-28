@@ -6,6 +6,9 @@ public class CameraMovement : MonoSingleton<CameraMovement>
 {
     [SerializeField] float movementSpeed;
     [SerializeField] float mouseSpeed;
+    [SerializeField] float zoomSpeed;
+    [SerializeField] float zoomMin;
+    [SerializeField] float zoomMax;
 
     Camera myCamera;
 
@@ -22,7 +25,7 @@ public class CameraMovement : MonoSingleton<CameraMovement>
     }
 
     void LateUpdate()
-    {//TODO add zoom out
+    {
         change = transform.position;
 
         if (Input.GetMouseButton(1))
@@ -31,6 +34,11 @@ public class CameraMovement : MonoSingleton<CameraMovement>
 
             change.x += diference.x * mouseSpeed;
             change.z += diference.y * mouseSpeed;
+        }
+        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            change.y += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+              change.y = Mathf.Clamp(change.y, zoomMin, zoomMax);
         }
         prevPos = Input.mousePosition;
 

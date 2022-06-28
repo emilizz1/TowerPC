@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f092dc82316d1fe468bd567ba784cd7e, type: 3}
   m_Name: StartingWarrior
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
+  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
+  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
+  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
+  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
