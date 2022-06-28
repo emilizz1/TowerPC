@@ -13,7 +13,7 @@ public class CameraMovement : MonoSingleton<CameraMovement>
     Camera myCamera;
 
     Vector3 change;
-    
+
     private Vector3 prevPos;
     private Vector3 diference;
     bool dragging;
@@ -35,14 +35,14 @@ public class CameraMovement : MonoSingleton<CameraMovement>
             change.x += diference.x * mouseSpeed;
             change.z += diference.y * mouseSpeed;
         }
-        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
             change.y += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-              change.y = Mathf.Clamp(change.y, zoomMin, zoomMax);
+            change.y = Mathf.Clamp(change.y, zoomMin, zoomMax);
         }
+
         prevPos = Input.mousePosition;
-
-
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -61,8 +61,5 @@ public class CameraMovement : MonoSingleton<CameraMovement>
             change.x += movementSpeed;
         }
         transform.position = change;
-
-
-
     }
 }
