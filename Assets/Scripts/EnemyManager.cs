@@ -34,7 +34,9 @@ public class EnemyManager : MonoSingleton<EnemyManager>
                 if (myWave.enemies.Count > 0)
                 {
                     int randomEnemyIndex = Random.Range(0, myWave.enemies.Count);
-                    GameObject newEnemyObj = Instantiate(myWave.enemies[randomEnemyIndex], lane.spawnPoint.transform.position, Quaternion.identity, transform);
+                    GameObject newEnemyObj = ObjectPools.instance.GetPool(myWave.enemies[randomEnemyIndex]).GetObject();
+                    newEnemyObj.transform.parent = transform;
+                    newEnemyObj.transform.position = lane.spawnPoint.transform.position;
                     myWave.enemies.RemoveAt(randomEnemyIndex);
                     Enemy newEnemy = newEnemyObj.GetComponent<Enemy>();
                     aliveEnemies.Add(newEnemy);

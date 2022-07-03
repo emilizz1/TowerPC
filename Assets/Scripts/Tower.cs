@@ -40,7 +40,9 @@ public class Tower : MonoBehaviour
             timeUntilShot -= Time.deltaTime;
             if (timeUntilShot < 0 && currentTarget != null)
             {
-                GameObject newBullet = Instantiate(bulletPrefab, top.transform.position, Quaternion.identity, transform);
+                GameObject newBullet = ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).GetObject();
+                newBullet.transform.parent = transform;
+                newBullet.transform.position = top.transform.position;
                 Bullet bullet = newBullet.GetComponent<Bullet>();
                 bullet.damage = damage;
                 bullet.target = currentTarget;

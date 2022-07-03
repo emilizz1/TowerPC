@@ -20,12 +20,12 @@ public class Bullet : MonoBehaviour
             else
             {
                 target.GetComponent<Enemy>().DealDamage(damage);
-                Destroy(gameObject);
+                ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).ReturnObject(gameObject);
             }
         }
         else
         {
-            Destroy(gameObject);
+            ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).ReturnObject(gameObject);
         }
         
     }

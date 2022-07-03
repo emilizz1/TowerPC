@@ -7,5 +7,5 @@ using System;
 [Serializable]
 public class EnemyWave : ScriptableObject
 {
-    public List<GameObject> enemies;
+    public List<ObjectPools.PoolNames> enemies;
 }

@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     public void ReachedEnd()
     {
         PlayerLife.instance.ChangeHealthAmount(-damage);
-        DestroyImmediate(gameObject);
+        ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicEnemy).ReturnObject(gameObject);
     }
 
     public void DealDamage(float damage)
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
-            Destroy(gameObject);
+            ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicEnemy).ReturnObject(gameObject);
             return;
         }
         UpdateBars();        
