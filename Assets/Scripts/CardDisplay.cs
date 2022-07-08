@@ -61,7 +61,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (handCard)
+        if (handCard && !Cover.cover)
         {
             dragging = true;
             draggingCoroutine = StartCoroutine(Dragging());
@@ -78,7 +78,10 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        HandCardSlotController.instance.RearrengeCardSlotsWithSelectedCard(HandCardSlotController.instance.cardDisplays.IndexOf(this));
+        if (!Cover.cover)
+        {
+            HandCardSlotController.instance.RearrengeCardSlotsWithSelectedCard(HandCardSlotController.instance.cardDisplays.IndexOf(this));
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

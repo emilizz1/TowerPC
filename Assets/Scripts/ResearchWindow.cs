@@ -42,6 +42,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     public void Open()
     {
+        Cover.cover = true;
         tweenAnimator.PerformTween(1);
         foreach(ResearchTree tree in trees)
         {
@@ -51,6 +52,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     public void Close()
     {
+        Cover.cover = false;
         tweenAnimator.PerformTween(0);
     }
 }

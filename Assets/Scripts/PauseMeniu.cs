@@ -6,12 +6,14 @@ public class PauseMeniu : MonoBehaviour
 {
     public void Open()
     {
+        Cover.cover = true;
         gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Close()
     {
+        Cover.cover = false;
         gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
