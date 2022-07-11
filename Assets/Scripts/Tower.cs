@@ -8,11 +8,14 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform top;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] SphereCollider sphere;
+    [SerializeField] Transform rangeSprite;
 
     [Header("Stats")]
     [SerializeField] float fireRate;
     [SerializeField] float range;
     [SerializeField] float damage;
+
+    const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
 
     List<GameObject> reachableEnemies;
     GameObject currentTarget;
@@ -24,6 +27,8 @@ public class Tower : MonoBehaviour
     {
         sphere.radius = range;
         reachableEnemies = new List<GameObject>();
+        float rangeSpriteScale = range / DEFAULT_RANGE_SPRITE_RADIUS;
+        rangeSprite.localScale = new Vector3(rangeSpriteScale, rangeSpriteScale, 1f);
     }
 
     private void Update()
@@ -82,5 +87,6 @@ public class Tower : MonoBehaviour
     public void Activate()
     {
         active = true;
+        rangeSprite.gameObject.SetActive(false);   
     }
 }
