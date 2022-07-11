@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
                 if (distanceToNextPath < moveDistance)
                 {
                     moveIndex++;
-                    if (moveIndex == movementPath.Count)
+                    if (moveIndex + 1 == movementPath.Count)
                     {
                         enemy.ReachedEnd();
                         return;
