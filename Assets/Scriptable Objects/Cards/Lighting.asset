@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb14016ea6f28934b902ecb5b18bb62a, type: 3}
   m_Name: Lighting
   m_EditorClassIdentifier: 
-  cardType: 0
+  cardType: 2
   cardImage: {fileID: 21300000, guid: d7997866a511f1948b56ae2c41d0b64f, type: 3}
   moneyCost: 0
   manaCost: 25

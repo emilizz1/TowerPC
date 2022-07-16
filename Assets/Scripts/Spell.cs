@@ -4,28 +4,32 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    [SerializeField] float time;
     [SerializeField] ParticleSystem particles;
+    [SerializeField] Transform rangeSprite;
+    [SerializeField] SphereCollider sphere;
+    [SerializeField] float range;
+
+
+    const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
 
     float timePassed;
     bool active;
 
-    private void Update()
+    private void Start()
     {
-        if (active)
-        {
-            timePassed += Time.deltaTime;
-            if(timePassed >= time)
-            {
-                Destroy(gameObject);
-            }
-        }
-        
+        float rangeSpriteScale = range / DEFAULT_RANGE_SPRITE_RADIUS;
+        rangeSprite.localScale = new Vector3(rangeSpriteScale, rangeSpriteScale, 1f);
     }
 
     public void Activate()
     {
         active = true;
-        particles.Play();
+        rangeSprite.gameObject.SetActive(false);
+    }
+
+    public void StopSpell()
+    {
+        //Later pool these objects
+        Destroy(gameObject);
     }
 }

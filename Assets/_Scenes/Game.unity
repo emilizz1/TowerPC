@@ -1781,6 +1781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles
       objectReference: {fileID: 0}
+    - target: {fileID: 7670069036323860098, guid: f6cb86b84ef2db74299520c547039086, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6cb86b84ef2db74299520c547039086, type: 3}
 --- !u!1001 &5357744667108530897

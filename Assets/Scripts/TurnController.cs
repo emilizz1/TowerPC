@@ -42,6 +42,7 @@ public static class TurnController
             Debug.Log("Started Market");
             currentPhase = TurnPhase.Market;
             MarketWindow.instance.Open();
+            SpellPlacer.StopAllSpells();
         }
     }
 

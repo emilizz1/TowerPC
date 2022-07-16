@@ -140,16 +140,12 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             if (displayedCard.cardType == CardType.spell)
             {
-                if (SpellPlacer.spellPlaced)
-                {
-                    //Place spell in the indicator spot
-                    SpellPlacer.spellToPlace = null;
-                }
-                else
-                {
-                    front.SetActive(true);
-                    HandCardSlotController.instance.RearrangeCardSlots();
-                }
+                SpellPlacer.SpellPlaced();
+                SpellPlacer.spellToPlace = null;
+                front.SetActive(true);
+                Discard.instance.DiscardCardFromHand(this);
+                HandCardSlotController.instance.RearrangeCardSlots();
+
                 return;
             }
         }
@@ -186,6 +182,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             if (displayedCard.cardType == CardType.spell)
             {
                 front.SetActive(true);
+                Destroy(SpellPlacer.spellToPlace.gameObject);
                 SpellPlacer.spellToPlace = null;
             }
         }
@@ -210,10 +207,10 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         if (displayedCard.cardType == CardType.spell)
         {
-            //Activate spell range indicator
             front.SetActive(false);
             SpellCard spellCard = (SpellCard)displayedCard;
-            SpellPlacer.spellToPlace = spellCard.spellPrefab;
+            SpellPlacer.spellToPlace = Instantiate(spellCard.spellPrefab, null);
+            StartCoroutine(SpellPlacer.PlaceSpell());
         }
     }
 
