@@ -89,4 +89,9 @@ public class Tower : MonoBehaviour
         active = true;
         rangeSprite.gameObject.SetActive(false);   
     }
+
+    private void OnMouseEnter()
+    {
+        Debug.Log("Entered");
+    }
 }
