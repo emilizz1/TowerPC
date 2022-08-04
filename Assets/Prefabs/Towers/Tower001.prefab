@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e163f0d673332409e477c0aec8db14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  towerName: 
   top: {fileID: 3364892187113495077}
   bulletPrefab: {fileID: 5659563579449753960, guid: f25c4beb23cd396419f4071544ae0631, type: 3}
   sphere: {fileID: 4273345013492345057}
@@ -276,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b87c03545f3e64f94c8ff4fba7157a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 1526630794712585041}
 --- !u!1 &4825318447596730831
 GameObject:
   m_ObjectHideFlags: 0

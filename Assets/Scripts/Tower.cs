@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public Sprite image;
+    public string towerName;
+
     [Header("Components")]
     [SerializeField] Transform top;
     [SerializeField] GameObject bulletPrefab;
@@ -11,9 +14,9 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform rangeSprite;
 
     [Header("Stats")]
-    [SerializeField] float fireRate;
-    [SerializeField] float range;
-    [SerializeField] float damage;
+    public float fireRate;
+    public float range;
+    public float damage;
 
     const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
 
