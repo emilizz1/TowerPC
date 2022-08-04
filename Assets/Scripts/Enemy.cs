@@ -39,11 +39,6 @@ public class Enemy : MonoBehaviour
         UpdateBars();
     }
 
-    private void OnDestroy()
-    {
-        EnemyManager.instance.EnemyRemoved(this);
-    }
-
     public void UpdateBars()
     {
         healthBar.fillAmount = currentHealth / health;
@@ -56,6 +51,7 @@ public class Enemy : MonoBehaviour
     {
         PlayerLife.instance.ChangeHealthAmount(-damage);
         ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicEnemy).ReturnObject(gameObject);
+        EnemyManager.instance.EnemyRemoved(this);
     }
 
     public void DealDamage(float damage)
@@ -64,6 +60,7 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0)
         {
             ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicEnemy).ReturnObject(gameObject);
+            EnemyManager.instance.EnemyRemoved(this);
             return;
         }
         UpdateBars();        
