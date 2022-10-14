@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b9673a04ad60647abd14dc34889f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 0.2
+  waveSpawnTime: 0
+  spawnTime: 0.08
   enemyWaves:
   - {fileID: 11400000, guid: 78f9dec546e84bf4a87975c0906c0a70, type: 2}

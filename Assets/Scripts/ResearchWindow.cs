@@ -26,6 +26,10 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
             float prevProgress = (float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch;
             currentlyResearching.Advanced();
             ResearchButton.instance.UpdateFill(prevProgress, (float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch, 1f);
+            if(currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
+            {
+                ResearchButton.instance.NoResearchSelected();
+            }
         }
     }
 
@@ -33,6 +37,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     {
         if (currentlyResearching != research)
         {
+            currentlyResearchingImage.transform.parent.gameObject.SetActive(true);
             ResearchButton.instance.UpdateFill(currentlyResearching == null ? 0f : ((float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch),
                 (float)research.currentProgress / research.research.timeToResearch, 0.5f);
             currentlyResearching = research;
@@ -48,11 +53,31 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
         {
             tree.PlayAnimations();
         }
+
+        if(currentlyResearching == null)
+        {
+            currentlyResearchingImage.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            currentlyResearchingImage.transform.parent.gameObject.SetActive(true);
+
+        }
     }
 
     public void Close()
     {
         Cover.cover = false;
         tweenAnimator.PerformTween(0);
+
+        if (currentlyResearching == null)
+        {
+            ResearchButton.instance.NoResearchSelected();
+        }
+        else if (currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
+        {
+            ResearchButton.instance.NoResearchSelected();
+        }
+
     }
 }

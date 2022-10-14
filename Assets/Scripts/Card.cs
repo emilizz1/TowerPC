@@ -10,7 +10,7 @@ public enum CardType
     tower,
     action,
     spell,
-    basicEvent
+    all
 }
 
 public class Card : ScriptableObject
@@ -20,4 +20,6 @@ public class Card : ScriptableObject
     public int moneyCost;
     public int manaCost;
     public float buyCostMultiplayer;
+    [TextArea(15,20)]
+    public string description;
 }

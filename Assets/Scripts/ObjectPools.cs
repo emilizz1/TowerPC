@@ -17,7 +17,10 @@ public class ObjectPools : MonoSingleton<ObjectPools>
     public enum PoolNames
     {
         basicEnemy,
-        basicBullet
+        basicBullet,
+        lightningBullet,
+        arrow,
+        spear
     }
 
     Dictionary<PoolNames, ObjectPool> poolDicktionary;

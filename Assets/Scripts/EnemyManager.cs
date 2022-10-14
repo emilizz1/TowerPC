@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoSingleton<EnemyManager>
 {
+    [SerializeField] float waveSpawnTime = 0.1f;
     [SerializeField] float spawnTime = 0.1f;
     [SerializeField] List<EnemyWave> enemyWaves;
 
@@ -27,7 +28,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
         while (myWave.enemies.Count > 0)
         {
-            yield return new WaitForSeconds(spawnTime);
+            yield return new WaitForSeconds(waveSpawnTime);
 
             foreach (Lane lane in openLanes)
             {
@@ -40,8 +41,9 @@ public class EnemyManager : MonoSingleton<EnemyManager>
                     myWave.enemies.RemoveAt(randomEnemyIndex);
                     Enemy newEnemy = newEnemyObj.GetComponent<Enemy>();
                     aliveEnemies.Add(newEnemy);
-                    newEnemy.movement.movementPath = new List<Vector3>();
+                    newEnemy.ResetEnemy();
                     FillMovementWithLanePath(newEnemy.movement, lane);
+                    yield return new WaitForSeconds(spawnTime);
                 }
             }
         }

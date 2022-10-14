@@ -8,6 +8,8 @@ public static class SpellPlacer
 
     public static List<Spell> activeSpells = new List<Spell>();
 
+    static internal bool spellPlaced;
+
     public static IEnumerator PlaceSpell()
     {
         Camera camera = Camera.main;
@@ -37,6 +39,7 @@ public static class SpellPlacer
         Spell spell = spellToPlace.GetComponent<Spell>();
         spell.Activate();
         activeSpells.Add(spell);
+        spellPlaced = true;
     }
 
     public static void StopAllSpells()
@@ -47,6 +50,7 @@ public static class SpellPlacer
             {
                 spell.StopSpell();
             }
+            activeSpells = new List<Spell>();
         }
     }
 }

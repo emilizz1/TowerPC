@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
+    public float range;
+
+    [SerializeField] ParticleSystem startParticles;
     [SerializeField] Transform rangeSprite;
     [SerializeField] SphereCollider sphere;
-    [SerializeField] float range;
 
 
     const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
@@ -18,6 +20,7 @@ public class Spell : MonoBehaviour
     {
         float rangeSpriteScale = range / DEFAULT_RANGE_SPRITE_RADIUS;
         rangeSprite.localScale = new Vector3(rangeSpriteScale, rangeSpriteScale, 1f);
+        sphere.radius = range;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,13 +50,17 @@ public class Spell : MonoBehaviour
         Debug.Log("exited");
     }
 
-    public void Activate()
+    public virtual void Activate()
     {
         active = true;
         rangeSprite.gameObject.SetActive(false);
+        if(startParticles != null)
+        {
+            startParticles.Play();
+        }
     }
 
-    public void StopSpell()
+    public virtual void StopSpell()
     {
         //Later pool these objects
         Destroy(gameObject);

@@ -61,6 +61,4 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             display.DiscardMarketCard();
         }
     }
-
-    
 }

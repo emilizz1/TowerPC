@@ -8,12 +8,17 @@ public class Mana : MonoSingleton<Mana>
     [SerializeField] TextMeshProUGUI amountText;
     //TODO this should come from heroes
     [SerializeField] TweenAnimator animator;
+    public int regenAmount;
+    public float timeToRegen;
 
+    Coroutine regen;
+    int maxAmount;
     int currentAmount;
 
     private void Start()
     {
-        currentAmount = CharacterSelector.firstCharacter.startingMana + CharacterSelector.secondCharacter.startingMana;
+        maxAmount = CharacterSelector.firstCharacter.startingMana + CharacterSelector.secondCharacter.startingMana;
+        currentAmount = maxAmount;
         amountText.text = currentAmount.ToString();
     }
 
@@ -44,13 +49,13 @@ public class Mana : MonoSingleton<Mana>
     {
         if (instant)
         {
-            amountText.text = (currentAmount + amount).ToString();
+            amountText.text = Mathf.Clamp(currentAmount + amount, 0, maxAmount).ToString();
         }
         else
         {
-            StartCoroutine(IncreaseCurrencyAmount(currentAmount, currentAmount + amount));
+            StartCoroutine(IncreaseCurrencyAmount(currentAmount, Mathf.Clamp(currentAmount + amount, 0, maxAmount)));
         }
-        currentAmount += amount;
+        currentAmount = Mathf.Clamp(currentAmount + amount, 0, maxAmount);
     }
 
     IEnumerator IncreaseCurrencyAmount(int startingValue, int finishValue)
@@ -85,5 +90,21 @@ public class Mana : MonoSingleton<Mana>
             amountText.text = currentValue.ToString();
         }
         amountText.text = finishValue.ToString();
+    }
+
+    public void StartRegen()
+    {
+        regen = StartCoroutine(Regen());
+    }
+
+    public void StopRegen()
+    {
+        StopCoroutine(regen);
+    }
+
+    IEnumerator Regen()
+    {
+        yield return new WaitForSeconds(timeToRegen);
+        AddCurrency(regenAmount, true);
     }
 }

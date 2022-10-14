@@ -9,6 +9,8 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     [SerializeField] TextMeshProUGUI amountText;
     [SerializeField] Image fill;
 
+    internal int regen;
+
     int maxHp;
     int currentHP;
 
@@ -28,6 +30,19 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     public void ChangeHealthAmount(int change)
     {
         currentHP += change;
+        UpdateHealth();
+    }
+
+    public void MaxHealthMultiplied(int amount)
+    {
+        currentHP += maxHp * (amount - 1);
+        maxHp *= amount;
+        UpdateHealth();
+    }
+
+    public void Regen()
+    {
+        currentHP = Mathf.Clamp(currentHP + regen, 0, maxHp);
         UpdateHealth();
     }
 }

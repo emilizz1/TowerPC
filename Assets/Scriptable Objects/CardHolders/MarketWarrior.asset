@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: MarketWarrior
   m_EditorClassIdentifier: 
   cards:
-  - {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
-  - {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
-  - {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
-  - {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
-  - {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
+  - {fileID: 11400000, guid: 5a6d01804b410c842bb4084c7d85027c, type: 2}
+  - {fileID: 11400000, guid: 3264f6800853df44b93cd4c1576d1e2e, type: 2}
+  - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+  - {fileID: 11400000, guid: 38728a770d49f4e44afd7b7078d60032, type: 2}

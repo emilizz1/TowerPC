@@ -5,6 +5,8 @@ using TMPro;
 
 public class Deck : MonoSingleton<Deck>
 {
+    public Transform deckTransform;
+
     [SerializeField] TextMeshProUGUI amountText;
 
     internal List<Card> deckCards;

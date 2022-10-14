@@ -5,10 +5,11 @@ using TMPro;
 
 public class Discard : MonoSingleton<Discard>
 {
+    public Transform discardTransform;
+
     [SerializeField] TextMeshProUGUI amountText;
     [SerializeField] GameObject cardDisplayPrefab;
     [SerializeField] Animator animator;
-    public Transform discardTransform;
 
     internal List<Card> discardCards;
 
@@ -42,7 +43,6 @@ public class Discard : MonoSingleton<Discard>
 
     public void AddCard(Card cardToAdd)
     {
-        //Add animation for buying card
         discardCards.Add(cardToAdd);
         amountText.text = discardCards.Count.ToString();
     }

@@ -17,4 +17,6 @@ MonoBehaviour:
   moneyCost: 0
   manaCost: 25
   buyCostMultiplayer: 0.5
+  description: "Deal damage to enemies\nHealth Damage: 10 \nArmor Damage: 3\nShield
+    Damage: 15"
   spellPrefab: {fileID: 3346172960511143528, guid: f7c222b4e7e2cf24fb347c309e9c8da5, type: 3}

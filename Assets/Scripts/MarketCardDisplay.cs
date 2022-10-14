@@ -17,8 +17,9 @@ public class MarketCardDisplay : MonoBehaviour
         cardDisplay.transform.SetParent(transform);
         cardDisplay.transform.localPosition = new Vector3(0f, 120f, 0f);
         cardDisplay.DisplayCard(card);
-        float truePrice = card.buyCostMultiplayer * MarketCardManager.instance.basePrice * spotCostMultiplayer;
-        price = Mathf.FloorToInt( truePrice - (truePrice % 10));
+        price = Mathf.CeilToInt( card.buyCostMultiplayer * MarketCardManager.instance.basePrice * 
+            spotCostMultiplayer * CostController.GetBuyingCostMultiplayer(card.cardType));
+        //price = Mathf.FloorToInt( truePrice - (truePrice % 10));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
     }

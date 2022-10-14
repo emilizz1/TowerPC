@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WarriorTech
   m_EditorClassIdentifier: 
   researches:
-  - {fileID: 11400000, guid: ce04032ee5c0c0c4db078bbc8ddc61c9, type: 2}
-  - {fileID: 11400000, guid: 7730cc0522b30ae49a37d57ce5d0b0c3, type: 2}
-  - {fileID: 11400000, guid: de123cd8b4c634e4e9e5867097700115, type: 2}
-  - {fileID: 11400000, guid: 9c0b46fb88d38e54ba9a445a2bc2e76a, type: 2}
-  - {fileID: 11400000, guid: 02f24cb3a4cd3644ca37539b014eed5d, type: 2}
-  - {fileID: 11400000, guid: 0ff83979782b6a544ae441b2b7169808, type: 2}
-  - {fileID: 11400000, guid: b75e78bf5eb648244b9a53fc623f5f58, type: 2}
-  - {fileID: 11400000, guid: 85e322f83a495964a86e62103489d3f5, type: 2}
+  - {fileID: 11400000, guid: ebc925c5e91bc154d9904059c2fad519, type: 2}
+  - {fileID: 11400000, guid: b7795a2fcf54297409e553630f12ab8c, type: 2}
+  - {fileID: 11400000, guid: 67c363b0d174dcb458836ab656590002, type: 2}
+  - {fileID: 11400000, guid: e6cb3d28575823449b3222d4833538e8, type: 2}
+  - {fileID: 11400000, guid: 703e374e14cbb644bb54104cd17d95f1, type: 2}
+  - {fileID: 11400000, guid: 809ef301ace0d1d40a6e5dbb2ce5c9e1, type: 2}
+  - {fileID: 11400000, guid: 117d88e501ceec84ba95efe3920cbfa0, type: 2}
+  - {fileID: 11400000, guid: 162ae110ede3d1648abd729dca31c069, type: 2}

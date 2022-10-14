@@ -7,6 +7,8 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] GameObject spawnPoint;
 
+    internal TerrainBonus terrainBonus;
+
     GameObject spotTower;
 
     bool towerBuilt;
@@ -66,8 +68,15 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (spotTower != null)
         {
-            spotTower.GetComponent<Tower>().Activate();
+            Tower tower = spotTower.GetComponent<Tower>();
+            if (terrainBonus != null)
+            {
+                terrainBonus.AddStats(tower);
+            }
+            tower.Activate();
             towerBuilt = true;
+            readyToBuild = false;
+            TowerPlacer.allTowers.Add(tower);
         }
     }
 }

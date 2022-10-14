@@ -17,6 +17,8 @@ MonoBehaviour:
   moneyCost: 15
   manaCost: 0
   buyCostMultiplayer: 0
+  description: Add 75 Mana
   addMoney: 0
   addMana: 75
   addHealth: 0
+  drawCards: 0

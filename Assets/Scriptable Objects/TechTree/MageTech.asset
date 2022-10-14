@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: MageTech
   m_EditorClassIdentifier: 
   researches:
-  - {fileID: 11400000, guid: ce04032ee5c0c0c4db078bbc8ddc61c9, type: 2}
-  - {fileID: 11400000, guid: 7730cc0522b30ae49a37d57ce5d0b0c3, type: 2}
-  - {fileID: 11400000, guid: de123cd8b4c634e4e9e5867097700115, type: 2}
-  - {fileID: 11400000, guid: 9c0b46fb88d38e54ba9a445a2bc2e76a, type: 2}
-  - {fileID: 11400000, guid: 02f24cb3a4cd3644ca37539b014eed5d, type: 2}
-  - {fileID: 11400000, guid: 0ff83979782b6a544ae441b2b7169808, type: 2}
-  - {fileID: 11400000, guid: b75e78bf5eb648244b9a53fc623f5f58, type: 2}
-  - {fileID: 11400000, guid: 85e322f83a495964a86e62103489d3f5, type: 2}
+  - {fileID: 11400000, guid: f9ad97f80aefd344bade70ad91db30ef, type: 2}
+  - {fileID: 11400000, guid: fe36260b7fa4b79428d2ddae705708f0, type: 2}
+  - {fileID: 11400000, guid: fd77e5ed75df1ca4392deb34a01eaba8, type: 2}
+  - {fileID: 11400000, guid: 0ae7b2c8ba2add54db35f5d8ba94f183, type: 2}
+  - {fileID: 11400000, guid: 18340fca98623bd448535933cd5b58e9, type: 2}
+  - {fileID: 11400000, guid: 5ab1b176ca625af4da7f5ac274ffc53f, type: 2}
+  - {fileID: 11400000, guid: 0f4bf8d45d41d9542b435dbfaf4ca69c, type: 2}
+  - {fileID: 11400000, guid: 8c654e010c602f2468e51f5f0a56c797, type: 2}
+  - {fileID: 11400000, guid: 83cf10a31a1dcca408c910a85da5190d, type: 2}

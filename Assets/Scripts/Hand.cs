@@ -9,6 +9,7 @@ public class Hand : MonoSingleton<Hand>
     [SerializeField] GameObject cardDisplayPrefab;
 
     internal List<Card> handCards;
+    internal int handSize = 5;
 
     protected override void Awake()
     {
@@ -53,10 +54,32 @@ public class Hand : MonoSingleton<Hand>
 
     public void DrawNewHand()
     {
-        StartCoroutine(DiscardAndDrawNewHand());
+        StartCoroutine(DrawNewHandAnimation());
     }
 
-    IEnumerator DiscardAndDrawNewHand()
+    IEnumerator DrawNewHandAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < handSize; i++)
+        {            
+            DrawCard(); 
+            if (Deck.instance.deckCards.Count == 0)
+            {
+                Discard.instance.ShuffleDiscard();
+                yield return new WaitForSeconds(0.75f);
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+        TurnController.FinishedDrawing();
+    }
+
+    public void DiscardHand()
+    {
+        StartCoroutine(DiscardHandAnimation());
+    }
+
+    IEnumerator DiscardHandAnimation()
     {
         yield return new WaitForSeconds(1f);
 
@@ -69,20 +92,6 @@ public class Hand : MonoSingleton<Hand>
                 yield return new WaitForSeconds(0.2f);
             }
         }
-
-        yield return new WaitForSeconds(1f);
-
-        for (int i = 0; i < 5; i++)
-        {            
-            DrawCard(); 
-            if (Deck.instance.deckCards.Count == 0)
-            {
-                Discard.instance.ShuffleDiscard();
-                yield return new WaitForSeconds(0.75f);
-            }
-            yield return new WaitForSeconds(0.25f);
-        }
-        TurnController.FinishedDrawing();
     }
 
     public void DestroyCard(Card card)

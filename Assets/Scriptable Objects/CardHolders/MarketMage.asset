@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: MarketMage
   m_EditorClassIdentifier: 
   cards:
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
+  - {fileID: 11400000, guid: 4b0fee932a8aff84bab104c463775126, type: 2}
+  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+  - {fileID: 11400000, guid: a59ee426e004d0b4ca1c2a4a540a7943, type: 2}
+  - {fileID: 11400000, guid: 41110b0de54f5d24fa373f087eb600ad, type: 2}

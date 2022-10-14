@@ -38,7 +38,7 @@ public class CameraMovement : MonoSingleton<CameraMovement>
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            change.y += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+            change.y -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
             change.y = Mathf.Clamp(change.y, zoomMin, zoomMax);
         }
 

@@ -411,4 +411,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46e9a21b985188439aae0f19a8a0d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deckTransform: {fileID: 947194911216325268}
   amountText: {fileID: 947194909796474866}

@@ -19,6 +19,32 @@ public class ResearchTree : MonoBehaviour
             newNode.research = research;
             newNode.Setup();
         }
+
+        SetupConnections();
+    }
+
+    void SetupConnections()
+    {
+        for (int i = 0; i < tiers.Count-1; i++)
+        {
+            foreach (ResearchNode startNode in nodes)
+            {
+                if (startNode.research.tier == i)
+                {
+                    foreach (ResearchNode nextNode in nodes)
+                    {
+                        if (nextNode.research.tier == i + 1)
+                        {
+                            if (startNode.nextNodes == null)
+                            {
+                                startNode.nextNodes = new List<ResearchNode>();
+                            }
+                            startNode.nextNodes.Add(nextNode);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void PlayAnimations()

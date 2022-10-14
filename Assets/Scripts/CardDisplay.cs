@@ -39,7 +39,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (cardToDisplay.moneyCost > 0)
         {
             costMoney.transform.parent.gameObject.SetActive(true);
-            costMoney.text = cardToDisplay.moneyCost.ToString();
+            costMoney.text = Mathf.CeilToInt(cardToDisplay.moneyCost * CostController.GetPlayingCostMultiplayer(cardToDisplay.cardType)).ToString();
         }
         else
         {
@@ -55,6 +55,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             costMana.transform.parent.gameObject.SetActive(false);
         }
+
+        description.text = cardToDisplay.description;
 
         back.SetActive(false);
     }
@@ -109,15 +111,18 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f)
         {
-            Money.instance.TryPaying(displayedCard.moneyCost);
-            Mana.instance.TryPaying(displayedCard.manaCost);
 
             if (displayedCard.cardType == CardType.tower)
             {
                 if (TowerPlacer.towerPlaced)
                 {
+                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                     TowerPlacer.towerToPlace = null;
-                    Hand.instance.DestroyCard(displayedCard);
+                    front.SetActive(true);
+                    Discard.instance.DiscardCardFromHand(this);
+                    displayedCard = null;
+                    HandCardSlotController.instance.RearrangeCardSlots();
                 }
                 else
                 {
@@ -129,6 +134,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             if (displayedCard.cardType == CardType.action)
             {
+                Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                 ActionCard actionCard = (ActionCard)displayedCard;
                 actionCard.PlayAction();
                 Discard.instance.DiscardCardFromHand(this);
@@ -140,11 +147,24 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             if (displayedCard.cardType == CardType.spell)
             {
-                SpellPlacer.SpellPlaced();
-                SpellPlacer.spellToPlace = null;
-                front.SetActive(true);
-                Discard.instance.DiscardCardFromHand(this);
-                HandCardSlotController.instance.RearrangeCardSlots();
+                if (!SpellPlacer.spellPlaced)
+                {
+                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    SpellPlacer.SpellPlaced();
+                    SpellPlacer.spellToPlace = null;
+                    front.SetActive(true);
+                    Discard.instance.DiscardCardFromHand(this);
+                    displayedCard = null;
+                    HandCardSlotController.instance.RearrangeCardSlots();
+                }
+                else
+                {
+                    front.SetActive(true);
+                    //SpellPlacer.spellToPlace = null;
+                    HandCardSlotController.instance.RearrangeCardSlots();
+                    
+                }
 
                 return;
             }
@@ -190,7 +210,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     bool CheckIfCardCanBePaid()
     {
-        return Money.instance.CheckAmount(displayedCard.moneyCost) && Mana.instance.CheckAmount(displayedCard.manaCost);
+        return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType))) && 
+            Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
     }
 
     private void ActivateCard()
@@ -211,6 +232,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             SpellCard spellCard = (SpellCard)displayedCard;
             SpellPlacer.spellToPlace = Instantiate(spellCard.spellPrefab, null);
             StartCoroutine(SpellPlacer.PlaceSpell());
+            SpellPlacer.spellPlaced = false;
         }
     }
 

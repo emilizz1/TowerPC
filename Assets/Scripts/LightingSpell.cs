@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightingSpell : Spell
 {
     [SerializeField] float dealDamageTimer;
-    [SerializeField] float damage;
+    [SerializeField] List<float> damage;
 
     List<Enemy> enemies = new List<Enemy>();
 

@@ -9,7 +9,8 @@ public static class TurnController
         Drawing,
         Preperation,
         EnemyWave,
-        Market
+        Market,
+        Destroy
     }
 
     public static TurnPhase currentPhase = TurnPhase.Drawing;
@@ -19,8 +20,9 @@ public static class TurnController
     {
         if(currentPhase == TurnPhase.Drawing)
         {
-            Debug.Log("Started preperation");
+            ResearchWindow.instance.AdvanceResearch();
             currentPhase = TurnPhase.Preperation;
+            PhaseInfo.instance.PhaseChanged(currentPhase);
             TileManager.instance.ChangeButtonInteractability(true);
         }
     }
@@ -29,8 +31,9 @@ public static class TurnController
     {
         if (currentPhase == TurnPhase.Preperation)
         {
-            Debug.Log("Started EnemyWave");
+            Mana.instance.StartRegen();
             currentPhase = TurnPhase.EnemyWave;
+            PhaseInfo.instance.PhaseChanged(currentPhase);
             TileManager.instance.ChangeButtonInteractability(false);
         }
     }
@@ -39,10 +42,23 @@ public static class TurnController
     {
         if (currentPhase == TurnPhase.EnemyWave)
         {
-            Debug.Log("Started Market");
-            currentPhase = TurnPhase.Market;
-            MarketWindow.instance.Open();
+            Mana.instance.StopRegen();
             SpellPlacer.StopAllSpells();
+            Hand.instance.DiscardHand();
+
+            currentPhase = TurnPhase.Destroy;
+            PhaseInfo.instance.PhaseChanged(currentPhase);
+            DestroyCardWindow.instance.Open();
+        }
+    }
+
+    public static void FinishedDestroying()
+    {
+        if(currentPhase == TurnPhase.Destroy)
+        {
+            currentPhase = TurnPhase.Market;
+            PhaseInfo.instance.PhaseChanged(currentPhase);
+            MarketWindow.instance.Open();
         }
     }
 
@@ -51,9 +67,9 @@ public static class TurnController
 
         if (currentPhase == TurnPhase.Market)
         {
-            Debug.Log("Started Drawing");
             currentPhase = TurnPhase.Drawing;
-            ResearchWindow.instance.AdvanceResearch();
+            PhaseInfo.instance.PhaseChanged(currentPhase);
+            PlayerLife.instance.Regen();
             Hand.instance.DrawNewHand();
         }
     }
