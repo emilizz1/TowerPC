@@ -19,14 +19,23 @@ public class Lane
 public class Tile : MonoBehaviour
 {
     public List<Lane> lanes;
+    public List<Spot> allSpots;
 
     internal Vector2 coordinates;
 
     private void Start()
     {
-        foreach(Lane lane in lanes)
+        foreach (Lane lane in lanes)
         {
             lane.myTile = this;
+        }
+
+        foreach (Spot spot in allSpots)
+        {
+            if (spot.gameObject.activeSelf && spot.terrainBonus == null)
+            {
+                TerrainPlacer.instance.GetTerrain(spot);
+            }
         }
     }
 
@@ -36,21 +45,21 @@ public class Tile : MonoBehaviour
 
         Vector2 placementCoordinates = coordinates;
 
-        if (transform.position.x +1 < lanes[index].spawnPoint.transform.position.x)
+        if (transform.position.x + 1 < lanes[index].spawnPoint.transform.position.x)
         {
-            placementCoordinates.x += 1; 
+            placementCoordinates.x += 1;
         }
         else if (transform.position.x - 1 > lanes[index].spawnPoint.transform.position.x)
         {
-            placementCoordinates.x -= 1; 
+            placementCoordinates.x -= 1;
         }
         else if (transform.position.z + 1 < lanes[index].spawnPoint.transform.position.z)
         {
-            placementCoordinates.y += 1; 
+            placementCoordinates.y += 1;
         }
         else if (transform.position.z - 1 > lanes[index].spawnPoint.transform.position.z)
         {
-            placementCoordinates.y -= 1; 
+            placementCoordinates.y -= 1;
         }
 
         TileManager.instance.PlaceNewTile(coordinates, placementCoordinates, lanes[index]);
@@ -75,7 +84,7 @@ public class Tile : MonoBehaviour
             {
                 if (lane.open)
                 {
-                    lane.button.interactable = interactable; 
+                    lane.button.interactable = interactable;
                 }
             }
         }
@@ -91,19 +100,44 @@ public class Tile : MonoBehaviour
             {
                 laneEnds.Add(new Vector2(1, 0));
             }
-            else if ( -1 > lane.spawnPoint.transform.position.x)
+            else if (-1 > lane.spawnPoint.transform.position.x)
             {
                 laneEnds.Add(new Vector2(-1, 0));
             }
-            else if ( 1 < lane.spawnPoint.transform.position.z)
+            else if (1 < lane.spawnPoint.transform.position.z)
             {
                 laneEnds.Add(new Vector2(0, 1));
             }
-            else if ( -1 > lane.spawnPoint.transform.position.z)
+            else if (-1 > lane.spawnPoint.transform.position.z)
             {
                 laneEnds.Add(new Vector2(0, -1));
             }
         }
         return laneEnds;
+    }
+
+    public List<Spot> GetAdjacentSpots(Spot startingSpot)
+    {
+        List<Spot> adjacentSpots = new List<Spot>();
+        Vector3 spotPos = startingSpot.transform.position;
+        List<Vector3> lookingFor = new List<Vector3>();
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z - 1));
+        foreach (Spot spot in allSpots)
+        {
+            if (spot.gameObject.activeSelf && spot.terrainBonus == null)
+            {
+                foreach (Vector3 looking in lookingFor)
+                {
+                    if (spot.transform.position == looking)
+                    {
+                        adjacentSpots.Add(spot);
+                    }
+                }
+            }
+        }
+        return adjacentSpots;
     }
 }

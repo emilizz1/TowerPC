@@ -16,6 +16,7 @@ MonoBehaviour:
   timeToResearch: 1
   tier: 1
   explanation: Buying cards is cheaper by 10%
+  displayIcon: 1
   type: 3
   amount: -0.1
   usedFor: 1

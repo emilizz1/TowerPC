@@ -9,7 +9,7 @@ public class TileManager : MonoSingleton<TileManager>
     [SerializeField] List<GameObject> tilePrefabs;
     [SerializeField] GameObject endTilePrefab;
 
-    const float NEXT_TILE_PLACEMENT_DIFFERENCE = 11f;
+    const float NEXT_TILE_PLACEMENT_DIFFERENCE = 9f;
 
     internal List<Tile> tiles;
 
@@ -128,5 +128,31 @@ public class TileManager : MonoSingleton<TileManager>
             }
         }
         return openLanes;
+    }
+
+    public void CheckForMisplacedTowers()
+    {
+        foreach(Tile tile in tiles)
+        {
+            foreach(Spot spot in tile.allSpots)
+            {
+                spot.DestroyTowerPreview();
+            }
+        }
+    }
+
+    public Tile GetClosestTile(Vector3 pos)
+    {
+        Tile closest = tiles[0];
+        float closestDist = Vector3.Distance(pos, tiles[0].transform.position);
+        foreach (Tile tile in tiles)
+        {
+            if(Vector3.Distance(pos, tile.transform.position) < closestDist)
+            {
+                closest = tile;
+                closestDist = Vector3.Distance(pos, tile.transform.position);
+            }
+        }
+        return closest;
     }
 }

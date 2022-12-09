@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 6-2
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 259c1624ce84b374499e9e7e4dd1c782, type: 3}
-  timeToResearch: 1
+  timeToResearch: 2
   tier: 5
   explanation: Increase hand size by 1
+  displayIcon: 1
   increaseHandSize: 1

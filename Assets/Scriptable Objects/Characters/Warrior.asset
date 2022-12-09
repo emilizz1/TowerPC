@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378201c651eb32745b31a9336a6d4d2a, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  startingMoney: 100
-  startingMana: 50
-  startingMaxHealth: 15
+  startingMoney: 40
+  startingMana: 10
+  startingMaxHealth: 20
   startingCards: {fileID: 11400000, guid: ea4aa07c02f62594486738963bb356f4, type: 2}
   marketCards: {fileID: 11400000, guid: dbbbe76d65558eb4bba2ada8085dc86b, type: 2}
   techTree: {fileID: 11400000, guid: 72e5719fd304d3f4c91390821859a0c1, type: 2}
+  icon: {fileID: 21300000, guid: 0086d13ea882b6247b6f0ad2f2a51ca3, type: 3}

@@ -16,4 +16,5 @@ MonoBehaviour:
   timeToResearch: 1
   tier: 0
   explanation: Double mana regen
+  displayIcon: 1
   manaRegenPerSecond: 1

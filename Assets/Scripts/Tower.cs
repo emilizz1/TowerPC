@@ -9,16 +9,18 @@ public class Tower : MonoBehaviour
     public string towerName;
 
     [Header("Components")]
+    public Transform rangeSprite;
     [SerializeField] Transform top;
     [SerializeField] SphereCollider sphere;
-    [SerializeField] Transform rangeSprite;
     [SerializeField] ParticleSystem levelUp;
     [SerializeField] ParticleSystem shootingParticles;
+    [SerializeField] List<GameObject> levelUpRings;
+    [SerializeField] GameObject canvas;
 
     [Header("Stats")]
     public List<TowerStats> towerStats;
     public List<int> experienceNeeded;
-    public List<TowerTypes> towerTypes;
+    public List<PasiveTowerStatsController.DamageTypes> damageTypes;
     [SerializeField] ObjectPools.PoolNames bulletType;
 
     [Serializable]
@@ -38,6 +40,14 @@ public class Tower : MonoBehaviour
                 return;
             }
 
+            if(damage == null)
+            {
+                damage = new List<float>();
+                damage.Add(0);
+                damage.Add(0);
+                damage.Add(0);
+            }
+
             damage[0] += newStats.damage.Count > 0? newStats.damage[0]: 0;
             damage[1] += newStats.damage.Count > 1 ? newStats.damage[1] : 0;
             damage[2] += newStats.damage.Count > 2 ? newStats.damage[2] : 0;
@@ -53,32 +63,23 @@ public class Tower : MonoBehaviour
         HighestShield
     }
 
-
-    public enum TowerTypes
-    {
-        Arrow,
-        Magic,
-        All
-    }
-
     const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
-
     const int EXP_PER_SHOT = 1;
 
-    List<EnemyMovement> reachableEnemies = new List<EnemyMovement>();
-    GameObject currentTarget;
     internal TargetSelectOptions targeting = TargetSelectOptions.First;
-    float timeUntilShot;
+    internal TowerStats statsMultiplayers = new TowerStats();
     internal int experience;
     internal int currentLevel;
 
-    internal TowerStats statsMultiplayers= new TowerStats();
+    List<EnemyMovement> reachableEnemies = new List<EnemyMovement>();
+    GameObject currentTarget;
+    float timeUntilShot;
 
     bool active;
 
-    private void Start()
+    public void PrepareTower()
     {
-        statsMultiplayers.fireRate = 1f;
+        statsMultiplayers.fireRate = 0f;
         statsMultiplayers.range = 1f;
         statsMultiplayers.damage = new List<float>();
         for (int i = 0; i < 3; i++)
@@ -86,17 +87,23 @@ public class Tower : MonoBehaviour
             statsMultiplayers.damage.Add(1f);
         }
 
-        statsMultiplayers.CombineStats(PasiveTowerStatsController.GetStats(towerTypes));
+        statsMultiplayers.CombineStats(PasiveTowerStatsController.GetStats(damageTypes));
 
         reachableEnemies = new List<EnemyMovement>();
         SetupRange();
     }
 
-    public void SetupRange()
+    public void SetupRange(float additionalRange = 0)
     {
-        sphere.radius = towerStats[currentLevel].range * statsMultiplayers.range;
-        float rangeSpriteScale = (towerStats[currentLevel].range * statsMultiplayers.range) / DEFAULT_RANGE_SPRITE_RADIUS;
+        sphere.radius = towerStats[currentLevel].range * (statsMultiplayers.range + additionalRange);
+        float rangeSpriteScale = (towerStats[currentLevel].range * (statsMultiplayers.range + additionalRange)) / DEFAULT_RANGE_SPRITE_RADIUS;
         rangeSprite.localScale = new Vector3(rangeSpriteScale, rangeSpriteScale, 1f);
+    }
+
+    public void ResetTargets()
+    {
+        reachableEnemies = new List<EnemyMovement>();
+        currentTarget = null;
     }
 
     private void Update()
@@ -112,11 +119,10 @@ public class Tower : MonoBehaviour
                 top.LookAt(currentTarget.transform);
                 top.transform.localEulerAngles = new Vector3(0f, top.transform.rotation.eulerAngles.y, 0f);
 
-
                 if (timeUntilShot < 0)
                 {
                     Shoot();
-                    timeUntilShot = towerStats[currentLevel].fireRate * statsMultiplayers.fireRate;
+                    timeUntilShot = towerStats[currentLevel].fireRate * (1 - statsMultiplayers.fireRate);
                 }
             }
         }
@@ -129,7 +135,7 @@ public class Tower : MonoBehaviour
         newBullet.transform.position = top.transform.position;
         Bullet bullet = newBullet.GetComponent<Bullet>();
         bullet.damage = GetDamageMultiplied();
-        bullet.target = currentTarget;
+        bullet.SetTarget(currentTarget);
         if (shootingParticles != null)
         {
             shootingParticles.Play();
@@ -158,6 +164,7 @@ public class Tower : MonoBehaviour
         if(experience >= experienceNeeded[currentLevel])
         {
             experience -= experienceNeeded[currentLevel];
+            levelUpRings[currentLevel].SetActive(true);
             currentLevel++;
             levelUp.Play();
             SetupRange();
@@ -294,7 +301,26 @@ public class Tower : MonoBehaviour
 
     public void Activate()
     {
+        for (int i = 0; i < currentLevel; i++)
+        {
+            levelUpRings[i].SetActive(true);
+        }
+        SetupRange();
+        canvas.SetActive(true);
         active = true;
         rangeSprite.gameObject.SetActive(false);   
+    }
+
+    public void EnemyDestroyed(Enemy enemy)
+    {
+        if(currentTarget == enemy)
+        {
+            currentTarget = null;
+        }
+
+        if (reachableEnemies.Contains(enemy.movement))
+        {
+            reachableEnemies.Remove(enemy.movement);
+        }
     }
 }

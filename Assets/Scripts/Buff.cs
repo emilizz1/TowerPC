@@ -8,9 +8,11 @@ public class Buff : MonoBehaviour
 
     internal Tower myTower;
     internal int stacks;
+    internal List<GameObject> buffParticles;
 
     internal virtual void Start()
     {
+        buffParticles = new List<GameObject>();
         myTower = GetComponent<Tower>();
         AddStack();
     }
@@ -23,11 +25,14 @@ public class Buff : MonoBehaviour
 
     internal virtual void ApplyBuff()
     {
-
+        buffParticles.Add(Instantiate(info.particles, myTower.transform));
     }
 
     internal virtual void RemoveBuff()
     {
-
+        foreach(GameObject particle in buffParticles)
+        {
+            Destroy(particle);
+        }
     }
 }

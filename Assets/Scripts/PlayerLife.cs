@@ -31,6 +31,10 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     {
         currentHP += change;
         UpdateHealth();
+        if(currentHP <= 0)
+        {
+            Lost();
+        }
     }
 
     public void MaxHealthMultiplied(int amount)
@@ -44,5 +48,10 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     {
         currentHP = Mathf.Clamp(currentHP + regen, 0, maxHp);
         UpdateHealth();
+    }
+
+    void Lost()
+    {
+        SceneManager.LoadScene(SceneManager.LOST);
     }
 }

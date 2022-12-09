@@ -41,11 +41,10 @@ public class Hand : MonoSingleton<Hand>
     public void DrawCard()
     {
         Card cardToDraw = Deck.instance.GetCardToDraw();
-        if(cardToDraw == null)
+        if (cardToDraw == null)
         {
             return;
         }
-
         CardDisplay cardDisplay = HandCardSlotController.instance.GetDisplay(handCards.Count);
         cardDisplay.DisplayCard(cardToDraw);
         handCards.Add(cardToDraw);
@@ -54,22 +53,36 @@ public class Hand : MonoSingleton<Hand>
 
     public void DrawNewHand()
     {
-        StartCoroutine(DrawNewHandAnimation());
+        StartCoroutine(DrawNewCardsAnimation(handSize));
     }
 
-    IEnumerator DrawNewHandAnimation()
+    public void DrawNewCards(int amount)
+    {
+        StartCoroutine(DrawNewCardsAnimation(amount));
+    }
+
+    public IEnumerator DrawNewCardsAnimation(int cardToDraw)
     {
         yield return new WaitForSeconds(1f);
+        if (Deck.instance.deckCards.Count == 0)
+        {
+            Discard.instance.ShuffleDiscard();
+            yield return new WaitForSeconds(0.75f);
+        }
 
-        for (int i = 0; i < handSize; i++)
-        {            
-            DrawCard(); 
-            if (Deck.instance.deckCards.Count == 0)
+        for (int i = 0; i < cardToDraw; i++)
+        {
+            
+            DrawCard();
+            if (Deck.instance.deckCards.Count == 0 && i != handSize -1)
             {
                 Discard.instance.ShuffleDiscard();
                 yield return new WaitForSeconds(0.75f);
             }
-            yield return new WaitForSeconds(0.25f);
+            else
+            {
+                yield return new WaitForSeconds(0.25f);
+            }
         }
         TurnController.FinishedDrawing();
     }
@@ -81,14 +94,29 @@ public class Hand : MonoSingleton<Hand>
 
     IEnumerator DiscardHandAnimation()
     {
+        foreach (CardDisplay display in HandCardSlotController.instance.cardDisplays)
+        {
+            if (display.displayedCard != null)
+            {
+                if (display.dragging)
+                {
+                    display.dragging = false;
+                }
+                if (!display.front.activeSelf)
+                {
+                    //display.ReturnCardToHand();
+                }
+            }
+        }
+
         yield return new WaitForSeconds(1f);
 
         foreach (CardDisplay display in HandCardSlotController.instance.cardDisplays)
         {
             if (display.displayedCard != null)
             {
-                Discard.instance.DiscardCardFromHand(display);
                 handCards.Remove(display.displayedCard);
+                Discard.instance.DiscardCardFromHand(display);
                 yield return new WaitForSeconds(0.2f);
             }
         }

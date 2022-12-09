@@ -16,6 +16,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Animator animator;
 
     internal List<ResearchNode> nextNodes = new List<ResearchNode>();
+    internal ResearchNode sameLevelNodes;
 
     bool exited;
     bool unlocked = false;
@@ -54,6 +55,10 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         researched = true;
         research.Researched();
+        if (sameLevelNodes != null)
+        {
+            sameLevelNodes.Locked();
+        }
         foreach (ResearchNode node in nextNodes)
         {
             node.Unlocked();
@@ -64,6 +69,13 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         unlocked = true;
         animator.ResetTrigger("Hide");
+    }
+
+    public void Locked()
+    {
+        unlocked = false;
+        animator.SetTrigger("Hide");
+
     }
 
     public void StartResearch()

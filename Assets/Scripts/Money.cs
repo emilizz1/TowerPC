@@ -6,10 +6,9 @@ using TMPro;
 public class Money : MonoSingleton<Money>
 {
     [SerializeField] TextMeshProUGUI amountText;
-    //TODO this should come from heroes
     [SerializeField] TweenAnimator animator;
 
-    int currentAmount;
+    internal int currentAmount;
 
     private void Start()
     {

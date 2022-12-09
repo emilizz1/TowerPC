@@ -15,6 +15,15 @@ public class Debuff : MonoBehaviour
         AddStack();
     }
 
+    private void Update()
+    {
+        if(myEnemy.returning == true)
+        {
+            RemoveDebuff();
+            Destroy(this);
+        }
+    }
+
     public void AddStack()
     {
         if (currentDebuffs >= info.maxDebuffs)
@@ -22,8 +31,11 @@ public class Debuff : MonoBehaviour
             return;
         }
 
-        currentDebuffs++;
-        StartCoroutine(DoEffect());
+        if (myEnemy != null && myEnemy.isActiveAndEnabled)
+        {
+            currentDebuffs++;
+            StartCoroutine(DoEffect());
+        }
     }
 
     IEnumerator DoEffect()
@@ -45,6 +57,7 @@ public class Debuff : MonoBehaviour
     {
 
     }
+
     internal virtual void RemoveDebuff()
     {
 

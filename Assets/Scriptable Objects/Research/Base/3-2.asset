@@ -16,6 +16,7 @@ MonoBehaviour:
   timeToResearch: 1
   tier: 2
   explanation: Playing spell cards is cheaper by 10%
+  displayIcon: 1
   type: 2
   amount: -0.1
   usedFor: 0

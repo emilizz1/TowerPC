@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] ParticleSystem particles;
+    [SerializeField] GameObject model;
     [SerializeField] GameObject endParticles;
     [SerializeField] float speed;
 
     internal GameObject target;
     internal List<float> damage;
 
+    GameObject endParticleInstance;
+    bool returning;
+
     void Update()
     {
+        if (returning)
+        {
+            return;
+        }
+
         if (target != null)
         {
             if (Vector3.Distance(transform.position, target.transform.position) > 0.1f)
@@ -22,17 +32,36 @@ public class Bullet : MonoBehaviour
             else
             {
                 target.GetComponent<Enemy>().DealDamage(damage);
-                if(endParticles != null)
+                if (endParticles != null)
                 {
-                    Instantiate(endParticles, target.transform);
+                    endParticleInstance = Instantiate(endParticles, target.transform);
                 }
-                ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).ReturnObject(gameObject);
+                StartCoroutine(ReturnAfterTimer());
             }
         }
         else
         {
-            ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).ReturnObject(gameObject);
+            StartCoroutine(ReturnAfterTimer());
         }
-        
+
+    }
+
+    public void SetTarget(GameObject setTarget)
+    {
+        returning = false;
+        target = setTarget;
+        particles.Play();
+    }
+
+    IEnumerator ReturnAfterTimer()
+    {
+        particles.Stop();
+        returning = true;
+        yield return new WaitForSeconds(1f);
+        if(endParticleInstance!= null)
+        {
+            Destroy(endParticleInstance);
+        }
+        ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).ReturnObject(gameObject);
     }
 }

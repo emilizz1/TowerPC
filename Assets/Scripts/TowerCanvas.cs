@@ -12,5 +12,6 @@ public class TowerCanvas : MonoBehaviour
     public void PressedOnTower()
     {
         TowerInfoWindow.instance.ShowInfo(tower);
+        TowerInfoWindow.instance.OpenWindow();
     }
 }

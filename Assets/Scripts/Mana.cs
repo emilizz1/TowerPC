@@ -6,7 +6,6 @@ using TMPro;
 public class Mana : MonoSingleton<Mana>
 {
     [SerializeField] TextMeshProUGUI amountText;
-    //TODO this should come from heroes
     [SerializeField] TweenAnimator animator;
     public int regenAmount;
     public float timeToRegen;
@@ -19,7 +18,7 @@ public class Mana : MonoSingleton<Mana>
     {
         maxAmount = CharacterSelector.firstCharacter.startingMana + CharacterSelector.secondCharacter.startingMana;
         currentAmount = maxAmount;
-        amountText.text = currentAmount.ToString();
+        amountText.text = currentAmount.ToString() + "/" + maxAmount.ToString();
     }
 
     public bool TryPaying(int amount)
@@ -49,7 +48,7 @@ public class Mana : MonoSingleton<Mana>
     {
         if (instant)
         {
-            amountText.text = Mathf.Clamp(currentAmount + amount, 0, maxAmount).ToString();
+            amountText.text = Mathf.Clamp(currentAmount + amount, 0, maxAmount).ToString() + "/" + maxAmount.ToString();
         }
         else
         {
@@ -71,9 +70,9 @@ public class Mana : MonoSingleton<Mana>
             yield return null;
             timePassed += Time.deltaTime;
             currentValue = Mathf.FloorToInt(startingValue + ((finishValue - startingValue) * timePassed));
-            amountText.text = currentValue.ToString();
+            amountText.text = currentValue.ToString() + "/" + maxAmount.ToString();
         }
-        amountText.text = finishValue.ToString();
+        amountText.text = finishValue.ToString() + "/" + maxAmount.ToString();
     }
 
     IEnumerator LowerCurrencyAmount(int startingValue, int finishValue)
@@ -87,9 +86,9 @@ public class Mana : MonoSingleton<Mana>
             yield return null;
             timePassed += Time.deltaTime;
             currentValue = Mathf.FloorToInt(startingValue - ((startingValue - finishValue) * timePassed));
-            amountText.text = currentValue.ToString();
+            amountText.text = currentValue.ToString() + "/" + maxAmount.ToString();
         }
-        amountText.text = finishValue.ToString();
+        amountText.text = finishValue.ToString() + "/" + maxAmount.ToString();
     }
 
     public void StartRegen()
@@ -104,7 +103,10 @@ public class Mana : MonoSingleton<Mana>
 
     IEnumerator Regen()
     {
-        yield return new WaitForSeconds(timeToRegen);
-        AddCurrency(regenAmount, true);
+        while (true)
+        {
+            yield return new WaitForSeconds(timeToRegen);
+            AddCurrency(regenAmount, true);
+        }
     }
 }

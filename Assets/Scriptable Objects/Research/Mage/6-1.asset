@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 6-1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9347b4e90e8f1c94dafe2671460fef05, type: 3}
-  timeToResearch: 1
+  timeToResearch: 3
   tier: 5
   explanation: Aditional 1 experience per shot
+  displayIcon: 1
   additionalExperience: 1

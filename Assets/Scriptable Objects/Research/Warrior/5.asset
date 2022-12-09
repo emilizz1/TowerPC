@@ -15,7 +15,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 89cc95228dc8c69489975b51f230b1c0, type: 3}
   timeToResearch: 1
   tier: 4
-  explanation: Playing tower cards is cheaper by 10%
+  explanation: Playing tower cards is cheaper by 15%
+  displayIcon: 1
   type: 0
-  amount: -0.1
+  amount: -0.15
   usedFor: 0

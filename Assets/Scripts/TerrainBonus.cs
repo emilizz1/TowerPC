@@ -1,24 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TerrainBonus : MonoBehaviour
 {
-    [SerializeField] Tower.TowerStats statsMultiplayers;
+    public Tower.TowerStats statsMultiplayers;
+    [SerializeField] AdjacentTerrain adjacentTerrain;
+    
+    [Serializable]
+    public struct AdjacentTerrain
+    {
+        public List<GameObject> terrain;
+        public List<float> influence;
 
+        public GameObject GetTerrain()
+        {
+            float checkedPercentage = 0f;
+            float percentage = UnityEngine.Random.Range(0f, 1f);
+            for (int i = 0; i < terrain.Count; i++)
+            {
+                checkedPercentage += influence[i];
+                if(percentage < checkedPercentage)
+                {
+                    return terrain[i];
+                }
+            }
+            return null;
+        }
+    }
+
+    Spot mySpot;
 
     void Start()
     {
-        GetComponentInParent<Spot>().terrainBonus = this;
+        mySpot = GetComponentInParent<Spot>();
+        mySpot.terrainBonus = this;
+
+        foreach(Spot spot in mySpot.myTile.GetAdjacentSpots(mySpot))
+        {
+            GameObject newTerrrain = adjacentTerrain.GetTerrain();
+            if(newTerrrain != null)
+            {
+                Instantiate(newTerrrain, spot.transform);
+            }
+        }
     }
 
     public void AddStats(Tower tower)
     {
-        tower.statsMultiplayers.fireRate += statsMultiplayers.fireRate;
-        tower.statsMultiplayers.range += statsMultiplayers.range;
-        for (int i = 0; i < statsMultiplayers.damage.Count; i++)
-        {
-            tower.statsMultiplayers.damage[i] += statsMultiplayers.damage[i];
-        }
+        tower.statsMultiplayers.CombineStats(statsMultiplayers);
     }
 }

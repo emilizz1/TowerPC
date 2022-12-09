@@ -14,4 +14,5 @@ public class Character : ScriptableObject
     public CardHolder startingCards;
     public CardHolder marketCards;
     public TechTreeHolder techTree;
+    public Sprite icon;
 }

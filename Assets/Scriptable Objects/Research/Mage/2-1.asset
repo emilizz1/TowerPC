@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2-1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a945dba01a540ba4f88133b93d641361, type: 3}
-  timeToResearch: 1
+  timeToResearch: 2
   tier: 1
-  explanation: Gain "Lightning Storm" card
-  cardToGet: {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+  explanation: Gain "Lightning Storm" +1 card
+  cardToGet: {fileID: 11400000, guid: 7eab3d7384f31894188f8df2210cf054, type: 2}

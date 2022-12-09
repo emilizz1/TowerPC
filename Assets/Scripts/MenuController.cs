@@ -29,5 +29,8 @@ public class MenuController : MonoSingleton<MenuController>
         Application.Quit();
     }
 
-
+    public void PressedMenu()
+    {
+        SceneManager.LoadScene(SceneManager.MENU);
+    }
 }

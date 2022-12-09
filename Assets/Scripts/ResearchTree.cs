@@ -25,7 +25,7 @@ public class ResearchTree : MonoBehaviour
 
     void SetupConnections()
     {
-        for (int i = 0; i < tiers.Count-1; i++)
+        for (int i = 0; i < tiers.Count; i++)
         {
             foreach (ResearchNode startNode in nodes)
             {
@@ -40,6 +40,10 @@ public class ResearchTree : MonoBehaviour
                                 startNode.nextNodes = new List<ResearchNode>();
                             }
                             startNode.nextNodes.Add(nextNode);
+                        }
+                        else if(nextNode.research.tier == i && startNode != nextNode)
+                        {
+                            startNode.sameLevelNodes = nextNode;
                         }
                     }
                 }

@@ -8,13 +8,13 @@ using System;
 
 public class ResearchTowerStats : Research
 {
-    public List<Tower.TowerTypes> affectedTypes;
+    public List<PasiveTowerStatsController.DamageTypes> affectedTypes;
     public Tower.TowerStats statMultiplayers;
 
     public override void Researched()
     {
         base.Researched();
-        foreach (Tower.TowerTypes type in affectedTypes)
+        foreach (PasiveTowerStatsController.DamageTypes type in affectedTypes)
         {
             PasiveTowerStatsController.AddAdditionalPasiveStats(type, statMultiplayers);
         }

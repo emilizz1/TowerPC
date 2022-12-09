@@ -9,14 +9,21 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     [SerializeField] Image currentlyResearchingImage;
     [SerializeField] List<ResearchTree> trees;
     [SerializeField] TechTreeHolder defaultTechTree;
+    [SerializeField] GameObject button;
+    [SerializeField] Image characterIcon0;
+    [SerializeField] Image characterIcon1;
 
     ResearchNode currentlyResearching;
+    internal bool shouldOpenWindow = true;
 
     private void Start()
     {
         trees[0].SetupTree(defaultTechTree);
         trees[1].SetupTree(CharacterSelector.firstCharacter.techTree);
         trees[2].SetupTree(CharacterSelector.secondCharacter.techTree);
+
+        characterIcon0.sprite = CharacterSelector.firstCharacter.icon;
+        characterIcon1.sprite = CharacterSelector.secondCharacter.icon;
     }
 
     public void AdvanceResearch()
@@ -28,7 +35,8 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
             ResearchButton.instance.UpdateFill(prevProgress, (float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch, 1f);
             if(currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
             {
-                ResearchButton.instance.NoResearchSelected();
+                button.SetActive(false);
+                shouldOpenWindow =true;
             }
         }
     }
@@ -42,6 +50,15 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
                 (float)research.currentProgress / research.research.timeToResearch, 0.5f);
             currentlyResearching = research;
             currentlyResearchingImage.sprite = research.research.sprite;
+            button.SetActive(true);
+        }
+    }
+
+    public void IfNoResearchSelectedOpen()
+    {
+        if (shouldOpenWindow)
+        {
+            Open();
         }
     }
 
@@ -49,7 +66,8 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     {
         Cover.cover = true;
         tweenAnimator.PerformTween(1);
-        foreach(ResearchTree tree in trees)
+        shouldOpenWindow = false;
+        foreach (ResearchTree tree in trees)
         {
             tree.PlayAnimations();
         }
@@ -69,14 +87,15 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     {
         Cover.cover = false;
         tweenAnimator.PerformTween(0);
+        TurnController.ResearchSelected();
 
         if (currentlyResearching == null)
         {
-            ResearchButton.instance.NoResearchSelected();
+            shouldOpenWindow = true;
         }
         else if (currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
         {
-            ResearchButton.instance.NoResearchSelected();
+            shouldOpenWindow = true;
         }
 
     }

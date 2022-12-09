@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finished Buying
+  m_text: Finish Buying
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cbffd4203a76ccb4b8d004769480b633, type: 2}
   m_sharedMaterial: {fileID: -8870201480151145901, guid: cbffd4203a76ccb4b8d004769480b633, type: 2}
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
-  m_fontSizeBase: 42
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -421,7 +421,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 1600, y: 900}
+  m_SizeDelta: {x: 1520, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5357744666532170445
 CanvasRenderer:
@@ -520,18 +520,8 @@ MonoBehaviour:
   - {fileID: 7938326060279216874}
   - {fileID: 7938326061431655620}
   - {fileID: 7938326061535406086}
-  basePrice: 10
-  baseCards:
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
-  - {fileID: 11400000, guid: 62b0f855c75ca8b4092bcd0a02c6c1bd, type: 2}
+  basePrice: 5
+  marketCards: {fileID: 11400000, guid: 7197d7db3bee0a74085ff8409560d92f, type: 2}
 --- !u!1 &5357744666871142022
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -675, y: 450}
+  m_AnchoredPosition: {x: -700, y: 450}
   m_SizeDelta: {x: 300, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5357744667079644395
@@ -725,7 +715,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5357744667079644392}
+  m_TargetGraphic: {fileID: 5357744666871142024}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -776,7 +766,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1580, y: 880}
+  m_SizeDelta: {x: 1500, y: 880}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5357744667553031127
 CanvasRenderer:
@@ -825,7 +815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2625617399963894633, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: spotCostMultiplayer
-      value: 1.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2625617400919680552, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_Name
@@ -942,7 +932,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2625617399963894633, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: spotCostMultiplayer
-      value: 1.2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2625617400919680552, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_Name
@@ -1059,7 +1049,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2625617399963894633, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: spotCostMultiplayer
-      value: 1.15
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2625617400919680552, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_Name
@@ -1176,7 +1166,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2625617399963894633, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: spotCostMultiplayer
-      value: 1.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2625617400919680552, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_Name

@@ -4,11 +4,19 @@ using UnityEngine;
 
 public static class PasiveTowerStatsController
 {
-    public static Dictionary<Tower.TowerTypes, Tower.TowerStats> pasiveStats = new Dictionary<Tower.TowerTypes, Tower.TowerStats>();
+    public static Dictionary<DamageTypes, Tower.TowerStats> pasiveStats = new Dictionary<DamageTypes, Tower.TowerStats>();
 
     public static int extraExperience;
 
-    public static void AddAdditionalPasiveStats(Tower.TowerTypes type, Tower.TowerStats stats)
+    public enum DamageTypes
+    {
+        Arrow,
+        Magic,
+        All,
+        None
+    }
+
+    public static void AddAdditionalPasiveStats(DamageTypes type, Tower.TowerStats stats)
     {
         AddNewStatToOldTowers(type, stats);
 
@@ -22,12 +30,12 @@ public static class PasiveTowerStatsController
         }
     }
 
-    static void AddNewStatToOldTowers(Tower.TowerTypes type, Tower.TowerStats stats)
+    static void AddNewStatToOldTowers(DamageTypes type, Tower.TowerStats stats)
     {
 
         foreach (Tower tower in TowerPlacer.allTowers)
         {
-            if (type == Tower.TowerTypes.All || tower.towerTypes.Contains(type))
+            if (type == DamageTypes.All || tower.damageTypes.Contains(type))
             {
                 tower.statsMultiplayers.CombineStats(stats);
                 tower.SetupRange();
@@ -35,11 +43,11 @@ public static class PasiveTowerStatsController
         }
     }
 
-    public static Tower.TowerStats GetStats(List<Tower.TowerTypes> types)
+    public static Tower.TowerStats GetStats(List<DamageTypes> types)
     {
         Tower.TowerStats finalStats = new Tower.TowerStats();
 
-        foreach(Tower.TowerTypes type in types)
+        foreach(DamageTypes type in types)
         {
             if (pasiveStats.ContainsKey(type))
             {
@@ -47,9 +55,9 @@ public static class PasiveTowerStatsController
             }
         }
 
-        if (pasiveStats.ContainsKey(Tower.TowerTypes.All))
+        if (pasiveStats.ContainsKey(DamageTypes.All))
         {
-            finalStats.CombineStats(pasiveStats[Tower.TowerTypes.All]);
+            finalStats.CombineStats(pasiveStats[DamageTypes.All]);
         }
 
         return finalStats;

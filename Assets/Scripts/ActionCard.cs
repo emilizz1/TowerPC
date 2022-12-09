@@ -12,6 +12,7 @@ public class ActionCard : Card
     [SerializeField] int addMana;
     [SerializeField] int addHealth;
     [SerializeField] int drawCards;
+    [SerializeField] int advanceResearch;
 
     //TODO think of moving these to different classes
     public virtual void PlayAction()
@@ -30,10 +31,13 @@ public class ActionCard : Card
         }
         if(drawCards > 0)
         {
-            //TODO think about changing to coroutine on Hand
-            for (int i = 0; i < drawCards; i++)
+            Hand.instance.DrawNewCards(drawCards);
+        }
+        if (advanceResearch > 0)
+        {
+            for (int i = 0; i < advanceResearch; i++)
             {
-                Hand.instance.DrawCard();
+                ResearchWindow.instance.AdvanceResearch();
             }
         }
     }

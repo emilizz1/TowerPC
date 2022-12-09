@@ -16,11 +16,14 @@ public class ObjectPools : MonoSingleton<ObjectPools>
 
     public enum PoolNames
     {
-        basicEnemy,
-        basicBullet,
-        lightningBullet,
-        arrow,
-        spear
+        enemyHealth = 0,
+        enemyArmor = 1,
+        enemyShield = 2,
+        enemyBoss = 50,
+        basicBullet = 100,
+        lightningBullet =101,
+        arrow =102,
+        spear = 103
     }
 
     Dictionary<PoolNames, ObjectPool> poolDicktionary;
@@ -32,6 +35,7 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         foreach (NamedPool pool in allPools)
         {
             poolDicktionary.Add(pool.name, pool.pool);
+            pool.pool.Initialize();
         }
     }
 

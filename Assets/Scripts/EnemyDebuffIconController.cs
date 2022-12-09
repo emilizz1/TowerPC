@@ -9,30 +9,46 @@ public class EnemyDebuffIconController : MonoBehaviour
 
     public void AddNewIcon(Sprite icon)
     {
-        foreach(Image iconImage in Icons)
+        foreach (Image iconImage in Icons)
         {
             if (!iconImage.enabled)
             {
                 iconImage.enabled = true;
                 iconImage.sprite = icon;
                 iconImage.transform.SetAsFirstSibling();
+                return;
             }
         }
     }
 
-    public void RemoveIcon(Sprite icon) 
+    public void RemoveIcon(Sprite icon)
     {
         foreach (Image iconImage in Icons)
         {
             if (iconImage.enabled)
             {
-                if(iconImage.sprite == icon)
+                if (iconImage.sprite == icon)
                 {
                     iconImage.enabled = false;
                     iconImage.sprite = null;
                     iconImage.transform.SetAsLastSibling();
+                    return;
 
                 }
+            }
+        }
+    }
+
+    public void ResetIcons()
+    {
+        foreach (Image iconImage in Icons)
+        {
+            if (iconImage.enabled)
+            {
+                iconImage.enabled = false;
+                iconImage.sprite = null;
+                iconImage.transform.SetAsLastSibling();
+                return;
             }
         }
     }

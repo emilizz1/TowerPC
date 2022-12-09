@@ -10,18 +10,20 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject front;
     [SerializeField] GameObject back;
-    [SerializeField] TextMeshProUGUI typeText;
+    [SerializeField] TextMeshProUGUI cardName;
     [SerializeField] Image typeBg;
     [SerializeField] Image typeFg;
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI costMoney;
     [SerializeField] TextMeshProUGUI costMana;
     [SerializeField] TextMeshProUGUI description;
+    [SerializeField] TextMeshProUGUI keywords;
     [SerializeField] bool handCard;
+    [SerializeField] List<GameObject> cardLevel;
 
     internal Card displayedCard;
 
-    bool dragging;
+    internal bool dragging;
     Camera myCamera;
     Coroutine draggingCoroutine;
 
@@ -34,7 +36,22 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         displayedCard = cardToDisplay;
         front.SetActive(true);
+        if(cardToDisplay == null || cardToDisplay.cardImage == null)
+        {
+            Debug.Log("Card Missing: " + cardToDisplay.name);
+            return;
+        }
         image.sprite = cardToDisplay.cardImage;
+
+        string keywordText = displayedCard.cardType.ToString();
+        foreach (PasiveTowerStatsController.DamageTypes type in displayedCard.damageTypes)
+        {
+            if (type != PasiveTowerStatsController.DamageTypes.None)
+            {
+                keywordText += ", " + type.ToString();
+            }
+        }
+        keywords.text = keywordText;
 
         if (cardToDisplay.moneyCost > 0)
         {
@@ -49,14 +66,24 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (cardToDisplay.manaCost > 0)
         {
             costMana.transform.parent.gameObject.SetActive(true);
-            costMana.text = cardToDisplay.manaCost.ToString();
+            costMana.text = Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)).ToString();
         }
         else
         {
             costMana.transform.parent.gameObject.SetActive(false);
         }
 
+        cardName.text = displayedCard.cardName;
+
+        typeBg.color = CardTypeColors.GetColor(displayedCard.cardType);
+        typeFg.color = CardTypeColors.GetColor(displayedCard.cardType);
+
         description.text = cardToDisplay.description;
+
+        for (int i = 0; i < cardLevel.Count; i++)
+        {
+            cardLevel[i].SetActive(i < cardToDisplay.cardLevel);
+        }
 
         back.SetActive(false);
     }
@@ -111,24 +138,21 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f)
         {
-
             if (displayedCard.cardType == CardType.tower)
             {
                 if (TowerPlacer.towerPlaced)
                 {
                     Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                     Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                    TowerPlacer.towerToPlace = null;
-                    front.SetActive(true);
+                    Hand.instance.handCards.Remove(displayedCard);
                     Discard.instance.DiscardCardFromHand(this);
                     displayedCard = null;
-                    HandCardSlotController.instance.RearrangeCardSlots();
                 }
-                else
-                {
-                    front.SetActive(true);
-                    HandCardSlotController.instance.RearrangeCardSlots();
-                }
+
+                TowerPlacer.towerToPlace = null;
+                front.SetActive(true);
+                HandCardSlotController.instance.RearrangeCardSlots();
+                TowerInfoWindow.instance.Close();
                 return;
             }
 
@@ -138,12 +162,12 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                 ActionCard actionCard = (ActionCard)displayedCard;
                 actionCard.PlayAction();
+                Hand.instance.handCards.Remove(displayedCard);
                 Discard.instance.DiscardCardFromHand(this);
                 displayedCard = null;
                 HandCardSlotController.instance.RearrangeCardSlots();
                 return;
             }
-
 
             if (displayedCard.cardType == CardType.spell)
             {
@@ -154,6 +178,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     SpellPlacer.SpellPlaced();
                     SpellPlacer.spellToPlace = null;
                     front.SetActive(true);
+                    Hand.instance.handCards.Remove(displayedCard);
                     Discard.instance.DiscardCardFromHand(this);
                     displayedCard = null;
                     HandCardSlotController.instance.RearrangeCardSlots();
@@ -163,11 +188,32 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     front.SetActive(true);
                     //SpellPlacer.spellToPlace = null;
                     HandCardSlotController.instance.RearrangeCardSlots();
-                    
-                }
 
+                }
                 return;
             }
+
+            if (displayedCard.cardType == CardType.structure)
+            {
+                if (StructurePlacer.structurePlaced)
+                {
+                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Hand.instance.handCards.Remove(displayedCard);
+                    Discard.instance.DiscardCardFromHand(this);
+                    displayedCard = null;
+                }
+
+                StructurePlacer.structureToPlace = null;
+                front.SetActive(true);
+                HandCardSlotController.instance.RearrangeCardSlots();
+                TowerInfoWindow.instance.Close();
+                return;
+            }
+            }
+        else
+        {
+            ReturnCardToHand();
         }
     }
 
@@ -178,7 +224,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             if (!CheckIfCardCanBePaid())
             {
                 dragging = false;
-                if(draggingCoroutine != null)
+                if (draggingCoroutine != null)
                 {
                     StopCoroutine(draggingCoroutine);
                 }
@@ -190,27 +236,42 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         else if (myCamera.ScreenToViewportPoint(transform.position).y < 0.3f && !front.activeSelf)
         {
-            if (displayedCard.cardType == CardType.tower)
-            {
-                front.SetActive(true);
-                TowerPlacer.towerToPlace = null;
-            }
-            if (displayedCard.cardType == CardType.action)
-            {
+            ReturnCardToHand();
+        }
+    }
 
-            }
-            if (displayedCard.cardType == CardType.spell)
+    public void ReturnCardToHand()
+    {
+        front.SetActive(true);
+        HandCardSlotController.instance.RearrangeCardSlots();
+        if (displayedCard.cardType == CardType.tower)
+        {
+            TowerPlacer.towerToPlace = null;
+            TowerInfoWindow.instance.Close();
+            TileManager.instance.CheckForMisplacedTowers();
+        }
+        if (displayedCard.cardType == CardType.action)
+        {
+
+        }
+        if (displayedCard.cardType == CardType.spell)
+        {
+            if (SpellPlacer.spellToPlace != null)
             {
-                front.SetActive(true);
                 Destroy(SpellPlacer.spellToPlace.gameObject);
                 SpellPlacer.spellToPlace = null;
             }
         }
-    }
+        if (displayedCard.cardType == CardType.structure)
+        {
+            StructurePlacer.structureToPlace = null;
+
+        }
+        }
 
     bool CheckIfCardCanBePaid()
     {
-        return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType))) && 
+        return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType))) &&
             Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
     }
 
@@ -221,6 +282,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             front.SetActive(false);
             TowerCard towerCard = (TowerCard)displayedCard;
             TowerPlacer.towerToPlace = towerCard.towerPrefab;
+            TowerPlacer.startingLevel = towerCard.cardLevel;
         }
         if (displayedCard.cardType == CardType.action)
         {
@@ -230,9 +292,15 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             front.SetActive(false);
             SpellCard spellCard = (SpellCard)displayedCard;
-            SpellPlacer.spellToPlace = Instantiate(spellCard.spellPrefab, null);
+            SpellPlacer.spellToPlace = Instantiate(spellCard.spellPrefab, new Vector3(0, 1000f,0f), Quaternion.identity, null);
             StartCoroutine(SpellPlacer.PlaceSpell());
             SpellPlacer.spellPlaced = false;
+        }
+        if (displayedCard.cardType == CardType.structure)
+        {
+            front.SetActive(false);
+            StructureCard towerCard = (StructureCard)displayedCard;
+            StructurePlacer.structureToPlace = towerCard.structurePrefab;
         }
     }
 

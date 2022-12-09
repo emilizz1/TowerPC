@@ -14,6 +14,7 @@ public static class SpellPlacer
     {
         Camera camera = Camera.main;
         Transform spellTransform = spellToPlace.transform;
+        int snapping = spellToPlace.GetComponent<Spell>().snappingSize;
         Vector3 newPos = Vector3.zero;
         Plane plane = new Plane(Vector3.up, 0f);
         Ray ray;
@@ -21,11 +22,13 @@ public static class SpellPlacer
         while (spellToPlace != null)
         {
             ray = camera.ScreenPointToRay(Input.mousePosition);
-            if(plane.Raycast (ray, out distance))
+            if (plane.Raycast(ray, out distance))
             {
                 newPos = ray.GetPoint(distance);
+                newPos.x = Mathf.Round( newPos.x / snapping) * snapping;
+                newPos.z = Mathf.Round(newPos.z / snapping) * snapping;
+                spellTransform.position = newPos;
             }
-            spellTransform.position = newPos;
             yield return null;
         }
     }

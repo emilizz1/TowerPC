@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2-2
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 020a2f10f060d1243a7c77b00e678ec8, type: 3}
-  timeToResearch: 1
+  timeToResearch: 2
   tier: 1
-  explanation: Gain "Snow Storm" card
-  cardToGet: {fileID: 11400000, guid: a59ee426e004d0b4ca1c2a4a540a7943, type: 2}
+  explanation: Gain "Snow Storm" +1 card
+  cardToGet: {fileID: 11400000, guid: fec50a2ecc96c7e4fb53a8d57a1ef724, type: 2}

@@ -15,5 +15,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4f29816171e0a0d4d809fd9c7c5355b5, type: 3}
   timeToResearch: 1
   tier: 2
-  explanation: Gain "Pile of Coins" card
-  cardToGet: {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
+  explanation: 'Gain "Pile of Coins" +1 card '
+  cardToGet: {fileID: 11400000, guid: 5952632495197694ebcabb8716a9a9b4, type: 2}

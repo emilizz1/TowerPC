@@ -43,7 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b9673a04ad60647abd14dc34889f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpawnTime: 0
-  spawnTime: 0.08
+  waveSpawnTime: 0.1
+  spawnTime: 0.06
   enemyWaves:
   - {fileID: 11400000, guid: 78f9dec546e84bf4a87975c0906c0a70, type: 2}
+  - {fileID: 11400000, guid: 6e62aa1620a69e84a85e2211c5982ff7, type: 2}
+  - {fileID: 11400000, guid: ea06b990bdf37524e971dda17b7e379b, type: 2}
+  - {fileID: 11400000, guid: 43c539bd6f2e0874ca43013cf92bbf20, type: 2}
+  - {fileID: 11400000, guid: 70d06235b89bfad4c92177126fb7a1e5, type: 2}
+  - {fileID: 11400000, guid: c574d27e3b87d5440ac589454c8e1b80, type: 2}
+  - {fileID: 11400000, guid: 5e4cfd35a5699ef44ada9b414c17c3a3, type: 2}
+  - {fileID: 11400000, guid: 271f91dc10566ba43909a10cff4b7833, type: 2}
+  - {fileID: 11400000, guid: 9e7126113d6362c47974daf2c9b2a316, type: 2}
+  - {fileID: 11400000, guid: 75af966cc2328e34bb4631267a0850f2, type: 2}
+  - {fileID: 11400000, guid: 05e22e81538421e45a3710313d030551, type: 2}
+  - {fileID: 11400000, guid: 574164fcdf40bbf4eab7a5e2423ae684, type: 2}
+  - {fileID: 11400000, guid: ef76fdb9afea10d4092060a72f6329c3, type: 2}
+  - {fileID: 11400000, guid: eea1f28e31475a147bcc6747177093fb, type: 2}
+  - {fileID: 11400000, guid: 735f6b356c573dd4bb08348894a7fc07, type: 2}
+  - {fileID: 11400000, guid: 86197773c7084374198d500fbc129955, type: 2}
+  - {fileID: 11400000, guid: 1be87c554c915764ca4efe2dfe411d72, type: 2}
+  - {fileID: 11400000, guid: 0d788e74f0b044b4cb45bec93de8ad6e, type: 2}
+  - {fileID: 11400000, guid: ea83667adb65d9045b45781aafc08317, type: 2}
+  - {fileID: 11400000, guid: 578fefdadbf77c14595c8eba90f1f9ac, type: 2}

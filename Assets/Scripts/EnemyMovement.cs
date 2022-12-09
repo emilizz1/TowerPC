@@ -15,6 +15,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (enemy.returning)
+        {
+            return;
+        }
+
         if (moveIndex != movementPath.Count)
         {
             float moveDistance = (movementSpeed + additionalSpeed) * Time.deltaTime;

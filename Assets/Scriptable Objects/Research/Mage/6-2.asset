@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: 6-2
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: cc7297abc836ad241a7304b6c220e831, type: 3}
-  timeToResearch: 1
+  timeToResearch: 2
   tier: 5
-  explanation: Magic damage increased by 40%
+  explanation: Magic damage increased by 30%
+  displayIcon: 1
   affectedTypes: 01000000
   statMultiplayers:
     fireRate: 0
     range: 0
     damage:
-    - 0.4
-    - 0.4
-    - 0.4
+    - 0.3
+    - 0.3
+    - 0.3

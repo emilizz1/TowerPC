@@ -16,5 +16,6 @@ MonoBehaviour:
   timeToResearch: 1
   tier: 5
   explanation: Double castle health
+  displayIcon: 1
   maxHealthMultiplayer: 2
   increaseRegen: 0

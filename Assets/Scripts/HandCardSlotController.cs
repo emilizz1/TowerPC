@@ -21,18 +21,39 @@ public class HandCardSlotController : MonoSingleton<HandCardSlotController>
 
     public CardDisplay GetDisplay(int index)
     {
-        cardDisplays[index].transform.position = deckTransform.transform.position;
-        return cardDisplays[index];
+        CardDisplay display = null;
+
+        foreach(CardDisplay cardDisplay in cardDisplays)
+        {
+            if(cardDisplay.displayedCard == null)
+            {
+                display = cardDisplay;
+            }
+        }
+
+        if(display == null)
+        {
+            return null;
+        }
+
+        display.transform.position = deckTransform.transform.position;
+        display.transform.SetAsLastSibling();
+        cardDisplays.Remove(display);
+        cardDisplays.Add(display);
+        return display;
     }
+
+
 
     public void RearrangeCardSlots()
     {
-        float startingRotation = (Hand.instance.handCards.Count -1) / 2f * oneCardRotation;
+        float startingRotation = (Hand.instance.handCards.Count - 1) / 2f * oneCardRotation;
         float startingPositionX = -(Hand.instance.handCards.Count - 1) / 2f * oneCardPositionX;
         float startingPositionY = -(Hand.instance.handCards.Count - 1) / 2f * oneCardPositionY;
         int cardPosition = 0;
         for (int i = 0; i < cardDisplays.Count; i++)
-        {            if (Hand.instance.handCards.Contains(cardDisplays[i].displayedCard))
+        {
+            if (Hand.instance.handCards.Contains(cardDisplays[i].displayedCard))
             {
                 cardDisplays[i].gameObject.SetActive(true);
                 LeanTween.scale(cardDisplays[i].gameObject, Vector3.one, 0.25f);
@@ -47,9 +68,9 @@ public class HandCardSlotController : MonoSingleton<HandCardSlotController>
 
     public void RearrengeCardSlotsWithSelectedCard(int index)
     {
-        float startingRotation = (Hand.instance.handCards.Count +2 - 1) / 2f * oneCardRotation;
-        float startingPositionX = -(Hand.instance.handCards.Count +2- 1) / 2f * oneCardPositionX;
-        float startingPositionY = -(Hand.instance.handCards.Count +2- 1) / 2f * oneCardPositionY;
+        float startingRotation = (Hand.instance.handCards.Count + 2 - 1) / 2f * oneCardRotation;
+        float startingPositionX = -(Hand.instance.handCards.Count + 2 - 1) / 2f * oneCardPositionX;
+        float startingPositionY = -(Hand.instance.handCards.Count + 2 - 1) / 2f * oneCardPositionY;
         int cardPosition = 0;
         for (int i = 0; i < cardDisplays.Count; i++)
         {

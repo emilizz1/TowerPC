@@ -65,11 +65,24 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     {
         if (aliveEnemies.Contains(enemy))
         {
+            foreach(Tower tower in TowerPlacer.allTowers)
+            {
+                tower.EnemyDestroyed(enemy);
+            }
+
             aliveEnemies.Remove(enemy);
             if(aliveEnemies.Count <= 0)
             {
                 TurnController.FinishedEnemyWave();
             }
+        }
+    }
+
+    public void CheckIfGameWon()
+    {
+        if(enemyWaves.Count == TurnController.currentTurn)
+        {
+            SceneManager.LoadScene(SceneManager.WIN);
         }
     }
 }

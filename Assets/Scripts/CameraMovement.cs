@@ -28,7 +28,7 @@ public class CameraMovement : MonoSingleton<CameraMovement>
     {
         change = transform.position;
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
         {
             diference = prevPos - Input.mousePosition;
 

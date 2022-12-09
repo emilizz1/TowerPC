@@ -15,23 +15,42 @@ public class Enemy : MonoBehaviour
     [SerializeField] MeshRenderer myRenderer;
 
     [Header("Stats")]
+    public int moneyOnKill;
     [SerializeField] List<float> health;
     [SerializeField] float speed = 3;
     [SerializeField] int damage;
     [SerializeField] EnemySpecial special;
-    [SerializeField] int moneyOnKill;
+    [SerializeField] ObjectPools.PoolNames poolName;
 
     internal List<float> currentHealth;
+    internal bool returning;
     float currentSkill;
-    Color rendererColor;
+    List<Color> rendererColors;
 
     void Start()
     {
-        rendererColor = myRenderer.materials[1].color;
+        if (rendererColors == null)
+        {
+            SetupRendererColors();
+        } 
+    }
+
+    private void SetupRendererColors()
+    {
+        rendererColors = new List<Color>();
+        foreach (Material material in myRenderer.materials)
+        {
+            rendererColors.Add(material.color);
+        }
     }
 
     void Update()
     {
+        if (returning)
+        {
+            return;
+        }
+
         if (special != null)
         {
             if (!special.currentlyInUse)
@@ -49,12 +68,16 @@ public class Enemy : MonoBehaviour
 
     public void ResetEnemy()
     {
+        returning = false;
         movement.enemy = this;
-        if(rendererColor == null)
+        if(rendererColors == null)
         {
-            rendererColor = myRenderer.materials[1].color;
+            SetupRendererColors();
         }
-        myRenderer.materials[1].color = rendererColor;
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            myRenderer.materials[i].color = rendererColors[i];
+        }
 
         movement.movementSpeed = speed;
         currentHealth = new List<float>();
@@ -62,11 +85,15 @@ public class Enemy : MonoBehaviour
         currentHealth.Add(health[1]);
         currentHealth.Add(health[2]);
         currentSkill = 0;
-        special.SpecialFinished();
+        if (special != null)
+        {
+            special.SpecialFinished();
+        }
 
         UpdateBars();
 
         movement.ResetEnemy();
+        debuffIcons.ResetIcons();
     }
 
     public void UpdateBars()
@@ -80,7 +107,7 @@ public class Enemy : MonoBehaviour
     public void ReachedEnd()
     {
         PlayerLife.instance.ChangeHealthAmount(-damage);
-        ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicEnemy).ReturnObject(gameObject);
+        StartCoroutine(ReturnAfterTimer());
         EnemyManager.instance.EnemyRemoved(this);
     }
 
@@ -110,8 +137,9 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth[0] <= 0)
         {
-            Money.instance.AddCurrency(moneyOnKill, false);
-            ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicEnemy).ReturnObject(gameObject);
+            healthBar.fillAmount = 0f;
+            Money.instance.AddCurrency(moneyOnKill, true);
+            StartCoroutine(ReturnAfterTimer());
             EnemyManager.instance.EnemyRemoved(this);
             return;
         }
@@ -124,12 +152,31 @@ public class Enemy : MonoBehaviour
 
     IEnumerator HitAnimation()
     {
-        myRenderer.materials[1].color = Color.red;
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            myRenderer.materials[i].color = Color.red;
+        }
         yield return new WaitForSeconds(0.25f);
-        myRenderer.materials[1].color = rendererColor;
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            myRenderer.materials[i].color = rendererColors[i];
+        }
         yield return new WaitForSeconds(0.1f);
-        myRenderer.materials[1].color = Color.red;
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            myRenderer.materials[i].color = Color.red;
+        }
         yield return new WaitForSeconds(0.1f);
-        myRenderer.materials[1].color = rendererColor;
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            myRenderer.materials[i].color = rendererColors[i];
+        }
+    }
+
+    IEnumerator ReturnAfterTimer()
+    {
+        returning = true;
+        yield return new WaitForSeconds(0.33f);
+        ObjectPools.instance.GetPool(poolName).ReturnObject(gameObject);
     }
 }

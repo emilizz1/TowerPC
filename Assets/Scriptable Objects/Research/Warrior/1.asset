@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e820001e804cc704db56037898fc5647, type: 3}
-  timeToResearch: 1
+  timeToResearch: 2
   tier: 0
   explanation: Double castle health
-  MaxHealthMultiplayer: 2
+  displayIcon: 1
+  maxHealthMultiplayer: 2
+  increaseRegen: 0

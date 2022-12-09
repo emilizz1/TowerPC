@@ -12,6 +12,7 @@ public class BuffController : MonoSingleton<BuffController>
     {
         public string debuffName;
         public Sprite icon;
+        public GameObject particles;
         public float effectAmount;
     }
 

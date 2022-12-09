@@ -9,6 +9,8 @@ public static class SceneManager
     public static string MENU = "Menu";
     public static string CHARACTER_SELECTION = "CharacterSelection";
     public static string GAME = "Game";
+    public static string LOST = "Lost";
+    public static string WIN = "Win";
 
     public static void LoadScene(string sceneToLoad)
     {

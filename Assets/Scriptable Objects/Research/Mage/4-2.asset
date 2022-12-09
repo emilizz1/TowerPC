@@ -16,6 +16,7 @@ MonoBehaviour:
   timeToResearch: 1
   tier: 3
   explanation: Damage to Shields increased by 20%
+  displayIcon: 1
   affectedTypes: 02000000
   statMultiplayers:
     fireRate: 0

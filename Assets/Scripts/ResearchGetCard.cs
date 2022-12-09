@@ -15,6 +15,7 @@ public class ResearchGetCard : Research
         base.Researched();
         CardDisplay cardDisplay = HandCardSlotController.instance.GetDisplay(Hand.instance.handCards.Count);
         cardDisplay.DisplayCard(cardToGet);
+        cardDisplay.transform.position = ResearchButton.instance.transform.position;
         Hand.instance.handCards.Add(cardToGet);
         HandCardSlotController.instance.RearrangeCardSlots();
     }

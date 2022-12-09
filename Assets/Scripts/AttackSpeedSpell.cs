@@ -6,7 +6,6 @@ public class AttackSpeedSpell : Spell
 {
     List<Tower> towersAffected;
 
-
     public override void Activate()
     {
         base.Activate();

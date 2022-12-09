@@ -16,5 +16,6 @@ MonoBehaviour:
   timeToResearch: 1
   tier: 3
   explanation: Castle is healed by 1 each turn
+  displayIcon: 1
   maxHealthMultiplayer: 0
   increaseRegen: 1

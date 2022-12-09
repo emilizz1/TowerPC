@@ -10,16 +10,20 @@ public enum CardType
     tower,
     action,
     spell,
-    all
+    all,
+    structure
 }
 
 public class Card : ScriptableObject
 {
+    public string cardName;
     public CardType cardType;
     public Sprite cardImage;
     public int moneyCost;
     public int manaCost;
     public float buyCostMultiplayer;
+    public int cardLevel;
     [TextArea(15,20)]
     public string description;
+    public List<PasiveTowerStatsController.DamageTypes> damageTypes;
 }

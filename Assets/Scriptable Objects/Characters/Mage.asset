@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378201c651eb32745b31a9336a6d4d2a, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
-  startingMoney: 50
-  startingMana: 150
+  startingMoney: 20
+  startingMana: 50
   startingMaxHealth: 10
   startingCards: {fileID: 11400000, guid: 36180fd1d9ec59e45b49f1ace11e5f35, type: 2}
   marketCards: {fileID: 11400000, guid: 6b45459558238dc4b8768ae771fda771, type: 2}
   techTree: {fileID: 11400000, guid: 600190fe48b44e642a44f5deb7e70a04, type: 2}
+  icon: {fileID: 21300000, guid: 9c3d9fcd5ee771149b6f87ba824973d6, type: 3}

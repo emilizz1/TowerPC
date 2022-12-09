@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: fb24a7442cd56844f8c41cdc39d95026, type: 3}
-  timeToResearch: 1
+  timeToResearch: 2
   tier: 2
   explanation: Playing spell cards is cheaper by 15%
+  displayIcon: 1
   type: 2
   amount: -0.15
   usedFor: 0
