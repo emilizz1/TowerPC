@@ -115,6 +115,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             objBuilt = true;
             readyToBuild = false;
             TowerPlacer.allTowers.Add(tower);
+            Money.instance.UpdateIncome();
         }
     }
 
@@ -123,7 +124,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (spotObj != null)
         {
             Structure structure = spotObj.GetComponent<Structure>();
-            structure.Activate();
+            structure.Activate(terrainBonus);
             objBuilt = true;
             readyToBuild = false;
             StructurePlacer.allStructures.Add(structure);

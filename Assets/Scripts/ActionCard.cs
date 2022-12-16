@@ -20,10 +20,12 @@ public class ActionCard : Card
         if (addMoney > 0)
         {
             Money.instance.AddCurrency(addMoney, false);
+            SoundsController.instance.PlayOneShot("Money");
         }
         if (addMana > 0)
         {
             Mana.instance.AddCurrency(addMana, false);
+            SoundsController.instance.PlayOneShot("Mana");
         }
         if (addHealth > 0)
         {

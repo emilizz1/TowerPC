@@ -43,6 +43,8 @@ public class Tile : MonoBehaviour
     {
         lanes[index].open = false;
 
+        SoundsController.instance.PlayOneShot("Click");
+
         Vector2 placementCoordinates = coordinates;
 
         if (transform.position.x + 1 < lanes[index].spawnPoint.transform.position.x)

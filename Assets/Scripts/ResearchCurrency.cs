@@ -13,6 +13,6 @@ public class ResearchCurrency : Research
     public override void Researched()
     {
         base.Researched();
-        Mana.instance.regenAmount += manaRegenPerSecond;
+        Mana.instance.AddRegen( manaRegenPerSecond);
     }
 }

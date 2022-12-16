@@ -45,6 +45,7 @@ public class Hand : MonoSingleton<Hand>
         {
             return;
         }
+        SoundsController.instance.PlayOneShot("Draw");
         CardDisplay cardDisplay = HandCardSlotController.instance.GetDisplay(handCards.Count);
         cardDisplay.DisplayCard(cardToDraw);
         handCards.Add(cardToDraw);

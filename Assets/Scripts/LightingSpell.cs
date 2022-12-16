@@ -8,6 +8,7 @@ public class LightingSpell : Spell
     [SerializeField] List<float> damage;
     [SerializeField] List<PasiveTowerStatsController.DamageTypes> damageType;
     [SerializeField] List<ParticleSystem> particles;
+    [SerializeField] AudioSource damageSound;
 
     List<Enemy> enemies = new List<Enemy>();
 
@@ -32,6 +33,7 @@ public class LightingSpell : Spell
         if(timePassed > dealDamageTimer)
         {
             timePassed -= dealDamageTimer;
+            damageSound.Play();
             DealDamage();
 
         }
@@ -46,6 +48,7 @@ public class LightingSpell : Spell
                 enemy.DealDamage(damage);
             }
         }
+
     }
 
     public override void DoEffect(GameObject enemy)
@@ -63,6 +66,11 @@ public class LightingSpell : Spell
     public override void StopSpell()
     {
         //base.StopSpell();
+        duration--;
+        if (duration > 0)
+        {
+            return;
+        }
         StartCoroutine(StopingAnimation());
     }
 

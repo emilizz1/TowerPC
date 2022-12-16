@@ -6,9 +6,10 @@ using TMPro;
 public class Mana : MonoSingleton<Mana>
 {
     [SerializeField] TextMeshProUGUI amountText;
+    [SerializeField] TextMeshProUGUI incomeText;
     [SerializeField] TweenAnimator animator;
-    public int regenAmount;
-    public float timeToRegen;
+    [SerializeField] int regenAmount;
+    [SerializeField] float timeToRegen;
 
     Coroutine regen;
     int maxAmount;
@@ -108,5 +109,11 @@ public class Mana : MonoSingleton<Mana>
             yield return new WaitForSeconds(timeToRegen);
             AddCurrency(regenAmount, true);
         }
+    }
+
+    public void AddRegen(int newAmount)
+    {
+        regenAmount += newAmount;
+        incomeText.text = "+" + regenAmount + " per second";
     }
 }

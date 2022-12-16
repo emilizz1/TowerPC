@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] GameObject model;
     [SerializeField] GameObject endParticles;
     [SerializeField] float speed;
+    [SerializeField] AudioSource audioSource;
 
     internal GameObject target;
     internal List<float> damage;
@@ -31,12 +32,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                target.GetComponent<Enemy>().DealDamage(damage);
-                if (endParticles != null)
-                {
-                    endParticleInstance = Instantiate(endParticles, target.transform);
-                }
-                StartCoroutine(ReturnAfterTimer());
+                TargetReached();
             }
         }
         else
@@ -44,6 +40,20 @@ public class Bullet : MonoBehaviour
             StartCoroutine(ReturnAfterTimer());
         }
 
+    }
+
+    internal virtual void TargetReached()
+    {
+        target.GetComponent<Enemy>().DealDamage(damage);
+        if (endParticles != null)
+        {
+            endParticleInstance = Instantiate(endParticles, target.transform);
+        }
+        if(audioSource != null)
+        {
+            audioSource.Play();
+        }
+        StartCoroutine(ReturnAfterTimer());
     }
 
     public void SetTarget(GameObject setTarget)

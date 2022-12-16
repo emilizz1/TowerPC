@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90bb6226b12e394c92e536d1da18570, type: 3}
+  m_Name: GoldMineL2
+  m_EditorClassIdentifier: 
+  cardName: Gold Mine
+  cardType: 4
+  cardImage: {fileID: 21300000, guid: 91ba26411c06ab04bb98965bc6d14d97, type: 3}
+  moneyCost: 30
+  manaCost: 0
+  buyCostMultiplayer: 2.2
+  cardLevel: 2
+  description: 'Increases income
+
+    Double income if placed on mountain'
+  damageTypes: 
+  structurePrefab: {fileID: 4796524506784668451, guid: 47f2bff3d83c7cd459f8102564567bd9, type: 3}

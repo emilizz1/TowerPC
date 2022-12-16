@@ -13,7 +13,7 @@ public class PhaseInfo : MonoSingleton<PhaseInfo>
         {
             case (TurnController.TurnPhase.Drawing):
                 phaseNames[0].color = Color.white;
-                phaseNames[5].color = new Color(1f, 1f, 1f, 0.5f);
+                phaseNames[4].color = new Color(1f, 1f, 1f, 0.5f);
                 return;
             case (TurnController.TurnPhase.Research):
                 phaseNames[1].color = Color.white;
@@ -27,13 +27,9 @@ public class PhaseInfo : MonoSingleton<PhaseInfo>
                 phaseNames[3].color = Color.white;
                 phaseNames[2].color = new Color(1f, 1f, 1f, 0.5f);
                 return;
-            case (TurnController.TurnPhase.Destroy):
+            case (TurnController.TurnPhase.Market):
                 phaseNames[4].color = Color.white;
                 phaseNames[3].color = new Color(1f, 1f, 1f, 0.5f);
-                return;
-            case (TurnController.TurnPhase.Market):
-                phaseNames[5].color = Color.white;
-                phaseNames[4].color = new Color(1f, 1f, 1f, 0.5f);
                 return;
         }
     }

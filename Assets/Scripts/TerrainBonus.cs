@@ -6,6 +6,7 @@ using System;
 public class TerrainBonus : MonoBehaviour
 {
     public Tower.TowerStats statsMultiplayers;
+    public TerrainType type;
     [SerializeField] AdjacentTerrain adjacentTerrain;
     
     [Serializable]
@@ -28,6 +29,14 @@ public class TerrainBonus : MonoBehaviour
             }
             return null;
         }
+    }
+
+    public enum TerrainType
+    {
+        forrest,
+        field,
+        snow,
+        mountain
     }
 
     Spot mySpot;

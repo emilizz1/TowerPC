@@ -82,6 +82,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (unlocked && !researched)
         {
+            SoundsController.instance.PlayOneShot("Click");
             ResearchWindow.instance.NewResearchSelected(this);
         }
     }
@@ -127,5 +128,11 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             animator.SetTrigger("Unlocked");
             animator.ResetTrigger("Hide");
         }
+    }
+
+    public void PlayCompleteSound()
+    {
+
+        SoundsController.instance.PlayOneShot("Complete");
     }
 }

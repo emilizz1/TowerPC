@@ -52,6 +52,11 @@ public class SnowstormSpell : Spell
     public override void StopSpell()
     {
         //base.StopSpell();
+        duration--;
+        if (duration > 0)
+        {
+            return;
+        }
         StartCoroutine(StopingAnimation());
     }
 

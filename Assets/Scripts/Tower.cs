@@ -16,12 +16,14 @@ public class Tower : MonoBehaviour
     [SerializeField] ParticleSystem shootingParticles;
     [SerializeField] List<GameObject> levelUpRings;
     [SerializeField] GameObject canvas;
+    [SerializeField] AudioSource audioSource;
 
     [Header("Stats")]
     public List<TowerStats> towerStats;
     public List<int> experienceNeeded;
     public List<PasiveTowerStatsController.DamageTypes> damageTypes;
     [SerializeField] ObjectPools.PoolNames bulletType;
+    [SerializeField] AudioClip shootSound;
 
     [Serializable]
     public struct TowerStats
@@ -72,7 +74,7 @@ public class Tower : MonoBehaviour
     internal int currentLevel;
 
     List<EnemyMovement> reachableEnemies = new List<EnemyMovement>();
-    GameObject currentTarget;
+    internal GameObject currentTarget;
     float timeUntilShot;
 
     bool active;
@@ -122,13 +124,18 @@ public class Tower : MonoBehaviour
                 if (timeUntilShot < 0)
                 {
                     Shoot();
-                    timeUntilShot = towerStats[currentLevel].fireRate * (1 - statsMultiplayers.fireRate);
+                    timeUntilShot = GetTimeToNextShot();
                 }
             }
         }
     }
 
-    private void Shoot()
+    internal virtual float GetTimeToNextShot()
+    {
+        return towerStats[currentLevel].fireRate * (1 - statsMultiplayers.fireRate);
+    }
+
+    internal virtual void Shoot()
     {
         GameObject newBullet = ObjectPools.instance.GetPool(bulletType).GetObject();
         newBullet.transform.parent = transform;
@@ -140,10 +147,12 @@ public class Tower : MonoBehaviour
         {
             shootingParticles.Play();
         }
+        audioSource.clip = shootSound;
+        audioSource.Play();
         AddExperience();
     }
 
-    List<float> GetDamageMultiplied()
+    internal virtual List<float> GetDamageMultiplied()
     {
         List<float> finalDamage = new List<float>();
         for (int i = 0; i < towerStats[currentLevel].damage.Count; i++)
@@ -167,6 +176,8 @@ public class Tower : MonoBehaviour
             levelUpRings[currentLevel].SetActive(true);
             currentLevel++;
             levelUp.Play();
+            audioSource.clip = SoundsController.instance.GetAudioClip("LevelUp");
+            audioSource.Play();
             SetupRange();
         }
         TowerInfoWindow.instance.UpdateInfo(this);
@@ -305,10 +316,12 @@ public class Tower : MonoBehaviour
         {
             levelUpRings[i].SetActive(true);
         }
+        audioSource.clip = SoundsController.instance.GetAudioClip("TowerPlaced");
+        audioSource.Play();
         SetupRange();
         canvas.SetActive(true);
         active = true;
-        rangeSprite.gameObject.SetActive(false);   
+        rangeSprite.gameObject.SetActive(false);
     }
 
     public void EnemyDestroyed(Enemy enemy)

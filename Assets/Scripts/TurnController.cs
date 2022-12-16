@@ -66,16 +66,6 @@ public static class TurnController
             TowerPlacer.ClearTowerTargets();
             Hand.instance.DiscardHand();
 
-            currentPhase = TurnPhase.Destroy;
-            PhaseInfo.instance.PhaseChanged(currentPhase);
-            DestroyCardWindow.instance.Open();
-        }
-    }
-
-    public static void FinishedDestroying()
-    {
-        if(currentPhase == TurnPhase.Destroy)
-        {
             currentPhase = TurnPhase.Market;
             PhaseInfo.instance.PhaseChanged(currentPhase);
             MarketWindow.instance.Open();
@@ -87,12 +77,13 @@ public static class TurnController
         if (currentPhase == TurnPhase.Market)
         {
             currentPhase = TurnPhase.Drawing;
+            Money.instance.GetIncome();
             currentTurn++;
             PhaseInfo.instance.PhaseChanged(currentPhase);
             PlayerLife.instance.Regen();
             Hand.instance.DrawNewHand();
             ResearchWindow.instance.AdvanceResearch();
-            Taxes.instance.PayTaxes();
+            Money.instance.UpdateIncome();
         }
     }
 }

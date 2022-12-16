@@ -6,19 +6,23 @@ using TMPro;
 public class Money : MonoSingleton<Money>
 {
     [SerializeField] TextMeshProUGUI amountText;
+    [SerializeField] TextMeshProUGUI incomeText;
     [SerializeField] TweenAnimator animator;
+    [SerializeField] List<int> reductions;
 
     internal int currentAmount;
+    internal int passiveIncome = 0;
 
     private void Start()
     {
         currentAmount = CharacterSelector.firstCharacter.startingMoney + CharacterSelector.secondCharacter.startingMoney;
         amountText.text = currentAmount.ToString();
+        UpdateIncome();
     }
 
     public bool TryPaying(int amount)
     {
-        if(amount <= currentAmount)
+        if (amount <= currentAmount)
         {
             StartCoroutine(LowerCurrencyAmount(currentAmount, currentAmount - amount));
             currentAmount -= amount;
@@ -29,7 +33,7 @@ public class Money : MonoSingleton<Money>
 
     public bool CheckAmount(int amount)
     {
-        if(amount <= currentAmount)
+        if (amount <= currentAmount)
         {
             return true;
         }
@@ -85,5 +89,39 @@ public class Money : MonoSingleton<Money>
             amountText.text = currentValue.ToString();
         }
         amountText.text = finishValue.ToString();
+    }
+
+    public void GetIncome()
+    {
+
+        int towerTax = TowerPlacer.allTowers.Count;
+        int reduction = reductions[TurnController.currentTurn] + passiveIncome;
+        int finalAmount = reduction - towerTax;
+
+        finalAmount = Mathf.Min(finalAmount, Money.instance.currentAmount);
+
+        if (finalAmount < 0)
+        {
+            TryPaying(-finalAmount);
+        }
+        else
+        {
+            AddCurrency(finalAmount, false);
+        }
+    }
+
+    public void UpdateIncome()
+    {
+        int towerTax = TowerPlacer.allTowers.Count;
+        int reduction = reductions[TurnController.currentTurn] + passiveIncome;
+        int finalAmount = reduction - towerTax;
+
+        incomeText.text = (finalAmount >= 0 ? "+" : "") + finalAmount.ToString() + " per turn";
+    }
+
+    public void AddToPassiveIncome(int amount)
+    {
+        passiveIncome += amount;
+        UpdateIncome();
     }
 }

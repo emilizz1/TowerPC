@@ -8,7 +8,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     [SerializeField] float spawnTime = 0.1f;
     [SerializeField] List<EnemyWave> enemyWaves;
 
-    List<Enemy> aliveEnemies;
+    internal List<Enemy> aliveEnemies;
 
     void Start()
     {

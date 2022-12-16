@@ -18,6 +18,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] TextMeshProUGUI costMana;
     [SerializeField] TextMeshProUGUI description;
     [SerializeField] TextMeshProUGUI keywords;
+    [SerializeField] TextMeshProUGUI uses;
     [SerializeField] bool handCard;
     [SerializeField] List<GameObject> cardLevel;
 
@@ -52,6 +53,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
         keywords.text = keywordText;
+        uses.text = "charges " + (cardToDisplay.maxUses - cardToDisplay.timesUsed).ToString() + " / " + cardToDisplay.maxUses.ToString();
 
         if (cardToDisplay.moneyCost > 0)
         {
@@ -144,9 +146,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 {
                     Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                     Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                    Hand.instance.handCards.Remove(displayedCard);
-                    Discard.instance.DiscardCardFromHand(this);
-                    displayedCard = null;
+                    CardUsed();
                 }
 
                 TowerPlacer.towerToPlace = null;
@@ -162,9 +162,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                 ActionCard actionCard = (ActionCard)displayedCard;
                 actionCard.PlayAction();
-                Hand.instance.handCards.Remove(displayedCard);
-                Discard.instance.DiscardCardFromHand(this);
-                displayedCard = null;
+                CardUsed();
                 HandCardSlotController.instance.RearrangeCardSlots();
                 return;
             }
@@ -178,9 +176,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     SpellPlacer.SpellPlaced();
                     SpellPlacer.spellToPlace = null;
                     front.SetActive(true);
-                    Hand.instance.handCards.Remove(displayedCard);
-                    Discard.instance.DiscardCardFromHand(this);
-                    displayedCard = null;
+                    CardUsed();
                     HandCardSlotController.instance.RearrangeCardSlots();
                 }
                 else
@@ -199,9 +195,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 {
                     Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
                     Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                    Hand.instance.handCards.Remove(displayedCard);
-                    Discard.instance.DiscardCardFromHand(this);
-                    displayedCard = null;
+                    CardUsed();
                 }
 
                 StructurePlacer.structureToPlace = null;
@@ -215,6 +209,25 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             ReturnCardToHand();
         }
+    }
+
+    void CardUsed()
+    {
+
+        Hand.instance.handCards.Remove(displayedCard);
+        displayedCard.timesUsed++;
+        if (displayedCard.timesUsed < displayedCard.maxUses)
+        {
+            Discard.instance.DiscardCardFromHand(this);
+        }
+        else
+        {
+            SoundsController.instance.PlayOneShot("Destroy");
+            LeanTween.move(gameObject, new Vector3(2000f, 2000f), 0.5f);
+            LeanTween.rotate(gameObject, new Vector3(0f, 0f, 720f), 0.5f);
+            StartCoroutine(ResetAfterTime(0.5f));
+        }
+        displayedCard = null;
     }
 
     void CheckIfActivatable()

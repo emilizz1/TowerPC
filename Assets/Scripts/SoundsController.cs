@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SoundsController : MonoSingleton<SoundsController>
 {
-    [SerializeField] List<AudioClip> allSounds;
+    [SerializeField] List<SoundClip> allSounds;
     [SerializeField] AudioSource mainSource;
-    [SerializeField] List<AudioClip> workerSelectedSounds;
-    [SerializeField] string startSound;
 
-    private void Start()
+    [Serializable]
+    struct SoundClip
     {
-        PlayOneShot(startSound);
+        public string soundName;
+        public AudioClip clip;
     }
 
     public void PlayOnce(string audioSourceName)
@@ -35,13 +36,13 @@ public class SoundsController : MonoSingleton<SoundsController>
         }
     }
 
-    AudioClip GetAudioClip(string audioName)
+    public AudioClip GetAudioClip(string audioName)
     {
-        foreach (AudioClip audioClip in allSounds)
+        foreach (SoundClip audioClip in allSounds)
         {
-            if (audioClip.name == audioName)
+            if (audioClip.soundName == audioName)
             {
-                return audioClip;
+                return audioClip.clip;
             }
         }
         return null;
@@ -60,10 +61,5 @@ public class SoundsController : MonoSingleton<SoundsController>
                 }
             }
         }
-    }
-
-    public void PlayWorkerSelected()
-    {
-        mainSource.PlayOneShot(workerSelectedSounds[Random.Range(0, workerSelectedSounds.Count)]);
     }
 }

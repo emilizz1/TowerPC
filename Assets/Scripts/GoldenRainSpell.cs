@@ -22,9 +22,11 @@ public class GoldenRainSpell : Spell
 
     void AddDebuff()
     {
+        List<Enemy> enemiesToRemove = new List<Enemy>();
+
         foreach (Enemy enemy in enemies)
         {
-            if (enemy != null)
+            if (enemy != null && enemy.isActiveAndEnabled)
             {
                 if (enemy.GetComponent<ExtraGoldDebuff>())
                 {
@@ -35,6 +37,15 @@ public class GoldenRainSpell : Spell
                     enemy.gameObject.AddComponent<ExtraGoldDebuff>();
                 }
             }
+            else
+            {
+                enemiesToRemove.Add(enemy);
+            }
+        }
+
+        foreach(Enemy removedEnemy in enemiesToRemove)
+        {
+            enemies.Remove(removedEnemy);
         }
     }
 
@@ -53,6 +64,11 @@ public class GoldenRainSpell : Spell
     public override void StopSpell()
     {
         //base.StopSpell();
+        duration--;
+        if (duration > 0)
+        {
+            return;
+        }
         StartCoroutine(StopingAnimation());
     }
 

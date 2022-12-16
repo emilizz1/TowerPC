@@ -51,6 +51,7 @@ MonoBehaviour:
     - 0
     - 0.05
     - 0.3
+  type: 2
   adjacentTerrain:
     terrain:
     - {fileID: 4025642262819242764, guid: 629809ca68bef2248be91b7988e9b38b, type: 3}

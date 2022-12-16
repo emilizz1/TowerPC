@@ -31,6 +31,7 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     {
         currentHP += change;
         UpdateHealth();
+        SoundsController.instance.PlayOneShot("Damaged");
         if(currentHP <= 0)
         {
             Lost();

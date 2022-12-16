@@ -26,4 +26,7 @@ public class Card : ScriptableObject
     [TextArea(15,20)]
     public string description;
     public List<PasiveTowerStatsController.DamageTypes> damageTypes;
+    public int maxUses;
+
+    internal int timesUsed;
 }

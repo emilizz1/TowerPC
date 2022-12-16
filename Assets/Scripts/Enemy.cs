@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] Image shieldBar; 
     [SerializeField] Image skillBar;
     [SerializeField] MeshRenderer myRenderer;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clip;
 
     [Header("Stats")]
     public int moneyOnKill;
@@ -137,6 +139,8 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth[0] <= 0)
         {
+            audioSource.clip = clip;
+            audioSource.Play();
             healthBar.fillAmount = 0f;
             Money.instance.AddCurrency(moneyOnKill, true);
             StartCoroutine(ReturnAfterTimer());

@@ -22,6 +22,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
     [SerializeField] List<string> targetingOptions;
 
     Tower currentTower;
+    bool open;
 
     public void Close()
     {
@@ -29,6 +30,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         {
             currentTower.rangeSprite.gameObject.SetActive(false);
         }
+        open = false;
         animator.PerformTween(0);
     }
 
@@ -66,8 +68,12 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
 
     public void OpenWindow()
     {
-        currentTower.rangeSprite.gameObject.SetActive(true);
-        animator.PerformTween(1);
+        if (!open)
+        {
+            currentTower.rangeSprite.gameObject.SetActive(true);
+            animator.PerformTween(1);
+            open = true;
+        }
     }
 
     public void ChangedTargeting(bool right)

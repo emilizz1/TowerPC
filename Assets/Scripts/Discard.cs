@@ -21,6 +21,7 @@ public class Discard : MonoSingleton<Discard>
 
     public void ShuffleDiscard()
     {
+        SoundsController.instance.PlayOneShot("Shuffle");
         int cardsToRemove = discardCards.Count;
         animator.SetTrigger("Shuffle");
         for (int i = 0; i < cardsToRemove; i++)
@@ -34,11 +35,12 @@ public class Discard : MonoSingleton<Discard>
 
     public void DiscardCardFromHand(CardDisplay discardedCard)
     {
-        LeanTween.move(discardedCard.gameObject, discardTransform.position, 0.25f);
-        LeanTween.rotate(discardedCard.gameObject, Vector3.zero, 0.25f);
-        StartCoroutine( discardedCard.ResetAfterTime(0.25f));
-        discardCards.Add(discardedCard.displayedCard);
-        amountText.text = discardCards.Count.ToString();
+        SoundsController.instance.PlayOneShot("Discard");
+            LeanTween.move(discardedCard.gameObject, discardTransform.position, 0.25f);
+            LeanTween.rotate(discardedCard.gameObject, Vector3.zero, 0.25f);
+            StartCoroutine(discardedCard.ResetAfterTime(0.25f));
+            discardCards.Add(discardedCard.displayedCard);
+            amountText.text = discardCards.Count.ToString();
     }
 
     public void AddCard(Card cardToAdd)

@@ -23,7 +23,9 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         basicBullet = 100,
         lightningBullet =101,
         arrow =102,
-        spear = 103
+        spear = 103,
+        explosion = 104
+
     }
 
     Dictionary<PoolNames, ObjectPool> poolDicktionary;

@@ -11,7 +11,7 @@ public class Spell : MonoBehaviour
     [SerializeField] ParticleSystem startParticles;
     [SerializeField] Transform rangeSprite;
     [SerializeField] SphereCollider sphere;
-
+    [SerializeField] AudioSource audioSource;
 
     const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
 
@@ -74,6 +74,7 @@ public class Spell : MonoBehaviour
     public virtual void Activate()
     {
         active = true;
+        audioSource.Play();
         if (rangeSprite != null)
         {
             rangeSprite.gameObject.SetActive(false);
