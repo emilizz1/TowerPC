@@ -18,6 +18,8 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
     [SerializeField] TextMeshProUGUI experienceText;
     [SerializeField] Image experienceBar;
     [SerializeField] TextMeshProUGUI level;
+    [SerializeField] TextMeshProUGUI specialText;
+    [SerializeField] TextMeshProUGUI upgradeCost;
 
     [SerializeField] List<string> targetingOptions;
 
@@ -61,6 +63,9 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
             experienceText.text = "Exp: " + currentTower.experience + " / " + currentTower.experienceNeeded[currentTower.currentLevel];
             experienceBar.fillAmount = (float)currentTower.experience / currentTower.experienceNeeded[currentTower.currentLevel];
         }
+
+        upgradeCost.text = "Upgrade " + (currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience).ToString();
+        specialText.text = currentTower.specialText;
 
         towerImage.sprite = currentTower.image;
         targetSelectText.text = targetingOptions[(int)currentTower.targeting];
@@ -134,6 +139,14 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
             damage2Text.text = "Shield Damage: " + colorString +
                 (currentTower.towerStats[currentTower.currentLevel].damage[2] * (currentTower.statsMultiplayers.damage[2] + terrain.statsMultiplayers.damage[2])).ToString("F1")
                 + " (+" + (terrain.statsMultiplayers.damage[2] * 100).ToString() + "%)";
+        }
+    }
+
+    public void UpgradeTower()
+    {
+        if(Money.instance.TryPaying(currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience))
+        {
+            currentTower.UpgradeTower();
         }
     }
 }

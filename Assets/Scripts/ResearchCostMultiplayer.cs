@@ -12,12 +12,6 @@ public class ResearchCostMultiplayer : Research
     [SerializeField] float amount;
     [SerializeField] CostMultipleyerApplied usedFor;
 
-    [Serializable]
-    public enum CostMultipleyerApplied
-    {
-        playing,
-        buying
-    }
 
     public override void Researched()
     {
@@ -33,4 +27,12 @@ public class ResearchCostMultiplayer : Research
 
         }
     }
+
+}
+
+[Serializable]
+public enum CostMultipleyerApplied
+{
+    playing,
+    buying
 }

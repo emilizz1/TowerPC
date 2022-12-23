@@ -43,7 +43,33 @@ public class HandCardSlotController : MonoSingleton<HandCardSlotController>
         return display;
     }
 
-
+    public CardDisplay GetDisplayByCard(Card card)
+    {
+        foreach(CardDisplay display in cardDisplays)
+        {
+            if(display.displayedCard == card)
+            {
+                return display;
+            }
+        }
+        return null;
+    }
+    public CardDisplay GetRandomDisplay(CardDisplay excludeDisplay = null)
+    {
+        List<CardDisplay> activeDisplays = new List<CardDisplay>();
+        foreach(CardDisplay display in cardDisplays)
+        {
+            if(excludeDisplay == display)
+            {
+                continue;
+            }
+            else if (display.gameObject.activeInHierarchy && display.displayedCard != null)
+            {
+                activeDisplays.Add(display);
+            }
+        }
+        return activeDisplays[Random.Range(0, activeDisplays.Count)];
+    }
 
     public void RearrangeCardSlots()
     {

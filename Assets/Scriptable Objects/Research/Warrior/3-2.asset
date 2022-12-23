@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
+  m_Script: {fileID: 11500000, guid: ce59bf23d3d95644f9b36400fe63b131, type: 3}
   m_Name: 3-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 4f29816171e0a0d4d809fd9c7c5355b5, type: 3}
-  timeToResearch: 1
-  tier: 2
-  explanation: 'Gain "Pile of Coins" +1 card '
-  cardToGet: {fileID: 11400000, guid: 5952632495197694ebcabb8716a9a9b4, type: 2}
+  sprite: {fileID: 21300000, guid: e820001e804cc704db56037898fc5647, type: 3}
+  timeToResearch: 2
+  tier: 0
+  explanation: Ignore first damage to castle each round
+  displayIcon: 1
+  maxHealthAddition: 0
+  increaseRegen: 0
+  enemyDamageStoppedCount: 1

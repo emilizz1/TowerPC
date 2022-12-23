@@ -10,7 +10,7 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     public CardHolder marketCards;
     
     internal List<MarketDeck> marketDecks;
-
+    bool noPrice;
 
     void Start()
     {
@@ -117,7 +117,7 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
                 marketDecks[i].ShuffleDeck();
             }
             Card cardToDisplay = marketDecks[i].deck[UnityEngine.Random.Range(0, marketDecks[i].deck.Count)];
-            marketCardDisplays[i].DisplayCard(cardToDisplay);
+            marketCardDisplays[i].DisplayCard(cardToDisplay, noPrice);
             marketDecks[i].RemoveCard(cardToDisplay);
         }
     }
@@ -129,6 +129,68 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             marketCardDisplays[i].DiscardMarketCard(i);
 
         }
+    }
+
+    public void RemoveLevel0Cards()
+    {
+        foreach (MarketDeck deck in marketDecks)
+        {
+            List<Card> cardsToRemove = new List<Card>();
+            foreach(Card card in deck.deck)
+            {
+                if(card.cardLevel == 0)
+                {
+                    cardsToRemove.Add(card);
+                }
+            }
+            foreach(Card card in cardsToRemove)
+            {
+                deck.RemoveCard(card);
+            }
+
+            cardsToRemove = new List<Card>();
+            foreach (Card card in deck.discard)
+            {
+                if (card.cardLevel == 0)
+                {
+                    cardsToRemove.Add(card);
+                }
+            }
+            foreach (Card card in cardsToRemove)
+            {
+                deck.RemoveCardFromDiscard(card);
+            }
+        }
+    }
+
+    public void NoMoreCardBuying()
+    {
+        MarketDeck newMarketDeck = new MarketDeck();
+        newMarketDeck.CreateNewDeck();
+
+        foreach (MarketDeck deck in marketDecks)
+        {
+            foreach(Card card in deck.deck)
+            {
+                newMarketDeck.AddCard(card);
+            }
+        }
+
+        marketDecks = new List<MarketDeck>();
+        marketDecks.Add(newMarketDeck);
+        marketDecks.Add(newMarketDeck);
+
+        marketCardDisplays[4].gameObject.SetActive(false);
+        marketCardDisplays[3].gameObject.SetActive(false);
+        marketCardDisplays[2].gameObject.SetActive(false);
+        marketCardDisplays.RemoveAt(4);
+        marketCardDisplays.RemoveAt(3);
+        marketCardDisplays.RemoveAt(2);
+
+        marketCardDisplays[0].transform.localPosition = new Vector3(-150f, 0f, 0f);
+        marketCardDisplays[1].transform.localPosition = new Vector3(150f, 0f, 0f);
+
+        noPrice = true;
     }
 }
 
@@ -157,6 +219,11 @@ public class MarketDeck
     public void RemoveCard(Card card)
     {
         deck.Remove(card);
+    }
+
+    public void RemoveCardFromDiscard(Card card)
+    {
+        discard.Remove(card);
     }
 
     public void ShuffleDeck()

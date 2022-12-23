@@ -9,8 +9,9 @@ public class EnemyMovement : MonoBehaviour
 
     internal Enemy enemy;
     internal float additionalSpeed;
+    internal bool stopped;
 
-    int moveIndex = 0;
+    internal int moveIndex = 0;
     float distanceToNextPath;
 
     void Update()
@@ -20,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
 
-        if (moveIndex != movementPath.Count)
+        if (moveIndex != movementPath.Count && !stopped)
         {
             float moveDistance = (movementSpeed + additionalSpeed) * Time.deltaTime;
             while (moveDistance > 0.0001f)

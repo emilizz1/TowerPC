@@ -7,20 +7,26 @@ using System;
 [Serializable]
 public class ResearchCastle : Research
 {
-    public int maxHealthMultiplayer;
+    public int maxHealthAddition;
     public int increaseRegen;
+    public int enemyDamageStoppedCount;
 
     public override void Researched()
     {
         base.Researched();
-        if (maxHealthMultiplayer > 0)
+        if (maxHealthAddition > 0)
         {
-            PlayerLife.instance.MaxHealthMultiplied(maxHealthMultiplayer);
+            PlayerLife.instance.MaxHealthAddition(maxHealthAddition);
         }
 
         if (increaseRegen > 0)
         {
             PlayerLife.instance.regen += increaseRegen;
+        }
+
+        if (enemyDamageStoppedCount > 0)
+        {
+            PlayerLife.instance.IncreaseIgnorAmount ( enemyDamageStoppedCount);
         }
     }
 }

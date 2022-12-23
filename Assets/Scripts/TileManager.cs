@@ -11,6 +11,8 @@ public class TileManager : MonoSingleton<TileManager>
 
     const float NEXT_TILE_PLACEMENT_DIFFERENCE = 9f;
 
+    public static event Action<Tile> OnTilePlaced;
+
     internal List<Tile> tiles;
 
     List<Vector2> reservedCoordinates;
@@ -23,6 +25,7 @@ public class TileManager : MonoSingleton<TileManager>
         tiles.Add(startingTile);
         FillReservedCoordinates(startingTile, startingTile.coordinates);
         ChangeButtonInteractability(false);
+        OnTilePlaced = null;
     }
 
     public void PlaceNewTile(Vector2 from, Vector2 to, Lane prevLane)
@@ -56,6 +59,7 @@ public class TileManager : MonoSingleton<TileManager>
         //FillReservedCoordinates(newTile);
 
         tiles.Add(newTile);
+        OnTilePlaced?.Invoke(newTile);
         EnemyManager.instance.SpawnNextWave();
         ActivateExpandButtons();
     }

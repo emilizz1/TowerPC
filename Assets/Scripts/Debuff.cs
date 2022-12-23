@@ -15,7 +15,7 @@ public class Debuff : MonoBehaviour
         AddStack();
     }
 
-    private void Update()
+    internal virtual void Update()
     {
         if(myEnemy.returning == true)
         {

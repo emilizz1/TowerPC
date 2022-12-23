@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
 {
     public Sprite image;
     public string towerName;
+    public string specialText;
 
     [Header("Components")]
     public Transform rangeSprite;
@@ -172,15 +173,20 @@ public class Tower : MonoBehaviour
         experience += EXP_PER_SHOT + PasiveTowerStatsController.extraExperience;
         if(experience >= experienceNeeded[currentLevel])
         {
-            experience -= experienceNeeded[currentLevel];
-            levelUpRings[currentLevel].SetActive(true);
-            currentLevel++;
-            levelUp.Play();
-            audioSource.clip = SoundsController.instance.GetAudioClip("LevelUp");
-            audioSource.Play();
-            SetupRange();
+            LevelUp();
         }
         TowerInfoWindow.instance.UpdateInfo(this);
+    }
+
+    public void LevelUp()
+    {
+        experience -= experienceNeeded[currentLevel];
+        levelUpRings[currentLevel].SetActive(true);
+        currentLevel++;
+        levelUp.Play();
+        audioSource.clip = SoundsController.instance.GetAudioClip("LevelUp");
+        audioSource.Play();
+        SetupRange();
     }
 
     void FindTarget()
@@ -334,6 +340,15 @@ public class Tower : MonoBehaviour
         if (reachableEnemies.Contains(enemy.movement))
         {
             reachableEnemies.Remove(enemy.movement);
+        }
+    }
+
+    public void UpgradeTower()
+    {
+        int experienceToGive = experienceNeeded[currentLevel] - experience;
+        for (int i = 0; i < experienceToGive; i++)
+        {
+            AddExperience();
         }
     }
 }

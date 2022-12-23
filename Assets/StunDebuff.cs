@@ -15,14 +15,14 @@ public class StunDebuff : Debuff
     internal override void ApplyDebuff()
     {
         base.ApplyDebuff();
-        myEnemy.movement.additionalSpeed -= myEnemy.movement.movementSpeed;
+        myEnemy.movement.stopped =true;
         myEnemy.debuffIcons.AddNewIcon(info.icon);
     }
 
     internal override void RemoveDebuff()
     {
         base.RemoveDebuff();
-        myEnemy.movement.additionalSpeed += myEnemy.movement.movementSpeed;
+        myEnemy.movement.stopped = false;
         myEnemy.debuffIcons.RemoveIcon(info.icon);
     }
 

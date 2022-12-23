@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TerrainPlacer : MonoSingleton<TerrainPlacer>
 {
+    public float spawnChance = 0.01f;
+
     [SerializeField] List<GameObject> terrains;
-    [SerializeField] float spawnChance = 0.01f;
 
     float currentSpawnChance;
 

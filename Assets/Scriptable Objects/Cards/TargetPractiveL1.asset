@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb14016ea6f28934b902ecb5b18bb62a, type: 3}
+  m_Name: TargetPractiveL1
+  m_EditorClassIdentifier: 
+  cardName: Target Practice
+  cardType: 2
+  cardImage: {fileID: 21300000, guid: 9dc27a7e8d5341b4fb7fc7f888f2fc4e, type: 3}
+  moneyCost: 0
+  manaCost: 12
+  buyCostMultiplayer: 2.4
+  cardLevel: 0
+  description: Level up Tower
+  damageTypes: 
+  maxUses: 0
+  spellPrefab: {fileID: 3882510687299103847, guid: 20b1d3ef2492f6b49965b06ba536bf35, type: 3}

@@ -9,14 +9,23 @@ public class ExplosiveBullet : Bullet
 
     internal override void TargetReached()
     {
-        Enemy myEnemy = target.GetComponent<Enemy>();
-        foreach(Enemy enemy in EnemyManager.instance.aliveEnemies)
+        if (target == null)
         {
-            if(enemy != myEnemy)
-            {           
-                if (Vector3.Distance(transform.position, enemy.transform.position) < explosionRadius)
+            return;
+        }
+        Enemy myEnemy = target.GetComponent<Enemy>();
+        List<Enemy> currentlyAliveEnemies = new List<Enemy>(EnemyManager.instance.aliveEnemies);
+        foreach (Enemy enemy in currentlyAliveEnemies)
+        {
+            if (enemy == null)
+            {
+                continue;
+            }
+            if (enemy != myEnemy)
+            {
+                if (Vector3.Distance(target.transform.position, enemy.transform.position) < explosionRadius)
                 {
-                    target.GetComponent<Enemy>().DealDamage(damage);
+                    enemy.GetComponent<Enemy>().DealDamage(damage);
                 }
             }
         }

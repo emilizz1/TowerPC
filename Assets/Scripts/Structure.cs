@@ -15,6 +15,12 @@ public class Structure : MonoBehaviour
 
     public virtual void Activate(TerrainBonus terrain)
     {
+        if (active)
+        {
+            Debug.Log("Returned");
+            return;
+        }
+        active = true;
         SoundsController.instance.GetAudioClip("TowerPlaced");
         audioSource.Play();
     }

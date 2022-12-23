@@ -36,7 +36,8 @@ public class TerrainBonus : MonoBehaviour
         forrest,
         field,
         snow,
-        mountain
+        mountain,
+        aura
     }
 
     Spot mySpot;
@@ -44,7 +45,7 @@ public class TerrainBonus : MonoBehaviour
     void Start()
     {
         mySpot = GetComponentInParent<Spot>();
-        mySpot.terrainBonus = this;
+        mySpot.terrainBonus.Add( this);
 
         foreach(Spot spot in mySpot.myTile.GetAdjacentSpots(mySpot))
         {

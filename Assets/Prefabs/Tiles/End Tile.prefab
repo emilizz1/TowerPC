@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2601127589158378143}
+  terrainSpawnChance: 0
 --- !u!1 &159184819132413766
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4289175968441063766}
+  terrainSpawnChance: 0
 --- !u!1 &490906934896718017
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2455464297504479437}
+  terrainSpawnChance: 0.6
 --- !u!1 &512260364592695055
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3191730649491628032}
+  terrainSpawnChance: 1.2
 --- !u!1 &531328365593224051
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3197658706623159659}
+  terrainSpawnChance: 0.4
 --- !u!1 &571396016377620569
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 1310570334418051873}
+  terrainSpawnChance: 1
 --- !u!1 &838805793689865197
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 1117483891548909959}
+  terrainSpawnChance: 0.6
 --- !u!1 &944482423090971571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 8989083421594235131}
+  terrainSpawnChance: 1.6
 --- !u!1 &978070571023005976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5670381554772182421}
+  terrainSpawnChance: 1
 --- !u!1 &1098921412880402253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 944482423090971571}
+  terrainSpawnChance: 0
 --- !u!1 &1117483891548909959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4889308337706330531}
+  terrainSpawnChance: 0.2
 --- !u!1 &1310570334418051873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 531328365593224051}
+  terrainSpawnChance: 1
 --- !u!1 &1491460708998482201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,6 +1755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2114040978285073126}
+  terrainSpawnChance: 0.4
 --- !u!1 &1542421322594431074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3417445277900792061}
+  terrainSpawnChance: 0.2
 --- !u!1 &1600427304653153642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7790983900121765236}
+  terrainSpawnChance: 0.6
 --- !u!1 &2046725483357313899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7984313932967435808}
+  terrainSpawnChance: 2
 --- !u!1 &2102402588279395145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,6 +2383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6287959668991112523}
+  terrainSpawnChance: 1
 --- !u!1 &2219812418851117928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,6 +2495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5350874302955026878}
+  terrainSpawnChance: 1
 --- !u!1 &2317212414608495993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,6 +2607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5922751963661436171}
+  terrainSpawnChance: 1
 --- !u!1 &2455464297504479437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,6 +2749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6620331902154758292}
+  terrainSpawnChance: 0.4
 --- !u!1 &2468660522871637973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7450518177801343306}
+  terrainSpawnChance: 0.6
 --- !u!1 &2521251013861283862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,6 +3003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6227009122776895854}
+  terrainSpawnChance: 0.8
 --- !u!1 &2534078496428921159
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,6 +3145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5711277739034203951}
+  terrainSpawnChance: 1.6
 --- !u!1 &2601127589158378143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 1689494004615512189}
+  terrainSpawnChance: 0.2
 --- !u!1 &2924799341664146837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,6 +3429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6301468336874472021}
+  terrainSpawnChance: 2
 --- !u!1 &2956077515972241488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,6 +3601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 1600427304653153642}
+  terrainSpawnChance: 0.4
 --- !u!1 &3081430702183053718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,6 +3863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 9171802496529371518}
+  terrainSpawnChance: 1.4
 --- !u!1 &3374544479091361765
 GameObject:
   m_ObjectHideFlags: 0
@@ -3948,6 +3975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3913424585113589904}
+  terrainSpawnChance: 1
 --- !u!1 &3417445277900792061
 GameObject:
   m_ObjectHideFlags: 0
@@ -4089,6 +4117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 8826729460034376588}
+  terrainSpawnChance: 0.2
 --- !u!1 &3598658903409610702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,6 +4229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4448074135552768353}
+  terrainSpawnChance: 0.8
 --- !u!1 &3780861975813781273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,6 +4621,7 @@ Transform:
   - {fileID: 2229448244967750402}
   - {fileID: 4734808796684185298}
   - {fileID: 3799307347534846870}
+  - {fileID: 6022252883453725149}
   m_Father: {fileID: 3817363654971042194}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4735,6 +4766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3866036905048876431}
+  terrainSpawnChance: 1.4
 --- !u!1 &3896455698211543265
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,6 +4878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2468660522871637973}
+  terrainSpawnChance: 1.8
 --- !u!1 &3909256911425326309
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,6 +5050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 838805793689865197}
+  terrainSpawnChance: 0.4
 --- !u!1 &4041564668964441221
 GameObject:
   m_ObjectHideFlags: 0
@@ -5218,6 +5252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5992002592127446509}
+  terrainSpawnChance: 0.4
 --- !u!1 &4120803998516152545
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,6 +5364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 8242300682767273147}
+  terrainSpawnChance: 1.6
 --- !u!1 &4272372676268127251
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,6 +5476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7276942625032386574}
+  terrainSpawnChance: 1.2
 --- !u!1 &4276511945905214545
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,6 +5648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4041564668964441221}
+  terrainSpawnChance: 1.2
 --- !u!1 &4448074135552768353
 GameObject:
   m_ObjectHideFlags: 0
@@ -5752,6 +5790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2976991237189680826}
+  terrainSpawnChance: 1
 --- !u!1 &4481171486669760729
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,6 +5932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4276511945905214545}
+  terrainSpawnChance: 0.8
 --- !u!1 &4668823287510222105
 GameObject:
   m_ObjectHideFlags: 0
@@ -6034,6 +6074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6758964850519513020}
+  terrainSpawnChance: 0
 --- !u!1 &4889308337706330531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6175,6 +6216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4481171486669760729}
+  terrainSpawnChance: 1
 --- !u!1 &5127759318515515941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,6 +6328,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 1792900901699206204}
+  terrainSpawnChance: 1.8
+--- !u!1 &5140784111180354472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2326591932130783724}
+  m_Layer: 0
+  m_Name: New Game Object(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2326591932130783724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140784111180354472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6022252883453725149}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5167766794951681338
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,6 +6470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3909256911425326309}
+  terrainSpawnChance: 1.4
 --- !u!1 &5331864598650760228
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,6 +6582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6354007085378923679}
+  terrainSpawnChance: 0.8
 --- !u!1 &5350874302955026878
 GameObject:
   m_ObjectHideFlags: 0
@@ -6649,6 +6724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5513183067795143306}
+  terrainSpawnChance: 0.8
 --- !u!1 &5513183067795143306
 GameObject:
   m_ObjectHideFlags: 0
@@ -6820,6 +6896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7618720052685996082}
+  terrainSpawnChance: 1.8
 --- !u!1 &5626895494387958633
 GameObject:
   m_ObjectHideFlags: 0
@@ -7171,6 +7248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5923047628653666982}
+  terrainSpawnChance: 1.6
 --- !u!1 &5990423104962430103
 GameObject:
   m_ObjectHideFlags: 0
@@ -7372,6 +7450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3786128371707961417}
+  terrainSpawnChance: 0.8
 --- !u!1 &6248292917610278218
 GameObject:
   m_ObjectHideFlags: 0
@@ -7513,6 +7592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 955536326227738233}
+  terrainSpawnChance: 1.4
 --- !u!1 &6256806514668777188
 GameObject:
   m_ObjectHideFlags: 0
@@ -7624,6 +7704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4058876439868478599}
+  terrainSpawnChance: 1.8
 --- !u!1 &6287959668991112523
 GameObject:
   m_ObjectHideFlags: 0
@@ -7825,6 +7906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3081430702183053718}
+  terrainSpawnChance: 1
 --- !u!1 &6543579212326200384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7936,6 +8018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 571396016377620569}
+  terrainSpawnChance: 1.4
 --- !u!1 &6620331902154758292
 GameObject:
   m_ObjectHideFlags: 0
@@ -8107,6 +8190,119 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2102402588279395145}
+  terrainSpawnChance: 1.4
+--- !u!1 &6754952247100037150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6022252883453725149}
+  - component: {fileID: 3967231403755871782}
+  - component: {fileID: 812427536324884510}
+  - component: {fileID: 8094772296765775110}
+  - component: {fileID: 3390734716566434229}
+  m_Layer: 0
+  m_Name: Spot 1 0 (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6022252883453725149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754952247100037150}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_Children:
+  - {fileID: 2326591932130783724}
+  m_Father: {fileID: 3817363655230102674}
+  m_RootOrder: 81
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3967231403755871782
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754952247100037150}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &812427536324884510
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754952247100037150}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1cce2e114944c7743a24a45efb5266ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8094772296765775110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754952247100037150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3390734716566434229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754952247100037150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTile: {fileID: 7004037675673740507}
+  spawnPoint: {fileID: 5140784111180354472}
+  terrainSpawnChance: 0
 --- !u!1 &6758964850519513020
 GameObject:
   m_ObjectHideFlags: 0
@@ -8248,6 +8444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5650423994718634458}
+  terrainSpawnChance: 0.8
 --- !u!1 &6973041404732450210
 GameObject:
   m_ObjectHideFlags: 0
@@ -8359,6 +8556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 8340578762357269282}
+  terrainSpawnChance: 0.4
 --- !u!1 &6974010766183937103
 GameObject:
   m_ObjectHideFlags: 0
@@ -8470,6 +8668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3780861975813781273}
+  terrainSpawnChance: 1.2
 --- !u!1 &6984376058392564616
 GameObject:
   m_ObjectHideFlags: 0
@@ -8581,6 +8780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7237566461860930558}
+  terrainSpawnChance: 0.6
 --- !u!1 &7014768650529498623
 GameObject:
   m_ObjectHideFlags: 0
@@ -8692,6 +8892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7575522444517069037}
+  terrainSpawnChance: 0.8
 --- !u!1 &7055018366128684525
 GameObject:
   m_ObjectHideFlags: 0
@@ -8803,6 +9004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2674278029373138142}
+  terrainSpawnChance: 1
 --- !u!1 &7102190674830338307
 GameObject:
   m_ObjectHideFlags: 0
@@ -8914,6 +9116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4668823287510222105}
+  terrainSpawnChance: 1
 --- !u!1 &7170880530937609516
 GameObject:
   m_ObjectHideFlags: 0
@@ -9025,6 +9228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6248292917610278218}
+  terrainSpawnChance: 0.2
 --- !u!1 &7237566461860930558
 GameObject:
   m_ObjectHideFlags: 0
@@ -9196,6 +9400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5990423104962430103}
+  terrainSpawnChance: 1.4
 --- !u!1 &7303701193884866241
 GameObject:
   m_ObjectHideFlags: 0
@@ -9337,6 +9542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7611123114403081584}
+  terrainSpawnChance: 0.6
 --- !u!1 &7440970474683643889
 GameObject:
   m_ObjectHideFlags: 0
@@ -9448,6 +9654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 159184819132413766}
+  terrainSpawnChance: 1
 --- !u!1 &7450518177801343306
 GameObject:
   m_ObjectHideFlags: 0
@@ -9739,6 +9946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3143319249432954662}
+  terrainSpawnChance: 1.2
 --- !u!1 &7867981832201282396
 GameObject:
   m_ObjectHideFlags: 0
@@ -9850,6 +10058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 4047897563046161160}
+  terrainSpawnChance: 0.8
 --- !u!1 &7909072588237029183
 GameObject:
   m_ObjectHideFlags: 0
@@ -9961,6 +10170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7303701193884866241}
+  terrainSpawnChance: 1.6
 --- !u!1 &7984313932967435808
 GameObject:
   m_ObjectHideFlags: 0
@@ -10102,6 +10312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 8757411943102234142}
+  terrainSpawnChance: 0.6
 --- !u!1 &8194403566370388854
 GameObject:
   m_ObjectHideFlags: 0
@@ -10213,6 +10424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 1705974623664916254}
+  terrainSpawnChance: 0.4
 --- !u!1 &8242300682767273147
 GameObject:
   m_ObjectHideFlags: 0
@@ -10354,6 +10566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 701709350383856086}
+  terrainSpawnChance: 0.6
 --- !u!1 &8309423075162863683
 GameObject:
   m_ObjectHideFlags: 0
@@ -10465,6 +10678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3209611758138420644}
+  terrainSpawnChance: 1
 --- !u!1 &8340578762357269282
 GameObject:
   m_ObjectHideFlags: 0
@@ -10606,6 +10820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5626895494387958633}
+  terrainSpawnChance: 1.2
 --- !u!1 &8495314723202814248
 GameObject:
   m_ObjectHideFlags: 0
@@ -10717,6 +10932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 9174747331319445972}
+  terrainSpawnChance: 0
 --- !u!1 &8498976444556756324
 GameObject:
   m_ObjectHideFlags: 0
@@ -10828,6 +11044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5525996768900752534}
+  terrainSpawnChance: 1.6
 --- !u!1 &8528636687624155216
 GameObject:
   m_ObjectHideFlags: 0
@@ -10939,6 +11156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5801055732629067824}
+  terrainSpawnChance: 1.2
 --- !u!1 &8717096112399870221
 GameObject:
   m_ObjectHideFlags: 0
@@ -11050,6 +11268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5705415732765598683}
+  terrainSpawnChance: 1.4
 --- !u!1 &8757411943102234142
 GameObject:
   m_ObjectHideFlags: 0
@@ -11221,6 +11440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 978070571023005976}
+  terrainSpawnChance: 0.2
 --- !u!1 &8895622584827622984
 GameObject:
   m_ObjectHideFlags: 0
@@ -11332,6 +11552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 7682812765151315634}
+  terrainSpawnChance: 0.6
 --- !u!1 &8941985272432786669
 GameObject:
   m_ObjectHideFlags: 0
@@ -11443,6 +11664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2534078496428921159}
+  terrainSpawnChance: 1
 --- !u!1 &8989083421594235131
 GameObject:
   m_ObjectHideFlags: 0
@@ -11584,6 +11806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 2956077515972241488}
+  terrainSpawnChance: 1.2
 --- !u!1 &9106095425790873269
 GameObject:
   m_ObjectHideFlags: 0
@@ -11695,6 +11918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 6738146548500015122}
+  terrainSpawnChance: 0
 --- !u!1 &9171802496529371518
 GameObject:
   m_ObjectHideFlags: 0

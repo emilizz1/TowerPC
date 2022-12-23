@@ -118,7 +118,7 @@ public class Tile : MonoBehaviour
         return laneEnds;
     }
 
-    public List<Spot> GetAdjacentSpots(Spot startingSpot)
+    public List<Spot> GetAdjacentSpots(Spot startingSpot, bool shouldIgnorTerrain = false)
     {
         List<Spot> adjacentSpots = new List<Spot>();
         Vector3 spotPos = startingSpot.transform.position;
@@ -129,17 +129,35 @@ public class Tile : MonoBehaviour
         lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z - 1));
         foreach (Spot spot in allSpots)
         {
-            if (spot.gameObject.activeSelf && spot.terrainBonus == null)
+            if (spot.gameObject.activeSelf)
             {
-                foreach (Vector3 looking in lookingFor)
+                if (shouldIgnorTerrain || spot.terrainBonus.Count == 0)
                 {
-                    if (spot.transform.position == looking)
+                    foreach (Vector3 looking in lookingFor)
                     {
-                        adjacentSpots.Add(spot);
+                        if (spot.transform.position == looking)
+                        {
+                            adjacentSpots.Add(spot);
+                        }
                     }
                 }
             }
         }
         return adjacentSpots;
+    }
+
+    public Spot GetClosestSpot(Vector3 pos)
+    {
+        Spot closest = allSpots[0];
+        float closestDist = Vector3.Distance(pos, allSpots[0].transform.position);
+        foreach (Spot spot in allSpots)
+        {
+            if (Vector3.Distance(pos, spot.transform.position) < closestDist)
+            {
+                closest = spot;
+                closestDist = Vector3.Distance(pos, spot.transform.position);
+            }
+        }
+        return closest;
     }
 }

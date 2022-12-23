@@ -19,12 +19,14 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         enemyHealth = 0,
         enemyArmor = 1,
         enemyShield = 2,
+        enemyHound = 3,
         enemyBoss = 50,
         basicBullet = 100,
         lightningBullet =101,
         arrow =102,
         spear = 103,
-        explosion = 104
+        explosion = 104,
+        dart = 105
 
     }
 

@@ -6,6 +6,7 @@ public class EnemySpecial : MonoBehaviour
 {
     public float cooldown;
     public float useTime;
+    public GameObject particles;
 
     internal bool currentlyInUse = false;
 
@@ -13,6 +14,7 @@ public class EnemySpecial : MonoBehaviour
     {
 
         currentlyInUse = true;
+        particles.SetActive(true);
         StartCoroutine(SpecialInUse());
     }
 
@@ -26,5 +28,6 @@ public class EnemySpecial : MonoBehaviour
     internal virtual void SpecialFinished()
     {
         currentlyInUse = false;
+        particles.SetActive(false);
     }
 }

@@ -36,17 +36,23 @@ public class EnemyManager : MonoSingleton<EnemyManager>
                 {
                     int randomEnemyIndex = Random.Range(0, myWave.enemies.Count);
                     GameObject newEnemyObj = ObjectPools.instance.GetPool(myWave.enemies[randomEnemyIndex]).GetObject();
-                    newEnemyObj.transform.parent = transform;
-                    newEnemyObj.transform.position = lane.spawnPoint.transform.position;
                     myWave.enemies.RemoveAt(randomEnemyIndex);
-                    Enemy newEnemy = newEnemyObj.GetComponent<Enemy>();
-                    aliveEnemies.Add(newEnemy);
-                    newEnemy.ResetEnemy();
+                    Enemy newEnemy =  SpawnEnemy(newEnemyObj, lane.spawnPoint.transform.position);
                     FillMovementWithLanePath(newEnemy.movement, lane);
                     yield return new WaitForSeconds(spawnTime);
                 }
             }
         }
+    }
+
+    public Enemy SpawnEnemy(GameObject enemy, Vector3 spawnPos)
+    {
+        enemy.transform.parent = transform;
+        enemy.transform.position = spawnPos;
+        Enemy newEnemy = enemy.GetComponent<Enemy>();
+        aliveEnemies.Add(newEnemy);
+        newEnemy.ResetEnemy();
+        return newEnemy;
     }
 
     void FillMovementWithLanePath(EnemyMovement enemyMovement, Lane lane)

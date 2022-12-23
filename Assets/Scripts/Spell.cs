@@ -103,4 +103,9 @@ public class Spell : MonoBehaviour
         //Later pool these objects
         Destroy(gameObject);
     }
+
+    public virtual void SpellMoved()
+    {
+
+    }
 }

@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   front: {fileID: 7282539305904815958}
+  bg: {fileID: 9158853093297449596}
   back: {fileID: 7413904486563261569}
   cardName: {fileID: 6603064070249216338}
   typeBg: {fileID: 5970125986217203986}

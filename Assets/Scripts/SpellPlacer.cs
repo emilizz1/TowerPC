@@ -14,6 +14,7 @@ public static class SpellPlacer
     {
         Camera camera = Camera.main;
         Transform spellTransform = spellToPlace.transform;
+        Spell mySpell = spellToPlace.GetComponent<Spell>();
         int snapping = spellToPlace.GetComponent<Spell>().snappingSize;
         Vector3 newPos = Vector3.zero;
         Plane plane = new Plane(Vector3.up, 0f);
@@ -26,8 +27,16 @@ public static class SpellPlacer
             {
                 newPos = ray.GetPoint(distance);
                 newPos.x = Mathf.Round( newPos.x / snapping) * snapping;
-                newPos.z = Mathf.Round(newPos.z / snapping) * snapping;
-                spellTransform.position = newPos;
+                newPos.z = Mathf.Round(newPos.z- 0.5f / snapping) * snapping;
+                if(spellTransform.position != newPos)
+                {
+                    spellTransform.position = newPos;
+                    mySpell.SpellMoved();
+                }
+                else
+                {
+                    spellTransform.position = newPos;
+                }
             }
             yield return null;
         }

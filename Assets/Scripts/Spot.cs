@@ -9,15 +9,16 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject spawnPoint;
     public float terrainSpawnChance = 1f;
 
-    internal TerrainBonus terrainBonus;
+    internal List< TerrainBonus> terrainBonus;
 
-    GameObject spotObj;
+    internal GameObject spotObj;
 
     internal bool objBuilt;
     bool readyToBuild;
 
     private void Start()
     {
+        terrainBonus = new List<TerrainBonus>();
         if (transform.childCount == 0)
         {
             GameObject child = Instantiate(new GameObject(), transform);
@@ -58,12 +59,15 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             spotObj.GetComponent<Tower>().currentLevel = TowerPlacer.startingLevel;
             Tower towerToPlace = spotObj.GetComponent<Tower>();
             towerToPlace.PrepareTower();
-            if (terrainBonus != null)
+            if (terrainBonus.Count > 0)
             {
-                TowerInfoWindow.instance.ShowInfoWithTerrain(towerToPlace, terrainBonus);
-                if (terrainBonus.statsMultiplayers.range > 0)
+                foreach (TerrainBonus terrain in terrainBonus)
                 {
-                    towerToPlace.SetupRange(terrainBonus.statsMultiplayers.range);
+                    TowerInfoWindow.instance.ShowInfoWithTerrain(towerToPlace, terrain);
+                    if (terrain.statsMultiplayers.range > 0)
+                    {
+                        towerToPlace.SetupRange(terrain.statsMultiplayers.range);
+                    }
                 }
             }
             else
@@ -107,9 +111,12 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (spotObj != null)
         {
             Tower tower = spotObj.GetComponent<Tower>();
-            if (terrainBonus != null)
+            if (terrainBonus.Count > 0)
             {
-                terrainBonus.AddStats(tower);
+                foreach (TerrainBonus terrain in terrainBonus)
+                {
+                    terrain.AddStats(tower);
+                }
             }
             tower.Activate();
             objBuilt = true;
@@ -124,7 +131,17 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (spotObj != null)
         {
             Structure structure = spotObj.GetComponent<Structure>();
-            structure.Activate(terrainBonus);
+            if (terrainBonus.Count > 0)
+            {
+                foreach (TerrainBonus terrain in terrainBonus)
+                {
+                    structure.Activate(terrain);
+                }
+            }
+            else
+            {
+                structure.Activate(null);
+            }
             objBuilt = true;
             readyToBuild = false;
             StructurePlacer.allStructures.Add(structure);

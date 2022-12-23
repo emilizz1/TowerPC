@@ -9,13 +9,12 @@ public class TerrainSpawnerSpell : Spell
 
     public override void Activate()
     {
-        Debug.Log("Activated");
         base.Activate();
         Tile myTile = TileManager.instance.GetClosestTile(transform.position);
         List<Spot> availableSpots = new List<Spot>();
         foreach (Spot spot in myTile.allSpots)
         {
-            if (!spot.objBuilt && spot.terrainBonus == null && spot.isActiveAndEnabled)
+            if (!spot.objBuilt && spot.terrainBonus.Count == 0 && spot.isActiveAndEnabled)
             {
                 availableSpots.Add(spot);
             }

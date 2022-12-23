@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject front;
+    [SerializeField] Image bg;
     [SerializeField] GameObject back;
     [SerializeField] TextMeshProUGUI cardName;
     [SerializeField] Image typeBg;
@@ -53,7 +54,9 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
         keywords.text = keywordText;
-        uses.text = "charges " + (cardToDisplay.maxUses - cardToDisplay.timesUsed).ToString() + " / " + cardToDisplay.maxUses.ToString();
+
+        int maxUses = cardToDisplay.maxUses + ChargesController.GetChargesAddition(cardToDisplay.cardType);
+        uses.text = "charges " + (maxUses - cardToDisplay.timesUsed).ToString() + " / " + maxUses.ToString();
 
         if (cardToDisplay.moneyCost > 0)
         {
@@ -323,5 +326,44 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         front.SetActive(false);
         back.SetActive(false);
         displayedCard = null;
+    }
+
+    public void FlashCard()
+    {
+        StartCoroutine(FlashCardAnimation());
+    }
+
+    public IEnumerator FlashCardAnimation()
+    {
+        Color startingColor = bg.color;
+        Color newColor = Color.white;
+
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.1f);
+        bg.color = startingColor;
+        yield return new WaitForSeconds(0.1f);
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.15f);
+        bg.color = startingColor;
+        yield return new WaitForSeconds(0.15f);
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.2f);
+        bg.color = startingColor;
+        yield return new WaitForSeconds(0.2f);
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.25f);
+        bg.color = startingColor;
+        yield return new WaitForSeconds(0.25f);
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.3f);
+        bg.color = startingColor;
+        yield return new WaitForSeconds(0.3f);
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.35f);
+        bg.color = startingColor;
+        yield return new WaitForSeconds(0.35f);
+        bg.color = newColor;
+        yield return new WaitForSeconds(0.4f);
+        bg.color = startingColor;
     }
 }

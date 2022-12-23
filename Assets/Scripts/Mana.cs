@@ -116,4 +116,11 @@ public class Mana : MonoSingleton<Mana>
         regenAmount += newAmount;
         incomeText.text = "+" + regenAmount + " per second";
     }
+
+    public void IncreaseMaxMana(int amount)
+    {
+        maxAmount += amount;
+        currentAmount = Mathf.Min(maxAmount, currentAmount + amount);
+        amountText.text = currentAmount.ToString() + "/" + maxAmount.ToString();
+    }
 }

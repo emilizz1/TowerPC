@@ -32,6 +32,7 @@ public static class TurnController
                 TileManager.instance.ChangeButtonInteractability(true);
 
             }
+            PlayerLife.instance.NewRound();
             PhaseInfo.instance.PhaseChanged(currentPhase);
         }
     }
