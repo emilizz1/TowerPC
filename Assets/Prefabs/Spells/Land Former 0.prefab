@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 150
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4853,12 +4853,14 @@ MonoBehaviour:
   range: 0
   snappingSize: 9
   duration: 1
+  durationNumber: {fileID: 0}
   startParticles: {fileID: 0}
   rangeSprite: {fileID: 0}
   sphere: {fileID: 0}
   audioSource: {fileID: -3412472450144938405}
-  terrainToSpawn: 2
+  terrainToSpawn: 1
   particles: {fileID: 8646074639332624545}
+  rangeIndicator: {fileID: 4724895723273214370}
 --- !u!82 &-3412472450144938405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4869,9 +4871,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b327f8713786ce64fb1a308be418c14e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3b160eebf5dbf114ea7d780a696c3014, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4879,10 +4881,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 200
+  MinDistance: 0
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -4915,7 +4917,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

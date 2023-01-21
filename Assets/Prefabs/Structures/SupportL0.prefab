@@ -268,8 +268,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4796524506784668450}
-  - component: {fileID: 4401864299483333385}
   - component: {fileID: 8371427872219201663}
+  - component: {fileID: 4401864299483333385}
   m_Layer: 2
   m_Name: SupportL0
   m_TagString: Untagged
@@ -294,6 +294,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8371427872219201663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796524506784668451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f068b1f68551e344ebe80e70307ae6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 3ec1087b5a55b60409ef72bdd9911bfa, type: 3}
+  structureName: Aura Support
+  canvas: {fileID: 1534032786743585428}
+  audioSource: {fileID: 4401864299483333385}
+  auraTerrain: {fileID: 4025642262819242764, guid: ef4ea9bd46540a5479c494c52051eb30, type: 3}
 --- !u!82 &4401864299483333385
 AudioSource:
   m_ObjectHideFlags: 0
@@ -304,9 +321,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0595e83fe4b6f6a4184537ea8d896462, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c56940de29f53d746959919c753bcbbd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -314,10 +331,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 200
+  MinDistance: 0
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -350,7 +367,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -390,23 +407,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8371427872219201663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4796524506784668451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f068b1f68551e344ebe80e70307ae6a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 3ec1087b5a55b60409ef72bdd9911bfa, type: 3}
-  structureName: Aura Support
-  canvas: {fileID: 1534032786743585428}
-  audioSource: {fileID: 4401864299483333385}
-  auraTerrain: {fileID: 4025642262819242764, guid: ef4ea9bd46540a5479c494c52051eb30, type: 3}
 --- !u!1 &5099962045927694726
 GameObject:
   m_ObjectHideFlags: 0

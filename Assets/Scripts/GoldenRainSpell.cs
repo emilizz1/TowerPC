@@ -9,7 +9,6 @@ public class GoldenRainSpell : Spell
 
     List<Enemy> enemies = new List<Enemy>();
 
-
     private void Update()
     {
         timePassed += Time.deltaTime;
@@ -65,6 +64,10 @@ public class GoldenRainSpell : Spell
     {
         //base.StopSpell();
         duration--;
+        if (durationNumber != null)
+        {
+            durationNumber.text = duration > 1 ? duration.ToString() : "";
+        }
         if (duration > 0)
         {
             return;

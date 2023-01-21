@@ -14,14 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Aura Support
   cardType: 4
-  cardImage: {fileID: 21300000, guid: 3ec1087b5a55b60409ef72bdd9911bfa, type: 3}
-  moneyCost: 10
+  cardImage: {fileID: 21300000, guid: 5f2a1d80e15f61d45b3a846030109985, type: 3}
+  moneyCost: 29
   manaCost: 0
-  buyCostMultiplayer: 1.8
-  cardLevel: 0
-  description: 'Increases income
-
-    Double income if placed on mountain'
+  buyCostMultiplayer: 2.33
+  cardLevel: 1
+  description: 'Increases adjacent towers damage by 20% '
   damageTypes: 
-  maxUses: 0
+  maxUses: 3
   structurePrefab: {fileID: 4796524506784668451, guid: bd28f8447a9c7464098cd6803742494d, type: 3}

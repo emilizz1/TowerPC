@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Deck : MonoSingleton<Deck>
@@ -8,12 +9,18 @@ public class Deck : MonoSingleton<Deck>
     public Transform deckTransform;
 
     [SerializeField] TextMeshProUGUI amountText;
+    [SerializeField] List<int> drawNewCardsCost;
+    [SerializeField] TextMeshProUGUI drawNewCardsText;
+    [SerializeField] Button newCardsButton;
 
     internal List<Card> deckCards;
+
+    int drewNewCards = 0;
 
     protected override void Awake()
     {
         base.Awake();
+        drawNewCardsText.text = "New Hand " + drawNewCardsCost[drewNewCards];
         deckCards = new List<Card>();
     }
 
@@ -37,5 +44,24 @@ public class Deck : MonoSingleton<Deck>
     {
         deckCards.Add(cardToAdd);
         amountText.text = deckCards.Count.ToString();
+    }
+
+    public void PressedDrawNewCards()
+    {
+        SoundsController.instance.PlayOneShot("Click");
+        if (Money.instance.TryPaying(drawNewCardsCost[drewNewCards]))
+        {
+            newCardsButton.interactable = false;
+               drewNewCards++;
+            drawNewCardsText.text = "New Hand " + drawNewCardsCost[drewNewCards];
+            Hand.instance.RedrawCards();
+            StartCoroutine(ActivateButtonAfterTime());
+        }
+    }
+
+    IEnumerator ActivateButtonAfterTime()
+    {
+        yield return new WaitForSeconds(3f);
+        newCardsButton.interactable = true;
     }
 }

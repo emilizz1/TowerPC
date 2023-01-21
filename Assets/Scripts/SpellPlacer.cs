@@ -27,7 +27,7 @@ public static class SpellPlacer
             {
                 newPos = ray.GetPoint(distance);
                 newPos.x = Mathf.Round( newPos.x / snapping) * snapping;
-                newPos.z = Mathf.Round(newPos.z- 0.5f / snapping) * snapping;
+                newPos.z = Mathf.Round((newPos.z- 0.5f) / snapping) * snapping;
                 if(spellTransform.position != newPos)
                 {
                     spellTransform.position = newPos;
@@ -56,13 +56,29 @@ public static class SpellPlacer
 
     public static void StopAllSpells()
     {
-        if(activeSpells != null)
+        List<Spell> spellsToRemove = new List<Spell>();
+        if (activeSpells != null)
         {
-            foreach(Spell spell in activeSpells)
+            foreach (Spell spell in activeSpells)
             {
                 spell.StopSpell();
+                if(spell == null || spell.duration == 0)
+                {
+                    spellsToRemove.Add(spell);
+                }
             }
-            activeSpells = new List<Spell>();
+
+            foreach(Spell removeSpell in spellsToRemove)
+            {
+                activeSpells.Remove(removeSpell);
+            }
         }
+    }
+
+    public static void Reset()
+    {
+        spellToPlace = null;
+        activeSpells = new List<Spell>();
+        spellPlaced = false;
     }
 }

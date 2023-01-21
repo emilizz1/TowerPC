@@ -13,6 +13,7 @@ public class ActionCard : Card
     [SerializeField] int addHealth;
     [SerializeField] int drawCards;
     [SerializeField] int advanceResearch;
+    [SerializeField] int discount;
 
     //TODO think of moving these to different classes
     public virtual void PlayAction()
@@ -40,7 +41,18 @@ public class ActionCard : Card
             for (int i = 0; i < advanceResearch; i++)
             {
                 ResearchWindow.instance.AdvanceResearch();
+                ResearchWindow.instance.IfNoResearchSelectedOpen();
             }
         }
+        if(discount > 0)
+        {
+            CostController.currentTurnDiscount += discount;
+            HandCardSlotController.instance.UpdateCards();
+        }
+    }
+
+    public virtual bool CanItBePlayed()
+    {
+        return true;
     }
 }

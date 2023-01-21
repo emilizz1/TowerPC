@@ -17,4 +17,12 @@ public static class TowerPlacer
             tower.ResetTargets();
         }
     }
+
+    public static void Reset()
+    {
+        allTowers = new List<Tower>();
+        towerToPlace = null;
+        startingLevel = 0;
+        towerPlaced = false;
+    }
 }

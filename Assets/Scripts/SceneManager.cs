@@ -16,4 +16,9 @@ public static class SceneManager
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }
+
+    public static string GetCurrentSceneName()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+    }
 }

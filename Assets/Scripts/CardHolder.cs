@@ -7,5 +7,13 @@ using System;
 [Serializable]
 public class CardHolder : ScriptableObject
 {
-    public List<Card> cards;
+    public List<CardHolderCollection> cardsCollection;
+
+    [Serializable]
+    public struct CardHolderCollection
+    {
+        public int levelFrom;
+        public List<Card> cards;
+
+    }
 }

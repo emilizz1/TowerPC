@@ -8,15 +8,15 @@ using System;
 
 public class ResearchHand : Research
 {
-    [SerializeField] bool increaseHandSize;
+    [SerializeField] int increaseHandSize;
 
     public override void Researched()
     {
         base.Researched();
 
-        if (increaseHandSize)
+        if (increaseHandSize > 0)
         {
-            Hand.instance.handSize++;
+            Hand.instance.handSize += increaseHandSize;
         }
     }
 }

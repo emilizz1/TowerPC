@@ -9,10 +9,10 @@ public static class CardTypeColors
     static void Setup()
     {
         typeColors = new Dictionary<CardType, Color>();
-        typeColors.Add(CardType.action, new Color(1f, 0.35f, 0.35f));
-        typeColors.Add(CardType.spell, new Color(0.45f, 0.85f, 1f));
-        typeColors.Add(CardType.tower, new Color(0.2f, 0.8f, 0.3f));
-        typeColors.Add(CardType.structure, new Color(0.9f, 0.55f, 0.0f));
+        typeColors.Add(CardType.Action, new Color(0.9f, 0.9f, 0.9f));
+        typeColors.Add(CardType.Spell, new Color(1f, 1f, 0.9f));
+        typeColors.Add(CardType.Tower, new Color(1f, 1f, 1f));
+        typeColors.Add(CardType.Structure, new Color(1f, 1f, 0.9f));
     }
 
     public static Color GetColor(CardType type)

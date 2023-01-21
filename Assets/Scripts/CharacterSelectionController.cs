@@ -9,6 +9,7 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
 
     [SerializeField] TextMeshProUGUI selectedCount;
     [SerializeField] GameObject nextButton;
+    [SerializeField] TextMeshProUGUI playerLevel;
 
 
 
@@ -17,7 +18,9 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
     private void Start()
     {
         UpdateText();
+        playerLevel.text = "Player Level " + ProgressManager.GetLevel("Base");
         currentlySelected = new List<Character>();
+        Soundtrack.instance.MenuScreen();
     }
 
     public bool TrySelecting(Character character)
@@ -51,5 +54,9 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
         CharacterSelector.firstCharacter = currentlySelected[0];
         CharacterSelector.secondCharacter = currentlySelected[1];
         SceneManager.LoadScene(SceneManager.GAME);
+    }
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(SceneManager.MENU);
     }
 }

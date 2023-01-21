@@ -1,50 +1,84 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
 public class Soundtrack : MonoBehaviour
 {
-    [SerializeField] AudioClip forestSoundtrack;
-    [SerializeField] AudioClip desertSoundtrack;
-    [SerializeField] AudioSource mySource;
+    public static Soundtrack instance;
+
+    [SerializeField] AudioSource baseAudio;
+    [SerializeField] AudioSource idleAudio;
+    [SerializeField] AudioSource battleAudio;
+
+    [SerializeField] AudioClip start;
+    [SerializeField] AudioClip end;
+
+    float startingVolumeValue;
 
     private void Awake()
     {
-       // if(SceneManager.GetActiveScene().name == "LevelSelection")
-        //{
-            //if (SavedData.GetInt("DesertLevelsUnlocked") == 1)
-            //{
-            //    mySource.clip = desertSoundtrack;
-            //    mySource.Play();
-            //}
-            //else
-            //{
-            //    mySource.clip = forestSoundtrack;
-            //    mySource.Play();
-            //}
-            //mySource.clip = forestSoundtrack;
-            //mySource.Play();
-        //}
-
         if (FindObjectsOfType<Soundtrack>().Length > 1)
         {
             foreach (Soundtrack soundtrack in FindObjectsOfType<Soundtrack>())
             {
                 if (soundtrack != this)
                 {
-                    if (soundtrack.mySource.clip != mySource.clip)
-                    {
-                        Destroy(soundtrack.gameObject);
-                    }
-                    else
-                    {
-                        Destroy(gameObject);
-                    }
+                    Destroy(gameObject);
                 }
             }
         }
         else
         {
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        ChangedSoundtrackVolume();
+    }
+
+    public void ChangedSoundtrackVolume()
+    {
+        baseAudio.volume = 1f * SettingsHolder.music;
+    }
+
+    public void GameStarted()
+    {
+        idleAudio.volume = 1f * SettingsHolder.music;
+    }
+
+    public void MenuScreen()
+    {
+        idleAudio.volume = 0f;
+        battleAudio.volume = 0f;
+    }
+
+    public void BattleStart()
+    {
+        baseAudio.PlayOneShot(start);
+        StartCoroutine(ChangeTheme(idleAudio, battleAudio));
+    }
+
+    public void BattleEnd()
+    {
+        baseAudio.PlayOneShot(end);
+        StartCoroutine(ChangeTheme(battleAudio, idleAudio));
+    }
+
+    IEnumerator ChangeTheme(AudioSource from, AudioSource to)
+    {
+        float timePassed = 1f;
+        while (timePassed > 0)
+        {
+            timePassed -= Time.unscaledDeltaTime;
+            from.volume = SettingsHolder.music * timePassed;
+            to.volume = SettingsHolder.music * (1 - timePassed);
+            yield return null;
+        }
+
+        from.volume = 0f;
+        to.volume = 1f;
     }
 }

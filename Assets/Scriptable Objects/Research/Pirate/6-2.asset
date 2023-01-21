@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9007ee2e5c352f4287b71069579b7f0, type: 3}
   m_Name: 6-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: f7cf2f0d5f3adb448b87194ccc651723, type: 3}
-  timeToResearch: 1
-  tier: 0
+  sprite: {fileID: 21300000, guid: 9763001f303716d498fad399af36960f, type: 3}
+  timeToResearch: 2
+  tier: 5
   explanation: Removes all Level 0 cards from shop
   displayIcon: 0
   changes: 1

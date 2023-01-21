@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e163f0d673332409e477c0aec8db14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: dd52f6d5b885b4d4c9ca429d5905f641, type: 3}
+  image: {fileID: 21300000, guid: 10f13aae14add6d43b0a4d2cb1132a6e, type: 3}
   towerName: Dart
+  specialText: Shots Poison Enemies
   rangeSprite: {fileID: 8419676603040903247}
   top: {fileID: 3364892187113495077}
   sphere: {fileID: 4273345013492345057}
@@ -147,49 +148,76 @@ MonoBehaviour:
   - {fileID: 1873693303111008902}
   - {fileID: 7958132032455568320}
   - {fileID: 8297505944724165257}
+  - {fileID: 6173949840773680750}
+  - {fileID: 6351040481482597315}
+  - {fileID: 3530073732552363174}
   canvas: {fileID: 4825318446151000804}
   audioSource: {fileID: 3261423995044511505}
   towerStats:
-  - fireRate: 0.4
-    range: 5
-    damage:
-    - 6
-    - 4
-    - 2
-  - fireRate: 0.4
-    range: 5
-    damage:
-    - 7
-    - 4
-    - 3
-  - fireRate: 0.4
-    range: 5
-    damage:
-    - 7
-    - 4
-    - 3
-  - fireRate: 0.4
-    range: 5
+  - fireRate: 0.8
+    range: 6
     damage:
     - 8
-    - 5
     - 3
-  - fireRate: 0.35
-    range: 5
+    - 3
+  - fireRate: 0.8
+    range: 6.5
     damage:
-    - 9
-    - 5
-    - 3
-  - fireRate: 0.3
-    range: 5
+    - 8
+    - 4
+    - 4
+  - fireRate: 0.75
+    range: 6.5
     damage:
-    - 9
+    - 10
+    - 4
+    - 4
+  - fireRate: 0.75
+    range: 6.5
+    damage:
+    - 12
     - 5
-    - 3
-  experienceNeeded: 1e00000032000000500000006400000082000000
+    - 4
+  - fireRate: 0.75
+    range: 7
+    damage:
+    - 12
+    - 5
+    - 6
+  - fireRate: 0.7
+    range: 7
+    damage:
+    - 13
+    - 5
+    - 6
+  - fireRate: 0.7
+    range: 7
+    damage:
+    - 14
+    - 6
+    - 7
+  - fireRate: 0.7
+    range: 7.5
+    damage:
+    - 14
+    - 7
+    - 7
+  - fireRate: 0.65
+    range: 7.5
+    damage:
+    - 15
+    - 8
+    - 7
+  - fireRate: 0.65
+    range: 7.5
+    damage:
+    - 16
+    - 8
+    - 8
+  experienceNeeded: 1e000000230000002d0000003c0000001e000000280000003c0000005a00000032000000
   damageTypes: 
   bulletType: 105
-  shootSound: {fileID: 8300000, guid: f8b425c232b9c674bb8ff19978a8fe28, type: 3}
+  shootSound: {fileID: 8300000, guid: 995292f836077854993c3f96ba94a585, type: 3}
 --- !u!135 &4273345013492345057
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -213,9 +241,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0595e83fe4b6f6a4184537ea8d896462, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2168c49f26aead145958e1a4c2eb1ad2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -223,10 +251,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 200
+  MinDistance: 0
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -259,7 +287,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5545,6 +5573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Rings
       objectReference: {fileID: 0}
+    - target: {fileID: 1958792855070969902, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3370904487401841152, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5555,7 +5587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3370904487401841152, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.969
+      value: 2.528
       objectReference: {fileID: 0}
     - target: {fileID: 3370904487401841152, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5605,6 +5637,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8354526169039241035, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114184249229546214, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
 --- !u!4 &366351944588459656 stripped
@@ -5640,6 +5680,21 @@ GameObject:
 --- !u!1 &8297505944724165257 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6410022307289714177, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+  m_PrefabInstance: {fileID: 3157675222223330440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6173949840773680750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9114184249229546214, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+  m_PrefabInstance: {fileID: 3157675222223330440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6351040481482597315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8354526169039241035, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+  m_PrefabInstance: {fileID: 3157675222223330440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3530073732552363174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1958792855070969902, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
   m_PrefabInstance: {fileID: 3157675222223330440}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6586580480445083855

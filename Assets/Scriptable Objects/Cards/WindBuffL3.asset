@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Wind Buff
   cardType: 2
-  cardImage: {fileID: 21300000, guid: e07146d68e72bad488320059e3f04081, type: 3}
+  cardImage: {fileID: 21300000, guid: d02629533898d7142986fefc6abb80d5, type: 3}
   moneyCost: 0
-  manaCost: 12
-  buyCostMultiplayer: 2.4
+  manaCost: 7
+  buyCostMultiplayer: 3
   cardLevel: 3
-  description: Grant Attack Speed buff
+  description: Increases tower fire rate by 30%
   damageTypes: 
+  maxUses: 2
   spellPrefab: {fileID: 3882510687299103847, guid: 626dea23885c150488d228ad91096f7f, type: 3}

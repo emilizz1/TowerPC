@@ -6,6 +6,7 @@ public class TerrainSpawnerSpell : Spell
 {
     [SerializeField] int terrainToSpawn;
     [SerializeField] ParticleSystem particles;
+    [SerializeField] GameObject rangeIndicator;
 
     public override void Activate()
     {
@@ -30,6 +31,8 @@ public class TerrainSpawnerSpell : Spell
             TerrainPlacer.instance.GetTerrain(randomSpot, false);
             availableSpots.Remove(randomSpot);
         }
+
+        rangeIndicator.gameObject.SetActive(false);
 
         particles.Stop();
     }

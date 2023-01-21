@@ -8,14 +8,16 @@ public class PlayerLife : MonoSingleton<PlayerLife>
 {
     [SerializeField] TextMeshProUGUI amountText;
     [SerializeField] Image fill;
+    [SerializeField] MeshRenderer castle;
 
     internal int regen;
 
     int maxHp;
-    int currentHP;
+    internal int currentHP;
     int maxIgnoredEachRound;
     int currentIgnoredEachRound;
 
+    List<Color> rendererColors;
     Color fillNormalColor;
 
     private void Start()
@@ -24,15 +26,23 @@ public class PlayerLife : MonoSingleton<PlayerLife>
         currentHP = maxHp;
         fillNormalColor = fill.color;
         UpdateHealth();
+        if (rendererColors == null)
+        {
+            SetupRendererColors();
+        }
     }
 
     void UpdateHealth()
     {
-        amountText.text = currentHP + " / " + maxHp;
+        amountText.text = Mathf.Max(0, currentHP) + " / " + maxHp;
         fill.fillAmount = (float)currentHP / maxHp;
         if(currentIgnoredEachRound > 0)
         {
             fill.color = Color.grey;
+        }
+        else
+        {
+            fill.color = fillNormalColor;
         }
     }
 
@@ -44,6 +54,10 @@ public class PlayerLife : MonoSingleton<PlayerLife>
             SoundsController.instance.PlayOneShot("Mana");
             UpdateHealth();
             return;
+        }
+        if(change < 0)
+        {
+            StartCoroutine(HitAnimation());
         }
         currentHP += change;
         UpdateHealth();
@@ -69,7 +83,7 @@ public class PlayerLife : MonoSingleton<PlayerLife>
 
     void Lost()
     {
-        SceneManager.LoadScene(SceneManager.LOST);
+        EndScreen.instance.Appear("Lost");
     }
 
     public void IncreaseIgnorAmount(int amount)
@@ -83,5 +97,37 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     {
         currentIgnoredEachRound = maxIgnoredEachRound;
         UpdateHealth();
+    }
+
+    private void SetupRendererColors()
+    {
+        rendererColors = new List<Color>();
+        foreach (Material material in castle.materials)
+        {
+            rendererColors.Add(material.color);
+        }
+    }
+
+    IEnumerator HitAnimation()
+    {
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            castle.materials[i].color = Color.red;
+        }
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            castle.materials[i].color = rendererColors[i];
+        }
+        yield return new WaitForSeconds(0.05f);
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            castle.materials[i].color = Color.red;
+        }
+        yield return new WaitForSeconds(0.05f);
+        for (int i = 0; i < rendererColors.Count; i++)
+        {
+            castle.materials[i].color = rendererColors[i];
+        }
     }
 }

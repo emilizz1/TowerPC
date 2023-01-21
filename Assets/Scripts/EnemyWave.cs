@@ -7,5 +7,12 @@ using System;
 [Serializable]
 public class EnemyWave : ScriptableObject
 {
-    public List<ObjectPools.PoolNames> enemies;
+    public List<EnemyWaveData> enemies;
+
+    [Serializable]
+    public struct EnemyWaveData
+    {
+        public ObjectPools.PoolNames type;
+        public int amount;
+    }
 }

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Recharge
   cardType: 1
-  cardImage: {fileID: 21300000, guid: 3201effd4e91ca94b9097c8479c434a7, type: 3}
+  cardImage: {fileID: 21300000, guid: 826d28b802034d64abca2245e8f7ffb0, type: 3}
   moneyCost: 0
-  manaCost: 5
-  buyCostMultiplayer: 1
-  cardLevel: 0
-  description: Recharges random card
+  manaCost: 25
+  buyCostMultiplayer: 2
+  cardLevel: 3
+  description: Adds 4 charges to random card in hand
   damageTypes: 
-  maxUses: 0
+  maxUses: 3
   addMoney: 0
   addMana: 0
   addHealth: 0
   drawCards: 0
   advanceResearch: 0
-  rechargeAmount: 3
+  rechargeAmount: 4

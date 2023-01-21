@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Golden Rain
   cardType: 2
-  cardImage: {fileID: 21300000, guid: 9148eb89e211aa942bdf2ac6178dd712, type: 3}
+  cardImage: {fileID: 21300000, guid: e0abbb5e261eede428c864f44211c4c5, type: 3}
   moneyCost: 0
   manaCost: 20
   buyCostMultiplayer: 1.35
   cardLevel: 0
-  description: Gain more Gold from Enemies
+  description: Affected enemies give more gold when killed
   damageTypes: 
+  maxUses: 2
   spellPrefab: {fileID: 3346172960511143528, guid: 6cd6cb0e09c7f3b4fac722ecb997a921, type: 3}

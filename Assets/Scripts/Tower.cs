@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class Tower : MonoBehaviour
@@ -77,12 +78,14 @@ public class Tower : MonoBehaviour
     List<EnemyMovement> reachableEnemies = new List<EnemyMovement>();
     internal GameObject currentTarget;
     float timeUntilShot;
+    float startingVolumeValue;
 
     bool active;
 
     public void PrepareTower()
     {
-        statsMultiplayers.fireRate = 0f;
+        startingVolumeValue = audioSource.volume;
+        statsMultiplayers.fireRate = 1f;
         statsMultiplayers.range = 1f;
         statsMultiplayers.damage = new List<float>();
         for (int i = 0; i < 3; i++)
@@ -117,7 +120,7 @@ public class Tower : MonoBehaviour
 
             timeUntilShot -= Time.deltaTime;
             
-            if (currentTarget!= null && currentTarget.gameObject.activeInHierarchy)
+            if (currentTarget != null && currentTarget.gameObject.activeInHierarchy)
             {
                 top.LookAt(currentTarget.transform);
                 top.transform.localEulerAngles = new Vector3(0f, top.transform.rotation.eulerAngles.y, 0f);
@@ -133,7 +136,7 @@ public class Tower : MonoBehaviour
 
     internal virtual float GetTimeToNextShot()
     {
-        return towerStats[currentLevel].fireRate * (1 - statsMultiplayers.fireRate);
+        return towerStats[currentLevel].fireRate * (statsMultiplayers.fireRate);
     }
 
     internal virtual void Shoot()
@@ -148,6 +151,7 @@ public class Tower : MonoBehaviour
         {
             shootingParticles.Play();
         }
+        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
         audioSource.clip = shootSound;
         audioSource.Play();
         AddExperience();
@@ -165,13 +169,13 @@ public class Tower : MonoBehaviour
 
     void AddExperience()
     {
-        if(currentLevel == experienceNeeded.Count)
+        if(MaxLevel())
         {
             return;
         }
 
         experience += EXP_PER_SHOT + PasiveTowerStatsController.extraExperience;
-        if(experience >= experienceNeeded[currentLevel])
+        if (experience >= experienceNeeded[currentLevel])
         {
             LevelUp();
         }
@@ -184,13 +188,19 @@ public class Tower : MonoBehaviour
         levelUpRings[currentLevel].SetActive(true);
         currentLevel++;
         levelUp.Play();
-        audioSource.clip = SoundsController.instance.GetAudioClip("LevelUp");
+
+        TowerInfoWindow.instance.UpdateInfo(this);
+
+        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
+        audioSource.PlayOneShot( SoundsController.instance.GetAudioClip("LevelUp"));
         audioSource.Play();
         SetupRange();
     }
 
     void FindTarget()
     {
+        currentTarget = null;
+
         if (reachableEnemies.Count > 0)
         {
             if (!reachableEnemies[0].gameObject.activeInHierarchy)
@@ -322,6 +332,7 @@ public class Tower : MonoBehaviour
         {
             levelUpRings[i].SetActive(true);
         }
+        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
         audioSource.clip = SoundsController.instance.GetAudioClip("TowerPlaced");
         audioSource.Play();
         SetupRange();
@@ -350,5 +361,10 @@ public class Tower : MonoBehaviour
         {
             AddExperience();
         }
+    }
+
+    public bool MaxLevel() 
+    {
+        return currentLevel == experienceNeeded.Count;
     }
 }

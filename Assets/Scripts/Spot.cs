@@ -9,7 +9,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject spawnPoint;
     public float terrainSpawnChance = 1f;
 
-    internal List< TerrainBonus> terrainBonus;
+    internal List<TerrainBonus> terrainBonus = new List<TerrainBonus>();
 
     internal GameObject spotObj;
 
@@ -74,7 +74,6 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 TowerInfoWindow.instance.ShowInfo(towerToPlace);
             }
-            TowerInfoWindow.instance.OpenWindow();
         }
         else if (StructurePlacer.structureToPlace != null)
         {

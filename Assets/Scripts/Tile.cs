@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
 
         foreach (Spot spot in allSpots)
         {
-            if (spot.gameObject.activeSelf && spot.terrainBonus == null)
+            if (spot.gameObject.activeSelf &&  spot.terrainBonus.Count == 0)
             {
                 TerrainPlacer.instance.GetTerrain(spot);
             }

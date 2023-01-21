@@ -15,12 +15,16 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     ResearchNode currentlyResearching;
     internal bool shouldOpenWindow = true;
+    bool opened;
 
     private void Start()
     {
-        trees[0].SetupTree(defaultTechTree);
-        trees[1].SetupTree(CharacterSelector.firstCharacter.techTree);
-        trees[2].SetupTree(CharacterSelector.secondCharacter.techTree);
+        int baseResearchLocked = ProgressManager.GetLevel("Base") >= 11 ? 0 : ProgressManager.GetLevel("Base") >= 5? 1:2;
+        int firstResearchLocked = ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName) >= 7 ? 0 : ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName) >= 3? 1:2;
+        int secondResearchLocked = ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) >= 7 ? 0 : ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) >= 3? 1:2;
+        trees[0].SetupTree(defaultTechTree, baseResearchLocked);
+        trees[1].SetupTree(CharacterSelector.firstCharacter.techTree, firstResearchLocked);
+        trees[2].SetupTree(CharacterSelector.secondCharacter.techTree, secondResearchLocked);
 
         characterIcon0.sprite = CharacterSelector.firstCharacter.icon;
         characterIcon1.sprite = CharacterSelector.secondCharacter.icon;
@@ -35,10 +39,31 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
             ResearchButton.instance.UpdateFill(prevProgress, (float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch, 1f);
             if(currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
             {
-                button.SetActive(false);
-                shouldOpenWindow =true;
+                if (IsThereResearchToComplete())
+                {
+                    currentlyResearchingImage.transform.parent.gameObject.SetActive(false);
+                    button.SetActive(false);
+                    shouldOpenWindow = true;
+                }
+            }
+            else
+            {
+                shouldOpenWindow = false;
             }
         }
+    }
+
+    private bool IsThereResearchToComplete()
+    {
+        foreach (ResearchTree researchTree in trees)
+        {
+            if (researchTree.HasResearchToComplete())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void NewResearchSelected(ResearchNode research)
@@ -51,6 +76,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
             currentlyResearching = research;
             currentlyResearchingImage.sprite = research.research.sprite;
             button.SetActive(true);
+            shouldOpenWindow = false;
         }
     }
 
@@ -64,6 +90,11 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     public void Open()
     {
+        if (opened)
+        {
+            return;
+        }
+        opened = true;
         Cover.cover = true;
         tweenAnimator.PerformTween(1);
         shouldOpenWindow = false;
@@ -85,6 +116,11 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     public void Close()
     {
+        if (!opened)
+        {
+            return;
+        }
+        opened = false;
         Cover.cover = false;
         tweenAnimator.PerformTween(0);
         TurnController.ResearchSelected();

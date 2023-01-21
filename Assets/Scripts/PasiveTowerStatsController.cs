@@ -62,4 +62,10 @@ public static class PasiveTowerStatsController
 
         return finalStats;
     }
+
+    public static void Reset()
+    {
+        pasiveStats = new Dictionary<DamageTypes, Tower.TowerStats>();
+        extraExperience = 0;
+    }
 }

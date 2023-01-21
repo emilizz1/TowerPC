@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce59bf23d3d95644f9b36400fe63b131, type: 3}
   m_Name: 3-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: e820001e804cc704db56037898fc5647, type: 3}
+  sprite: {fileID: 21300000, guid: 6285347d436276547bae011c0e80200f, type: 3}
   timeToResearch: 2
-  tier: 0
-  explanation: Castle has 25 more Health
+  tier: 2
+  explanation: Castle has 20 more Health
   displayIcon: 1
-  maxHealthAddition: 25
+  maxHealthAddition: 20
   increaseRegen: 0
+  enemyDamageStoppedCount: 0

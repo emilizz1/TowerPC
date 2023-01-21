@@ -14,20 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Arcane Tower
   cardType: 0
-  cardImage: {fileID: 21300000, guid: 667555b17e1d29b488c4d862aa3b4d88, type: 3}
-  moneyCost: 60
-  manaCost: 20
-  buyCostMultiplayer: 2.2
+  cardImage: {fileID: 21300000, guid: 296eee9b30197c24cbe00d66961cb4d7, type: 3}
+  moneyCost: 27
+  manaCost: 10
+  buyCostMultiplayer: 2.66
   cardLevel: 2
-  description: 'Fire Rate: 2
+  description: '<sprite=4> 4   <sprite=3> 7   <sprite=2> 16
 
-    Health Damage: 5
+    <sprite=1> 1/s  
+    <sprite=0> 7
 
-    Armore Damage: 15
-
-    Shield
-    Damage: 30
-
-    Range: 7'
+    Double damage to Enemies with debuff'
   damageTypes: 01000000
+  maxUses: 2
   towerPrefab: {fileID: 4796524506784668451, guid: fadab5bbbac46854e8c8be50dd2e2a56, type: 3}

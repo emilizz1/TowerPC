@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d560c512732034e861e87e3d203c5f, type: 3}
   m_Name: 4-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: c75b85e3683b86b459c70e827e9e2f2a, type: 3}
+  sprite: {fileID: 21300000, guid: 1a20c0a8d3047df418451660dfa18ec7, type: 3}
   timeToResearch: 2
   tier: 3
   explanation: Increase max Mana by 50
   displayIcon: 1
   manaRegenPerSecond: 0
   maxMana: 50
+  incomeIncreased: 0
+  addMoney: 0

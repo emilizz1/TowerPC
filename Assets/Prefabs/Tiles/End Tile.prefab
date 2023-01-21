@@ -4335,7 +4335,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0816deca7b4ff054b833c1b2898424ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lanes: []
+  lanes:
+  - spawnPoint: {fileID: 7124199547686118680}
+    path:
+    - {fileID: 7124199547686118680}
+    - {fileID: 1265005317449667872}
+    expandCanvas: {fileID: 0}
+    button: {fileID: 0}
+    open: 1
   allSpots:
   - {fileID: 4363589789942288544}
   - {fileID: 5827156956814193208}

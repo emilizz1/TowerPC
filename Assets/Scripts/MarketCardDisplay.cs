@@ -12,7 +12,6 @@ public class MarketCardDisplay : MonoBehaviour
     int price;
     Card myCard;
     
-    //TODO rework this
     public void DisplayCard(Card card, bool noPrice)
     {
         myCard = card;
@@ -20,17 +19,32 @@ public class MarketCardDisplay : MonoBehaviour
         cardDisplay.transform.SetParent(transform);
         cardDisplay.transform.localPosition = new Vector3(0f, 120f, 0f);
         cardDisplay.DisplayCard(card);
-        price = noPrice? 0 : Mathf.CeilToInt( card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) * 
+        price = noPrice ? 0 : Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
             spotCostMultiplayer * CostController.GetBuyingCostMultiplayer(card.cardType));
-        //price = Mathf.FloorToInt( truePrice - (truePrice % 10));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
+
+        CheckPriceColor();
+    }
+
+    public void CheckPriceColor()
+    {
+        if (price > Money.instance.currentAmount)
+        {
+            priceText.color = Color.gray;
+        }
+        else
+        {
+            priceText.color = Color.white;
+        }
     }
 
     public void BuyCard()
     {
         if (Money.instance.TryPaying(price))
         {
+            MarketCardManager.instance.RecheckColors();
+            SoundsController.instance.PlayOneShot("Buy");
             Discard.instance.DiscardCardFromHand(cardDisplay);
             priceText.transform.parent.gameObject.SetActive(false);
         }

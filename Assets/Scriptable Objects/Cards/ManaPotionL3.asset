@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Mana Potion
   cardType: 1
-  cardImage: {fileID: 21300000, guid: 0302162c4b301e540a3817e30eea6b36, type: 3}
-  moneyCost: 11
+  cardImage: {fileID: 21300000, guid: bf24db33b92c9fa4891a3ef4094382b4, type: 3}
+  moneyCost: 8
   manaCost: 0
-  buyCostMultiplayer: 1.6
+  buyCostMultiplayer: 2
   cardLevel: 3
-  description: Add 25 Mana
+  description: Add 30 Mana
   damageTypes: 
+  maxUses: 3
   addMoney: 0
   addMana: 25
   addHealth: 0
   drawCards: 0
+  advanceResearch: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275a393cbc50ada499a4273b8d340e41, type: 3}
   m_Name: 6
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 9347b4e90e8f1c94dafe2671460fef05, type: 3}
-  timeToResearch: 2
+  sprite: {fileID: 21300000, guid: dbfda21bce8395644892338292d7e2a3, type: 3}
+  timeToResearch: 3
   tier: 5
   explanation: Aditional 1 experience per shot
   displayIcon: 1

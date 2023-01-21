@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Gold Mine
   cardType: 4
-  cardImage: {fileID: 21300000, guid: 91ba26411c06ab04bb98965bc6d14d97, type: 3}
-  moneyCost: 30
+  cardImage: {fileID: 21300000, guid: d48fa480fba6bd647a4671b3b56ce794, type: 3}
+  moneyCost: 20
   manaCost: 0
-  buyCostMultiplayer: 1.8
+  buyCostMultiplayer: 2
   cardLevel: 0
   description: 'Increases income
 
     Double income if placed on mountain'
   damageTypes: 
+  maxUses: 3
   structurePrefab: {fileID: 4796524506784668451, guid: f773c88fa3323194cac5301457d1613d, type: 3}

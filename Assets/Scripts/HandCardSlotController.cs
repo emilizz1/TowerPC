@@ -133,5 +133,14 @@ public class HandCardSlotController : MonoSingleton<HandCardSlotController>
         cardDisplays[4].gameObject.SetActive(true);
     }
 
-
+    public void UpdateCards()
+    {
+        foreach (CardDisplay display in cardDisplays)
+        {
+            if (display.displayedCard != null)
+            {
+                display.DisplayCard(display.displayedCard);
+            }
+        }
+    }
 }

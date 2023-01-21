@@ -33,7 +33,7 @@ public static class TurnController
 
             }
             PlayerLife.instance.NewRound();
-            PhaseInfo.instance.PhaseChanged(currentPhase);
+            ObjectPools.instance.NewTurn();
         }
     }
 
@@ -42,7 +42,6 @@ public static class TurnController
         if (currentPhase == TurnPhase.Research)
         {
             currentPhase = TurnPhase.Preperation;
-            PhaseInfo.instance.PhaseChanged(currentPhase);
             TileManager.instance.ChangeButtonInteractability(true);
         }
     }
@@ -53,7 +52,7 @@ public static class TurnController
         {
             Mana.instance.StartRegen();
             currentPhase = TurnPhase.EnemyWave;
-            PhaseInfo.instance.PhaseChanged(currentPhase);
+            Soundtrack.instance.BattleStart();
             TileManager.instance.ChangeButtonInteractability(false);
         }
     }
@@ -66,9 +65,10 @@ public static class TurnController
             SpellPlacer.StopAllSpells();
             TowerPlacer.ClearTowerTargets();
             Hand.instance.DiscardHand();
+            EnemyManager.instance.CheckIfGameWon();
+            Soundtrack.instance.BattleEnd();
 
             currentPhase = TurnPhase.Market;
-            PhaseInfo.instance.PhaseChanged(currentPhase);
             MarketWindow.instance.Open();
         }
     }
@@ -78,13 +78,20 @@ public static class TurnController
         if (currentPhase == TurnPhase.Market)
         {
             currentPhase = TurnPhase.Drawing;
+            CostController.currentTurnDiscount = 0;
             Money.instance.GetIncome();
             currentTurn++;
-            PhaseInfo.instance.PhaseChanged(currentPhase);
+            WaveCounter.instance.DisplayCounter();
             PlayerLife.instance.Regen();
             Hand.instance.DrawNewHand();
             ResearchWindow.instance.AdvanceResearch();
             Money.instance.UpdateIncome();
         }
+    }
+
+    public static void Reset()
+    {
+        currentPhase = TurnPhase.Drawing;
+        currentTurn = 0;
     }
 }

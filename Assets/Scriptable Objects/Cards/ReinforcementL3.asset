@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Reinforcement
   cardType: 1
-  cardImage: {fileID: 21300000, guid: 1a8592369a217d345a9aed6ac41c9199, type: 3}
-  moneyCost: 7
-  manaCost: 7
-  buyCostMultiplayer: 2.4
+  cardImage: {fileID: 21300000, guid: 2d346c053c5bcb544992c023933d302b, type: 3}
+  moneyCost: 11
+  manaCost: 11
+  buyCostMultiplayer: 3
   cardLevel: 3
-  description: Draw 3 Cards
+  description: 'Draw 1 Card, all cards are cheaper by 8 coins and 8 mana '
   damageTypes: 
+  maxUses: 4
   addMoney: 0
   addMana: 0
   addHealth: 0
-  drawCards: 3
+  drawCards: 1
+  advanceResearch: 0
+  discount: 8

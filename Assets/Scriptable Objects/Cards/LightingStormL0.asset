@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Lightning Storm
   cardType: 2
-  cardImage: {fileID: 21300000, guid: d7997866a511f1948b56ae2c41d0b64f, type: 3}
+  cardImage: {fileID: 21300000, guid: 4816402dee506e44586f515c0619c135, type: 3}
   moneyCost: 0
-  manaCost: 25
+  manaCost: 20
   buyCostMultiplayer: 1
-  description: "Deal damage to enemies\nHealth Damage: 10 \nArmor Damage: 5\nShield
-    Damage: 8"
+  cardLevel: 0
+  description: 'Deal damage to enemies
+
+    <sprite=4>  10   <sprite=3> 5   <sprite=2>
+    8
+
+    Stays for 2 turns'
   damageTypes: 01000000
+  maxUses: 4
   spellPrefab: {fileID: 3346172960511143528, guid: f7c222b4e7e2cf24fb347c309e9c8da5, type: 3}

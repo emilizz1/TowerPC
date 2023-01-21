@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Spell : MonoBehaviour
 {
@@ -8,10 +9,11 @@ public class Spell : MonoBehaviour
     public int snappingSize = 1;
     public int duration;
 
+    public TextMeshProUGUI durationNumber;
     [SerializeField] ParticleSystem startParticles;
-    [SerializeField] Transform rangeSprite;
+    public Transform rangeSprite;
     [SerializeField] SphereCollider sphere;
-    [SerializeField] AudioSource audioSource;
+    public AudioSource audioSource;
 
     const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
 
@@ -19,9 +21,11 @@ public class Spell : MonoBehaviour
 
     bool active;
     List<GameObject> enemiesInside = new List<GameObject>();
+    float startingVolumeValue;
 
     public virtual void Start()
     {
+        startingVolumeValue = audioSource.volume;
         if (rangeSprite != null)
         {
             float rangeSpriteScale = range / DEFAULT_RANGE_SPRITE_RADIUS;
@@ -30,6 +34,10 @@ public class Spell : MonoBehaviour
         if (sphere != null)
         {
             sphere.radius = range;
+        }
+        if (durationNumber != null)
+        {
+            durationNumber.text = duration > 1 ? duration.ToString() : "";
         }
         active = false;
         enemiesInside = new List<GameObject>();
@@ -74,6 +82,7 @@ public class Spell : MonoBehaviour
     public virtual void Activate()
     {
         active = true;
+        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
         audioSource.Play();
         if (rangeSprite != null)
         {
@@ -95,7 +104,16 @@ public class Spell : MonoBehaviour
 
     public virtual void StopSpell()
     {
+        if(gameObject == null)
+        {
+            return;
+        }
+
         duration--;
+        if (durationNumber != null)
+        {
+            durationNumber.text = duration > 1 ? duration.ToString() : "";
+        }
         if (duration > 0)
         {
             return;

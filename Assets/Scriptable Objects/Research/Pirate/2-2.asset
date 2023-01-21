@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
   m_Name: 2-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ec484e5525eb798449b95fc49c5689b0, type: 3}
-  timeToResearch: 1
+  sprite: {fileID: 21300000, guid: da6a7a6f6e7799b44bfcae36a47b9f2c, type: 3}
+  timeToResearch: 2
   tier: 1
   explanation: Gain "Pile of Coins" +1 card
   displayIcon: 0

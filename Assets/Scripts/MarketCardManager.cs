@@ -12,6 +12,10 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     internal List<MarketDeck> marketDecks;
     bool noPrice;
 
+    List<Card> baseMarketCards;
+    List<Card> firstMarketCards;
+    List<Card> secondMarketCards;
+
     void Start()
     {
         marketDecks = new List<MarketDeck>();
@@ -21,27 +25,48 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             marketDecks[i].CreateNewDeck();
         }
 
+
+
+        baseMarketCards = GetMarketCards(ProgressManager.GetLevel("Base"), marketCards);
+        firstMarketCards = GetMarketCards(ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName), CharacterSelector.firstCharacter.marketCards);
+        secondMarketCards = GetMarketCards(ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName), CharacterSelector.secondCharacter.marketCards);
+
         for (int i = 0; i < marketDecks.Count; i++)
         {
             CreateStartingMarket(i);
         }
     }
 
+
+    List<Card> GetMarketCards(int level, CardHolder cardHolder)
+    {
+        List<Card> finalList = new List<Card>();
+        foreach(CardHolder.CardHolderCollection collection in cardHolder.cardsCollection)
+        {
+            if(collection.levelFrom <= level)
+            {
+                finalList = collection.cards;
+            } 
+        }
+
+        return finalList;
+    }
+
     void CreateStartingMarket(int deckIndex)
     {
         marketDecks[deckIndex].CreateNewDeck();
 
-        foreach (Card card in marketCards.cards)
+        foreach (Card card in baseMarketCards)
         {
-            if (card.cardType == CardType.action && card.cardLevel < 2 && deckIndex == 0)
+            if (card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
             {
                 marketDecks[0].AddCard(card);
             }
-            if (card.cardType == CardType.spell && card.cardLevel < 2 && deckIndex == 1)
+            if (card.cardType == CardType.Spell && card.cardLevel < 2 && deckIndex == 1)
             {
                 marketDecks[1].AddCard(card);
             }
-            if (card.cardType == CardType.tower && card.cardLevel < 2 && deckIndex == 2)
+            if (card.cardType == CardType.Tower && card.cardLevel < 2 && deckIndex == 2)
             {
                 marketDecks[2].AddCard(card);
             }
@@ -55,17 +80,17 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             }
         }
 
-        foreach (Card card in CharacterSelector.firstCharacter.marketCards.cards)
+        foreach (Card card in firstMarketCards)
         {
-            if(card.cardType == CardType.action && card.cardLevel < 2 && deckIndex == 0)
+            if(card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
             {
                 marketDecks[0].AddCard(card);
             }
-            if (card.cardType == CardType.spell && card.cardLevel < 2 && deckIndex == 1)
+            if (card.cardType == CardType.Spell && card.cardLevel < 2 && deckIndex == 1)
             {
                 marketDecks[1].AddCard(card);
             }
-            if (card.cardType == CardType.tower && card.cardLevel < 2 && deckIndex == 2)
+            if (card.cardType == CardType.Tower && card.cardLevel < 2 && deckIndex == 2)
             {
                 marketDecks[2].AddCard(card);
             }
@@ -79,17 +104,17 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             }
         }
 
-        foreach (Card card in CharacterSelector.secondCharacter.marketCards.cards)
+        foreach (Card card in secondMarketCards)
         {
-            if (card.cardType == CardType.action && card.cardLevel < 2 && deckIndex == 0)
+            if (card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
             {
                 marketDecks[0].AddCard(card);
             }
-            if (card.cardType == CardType.spell && card.cardLevel < 2 && deckIndex == 1)
+            if (card.cardType == CardType.Spell && card.cardLevel < 2 && deckIndex == 1)
             {
                 marketDecks[1].AddCard(card);
             }
-            if (card.cardType == CardType.tower && card.cardLevel < 2 && deckIndex == 2)
+            if (card.cardType == CardType.Tower && card.cardLevel < 2 && deckIndex == 2)
             {
                 marketDecks[2].AddCard(card);
             }
@@ -191,6 +216,14 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
         marketCardDisplays[1].transform.localPosition = new Vector3(150f, 0f, 0f);
 
         noPrice = true;
+    }
+
+    public void RecheckColors()
+    {
+        foreach(MarketCardDisplay display in marketCardDisplays)
+        {
+            display.CheckPriceColor();
+        }
     }
 }
 

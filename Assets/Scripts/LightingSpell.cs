@@ -8,7 +8,6 @@ public class LightingSpell : Spell
     [SerializeField] List<float> damage;
     [SerializeField] List<PasiveTowerStatsController.DamageTypes> damageType;
     [SerializeField] List<ParticleSystem> particles;
-    [SerializeField] AudioSource damageSound;
 
     List<Enemy> enemies = new List<Enemy>();
 
@@ -33,7 +32,6 @@ public class LightingSpell : Spell
         if(timePassed > dealDamageTimer)
         {
             timePassed -= dealDamageTimer;
-            damageSound.Play();
             DealDamage();
 
         }
@@ -41,12 +39,27 @@ public class LightingSpell : Spell
 
     void DealDamage()
     {
+        List<Enemy> enemiesToRemove = new List<Enemy>();
         foreach(Enemy enemy in enemies)
         {
-            if(enemy != null)
+            if(enemy != null && enemy.isActiveAndEnabled)
             {
-                enemy.DealDamage(damage);
+                enemy.DealDamage(damage, Color.blue);
             }
+            else
+            {
+                enemiesToRemove.Add(enemy);
+            }
+        }
+
+        foreach(Enemy enemy1 in enemiesToRemove)
+        {
+            enemies.Remove(enemy1);
+        }
+
+        if (enemies.Count > 0)
+        {
+            audioSource.PlayOneShot(SoundsController.instance.GetAudioClip( "Lightning2"));
         }
 
     }
@@ -67,10 +80,15 @@ public class LightingSpell : Spell
     {
         //base.StopSpell();
         duration--;
+        if (durationNumber != null)
+        {
+            durationNumber.text = duration > 1 ? duration.ToString() : "";
+        }
         if (duration > 0)
         {
             return;
         }
+
         StartCoroutine(StopingAnimation());
     }
 

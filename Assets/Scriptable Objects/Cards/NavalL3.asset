@@ -14,21 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Naval
   cardType: 0
-  cardImage: {fileID: 21300000, guid: f4ed6171e9f23fa4da1f175f80a84d45, type: 3}
-  moneyCost: 25
+  cardImage: {fileID: 21300000, guid: 9403ee2eb422f8e4f96dc5d465d02b05, type: 3}
+  moneyCost: 42
   manaCost: 0
-  buyCostMultiplayer: 1
-  cardLevel: 0
-  description: 'Fire Rate: 6
+  buyCostMultiplayer: 2.5
+  cardLevel: 3
+  description: '<sprite=4> 14   <sprite=3> 14   <sprite=2> 3
 
-    Health Damage: 10
+    <sprite=1> 0.9/s  
+    <sprite=0> 7.5
 
-    Armore Damage: 7
-
-    Shield
-    Damage: 5
-
-    Range: 7'
+    Shots explode, dealing half of damage around Enemy'
   damageTypes: 03000000
-  maxUses: 1
+  maxUses: 2
   towerPrefab: {fileID: 1526630794712585043, guid: 2ab35f94cfa6167459615d699255d77b, type: 3}

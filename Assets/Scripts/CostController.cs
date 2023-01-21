@@ -7,6 +7,8 @@ public static class CostController
     public static Dictionary<CardType, float> playingCostMultiplayer = new Dictionary<CardType, float>();
     public static Dictionary<CardType, float> buyingCostMultiplayer = new Dictionary<CardType, float>();
 
+    public static int currentTurnDiscount;
+
     public static void AddNewPlayingCostMultiplayer(CardType type, float amount)
     {
         if (playingCostMultiplayer.ContainsKey(type))
@@ -40,9 +42,9 @@ public static class CostController
             multiplayer += playingCostMultiplayer[type];
         }
 
-        if (playingCostMultiplayer.ContainsKey(CardType.all))
+        if (playingCostMultiplayer.ContainsKey(CardType.All))
         {
-            multiplayer += playingCostMultiplayer[CardType.all];
+            multiplayer += playingCostMultiplayer[CardType.All];
         }
 
         return multiplayer;
@@ -57,11 +59,18 @@ public static class CostController
             multiplayer += buyingCostMultiplayer[type];
         }
 
-        if (buyingCostMultiplayer.ContainsKey(CardType.all))
+        if (buyingCostMultiplayer.ContainsKey(CardType.All))
         {
-            multiplayer += buyingCostMultiplayer[CardType.all];
+            multiplayer += buyingCostMultiplayer[CardType.All];
         }
 
         return multiplayer;
+    }
+
+    public static void Reset()
+    {
+        playingCostMultiplayer = new Dictionary<CardType, float>();
+        buyingCostMultiplayer = new Dictionary<CardType, float>();
+        currentTurnDiscount = 0;
     }
 }

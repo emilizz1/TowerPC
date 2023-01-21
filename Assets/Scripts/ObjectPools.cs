@@ -20,7 +20,15 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         enemyArmor = 1,
         enemyShield = 2,
         enemyHound = 3,
+
+        enemyHealthH = 25,
+        enemyArmorH = 26,
+        enemyShieldH = 27,
+        enemyHoundH = 28,
+
         enemyBoss = 50,
+        enemyBossH = 75,
+
         basicBullet = 100,
         lightningBullet =101,
         arrow =102,
@@ -46,5 +54,13 @@ public class ObjectPools : MonoSingleton<ObjectPools>
     public ObjectPool GetPool(PoolNames name)
     {
         return poolDicktionary[name];
+    }
+
+    public void NewTurn()
+    {
+        foreach(NamedPool pool in allPools)
+        {
+            pool.pool.NewWave();
+        }
     }
 }

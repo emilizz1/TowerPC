@@ -7,12 +7,19 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     [SerializeField] float waveSpawnTime = 0.1f;
     [SerializeField] float spawnTime = 0.1f;
     [SerializeField] List<EnemyWave> enemyWaves;
+    [SerializeField] List<int> wavesTargetByLevel;
 
     internal List<Enemy> aliveEnemies;
+
+    internal int enemiesKilled;
+
+    internal int wavesTarget;
 
     void Start()
     {
         aliveEnemies = new List<Enemy>();
+        wavesTarget = wavesTargetByLevel[ProgressManager.GetLevel("Base")];
+        Analytics.instance.StartedMatch();
     }
 
     public void SpawnNextWave()
@@ -23,20 +30,29 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     IEnumerator SpawnEnemies(EnemyWave wave)
     {
-        EnemyWave myWave = Instantiate(wave);
+        List<ObjectPools.PoolNames> myWave = new List<ObjectPools.PoolNames>();
+
+        foreach(EnemyWave.EnemyWaveData enemyWave in wave.enemies)
+        {
+            for (int i = 0; i < enemyWave.amount; i++)
+            {
+                myWave.Add(enemyWave.type);
+            }
+        }
+
         List<Lane> openLanes = TileManager.instance.GetAllOpenLanes();
 
-        while (myWave.enemies.Count > 0)
+        while (myWave.Count > 0)
         {
             yield return new WaitForSeconds(waveSpawnTime);
 
             foreach (Lane lane in openLanes)
             {
-                if (myWave.enemies.Count > 0)
+                if (myWave.Count > 0)
                 {
-                    int randomEnemyIndex = Random.Range(0, myWave.enemies.Count);
-                    GameObject newEnemyObj = ObjectPools.instance.GetPool(myWave.enemies[randomEnemyIndex]).GetObject();
-                    myWave.enemies.RemoveAt(randomEnemyIndex);
+                    int randomEnemyIndex = Random.Range(0, myWave.Count);
+                    GameObject newEnemyObj = ObjectPools.instance.GetPool(myWave[randomEnemyIndex]).GetObject();
+                    myWave.RemoveAt(randomEnemyIndex);
                     Enemy newEnemy =  SpawnEnemy(newEnemyObj, lane.spawnPoint.transform.position);
                     FillMovementWithLanePath(newEnemy.movement, lane);
                     yield return new WaitForSeconds(spawnTime);
@@ -86,9 +102,9 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     public void CheckIfGameWon()
     {
-        if(enemyWaves.Count == TurnController.currentTurn)
+        if(wavesTarget == TurnController.currentTurn)
         {
-            SceneManager.LoadScene(SceneManager.WIN);
+            EndScreen.instance.Appear("Win!");
         }
     }
 }

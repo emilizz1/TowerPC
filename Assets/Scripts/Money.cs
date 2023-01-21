@@ -13,6 +13,7 @@ public class Money : MonoSingleton<Money>
     internal int currentAmount;
     internal int passiveIncome = 0;
 
+
     private void Start()
     {
         currentAmount = CharacterSelector.firstCharacter.startingMoney + CharacterSelector.secondCharacter.startingMoney;
@@ -96,7 +97,7 @@ public class Money : MonoSingleton<Money>
 
         int towerTax = TowerPlacer.allTowers.Count;
         int reduction = reductions[TurnController.currentTurn] + passiveIncome;
-        int finalAmount = reduction - towerTax;
+        int finalAmount = reduction;// - towerTax;
 
         finalAmount = Mathf.Min(finalAmount, Money.instance.currentAmount);
 
@@ -114,7 +115,7 @@ public class Money : MonoSingleton<Money>
     {
         int towerTax = TowerPlacer.allTowers.Count;
         int reduction = reductions[TurnController.currentTurn] + passiveIncome;
-        int finalAmount = reduction - towerTax;
+        int finalAmount = reduction;// - towerTax;
 
         incomeText.text = (finalAmount >= 0 ? "+" : "") + finalAmount.ToString() + " per turn";
     }

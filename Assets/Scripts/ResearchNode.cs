@@ -14,12 +14,14 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] TextMeshProUGUI explanation;
     [SerializeField] TextMeshProUGUI timeToComplete;
     [SerializeField] Animator animator;
+    [SerializeField] float timeToReveal;
+    [SerializeField] Image fg;
 
     internal List<ResearchNode> nextNodes = new List<ResearchNode>();
     internal ResearchNode sameLevelNodes;
 
     bool exited;
-    bool unlocked = false;
+    internal bool unlocked = false;
     internal bool researched;
 
     bool playedCompletedAnimation;
@@ -33,7 +35,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             icon.sprite = research.sprite;
             explanation.text = research.explanation;
-            timeToComplete.text = "Time to complete: <b>" + research.timeToResearch.ToString() + "</b> turns";
+            timeToComplete.text =  research.timeToResearch.ToString();
             if (research.tier == 0)
             {
                 Unlocked();
@@ -44,7 +46,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void Advanced()
     {
         currentProgress++;
-        progress.fillAmount = (float)currentProgress / research.timeToResearch;
+        progress.fillAmount = (float)currentProgress / (float)research.timeToResearch;
         if (currentProgress >= research.timeToResearch)
         {
             Researched();
@@ -122,7 +124,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     IEnumerator RevealNotUnlocked()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeToReveal);
         if (!exited)
         {
             animator.SetTrigger("Unlocked");

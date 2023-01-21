@@ -9,10 +9,8 @@ using UnityEngine.EventSystems;
 public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject front;
-    [SerializeField] Image bg;
     [SerializeField] GameObject back;
     [SerializeField] TextMeshProUGUI cardName;
-    [SerializeField] Image typeBg;
     [SerializeField] Image typeFg;
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI costMoney;
@@ -22,6 +20,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] TextMeshProUGUI uses;
     [SerializeField] bool handCard;
     [SerializeField] List<GameObject> cardLevel;
+    [SerializeField] List<GameObject> cardLevelStars;
 
     internal Card displayedCard;
 
@@ -56,31 +55,13 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         keywords.text = keywordText;
 
         int maxUses = cardToDisplay.maxUses + ChargesController.GetChargesAddition(cardToDisplay.cardType);
-        uses.text = "charges " + (maxUses - cardToDisplay.timesUsed).ToString() + " / " + maxUses.ToString();
+        uses.text = "charges " + (maxUses - cardToDisplay.timesUsed).ToString() + "/" + maxUses.ToString();
 
-        if (cardToDisplay.moneyCost > 0)
-        {
-            costMoney.transform.parent.gameObject.SetActive(true);
-            costMoney.text = Mathf.CeilToInt(cardToDisplay.moneyCost * CostController.GetPlayingCostMultiplayer(cardToDisplay.cardType)).ToString();
-        }
-        else
-        {
-            costMoney.transform.parent.gameObject.SetActive(false);
-        }
-
-        if (cardToDisplay.manaCost > 0)
-        {
-            costMana.transform.parent.gameObject.SetActive(true);
-            costMana.text = Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)).ToString();
-        }
-        else
-        {
-            costMana.transform.parent.gameObject.SetActive(false);
-        }
+        costMoney.text = Mathf.Max(Mathf.CeilToInt(cardToDisplay.moneyCost * CostController.GetPlayingCostMultiplayer(cardToDisplay.cardType)) - CostController.currentTurnDiscount,0).ToString();
+        costMana.text = Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount,0).ToString();
 
         cardName.text = displayedCard.cardName;
 
-        typeBg.color = CardTypeColors.GetColor(displayedCard.cardType);
         typeFg.color = CardTypeColors.GetColor(displayedCard.cardType);
 
         description.text = cardToDisplay.description;
@@ -88,6 +69,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         for (int i = 0; i < cardLevel.Count; i++)
         {
             cardLevel[i].SetActive(i < cardToDisplay.cardLevel);
+            cardLevelStars[i].SetActive(i < cardToDisplay.cardLevel);
         }
 
         back.SetActive(false);
@@ -95,7 +77,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (handCard && !Cover.cover)
+        if (handCard && !Cover.cover && !Input.GetMouseButton(1))
         {
             dragging = true;
             draggingCoroutine = StartCoroutine(Dragging());
@@ -143,12 +125,12 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (myCamera.ScreenToViewportPoint(transform.position).y >= 0.3f)
         {
-            if (displayedCard.cardType == CardType.tower)
+            if (displayedCard.cardType == CardType.Tower)
             {
                 if (TowerPlacer.towerPlaced)
                 {
-                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
                     CardUsed();
                 }
 
@@ -159,10 +141,10 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 return;
             }
 
-            if (displayedCard.cardType == CardType.action)
+            if (displayedCard.cardType == CardType.Action)
             {
-                Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
                 ActionCard actionCard = (ActionCard)displayedCard;
                 actionCard.PlayAction();
                 CardUsed();
@@ -170,12 +152,12 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 return;
             }
 
-            if (displayedCard.cardType == CardType.spell)
+            if (displayedCard.cardType == CardType.Spell)
             {
                 if (!SpellPlacer.spellPlaced)
                 {
-                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
                     SpellPlacer.SpellPlaced();
                     SpellPlacer.spellToPlace = null;
                     front.SetActive(true);
@@ -192,12 +174,12 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 return;
             }
 
-            if (displayedCard.cardType == CardType.structure)
+            if (displayedCard.cardType == CardType.Structure)
             {
                 if (StructurePlacer.structurePlaced)
                 {
-                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
-                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
                     CardUsed();
                 }
 
@@ -219,18 +201,17 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         Hand.instance.handCards.Remove(displayedCard);
         displayedCard.timesUsed++;
-        if (displayedCard.timesUsed < displayedCard.maxUses)
+        if (displayedCard.timesUsed < (displayedCard.maxUses + ChargesController.GetChargesAddition(displayedCard.cardType)))
         {
             Discard.instance.DiscardCardFromHand(this);
         }
         else
         {
             SoundsController.instance.PlayOneShot("Destroy");
-            LeanTween.move(gameObject, new Vector3(2000f, 2000f), 0.5f);
-            LeanTween.rotate(gameObject, new Vector3(0f, 0f, 720f), 0.5f);
-            StartCoroutine(ResetAfterTime(0.5f));
+            LeanTween.move(gameObject, new Vector3(UnityEngine.Random.Range(2000f,2500f), UnityEngine.Random.Range(2000f, 2500f)), 1f);
+            LeanTween.rotate(gameObject, new Vector3(0f, 0f, 1000f), 1f);
+            StartCoroutine(ResetAfterTime(1f));
         }
-        displayedCard = null;
     }
 
     void CheckIfActivatable()
@@ -239,13 +220,18 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             if (!CheckIfCardCanBePaid())
             {
-                dragging = false;
-                if (draggingCoroutine != null)
-                {
-                    StopCoroutine(draggingCoroutine);
-                }
-                HandCardSlotController.instance.RearrangeCardSlots();
+                ReturnCard();
                 return;
+            }
+
+            if (displayedCard.cardType == CardType.Action)
+            {
+                ActionCard actionCard = (ActionCard)displayedCard;
+                if (!actionCard.CanItBePlayed())
+                {
+                    ReturnCard();
+                    return;
+                }
             }
             ActivateCard();
 
@@ -256,21 +242,31 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
+    private void ReturnCard()
+    {
+        dragging = false;
+        if (draggingCoroutine != null)
+        {
+            StopCoroutine(draggingCoroutine);
+        }
+        HandCardSlotController.instance.RearrangeCardSlots();
+    }
+
     public void ReturnCardToHand()
     {
         front.SetActive(true);
         HandCardSlotController.instance.RearrangeCardSlots();
-        if (displayedCard.cardType == CardType.tower)
+        if (displayedCard.cardType == CardType.Tower)
         {
             TowerPlacer.towerToPlace = null;
             TowerInfoWindow.instance.Close();
             TileManager.instance.CheckForMisplacedTowers();
         }
-        if (displayedCard.cardType == CardType.action)
+        if (displayedCard.cardType == CardType.Action)
         {
 
         }
-        if (displayedCard.cardType == CardType.spell)
+        if (displayedCard.cardType == CardType.Spell)
         {
             if (SpellPlacer.spellToPlace != null)
             {
@@ -278,33 +274,34 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 SpellPlacer.spellToPlace = null;
             }
         }
-        if (displayedCard.cardType == CardType.structure)
+        if (displayedCard.cardType == CardType.Structure)
         {
             StructurePlacer.structureToPlace = null;
+            TileManager.instance.CheckForMisplacedTowers();
 
         }
         }
 
     bool CheckIfCardCanBePaid()
     {
-        return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType))) &&
-            Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)));
+        return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount) &&
+            Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount);
     }
 
     private void ActivateCard()
     {
-        if (displayedCard.cardType == CardType.tower)
+        if (displayedCard.cardType == CardType.Tower)
         {
             front.SetActive(false);
             TowerCard towerCard = (TowerCard)displayedCard;
             TowerPlacer.towerToPlace = towerCard.towerPrefab;
             TowerPlacer.startingLevel = towerCard.cardLevel;
         }
-        if (displayedCard.cardType == CardType.action)
+        if (displayedCard.cardType == CardType.Action)
         {
 
         }
-        if (displayedCard.cardType == CardType.spell)
+        if (displayedCard.cardType == CardType.Spell)
         {
             front.SetActive(false);
             SpellCard spellCard = (SpellCard)displayedCard;
@@ -312,7 +309,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             StartCoroutine(SpellPlacer.PlaceSpell());
             SpellPlacer.spellPlaced = false;
         }
-        if (displayedCard.cardType == CardType.structure)
+        if (displayedCard.cardType == CardType.Structure)
         {
             front.SetActive(false);
             StructureCard towerCard = (StructureCard)displayedCard;
@@ -335,35 +332,35 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public IEnumerator FlashCardAnimation()
     {
-        Color startingColor = bg.color;
-        Color newColor = Color.white;
+        Color startingColor = typeFg.color;
+        Color newColor = Color.red;
 
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.1f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
         yield return new WaitForSeconds(0.1f);
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.15f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
         yield return new WaitForSeconds(0.15f);
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.2f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
         yield return new WaitForSeconds(0.2f);
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.25f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
         yield return new WaitForSeconds(0.25f);
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.3f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
         yield return new WaitForSeconds(0.3f);
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.35f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
         yield return new WaitForSeconds(0.35f);
-        bg.color = newColor;
+        typeFg.color = newColor;
         yield return new WaitForSeconds(0.4f);
-        bg.color = startingColor;
+        typeFg.color = startingColor;
     }
 }

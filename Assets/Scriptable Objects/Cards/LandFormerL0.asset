@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Land Former
   cardType: 2
-  cardImage: {fileID: 21300000, guid: 0656d22d48b979841925a7fbd0046723, type: 3}
+  cardImage: {fileID: 21300000, guid: e8179e2babbde9646b2a30409188740e, type: 3}
   moneyCost: 0
-  manaCost: 20
-  buyCostMultiplayer: 1.8
+  manaCost: 15
+  buyCostMultiplayer: 2
   cardLevel: 0
-  description: Spawn 2 different terrains
+  description: Spawn 1 terrain
   damageTypes: 
+  maxUses: 3
   spellPrefab: {fileID: 3882510687299103847, guid: e06a0d075207fcf4bba94ce9d249f277, type: 3}

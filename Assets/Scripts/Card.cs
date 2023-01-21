@@ -7,11 +7,11 @@ using UnityEngine;
 [Serializable]
 public enum CardType
 {
-    tower,
-    action,
-    spell,
-    all,
-    structure
+    Tower,
+    Action,
+    Spell,
+    All,
+    Structure
 }
 
 public class Card : ScriptableObject

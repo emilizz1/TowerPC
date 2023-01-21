@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d560c512732034e861e87e3d203c5f, type: 3}
   m_Name: 4-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: f7cf2f0d5f3adb448b87194ccc651723, type: 3}
+  sprite: {fileID: 21300000, guid: 859da6d912c9c744aae21682d58417a3, type: 3}
   timeToResearch: 1
   tier: 3
-  explanation: Increase income by 5
+  explanation: Increase income by 15
   displayIcon: 1
   manaRegenPerSecond: 0
   maxMana: 0
-  incomeIncreased: 5
+  incomeIncreased: 15
   addMoney: 0

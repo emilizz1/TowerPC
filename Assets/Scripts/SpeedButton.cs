@@ -14,6 +14,11 @@ public class SpeedButton : MonoBehaviour
 
     int currentSpeed = 0;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void SpeedUp()
     {
         switch (currentSpeed)

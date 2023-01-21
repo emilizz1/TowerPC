@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d560c512732034e861e87e3d203c5f, type: 3}
   m_Name: 4-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: c75b85e3683b86b459c70e827e9e2f2a, type: 3}
+  sprite: {fileID: 21300000, guid: 6a3d9c6ad96f8a84a86d4e6cd60f4a28, type: 3}
   timeToResearch: 2
   tier: 3
   explanation: Double mana regen
   displayIcon: 1
   manaRegenPerSecond: 1
   maxMana: 0
+  incomeIncreased: 0
+  addMoney: 0

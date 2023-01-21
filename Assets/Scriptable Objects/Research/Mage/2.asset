@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aa3aaf88ea23942894a3723e79f3f8, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 3b52962d4345813468968df775faedea, type: 3}
-  timeToResearch: 1
+  sprite: {fileID: 21300000, guid: eaaf0a26c2dd2084fb1b9bec51526a56, type: 3}
+  timeToResearch: 2
   tier: 1
-  explanation: Damage to Shields increased by 7.5%
+  explanation: Damage to Shields increased by 15%
   displayIcon: 1
   affectedTypes: 02000000
   statMultiplayers:
@@ -24,4 +24,4 @@ MonoBehaviour:
     damage:
     - 0
     - 0
-    - 0.075
+    - 0.15

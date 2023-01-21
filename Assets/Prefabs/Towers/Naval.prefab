@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e163f0d673332409e477c0aec8db14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 76ce8d846df325c49add8ef6564a0e94, type: 3}
+  image: {fileID: 21300000, guid: 9403ee2eb422f8e4f96dc5d465d02b05, type: 3}
   towerName: Tower
+  specialText: Shots explode, dealing half of damage around Enemy
   rangeSprite: {fileID: 8419676603040903247}
   top: {fileID: 3364892187113495077}
   sphere: {fileID: 4273345013492345057}
@@ -147,49 +148,76 @@ MonoBehaviour:
   - {fileID: 1873693303111008902}
   - {fileID: 7958132032455568320}
   - {fileID: 8297505944724165257}
+  - {fileID: 6173949840773680750}
+  - {fileID: 6351040481482597315}
+  - {fileID: 3530073732552363174}
   canvas: {fileID: 4825318446151000804}
   audioSource: {fileID: -1277630609710043038}
   towerStats:
-  - fireRate: 0.4
-    range: 5
+  - fireRate: 1.2
+    range: 6
     damage:
-    - 6
-    - 4
-    - 2
-  - fireRate: 0.4
-    range: 5
-    damage:
-    - 7
-    - 4
-    - 3
-  - fireRate: 0.4
-    range: 5
-    damage:
-    - 7
-    - 4
-    - 3
-  - fireRate: 0.4
-    range: 5
+    - 5
+    - 5
+    - 1
+  - fireRate: 1.2
+    range: 6.5
     damage:
     - 8
-    - 5
-    - 3
-  - fireRate: 0.35
-    range: 5
+    - 8
+    - 1
+  - fireRate: 1.15
+    range: 7
     damage:
     - 9
-    - 5
-    - 3
-  - fireRate: 0.3
-    range: 5
+    - 10
+    - 1
+  - fireRate: 1.15
+    range: 7.5
     damage:
-    - 9
-    - 5
+    - 11
+    - 11
+    - 2
+  - fireRate: 1.1
+    range: 8
+    damage:
+    - 12
+    - 12
     - 3
-  experienceNeeded: 1e00000032000000500000006400000082000000
+  - fireRate: 1.1
+    range: 8.5
+    damage:
+    - 13
+    - 13
+    - 4
+  - fireRate: 1.05
+    range: 9
+    damage:
+    - 14
+    - 14
+    - 4
+  - fireRate: 1.05
+    range: 10
+    damage:
+    - 15
+    - 15
+    - 5
+  - fireRate: 1
+    range: 10.5
+    damage:
+    - 15
+    - 16
+    - 5
+  - fireRate: 1
+    range: 11
+    damage:
+    - 17
+    - 17
+    - 5
+  experienceNeeded: 3200000037000000370000003c00000041000000460000004b0000005000000055000000
   damageTypes: 
   bulletType: 104
-  shootSound: {fileID: 8300000, guid: 749361b4be202bf418d77a69186cd103, type: 3}
+  shootSound: {fileID: 8300000, guid: 6bf3d42f5330fb1468600e93294f9fb1, type: 3}
 --- !u!135 &4273345013492345057
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -213,9 +241,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0595e83fe4b6f6a4184537ea8d896462, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4141e7b9ee94107458964382dcdafba3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -223,10 +251,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
-  MaxDistance: 200
+  MinDistance: 0
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -259,7 +287,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5532,6 +5560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Rings
       objectReference: {fileID: 0}
+    - target: {fileID: 1958792855070969902, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3370904487401841152, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5542,7 +5574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3370904487401841152, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.969
+      value: 1.685
       objectReference: {fileID: 0}
     - target: {fileID: 3370904487401841152, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5592,6 +5624,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8354526169039241035, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114184249229546214, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
 --- !u!4 &366351944588459656 stripped
@@ -5627,5 +5667,20 @@ GameObject:
 --- !u!1 &8297505944724165257 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6410022307289714177, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+  m_PrefabInstance: {fileID: 3157675222223330440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6173949840773680750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9114184249229546214, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+  m_PrefabInstance: {fileID: 3157675222223330440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6351040481482597315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8354526169039241035, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
+  m_PrefabInstance: {fileID: 3157675222223330440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3530073732552363174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1958792855070969902, guid: 460e27a09ccdfda42b956304f7bfbef4, type: 3}
   m_PrefabInstance: {fileID: 3157675222223330440}
   m_PrefabAsset: {fileID: 0}

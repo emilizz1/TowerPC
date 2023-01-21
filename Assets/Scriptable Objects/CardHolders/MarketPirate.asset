@@ -12,4 +12,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f092dc82316d1fe468bd567ba784cd7e, type: 3}
   m_Name: MarketPirate
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - {fileID: 11400000, guid: 3264f6800853df44b93cd4c1576d1e2e, type: 2}
+  - {fileID: 11400000, guid: 59fc92b8ed8d4784296a453f95587df6, type: 2}
+  - {fileID: 11400000, guid: 77cc2fdad400fe740a06a6ec1da93b4e, type: 2}
+  - {fileID: 11400000, guid: 4854092b92524214d8eab6bf6eb64450, type: 2}
+  - {fileID: 11400000, guid: 66da01cc76b937442a161ea63763d750, type: 2}
+  - {fileID: 11400000, guid: ed6dd72577226fc4090c9dcb359c59e1, type: 2}
+  - {fileID: 11400000, guid: 1b6ce62ba35bb2c4d8be1bcf0688d546, type: 2}
+  - {fileID: 11400000, guid: 18fb0f5730ff98e4fbee8298c459a100, type: 2}
+  - {fileID: 11400000, guid: 652f1b3288bd1d647b3242bef38f9993, type: 2}
+  - {fileID: 11400000, guid: af7bb73541d037140b12a13c05bbe6fb, type: 2}
+  - {fileID: 11400000, guid: 6e7df4e546e7388449311ce362c2b42b, type: 2}
+  - {fileID: 11400000, guid: 008eccd80e8aace43b1131d9e94f67a2, type: 2}
+  - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+  - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+  - {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+  - {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+  - {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+  - {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+  - {fileID: 11400000, guid: f0b9f3cedc3265a4f9359792cd9e06d9, type: 2}
+  - {fileID: 11400000, guid: f0b9f3cedc3265a4f9359792cd9e06d9, type: 2}
+  cardsCollection:
+  - levelFrom: 1
+    cards:
+    - {fileID: 11400000, guid: 3264f6800853df44b93cd4c1576d1e2e, type: 2}
+    - {fileID: 11400000, guid: 59fc92b8ed8d4784296a453f95587df6, type: 2}
+    - {fileID: 11400000, guid: 77cc2fdad400fe740a06a6ec1da93b4e, type: 2}
+    - {fileID: 11400000, guid: 4854092b92524214d8eab6bf6eb64450, type: 2}
+    - {fileID: 11400000, guid: 66da01cc76b937442a161ea63763d750, type: 2}
+    - {fileID: 11400000, guid: ed6dd72577226fc4090c9dcb359c59e1, type: 2}
+    - {fileID: 11400000, guid: 1b6ce62ba35bb2c4d8be1bcf0688d546, type: 2}
+    - {fileID: 11400000, guid: 18fb0f5730ff98e4fbee8298c459a100, type: 2}
+    - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+    - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+    - {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+    - {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+    - {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+    - {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+    - {fileID: 11400000, guid: f0b9f3cedc3265a4f9359792cd9e06d9, type: 2}
+    - {fileID: 11400000, guid: f0b9f3cedc3265a4f9359792cd9e06d9, type: 2}
+  - levelFrom: 5
+    cards:
+    - {fileID: 11400000, guid: 3264f6800853df44b93cd4c1576d1e2e, type: 2}
+    - {fileID: 11400000, guid: 59fc92b8ed8d4784296a453f95587df6, type: 2}
+    - {fileID: 11400000, guid: 77cc2fdad400fe740a06a6ec1da93b4e, type: 2}
+    - {fileID: 11400000, guid: 4854092b92524214d8eab6bf6eb64450, type: 2}
+    - {fileID: 11400000, guid: 66da01cc76b937442a161ea63763d750, type: 2}
+    - {fileID: 11400000, guid: ed6dd72577226fc4090c9dcb359c59e1, type: 2}
+    - {fileID: 11400000, guid: 1b6ce62ba35bb2c4d8be1bcf0688d546, type: 2}
+    - {fileID: 11400000, guid: 18fb0f5730ff98e4fbee8298c459a100, type: 2}
+    - {fileID: 11400000, guid: 652f1b3288bd1d647b3242bef38f9993, type: 2}
+    - {fileID: 11400000, guid: af7bb73541d037140b12a13c05bbe6fb, type: 2}
+    - {fileID: 11400000, guid: 6e7df4e546e7388449311ce362c2b42b, type: 2}
+    - {fileID: 11400000, guid: 008eccd80e8aace43b1131d9e94f67a2, type: 2}
+    - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+    - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+    - {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+    - {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+    - {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+    - {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+    - {fileID: 11400000, guid: f0b9f3cedc3265a4f9359792cd9e06d9, type: 2}
+    - {fileID: 11400000, guid: f0b9f3cedc3265a4f9359792cd9e06d9, type: 2}

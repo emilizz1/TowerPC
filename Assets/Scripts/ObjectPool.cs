@@ -6,8 +6,10 @@ public class ObjectPool : MonoBehaviour
 {
     public GameObject prefab;
     public int initialSize;
+    public bool oncePerWave;
 
-    private readonly Queue<GameObject> instances = new Queue<GameObject>();
+    private Queue<GameObject> instances = new Queue<GameObject>();
+    private Queue<GameObject> currentInstances = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -50,9 +52,19 @@ public class ObjectPool : MonoBehaviour
             obj.SetActive(false);
             obj.transform.SetParent(transform);
 
-            if (!instances.Contains(obj) && pooledObject.pool == this)
+            if (oncePerWave)
             {
-                instances.Enqueue(obj);
+                if (!currentInstances.Contains(obj) && pooledObject.pool == this)
+                {
+                    currentInstances.Enqueue(obj);
+                }
+            }
+            else
+            {
+                if (!instances.Contains(obj) && pooledObject.pool == this)
+                {
+                    instances.Enqueue(obj);
+                }
             }
         }
     }
@@ -68,6 +80,18 @@ public class ObjectPool : MonoBehaviour
         pooledObject.pool = this;
         //obj.transform.SetParent(transform);
         return obj;
+    }
+
+    public void NewWave()
+    {
+        if (oncePerWave)
+        {
+            foreach(GameObject obj in currentInstances)
+            {
+                instances.Enqueue(obj);
+            }
+            currentInstances = new Queue<GameObject>();
+        }
     }
 }
 

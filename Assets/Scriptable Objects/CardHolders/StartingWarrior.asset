@@ -18,3 +18,32 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
   - {fileID: 11400000, guid: 5a6d01804b410c842bb4084c7d85027c, type: 2}
   - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
+  cardsCollection:
+  - levelFrom: 1
+    cards:
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 5a6d01804b410c842bb4084c7d85027c, type: 2}
+    - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
+  - levelFrom: 2
+    cards:
+    - {fileID: 11400000, guid: 9140f4efa69af364f822a559d4359537, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 5a6d01804b410c842bb4084c7d85027c, type: 2}
+    - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
+  - levelFrom: 4
+    cards:
+    - {fileID: 11400000, guid: 9140f4efa69af364f822a559d4359537, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 348b1a6d0dcee01428d3231c4ef10e50, type: 2}
+    - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
+  - levelFrom: 6
+    cards:
+    - {fileID: 11400000, guid: d0c714479aad13b4b8462efc9d23fc8e, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 348b1a6d0dcee01428d3231c4ef10e50, type: 2}
+    - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}

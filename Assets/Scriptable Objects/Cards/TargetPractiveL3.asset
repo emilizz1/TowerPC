@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Target Practice
   cardType: 2
-  cardImage: {fileID: 21300000, guid: 9dc27a7e8d5341b4fb7fc7f888f2fc4e, type: 3}
+  cardImage: {fileID: 21300000, guid: 4188e07cbd0821b4d8cb324e3b425299, type: 3}
   moneyCost: 0
-  manaCost: 12
-  buyCostMultiplayer: 2.4
-  cardLevel: 0
-  description: Level up Tower
+  manaCost: 25
+  buyCostMultiplayer: 2.5
+  cardLevel: 3
+  description: Level up Tower twice
   damageTypes: 
-  maxUses: 0
+  maxUses: 3
   spellPrefab: {fileID: 3882510687299103847, guid: 20b1d3ef2492f6b49965b06ba536bf35, type: 3}

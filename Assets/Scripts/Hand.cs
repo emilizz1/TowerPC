@@ -24,18 +24,33 @@ public class Hand : MonoSingleton<Hand>
         DrawNewHand();
     }
 
-    private static void CreateStartingDeck()
+    private void CreateStartingDeck()
     {
-        foreach (Card card in CharacterSelector.firstCharacter.startingCards.cards)
+        List<Card> firstStartingCards = GetStartingCards(ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName), CharacterSelector.firstCharacter.startingCards);
+        foreach (Card card in firstStartingCards)
         {
             Deck.instance.AddCard(Instantiate(card));
         }
 
-
-        foreach (Card card in CharacterSelector.secondCharacter.startingCards.cards)
+        List<Card> secondStartingCards = GetStartingCards(ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName), CharacterSelector.secondCharacter.startingCards);
+        foreach (Card card in secondStartingCards)
         {
             Deck.instance.AddCard(Instantiate(card));
         }
+    }
+
+    List<Card> GetStartingCards(int level, CardHolder cardHolder)
+    {
+        List<Card> finalList = new List<Card>();
+        foreach (CardHolder.CardHolderCollection collection in cardHolder.cardsCollection)
+        {
+            if (collection.levelFrom <= level)
+            {
+                finalList = collection.cards;
+            }
+        }
+
+        return finalList;
     }
 
     public void DrawCard()
@@ -65,25 +80,16 @@ public class Hand : MonoSingleton<Hand>
     public IEnumerator DrawNewCardsAnimation(int cardToDraw)
     {
         yield return new WaitForSeconds(1f);
-        if (Deck.instance.deckCards.Count == 0)
-        {
-            Discard.instance.ShuffleDiscard();
-            yield return new WaitForSeconds(0.75f);
-        }
 
         for (int i = 0; i < cardToDraw; i++)
         {
-            
-            DrawCard();
-            if (Deck.instance.deckCards.Count == 0 && i != handSize -1)
+            if (Deck.instance.deckCards.Count == 0 && i != handSize - 1)
             {
                 Discard.instance.ShuffleDiscard();
                 yield return new WaitForSeconds(0.75f);
             }
-            else
-            {
-                yield return new WaitForSeconds(0.25f);
-            }
+            DrawCard();
+            yield return new WaitForSeconds(0.25f);
         }
         TurnController.FinishedDrawing();
     }
@@ -110,7 +116,7 @@ public class Hand : MonoSingleton<Hand>
             }
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         foreach (CardDisplay display in HandCardSlotController.instance.cardDisplays)
         {
@@ -127,5 +133,17 @@ public class Hand : MonoSingleton<Hand>
     {
         handCards.Remove(card);
         HandCardSlotController.instance.RearrangeCardSlots();
+    }
+
+    public void RedrawCards()
+    {
+        StartCoroutine(RedrawCardsAnimation());
+    }
+
+    IEnumerator RedrawCardsAnimation()
+    {
+        DiscardHand();
+        yield return new WaitForSeconds(0.5f + 0.2f * handCards.Count);
+        DrawNewHand();
     }
 }

@@ -6,11 +6,33 @@ public class ResearchTree : MonoBehaviour
 {
     [SerializeField] List<Transform> tiers;
     [SerializeField] GameObject nodePrefab;
+    [SerializeField] List<GameObject> levelFive;
+    [SerializeField] List<GameObject> levelSix;
 
     List<ResearchNode> nodes;
 
-    public void SetupTree(TechTreeHolder techTree)
+    public void SetupTree(TechTreeHolder techTree, int levelsLocked)
     {
+        if(levelsLocked == 2)
+        {
+            foreach(GameObject obj in levelFive)
+            {
+                obj.SetActive(false);
+            }
+            foreach (GameObject obj in levelSix)
+            {
+                obj.SetActive(false);
+            }
+        }
+
+        if (levelsLocked == 1)
+        {
+            foreach (GameObject obj in levelSix)
+            {
+                obj.SetActive(false);
+            }
+        }
+
         nodes = new List<ResearchNode>();
         foreach (Research research in techTree.researches)
         {
@@ -64,5 +86,17 @@ public class ResearchTree : MonoBehaviour
         {
             node.PlayAnimations();
         }
+    }
+
+    public bool HasResearchToComplete()
+    {
+        foreach(ResearchNode node in nodes)
+        {
+            if(!node.researched && node.unlocked)
+            {
+                return true ;
+            }
+        }
+        return false;
     }
 }

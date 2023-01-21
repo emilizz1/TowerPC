@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378201c651eb32745b31a9336a6d4d2a, type: 3}
+  m_Name: Admiral
+  m_EditorClassIdentifier: 
+  characterName: Admiral
+  startingMoney: 90
+  startingMana: 10
+  startingMaxHealth: 10
+  startingCards: {fileID: 11400000, guid: a848e194f8978c54da2082fbac41666e, type: 2}
+  marketCards: {fileID: 11400000, guid: 98e34f808e7554c40923b6d31e0c88a7, type: 2}
+  techTree: {fileID: 11400000, guid: aa03aca8551f5f041b18b61779e1b1d4, type: 2}
+  icon: {fileID: 21300000, guid: 803fc5e0a8fbefd4a9225433e87a8568, type: 3}
+  levelUpDescriptions:
+  - text: Starting Card Upgraded For Admiral
+    cardToDisplay: {fileID: 11400000, guid: 0cd70f97835cb2f488450644c230becd, type: 2}
+  - text: New Research Level Unlocked For Admiral
+    cardToDisplay: {fileID: 0}
+  - text: Starting Card Upgraded For Admiral
+    cardToDisplay: {fileID: 11400000, guid: ed6dd72577226fc4090c9dcb359c59e1, type: 2}
+  - text: New Card Added To Market For Admiral
+    cardToDisplay: {fileID: 11400000, guid: 652f1b3288bd1d647b3242bef38f9993, type: 2}
+  - text: Starting Card Upgraded For Admiral
+    cardToDisplay: {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
+  - text: New Research Level Unlocked For Admiral
+    cardToDisplay: {fileID: 0}

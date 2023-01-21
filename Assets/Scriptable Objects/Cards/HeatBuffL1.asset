@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Heat Buff
   cardType: 2
-  cardImage: {fileID: 21300000, guid: bcde2fc781a7d08458107d7ee01fdc69, type: 3}
+  cardImage: {fileID: 21300000, guid: b22ec6efeeab6454e8876998dcb077e8, type: 3}
   moneyCost: 0
-  manaCost: 20
-  buyCostMultiplayer: 2
+  manaCost: 13
+  buyCostMultiplayer: 2.33
   cardLevel: 1
-  description: Grant Damage buff
+  description: Increases tower damage by 35%
   damageTypes: 
+  maxUses: 3
   spellPrefab: {fileID: 3882510687299103847, guid: 0ac1adeebaa10964dbbe3aa15a99c5a6, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aa3aaf88ea23942894a3723e79f3f8, type: 3}
   m_Name: 5
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 3b52962d4345813468968df775faedea, type: 3}
+  sprite: {fileID: 21300000, guid: 04b18ea561283a04e848fb71d4e7a781, type: 3}
   timeToResearch: 2
   tier: 4
   explanation: Damage to Armor increased by 30%

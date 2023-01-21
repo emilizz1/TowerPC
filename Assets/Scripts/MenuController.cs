@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class MenuController : MonoSingleton<MenuController>
 {
+    private void Start()
+    {
+        Soundtrack.instance.MenuScreen();
+    }
+
     public void PressedPlay()
     {
         SceneManager.LoadScene(SceneManager.CHARACTER_SELECTION);
-    }
-
-    public void PressedCollection()
-    {
-
-    }
-
-    public void PressedLearnToPlay()
-    {
-
-    }
-
-    public void PressedOptions()
-    {
-
     }
 
     public void PressedQuit()

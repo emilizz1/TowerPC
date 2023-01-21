@@ -21,9 +21,10 @@ public class SnowstormSpell : Spell
 
     void SlowEnemies()
     {
+        List<Enemy> enemiesToRemove = new List<Enemy>();
         foreach (Enemy enemy in enemies)
         {
-            if (enemy != null)
+            if (enemy != null && enemy.isActiveAndEnabled)
             {
                 if (enemy.GetComponent<SlowDebuff>())
                 {
@@ -34,6 +35,16 @@ public class SnowstormSpell : Spell
                     enemy.gameObject.AddComponent<SlowDebuff>();
                 }
             }
+            else
+            {
+                enemiesToRemove.Add(enemy);
+
+            }
+        }
+
+        foreach (Enemy enemy1 in enemiesToRemove)
+        {
+            enemies.Remove(enemy1);
         }
     }
 
@@ -53,6 +64,10 @@ public class SnowstormSpell : Spell
     {
         //base.StopSpell();
         duration--;
+        if (durationNumber != null)
+        {
+            durationNumber.text = duration > 1 ? duration.ToString() : "";
+        }
         if (duration > 0)
         {
             return;

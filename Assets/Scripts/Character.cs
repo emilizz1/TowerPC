@@ -8,6 +8,7 @@ using System;
 
 public class Character : ScriptableObject
 {
+    public string characterName;
     public int startingMoney;
     public int startingMana;
     public int startingMaxHealth;
@@ -15,4 +16,12 @@ public class Character : ScriptableObject
     public CardHolder marketCards;
     public TechTreeHolder techTree;
     public Sprite icon;
+    public List<LevelUpDescription> levelUpDescriptions;
+
+    [Serializable]
+    public struct LevelUpDescription
+    {
+        public string text;
+        public Card cardToDisplay;
+    }
 }

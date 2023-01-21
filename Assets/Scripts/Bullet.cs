@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] ParticleSystem particles;
+    public Color damageColor;
+    [SerializeField] TrailRenderer trail;
     [SerializeField] GameObject model;
     [SerializeField] GameObject endParticles;
     [SerializeField] float speed;
@@ -15,6 +16,15 @@ public class Bullet : MonoBehaviour
 
     GameObject endParticleInstance;
     bool returning;
+    float startingVolumeValue;
+
+    private void Start()
+    {
+        if (audioSource != null)
+        {
+            startingVolumeValue = audioSource.volume;
+        }
+    }
 
     void Update()
     {
@@ -44,13 +54,14 @@ public class Bullet : MonoBehaviour
 
     internal virtual void TargetReached()
     {
-        target.GetComponent<Enemy>().DealDamage(damage);
+        target.GetComponent<Enemy>().DealDamage(damage, damageColor);
         if (endParticles != null)
         {
             endParticleInstance = Instantiate(endParticles, target.transform);
         }
         if(audioSource != null)
         {
+            audioSource.volume = startingVolumeValue * SettingsHolder.sound;
             audioSource.Play();
         }
         StartCoroutine(ReturnAfterTimer());
@@ -60,12 +71,12 @@ public class Bullet : MonoBehaviour
     {
         returning = false;
         target = setTarget;
-        particles.Play();
+        trail.emitting = true;
     }
 
     IEnumerator ReturnAfterTimer()
     {
-        particles.Stop();
+        trail.emitting = false;
         returning = true;
         yield return new WaitForSeconds(1f);
         if(endParticleInstance!= null)

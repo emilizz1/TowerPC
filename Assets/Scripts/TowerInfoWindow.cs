@@ -26,6 +26,34 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
     Tower currentTower;
     bool open;
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (open)
+            {
+                Close();
+            }
+        }
+        if (TowerPlacer.towerToPlace != null) 
+        {
+            if (TowerPlacer.towerPlaced)
+            {
+                if (!open)
+                {
+                    OpenWindow();
+                }
+            }
+            else
+            {
+                if (open) 
+                {
+                    Close(); 
+                }
+            }
+        }
+    }
+
     public void Close()
     {
         if (currentTower != null)
@@ -45,12 +73,12 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         currentTower = tower;
 
         nameText.text = currentTower.towerName;
-        fireRateText.text = "Fire Rate: " + ((1 - (currentTower.towerStats[currentTower.currentLevel].fireRate * (1 - currentTower.statsMultiplayers.fireRate))) * 10).ToString("F1");
-        damage0Text.text = "Health Damage: " + (currentTower.towerStats[currentTower.currentLevel].damage[0] * currentTower.statsMultiplayers.damage[0]).ToString("F1");
-        damage1Text.text = "Armor Damage: " + (currentTower.towerStats[currentTower.currentLevel].damage[1] * currentTower.statsMultiplayers.damage[1]).ToString("F1");
-        damage2Text.text = "Shield Damage: " + (currentTower.towerStats[currentTower.currentLevel].damage[2] * currentTower.statsMultiplayers.damage[2]).ToString("F1");
-        rangeText.text = "Range: " + (currentTower.towerStats[currentTower.currentLevel].range * currentTower.statsMultiplayers.range).ToString("F1");
-        level.text = "Level:" + (currentTower.currentLevel + 1).ToString();
+        fireRateText.text = "<sprite=1> " + (1f / (currentTower.towerStats[currentTower.currentLevel].fireRate * currentTower.statsMultiplayers.fireRate)).ToString("F1") + "/s";
+        damage0Text.text = "<sprite=4> " + (currentTower.towerStats[currentTower.currentLevel].damage[0] * currentTower.statsMultiplayers.damage[0]).ToString("F1");
+        damage1Text.text = "<sprite=3> " + (currentTower.towerStats[currentTower.currentLevel].damage[1] * currentTower.statsMultiplayers.damage[1]).ToString("F1");
+        damage2Text.text = "<sprite=2> " + (currentTower.towerStats[currentTower.currentLevel].damage[2] * currentTower.statsMultiplayers.damage[2]).ToString("F1");
+        rangeText.text = "<sprite=0> " + (currentTower.towerStats[currentTower.currentLevel].range * currentTower.statsMultiplayers.range).ToString("F1");
+        level.text = "Level: " + (currentTower.currentLevel + 1).ToString();
         if (tower.currentLevel == tower.experienceNeeded.Count)
         {
             experienceText.gameObject.SetActive(false);
@@ -64,8 +92,18 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
             experienceBar.fillAmount = (float)currentTower.experience / currentTower.experienceNeeded[currentTower.currentLevel];
         }
 
+        upgradeCost.transform.parent.parent.parent.gameObject.SetActive(!currentTower.MaxLevel());
         upgradeCost.text = "Upgrade " + (currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience).ToString();
-        specialText.text = currentTower.specialText;
+
+        if (string.IsNullOrEmpty(currentTower.specialText))
+        {
+            specialText.gameObject.SetActive(false);
+        }
+        else
+        {
+            specialText.gameObject.SetActive(true);
+            specialText.text = currentTower.specialText;
+        }
 
         towerImage.sprite = currentTower.image;
         targetSelectText.text = targetingOptions[(int)currentTower.targeting];
@@ -73,9 +111,13 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
 
     public void OpenWindow()
     {
+        if(currentTower == null)
+        {
+            return;
+        }
+        currentTower.rangeSprite.gameObject.SetActive(true);
         if (!open)
         {
-            currentTower.rangeSprite.gameObject.SetActive(true);
             animator.PerformTween(1);
             open = true;
         }
@@ -112,31 +154,31 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         ShowInfo(tower);
         if (terrain.statsMultiplayers.range > 0)
         {
-            rangeText.text = "Range: " + colorString +
+            rangeText.text = "<sprite=0> " + colorString +
                 (currentTower.towerStats[currentTower.currentLevel].range * (currentTower.statsMultiplayers.range + terrain.statsMultiplayers.range)).ToString("F1")
                 + " (+" + (terrain.statsMultiplayers.range * 100).ToString() + "%)";
         }
         if (terrain.statsMultiplayers.fireRate > 0)
         {
-            fireRateText.text = "Fire Rate: " + colorString +
-                  ((1 - (currentTower.towerStats[currentTower.currentLevel].fireRate * (1 - (currentTower.statsMultiplayers.fireRate + terrain.statsMultiplayers.fireRate)))) * 10f).ToString("F1")
+            fireRateText.text = "<sprite=1> " + colorString +
+                  ( 1f / (currentTower.towerStats[currentTower.currentLevel].fireRate *  (currentTower.statsMultiplayers.fireRate + terrain.statsMultiplayers.fireRate))).ToString("F1")
                   + " (+" + (terrain.statsMultiplayers.fireRate * 100).ToString() + "%)";
         }
         if (terrain.statsMultiplayers.damage[0] > 0)
         {
-            damage0Text.text = "Health Damage: " + colorString +
+            damage0Text.text = "<sprite=4> " + colorString +
                 (currentTower.towerStats[currentTower.currentLevel].damage[0] * (currentTower.statsMultiplayers.damage[0] + terrain.statsMultiplayers.damage[0])).ToString("F1")
                 + " (+" + (terrain.statsMultiplayers.damage[0] * 100).ToString() + "%)";
         }
         if (terrain.statsMultiplayers.damage[1] > 0)
         {
-            damage1Text.text = "Armor Damage: " + colorString +
+            damage1Text.text = "<sprite=3> " + colorString +
                 (currentTower.towerStats[currentTower.currentLevel].damage[1] * (currentTower.statsMultiplayers.damage[1] + terrain.statsMultiplayers.damage[1])).ToString("F1")
                 + " (+" + (terrain.statsMultiplayers.damage[1] * 100).ToString() + "%)";
         }
         if (terrain.statsMultiplayers.damage[2] > 0)
         {
-            damage2Text.text = "Shield Damage: " + colorString +
+            damage2Text.text = "<sprite=2> " + colorString +
                 (currentTower.towerStats[currentTower.currentLevel].damage[2] * (currentTower.statsMultiplayers.damage[2] + terrain.statsMultiplayers.damage[2])).ToString("F1")
                 + " (+" + (terrain.statsMultiplayers.damage[2] * 100).ToString() + "%)";
         }
@@ -144,6 +186,11 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
 
     public void UpgradeTower()
     {
+        if (currentTower.MaxLevel())
+        {
+            return;
+        }
+
         if(Money.instance.TryPaying(currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience))
         {
             currentTower.UpgradeTower();

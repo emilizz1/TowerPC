@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb3268073aab9e4799cef728f66e588, type: 3}
   m_Name: 5
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 486ed0a01c20fbe4783f3cc6cdbc2159, type: 3}
   timeToResearch: 2
   tier: 4
   explanation: 50% more terrain
