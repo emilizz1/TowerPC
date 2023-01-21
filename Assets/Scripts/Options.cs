@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
@@ -12,6 +13,7 @@ public class Options : MonoBehaviour
     [SerializeField] Slider soundSlider;
     [SerializeField] Slider musicSlider;
     [SerializeField] GameObject parent;
+    [SerializeField] AudioMixer mixer;
 
     const string FULL_SCREEN_SAVE = "fullscreen";
     const string RESOLUTION_WIDTH_SAVE = "resolutionWidth";
@@ -54,10 +56,10 @@ public class Options : MonoBehaviour
         selectedResolution.height = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_SAVE, Screen.currentResolution.height);
         selectedResolution.refreshRate = PlayerPrefs.GetInt(REFRESH_RATE_SAVE, Screen.currentResolution.refreshRate);
 
-        SettingsHolder.sound = PlayerPrefs.GetFloat(SOUND_EFFECTS_SAVE, 1f);
-        soundSlider.value = SettingsHolder.sound;
-        SettingsHolder.music = PlayerPrefs.GetFloat(MUSIC_SAVE, 1f);
-        musicSlider.value = SettingsHolder.music;
+        float value = PlayerPrefs.GetFloat(SOUND_EFFECTS_SAVE, 1f);
+        mixer.SetFloat("SoundEffect", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
+        value = PlayerPrefs.GetFloat(MUSIC_SAVE, 1f);
+        mixer.SetFloat("Soundtrack", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
 
         fullScreenToggle.isOn = PlayerPrefs.GetInt(FULL_SCREEN_SAVE, Screen.fullScreen ? 1 : 0) > 0;
 
@@ -123,15 +125,14 @@ public class Options : MonoBehaviour
 
     public void SoundChanged(float value)
     {
-        SettingsHolder.sound = value;
         PlayerPrefs.SetFloat(SOUND_EFFECTS_SAVE,value);
+        mixer.SetFloat("SoundEffect", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
     }
 
     public void MusicChanged(float value)
     {
-        SettingsHolder.music = value;
         PlayerPrefs.SetFloat(MUSIC_SAVE, value);
-        FindObjectOfType<Soundtrack>().ChangedSoundtrackVolume();
+        mixer.SetFloat("Soundtrack", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
     }
 
     public void OpenPopup()

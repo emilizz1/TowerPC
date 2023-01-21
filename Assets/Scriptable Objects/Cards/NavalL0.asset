@@ -19,7 +19,7 @@ MonoBehaviour:
   manaCost: 0
   buyCostMultiplayer: 1.5
   cardLevel: 0
-  description: '<sprite=4> 8   <sprite=3> 8   <sprite=2> 1
+  description: '<sprite=4> 5   <sprite=3> 5   <sprite=2> 1
 
     <sprite=1> 0.8/s  
     <sprite=0> 6

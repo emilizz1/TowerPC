@@ -78,13 +78,11 @@ public class Tower : MonoBehaviour
     List<EnemyMovement> reachableEnemies = new List<EnemyMovement>();
     internal GameObject currentTarget;
     float timeUntilShot;
-    float startingVolumeValue;
 
     bool active;
 
     public void PrepareTower()
     {
-        startingVolumeValue = audioSource.volume;
         statsMultiplayers.fireRate = 1f;
         statsMultiplayers.range = 1f;
         statsMultiplayers.damage = new List<float>();
@@ -151,7 +149,6 @@ public class Tower : MonoBehaviour
         {
             shootingParticles.Play();
         }
-        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
         audioSource.clip = shootSound;
         audioSource.Play();
         AddExperience();
@@ -191,7 +188,6 @@ public class Tower : MonoBehaviour
 
         TowerInfoWindow.instance.UpdateInfo(this);
 
-        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
         audioSource.PlayOneShot( SoundsController.instance.GetAudioClip("LevelUp"));
         audioSource.Play();
         SetupRange();
@@ -332,7 +328,6 @@ public class Tower : MonoBehaviour
         {
             levelUpRings[i].SetActive(true);
         }
-        audioSource.volume = startingVolumeValue * SettingsHolder.sound;
         audioSource.clip = SoundsController.instance.GetAudioClip("TowerPlaced");
         audioSource.Play();
         SetupRange();

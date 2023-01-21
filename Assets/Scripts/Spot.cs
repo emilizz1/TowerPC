@@ -117,6 +117,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     terrain.AddStats(tower);
                 }
             }
+            TipsManager.instance.CheckForTipTerrain(terrainBonus.Count > 0);
             tower.Activate();
             objBuilt = true;
             readyToBuild = false;

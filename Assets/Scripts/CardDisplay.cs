@@ -212,6 +212,11 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             LeanTween.rotate(gameObject, new Vector3(0f, 0f, 1000f), 1f);
             StartCoroutine(ResetAfterTime(1f));
         }
+
+        if(Hand.instance.handCards.Count == 0)
+        {
+            TipsManager.instance.CheckForTipDrawMoreCards();
+        }
     }
 
     void CheckIfActivatable()

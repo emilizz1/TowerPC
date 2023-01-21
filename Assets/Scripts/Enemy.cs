@@ -36,11 +36,9 @@ public class Enemy : MonoBehaviour
     internal bool summmoned;
     float currentSkill;
     List<Color> rendererColors;
-    float startingVolumeValue;
 
     void Start()
     {
-        startingVolumeValue = audioSource.volume;
         if (rendererColors == null)
         {
             SetupRendererColors();
@@ -70,7 +68,6 @@ public class Enemy : MonoBehaviour
                 currentSkill += Time.deltaTime / special.cooldown;
                 if (currentSkill >= 1f)
                 {
-                    audioSource.volume = startingVolumeValue * SettingsHolder.sound;
                     audioSource.PlayOneShot(specialClips[Random.Range(0, specialClips.Count)]);
                     special.UseSpecial();
                     currentSkill = 0f;
@@ -171,7 +168,6 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth[0] <= 0)
         {
-            audioSource.volume = startingVolumeValue * SettingsHolder.sound;
             audioSource.PlayOneShot(deathClips[Random.Range(0, deathClips.Count)]);
             UpdateBars();
             healthBar.fillAmount = 0f;

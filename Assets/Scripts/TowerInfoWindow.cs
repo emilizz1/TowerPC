@@ -25,6 +25,12 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
 
     Tower currentTower;
     bool open;
+    Camera myCamera;
+
+    private void Start()
+    {
+        myCamera = Camera.main;
+    }
 
     private void Update()
     {
@@ -39,7 +45,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         {
             if (TowerPlacer.towerPlaced)
             {
-                if (!open)
+                if (!open && myCamera.ScreenToViewportPoint(Input.mousePosition).x > 0.15f)
                 {
                     OpenWindow();
                 }
@@ -62,6 +68,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         }
         open = false;
         animator.PerformTween(0);
+        SoundsController.instance.PlayOnce("Close");
     }
 
     public void ShowInfo(Tower tower)
@@ -119,6 +126,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         if (!open)
         {
             animator.PerformTween(1);
+            SoundsController.instance.PlayOnce("Open");
             open = true;
         }
     }

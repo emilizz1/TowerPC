@@ -16,14 +16,9 @@ public class Bullet : MonoBehaviour
 
     GameObject endParticleInstance;
     bool returning;
-    float startingVolumeValue;
 
     private void Start()
     {
-        if (audioSource != null)
-        {
-            startingVolumeValue = audioSource.volume;
-        }
     }
 
     void Update()
@@ -61,7 +56,6 @@ public class Bullet : MonoBehaviour
         }
         if(audioSource != null)
         {
-            audioSource.volume = startingVolumeValue * SettingsHolder.sound;
             audioSource.Play();
         }
         StartCoroutine(ReturnAfterTimer());

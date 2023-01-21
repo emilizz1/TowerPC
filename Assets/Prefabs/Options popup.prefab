@@ -1645,6 +1645,7 @@ MonoBehaviour:
   soundSlider: {fileID: 5244448505073119242}
   musicSlider: {fileID: 5244448505362849280}
   parent: {fileID: 5244448506344695578}
+  mixer: {fileID: 24100000, guid: 87f1819699876444e84573509ae4a5ae, type: 2}
 --- !u!1 &5244448505949082010
 GameObject:
   m_ObjectHideFlags: 0

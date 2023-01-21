@@ -14,13 +14,6 @@ public class SoundsController : MonoSingleton<SoundsController>
         public AudioClip clip;
     }
 
-    float startingVolumeValue;
-
-    private void Start()
-    {
-        startingVolumeValue = mainSource.volume;
-    }
-
     public void PlayOnce(string audioSourceName)
     {
         AudioClip audioClip = GetAudioClip(audioSourceName);
@@ -28,7 +21,6 @@ public class SoundsController : MonoSingleton<SoundsController>
         {
             if (!mainSource.isPlaying)
             {
-                mainSource.volume = startingVolumeValue * SettingsHolder.sound;
                 mainSource.clip = audioClip;
                 mainSource.Play();
             }
@@ -40,7 +32,6 @@ public class SoundsController : MonoSingleton<SoundsController>
         AudioClip audioClip = GetAudioClip(audioSourceName);
         if (audioClip != null)
         {
-            mainSource.volume = startingVolumeValue * SettingsHolder.sound;
             mainSource.PlayOneShot(audioClip);
         }
     }

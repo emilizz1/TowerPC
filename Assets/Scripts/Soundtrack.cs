@@ -34,19 +34,9 @@ public class Soundtrack : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        ChangedSoundtrackVolume();
-    }
-
-    public void ChangedSoundtrackVolume()
-    {
-        baseAudio.volume = 1f * SettingsHolder.music;
-    }
-
     public void GameStarted()
     {
-        idleAudio.volume = 1f * SettingsHolder.music;
+        StartCoroutine(ChangeTheme(null, idleAudio));
     }
 
     public void MenuScreen()
@@ -73,12 +63,17 @@ public class Soundtrack : MonoBehaviour
         while (timePassed > 0)
         {
             timePassed -= Time.unscaledDeltaTime;
-            from.volume = SettingsHolder.music * timePassed;
-            to.volume = SettingsHolder.music * (1 - timePassed);
+            if (from != null)
+            {
+                from.volume = timePassed;
+            }
+            to.volume = 1 - timePassed;
             yield return null;
         }
-
-        from.volume = 0f;
+        if (from != null)
+        {
+            from.volume = 0f;
+        }
         to.volume = 1f;
     }
 }

@@ -16,8 +16,6 @@ public static class ProgressManager
     {
         initialized = true;
 
-        PlayerPrefs.DeleteAll();
-
         progress = new Dictionary<string, int>();
         levels = new Dictionary<string, int>();
 

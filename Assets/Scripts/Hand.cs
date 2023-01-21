@@ -83,7 +83,7 @@ public class Hand : MonoSingleton<Hand>
 
         for (int i = 0; i < cardToDraw; i++)
         {
-            if (Deck.instance.deckCards.Count == 0 && i != handSize - 1)
+            if (Deck.instance.deckCards.Count == 0)
             {
                 Discard.instance.ShuffleDiscard();
                 yield return new WaitForSeconds(0.75f);
