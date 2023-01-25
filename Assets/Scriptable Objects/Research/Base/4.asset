@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1506a14469e2897419fff21ff9f6dffe, type: 3}
   timeToResearch: 2
   tier: 3
-  explanation: Castle is healed by 1 each turn
+  explanation: Castle is healed by 1 each wave
   displayIcon: 1
   maxHealthAddition: 0
   increaseRegen: 1

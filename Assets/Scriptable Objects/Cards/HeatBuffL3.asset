@@ -19,7 +19,7 @@ MonoBehaviour:
   manaCost: 27
   buyCostMultiplayer: 2.66
   cardLevel: 3
-  description: Increases tower damage by 35% for 2 turns
+  description: Increases tower damage by 35% for 2 waves
   damageTypes: 
   maxUses: 3
   spellPrefab: {fileID: 3882510687299103847, guid: 286974cd0d3072f43b6737a1e1ca968b, type: 3}

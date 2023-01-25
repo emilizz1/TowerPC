@@ -73,6 +73,10 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
             currentlyResearchingImage.transform.parent.gameObject.SetActive(true);
             ResearchButton.instance.UpdateFill(currentlyResearching == null ? 0f : ((float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch),
                 (float)research.currentProgress / research.research.timeToResearch, 0.5f);
+            if(currentlyResearching != null)
+            {
+                currentlyResearching.Deselected();
+            }
             currentlyResearching = research;
             currentlyResearchingImage.sprite = research.research.sprite;
             button.SetActive(true);

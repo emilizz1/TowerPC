@@ -1135,7 +1135,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundsController, Assembly-CSharp
-        m_MethodName: PlayOnce
+        m_MethodName: PlayOneShot
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1640,6 +1640,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5357744666556472417}
     m_Modifications:
+    - target: {fileID: 643286268, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7938326061535406086}
     - target: {fileID: 960131769813834514, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1982,6 +1986,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5357744666556472417}
     m_Modifications:
+    - target: {fileID: 643286268, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7938326061535406086}
     - target: {fileID: 960131769813834514, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2155,6 +2163,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5357744666556472417}
     m_Modifications:
+    - target: {fileID: 643286268, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7938326061535406086}
     - target: {fileID: 960131769813834514, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2324,6 +2336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5357744666556472417}
     m_Modifications:
+    - target: {fileID: 643286268, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7938326061535406086}
     - target: {fileID: 960131769813834514, guid: a24d03e3c6fcde846bfd6e2342a0d9ab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

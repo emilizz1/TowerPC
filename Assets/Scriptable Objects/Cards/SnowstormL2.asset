@@ -21,7 +21,7 @@ MonoBehaviour:
   cardLevel: 2
   description: 'Slow down Enemies
 
-    Stays for 3 turns'
+    Stays for 3 waves'
   damageTypes: 
   maxUses: 2
   spellPrefab: {fileID: 3346172960511143528, guid: c8ece48491cdedb489c7f1dd0bea87bc, type: 3}

@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 218e1b2b5287d67408928b494225382c, type: 3}
   timeToResearch: 2
   tier: 5
-  explanation: Can't buy cards, get 2 cards for free each turn
+  explanation: Can't buy cards, get 2 cards for free each wave
   displayIcon: 0
   changes: 0

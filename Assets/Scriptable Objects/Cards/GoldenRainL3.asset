@@ -21,7 +21,7 @@ MonoBehaviour:
   cardLevel: 3
   description: 'Affected enemies give more gold when killed
 
-    Stays for 2 turns'
+    Stays for 2 waves'
   damageTypes: 
   maxUses: 2
   spellPrefab: {fileID: 3346172960511143528, guid: d77efcc92ed290e42903602dc663671f, type: 3}

@@ -19,6 +19,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     {
         aliveEnemies = new List<Enemy>();
         wavesTarget = wavesTargetByLevel[ProgressManager.GetLevel("Base")];
+        WaveCounter.instance.DisplayCounter();
         Analytics.instance.StartedMatch();
     }
 

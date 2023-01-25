@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1fa98bb848ee8cc4781fe860e09283c3, type: 3}
   timeToResearch: 1
   tier: 2
-  explanation: Gain "Snow Storm" +1 card
+  explanation: Gain "Snow Storm" <sprite=0> card
   displayIcon: 0
   cardToGet: {fileID: 11400000, guid: fec50a2ecc96c7e4fb53a8d57a1ef724, type: 2}

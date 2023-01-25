@@ -15,7 +15,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] TextMeshProUGUI timeToComplete;
     [SerializeField] Animator animator;
     [SerializeField] float timeToReveal;
-    [SerializeField] Image fg;
+    [SerializeField] GameObject selected;
 
     internal List<ResearchNode> nextNodes = new List<ResearchNode>();
     internal ResearchNode sameLevelNodes;
@@ -55,6 +55,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void Researched()
     {
+        selected.SetActive(false);
         researched = true;
         research.Researched();
         if (sameLevelNodes != null)
@@ -84,6 +85,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (unlocked && !researched)
         {
+            selected.SetActive(true);
             SoundsController.instance.PlayOneShot("Click");
             ResearchWindow.instance.NewResearchSelected(this);
         }
@@ -136,5 +138,10 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
 
         SoundsController.instance.PlayOneShot("Complete");
+    }
+
+    public void Deselected()
+    {
+        selected.SetActive(false);
     }
 }

@@ -17,10 +17,14 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] TextMeshProUGUI costMana;
     [SerializeField] TextMeshProUGUI description;
     [SerializeField] TextMeshProUGUI keywords;
-    [SerializeField] TextMeshProUGUI uses;
     [SerializeField] bool handCard;
     [SerializeField] List<GameObject> cardLevel;
     [SerializeField] List<GameObject> cardLevelStars;
+    [SerializeField] List<GameObject> maxCharges;
+    [SerializeField] List<GameObject> activeCharges;
+    [SerializeField] GridLayoutGroup chargesLayoutGroup;
+    [SerializeField] TweenAnimator notEnoughMoney;
+    [SerializeField] TweenAnimator notEnoughMana;
 
     internal Card displayedCard;
 
@@ -55,7 +59,16 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         keywords.text = keywordText;
 
         int maxUses = cardToDisplay.maxUses + ChargesController.GetChargesAddition(cardToDisplay.cardType);
-        uses.text = "charges " + (maxUses - cardToDisplay.timesUsed).ToString() + "/" + maxUses.ToString();
+        for (int i = 0; i < maxCharges.Count; i++)
+        {
+            maxCharges[i].SetActive(i < maxUses);
+        }
+        for (int i = 0; i < activeCharges.Count; i++)
+        {
+            activeCharges[i].SetActive(i < maxUses - cardToDisplay.timesUsed);
+        }
+
+        chargesLayoutGroup.cellSize = maxUses > 5 ? new Vector2(9,9) : new Vector2(18,18);
 
         costMoney.text = Mathf.Max(Mathf.CeilToInt(cardToDisplay.moneyCost * CostController.GetPlayingCostMultiplayer(cardToDisplay.cardType)) - CostController.currentTurnDiscount,0).ToString();
         costMana.text = Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount,0).ToString();
@@ -289,6 +302,14 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     bool CheckIfCardCanBePaid()
     {
+        if(!Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount))
+        {
+            notEnoughMoney.PerformTween(0);
+        }
+        if (!Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount))
+        {
+            notEnoughMoney.PerformTween(0);
+        }
         return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount) &&
             Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount);
     }

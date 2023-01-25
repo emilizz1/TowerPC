@@ -11,10 +11,14 @@ public class TipsManager : MonoSingleton<TipsManager>
     [SerializeField] string upgradeTowerText;
     [SerializeField] string terrainText;
     [SerializeField] string drawMoreCardsText;
+    [SerializeField] string pressingExpandText;
+
+    internal bool marketSkipped;
 
     bool showedTipTower;
     bool showedTipTerrain;
     bool showedTipCards;
+    bool showedPressingExpand;
 
     int towersPlacedOnNotTerrain;
 
@@ -23,6 +27,8 @@ public class TipsManager : MonoSingleton<TipsManager>
         showedTipTower = PlayerPrefs.GetInt("TipTower", 0) == 0;
         showedTipTerrain = PlayerPrefs.GetInt("TipTerrain", 0) == 0;
         showedTipCards = PlayerPrefs.GetInt("TipCards", 0) == 0;
+        showedPressingExpand = PlayerPrefs.GetInt("PressingExpand", 0) == 0;
+        marketSkipped = PlayerPrefs.GetInt("marketSkipped", 0) == 0;
     }
 
 
@@ -68,5 +74,23 @@ public class TipsManager : MonoSingleton<TipsManager>
             PlayerPrefs.SetInt("TipCards", 1);
             showedTipCards = true;
         }
+    }
+
+    public void CheckForTipPressingExpand()
+    {
+        if (!showedPressingExpand)
+        {
+            animator.PerformTween(0);
+            text.text = pressingExpandText;
+            PlayerPrefs.SetInt("PressingExpand", 1);
+            showedPressingExpand = true;
+            StartCoroutine( Hand.instance.FirstTurnWaitToPlayACard());
+        }
+    }
+
+    public void MarketSkipped()
+    {
+        PlayerPrefs.SetInt("marketSkipped", 1);
+        marketSkipped = true;
     }
 }

@@ -7,10 +7,6 @@ public class WaveCounter : MonoSingleton<WaveCounter>
 {
     [SerializeField] TextMeshProUGUI text;
 
-    private void Start()
-    {
-        text.text = "Wave " + TurnController.currentTurn + "/" + EnemyManager.instance.wavesTarget;
-    }
 
     public void DisplayCounter()
     {

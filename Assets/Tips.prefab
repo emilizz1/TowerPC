@@ -588,3 +588,5 @@ MonoBehaviour:
   terrainText: Placing towers on terrain will give them different bonuses
   drawMoreCardsText: You can always draw new hand of cards by pressing the button
     above the deck
+  pressingExpandText: Pressing Expand will start enemy wave, build some towers before
+    expanding

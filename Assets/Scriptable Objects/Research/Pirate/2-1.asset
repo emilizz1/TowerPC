@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 0c63b006f40de2843add4f2ac8f6062b, type: 3}
   timeToResearch: 2
   tier: 1
-  explanation: Gain "Reinforcement" +1 card
+  explanation: Gain "Reinforcement" <sprite=0> card
   displayIcon: 0
   cardToGet: {fileID: 11400000, guid: 59fc92b8ed8d4784296a453f95587df6, type: 2}

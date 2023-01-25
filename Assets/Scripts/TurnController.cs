@@ -43,6 +43,10 @@ public static class TurnController
         {
             currentPhase = TurnPhase.Preperation;
             TileManager.instance.ChangeButtonInteractability(true);
+            if (currentTurn == 0)
+            {
+                TipsManager.instance.CheckForTipPressingExpand();
+            }
         }
     }
 
@@ -69,7 +73,15 @@ public static class TurnController
             Soundtrack.instance.BattleEnd();
 
             currentPhase = TurnPhase.Market;
-            MarketWindow.instance.Open();
+            if (!TipsManager.instance.marketSkipped)
+            {
+                MarketWindow.instance.Open();
+            }
+            else
+            {
+                TipsManager.instance.MarketSkipped();
+                FinishedBuying();
+            }
         }
     }
 

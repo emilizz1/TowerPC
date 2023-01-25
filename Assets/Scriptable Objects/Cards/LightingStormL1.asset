@@ -24,7 +24,7 @@ MonoBehaviour:
     <sprite=4>  11   <sprite=3> 6   <sprite=2>
     9
 
-    Stays for 3 turns'
+    Stays for 3 waves'
   damageTypes: 01000000
   maxUses: 3
   spellPrefab: {fileID: 3346172960511143528, guid: 72d88305a7b38b44b963de57795f1ad3, type: 3}

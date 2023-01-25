@@ -146,4 +146,15 @@ public class Hand : MonoSingleton<Hand>
         yield return new WaitForSeconds(0.5f + 0.2f * handCards.Count);
         DrawNewHand();
     }
+
+    public IEnumerator FirstTurnWaitToPlayACard()
+    {
+        TileManager.instance.ChangeButtonInteractability(false);
+        int currentCards = handCards.Count;
+        while(currentCards == handCards.Count)
+        {
+            yield return null;
+        }
+        TileManager.instance.ChangeButtonInteractability(true);
+    }
 }
