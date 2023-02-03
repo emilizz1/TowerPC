@@ -22,14 +22,15 @@ MonoBehaviour:
   - type: 50
     amount: 0
   - type: 3
-    amount: 27
+    amount: 50
   - type: 25
     amount: 0
   - type: 26
-    amount: 27
+    amount: 12
   - type: 27
-    amount: 20
+    amount: 5
   - type: 75
     amount: 1
   - type: 28
-    amount: 25
+    amount: 15
+  enemiesSkippedForFirstPlays: 

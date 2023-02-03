@@ -34,4 +34,9 @@ public class ChargesController : MonoBehaviour
 
         return multiplayer;
     }
+
+    public static void Reset()
+    {
+        chargesAddition = new Dictionary<CardType, int>();
+    }
 }

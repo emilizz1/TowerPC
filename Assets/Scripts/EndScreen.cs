@@ -41,20 +41,22 @@ public class EndScreen : MonoSingleton<EndScreen>
     public void Appear(string nameText)
     {
         bigName.text = nameText;
-        SoundsController.instance.PlayOneShot(nameText == "Win!"? "Win": "Lose");
+        SoundsController.instance.PlayOneShot(nameText == "Win!" ? "Win!" : "Lose");
 
+
+        PlayerPrefs.SetInt("GamesPlayed", EnemyManager.instance.currentPlay + 1);
         Analytics.instance.FinishedMatch();
 
         Time.timeScale = 0f;
         wavesSurvived.text = "Waves Survived: " + TurnController.currentTurn.ToString();
         enemiesKilled.text = "Enemies Stopped: " + EnemyManager.instance.enemiesKilled;
-        
+
         parent.SetActive(true);
 
         startingBaseLevel = ProgressManager.GetLevel("Base");
         startingBaseProgress = ProgressManager.GetProgress("Base");
         baseLevel.text = "Player Level: " + startingBaseLevel;
-        if (ProgressManager.baseLevelUps.Length == startingBaseLevel + 1)
+        if (ProgressManager.baseLevelUps.Length == startingBaseLevel - 1)
         {
             baseProgress.text = "Max";
             baseFill.fillAmount = 1f;
@@ -69,7 +71,7 @@ public class EndScreen : MonoSingleton<EndScreen>
         startingFirstCharacterProgress = ProgressManager.GetProgress(CharacterSelector.firstCharacter.characterName);
         firstLevel.text = "Level: " + startingFirstCharacterLevel;
         firstIcon.sprite = CharacterSelector.firstCharacter.icon;
-        if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel + 1)
+        if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel - 1)
         {
             firstProgress.text = "Max";
             firstFill.fillAmount = 1f;
@@ -84,7 +86,7 @@ public class EndScreen : MonoSingleton<EndScreen>
         startingSecondCharacterProgress = ProgressManager.GetProgress(CharacterSelector.secondCharacter.characterName);
         secondLevel.text = "Level: " + startingSecondCharacterLevel;
         secondIcon.sprite = CharacterSelector.secondCharacter.icon;
-        if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel + 1)
+        if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel - 1)
         {
             secondProgress.text = "Max";
             secondFill.fillAmount = 1f;
@@ -107,19 +109,18 @@ public class EndScreen : MonoSingleton<EndScreen>
         int progressToRemove = 0;
         float startingValue = 0f;
 
-        startingValue = baseFill.fillAmount;
-        while ((startingBaseProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.baseLevelUps[startingBaseLevel - 1])
+        if (ProgressManager.baseLevelUps.Length != startingBaseLevel - 1)
         {
-            if (ProgressManager.baseLevelUps.Length != startingBaseLevel + 1)
+            startingValue = baseFill.fillAmount;
+            while ((startingBaseProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.baseLevelUps[startingBaseLevel - 1])
             {
                 timePassed = 0;
                 while (timePassed < 1f)
                 {
                     timePassed += Time.unscaledDeltaTime;
                     baseFill.fillAmount = Mathf.Lerp(startingValue, 1f, timePassed);
-                    baseProgress.text = Mathf.RoundToInt( ProgressManager.baseLevelUps[startingBaseLevel - 1] * baseFill.fillAmount) + "/" + ProgressManager.baseLevelUps[startingBaseLevel - 1];
+                    baseProgress.text = Mathf.RoundToInt(ProgressManager.baseLevelUps[startingBaseLevel - 1] * baseFill.fillAmount) + "/" + ProgressManager.baseLevelUps[startingBaseLevel - 1];
                     yield return null;
-
                 }
 
                 endScreenUnlocks[unlocksShowed].gameObject.SetActive(true);
@@ -130,24 +131,37 @@ public class EndScreen : MonoSingleton<EndScreen>
                 startingBaseLevel++;
                 baseLevel.text = "Player Level: " + startingBaseLevel;
                 startingValue = 0f;
+                if (ProgressManager.baseLevelUps.Length == startingBaseLevel - 1)
+                {
+                    break;
+                }
+
+            }
+
+            if (ProgressManager.baseLevelUps.Length == startingBaseLevel - 1)
+            {
+                baseProgress.text = "Max";
+                baseFill.fillAmount = 1f;
+            }
+            else
+            {
+                timePassed = 0;
+                while (timePassed < 1f)
+                {
+                    timePassed += Time.unscaledDeltaTime;
+                    baseFill.fillAmount = Mathf.Lerp(startingValue, ((float)startingBaseProgress + EnemyManager.instance.enemiesKilled - progressToRemove) / ProgressManager.baseLevelUps[startingBaseLevel - 1], timePassed);
+                    baseProgress.text = Mathf.RoundToInt(ProgressManager.baseLevelUps[startingBaseLevel - 1] * baseFill.fillAmount) + "/" + ProgressManager.baseLevelUps[startingBaseLevel - 1];
+                    yield return null;
+                }
             }
         }
 
-        timePassed = 0;
-        while (timePassed < 1f)
+        Debug.Log("First check " + ProgressManager.characterLevelUps.Length + "  " + (startingFirstCharacterLevel - 1));
+        if (ProgressManager.characterLevelUps.Length != startingFirstCharacterLevel - 1)
         {
-            timePassed += Time.unscaledDeltaTime;
-            baseFill.fillAmount = Mathf.Lerp(startingValue, ((float)startingBaseProgress + EnemyManager.instance.enemiesKilled - progressToRemove) / ProgressManager.baseLevelUps[startingBaseLevel - 1], timePassed);
-            baseProgress.text = Mathf.RoundToInt(ProgressManager.baseLevelUps[startingBaseLevel - 1] * baseFill.fillAmount) + "/" + ProgressManager.baseLevelUps[startingBaseLevel - 1];
-            yield return null;
-        }
-
-
-        progressToRemove = 0;
-        startingValue = firstFill.fillAmount;
-        while ((startingFirstCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1])
-        {
-            if (ProgressManager.characterLevelUps.Length != startingFirstCharacterLevel + 1)
+            progressToRemove = 0;
+            startingValue = firstFill.fillAmount;
+            while ((startingFirstCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1])
             {
                 timePassed = 0;
                 while (timePassed < 1f)
@@ -168,31 +182,42 @@ public class EndScreen : MonoSingleton<EndScreen>
                 startingFirstCharacterLevel++;
                 firstLevel.text = "Level: " + startingFirstCharacterLevel;
                 startingValue = 0f;
+                if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel - 1)
+                {
+                    break;
+                }
+            }
+
+            if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel - 1)
+            {
+                firstProgress.text = "Max";
+                firstFill.fillAmount = 1f;
+            }
+            else
+            {
+                timePassed = 0;
+                while (timePassed < 1f)
+                {
+                    timePassed += Time.unscaledDeltaTime;
+                    firstFill.fillAmount = Mathf.Lerp(startingValue, ((float)startingFirstCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) / ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1], timePassed);
+                    firstProgress.text = Mathf.RoundToInt(ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1] * firstFill.fillAmount) + "/" + ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1];
+                    yield return null;
+                }
             }
         }
 
-        timePassed = 0;
-        while (timePassed < 1f)
+        if (ProgressManager.characterLevelUps.Length != startingSecondCharacterLevel - 1)
         {
-            timePassed += Time.unscaledDeltaTime;
-            firstFill.fillAmount = Mathf.Lerp(startingValue, ((float)startingFirstCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) / ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1], timePassed);
-            firstProgress.text = Mathf.RoundToInt(ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1] * firstFill.fillAmount) + "/" + ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1];
-            yield return null;
-        }
-
-
-        progressToRemove = 0;
-        startingValue = secondFill.fillAmount;
-        while ((startingSecondCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1])
-        {
-            if (ProgressManager.characterLevelUps.Length != startingSecondCharacterLevel + 1)
+            progressToRemove = 0;
+            startingValue = secondFill.fillAmount;
+            while ((startingSecondCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1])
             {
                 timePassed = 0;
                 while (timePassed < 1f)
                 {
                     timePassed += Time.unscaledDeltaTime;
                     secondFill.fillAmount = Mathf.Lerp(startingValue, 1f, timePassed);
-                    secondProgress.text = Mathf.RoundToInt(ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1] * secondFill.fillAmount) + "/" + ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1];
+                    secondProgress.text = Mathf.RoundToInt(ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1] * secondFill.fillAmount) + "/" + ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1];
                     yield return null;
 
                 }
@@ -205,16 +230,30 @@ public class EndScreen : MonoSingleton<EndScreen>
                 startingSecondCharacterLevel++;
                 secondLevel.text = "Level: " + startingSecondCharacterLevel;
                 startingValue = 0f;
+                if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel - 1)
+                {
+                    break;
+
+                }
 
             }
-        }
-        timePassed = 0;
-        while (timePassed < 1f)
-        {
-            timePassed += Time.unscaledDeltaTime;
-            secondFill.fillAmount = Mathf.Lerp(startingValue, ((float)startingSecondCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) / ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1], timePassed);
-            secondProgress.text = Mathf.RoundToInt(ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1] * secondFill.fillAmount) + "/" + ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1];
-            yield return null;
+
+            if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel - 1)
+            {
+                secondProgress.text = "Max";
+                secondFill.fillAmount = 1f;
+            }
+            else
+            {
+                timePassed = 0;
+                while (timePassed < 1f)
+                {
+                    timePassed += Time.unscaledDeltaTime;
+                    secondFill.fillAmount = Mathf.Lerp(startingValue, ((float)startingSecondCharacterProgress + EnemyManager.instance.enemiesKilled - progressToRemove) / ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1], timePassed);
+                    secondProgress.text = Mathf.RoundToInt(ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1] * secondFill.fillAmount) + "/" + ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1];
+                    yield return null;
+                }
+            }
         }
     }
 

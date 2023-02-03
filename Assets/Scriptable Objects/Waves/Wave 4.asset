@@ -33,3 +33,4 @@ MonoBehaviour:
     amount: 0
   - type: 28
     amount: 0
+  enemiesSkippedForFirstPlays: 07000000060000000500000004000000030000000200000001000000

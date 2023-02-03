@@ -16,14 +16,16 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Animator animator;
     [SerializeField] float timeToReveal;
     [SerializeField] GameObject selected;
+    [SerializeField] CardDisplay cardDisplay;
 
     internal List<ResearchNode> nextNodes = new List<ResearchNode>();
     internal ResearchNode sameLevelNodes;
 
-    bool exited;
     internal bool unlocked = false;
     internal bool researched;
 
+    bool exited;
+    bool cardResearch;
     bool playedCompletedAnimation;
     bool playedUnlockAnimation;
 
@@ -36,6 +38,12 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             icon.sprite = research.sprite;
             explanation.text = research.explanation;
             timeToComplete.text =  research.timeToResearch.ToString();
+            if (research.researchType == Research.ResearchType.Card)
+            {
+                ResearchGetCard researchCard = (ResearchGetCard)research;
+                cardDisplay.DisplayCard(researchCard.cardToGet);
+                cardResearch = true;
+            }
             if (research.tier == 0)
             {
                 Unlocked();
@@ -113,6 +121,11 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             exited = false;
             StartCoroutine(RevealNotUnlocked());
         }
+        if (cardResearch)
+        {
+            exited = false;
+            StartCoroutine(DisplayCard());
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -121,6 +134,11 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             exited = true;
             animator.SetTrigger("Hide");
+        }
+        if (cardResearch)
+        {
+            exited = true;
+            cardDisplay.gameObject.SetActive(false);
         }
     }
 
@@ -134,6 +152,21 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
+
+
+    IEnumerator DisplayCard()
+    {
+        yield return new WaitForSeconds(timeToReveal);
+        if (!unlocked) 
+        {
+            yield return new WaitForSeconds(timeToReveal);
+        }
+        if (!exited)
+        {
+            cardDisplay.gameObject.SetActive(true);
+        }
+    }
+
     public void PlayCompleteSound()
     {
 
@@ -143,5 +176,6 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void Deselected()
     {
         selected.SetActive(false);
+        cardDisplay.gameObject.SetActive(false);
     }
 }

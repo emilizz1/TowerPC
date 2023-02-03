@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - type: 0
-    amount: 16
+    amount: 15
   - type: 1
     amount: 5
   - type: 2
@@ -33,3 +33,4 @@ MonoBehaviour:
     amount: 0
   - type: 28
     amount: 0
+  enemiesSkippedForFirstPlays: 0700000006000000050000000300000002000000

@@ -8,6 +8,7 @@ using System;
 public class EnemyWave : ScriptableObject
 {
     public List<EnemyWaveData> enemies;
+    public List<int> enemiesSkippedForFirstPlays;
 
     [Serializable]
     public struct EnemyWaveData

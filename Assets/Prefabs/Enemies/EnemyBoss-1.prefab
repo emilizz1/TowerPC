@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1016441083644704853
 Transform:
   m_ObjectHideFlags: 0
@@ -1025,8 +1025,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 6
-      repeatInterval: 0.33
+      cycleCount: 4
+      repeatInterval: 0.75
       probability: 1
   SizeModule:
     enabled: 1
@@ -4825,7 +4825,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4996,8 +4996,8 @@ MonoBehaviour:
   damageNumbers: {fileID: 4231465422581661345}
   moneyOnKill: 5
   health:
-  - 1650
-  - 1350
+  - 1500
+  - 1250
   - 600
   speed: 1.5
   damage: 20
@@ -5156,7 +5156,7 @@ MonoBehaviour:
   useTime: 2
   particles: {fileID: 1060160828352836340}
   enemyPrefab: 26
-  enemiesToSpawn: 6
+  enemiesToSpawn: 4
 --- !u!1001 &1823886980022764901
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,12 +15,15 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     internal int wavesTarget;
 
+    internal int currentPlay;
+
     void Start()
     {
         aliveEnemies = new List<Enemy>();
         wavesTarget = wavesTargetByLevel[ProgressManager.GetLevel("Base")];
         WaveCounter.instance.DisplayCounter();
         Analytics.instance.StartedMatch();
+        currentPlay = PlayerPrefs.GetInt("GamesPlayed", 0);
     }
 
     public void SpawnNextWave()
@@ -31,6 +34,8 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
     IEnumerator SpawnEnemies(EnemyWave wave)
     {
+        int enemiesToSkip = wave.enemiesSkippedForFirstPlays.Count > currentPlay ? wave.enemiesSkippedForFirstPlays[currentPlay] : 0;
+
         List<ObjectPools.PoolNames> myWave = new List<ObjectPools.PoolNames>();
 
         foreach(EnemyWave.EnemyWaveData enemyWave in wave.enemies)
@@ -43,13 +48,13 @@ public class EnemyManager : MonoSingleton<EnemyManager>
 
         List<Lane> openLanes = TileManager.instance.GetAllOpenLanes();
 
-        while (myWave.Count > 0)
+        while (myWave.Count - enemiesToSkip > 0)
         {
             yield return new WaitForSeconds(waveSpawnTime);
 
             foreach (Lane lane in openLanes)
             {
-                if (myWave.Count > 0)
+                if (myWave.Count - enemiesToSkip > 0)
                 {
                     int randomEnemyIndex = Random.Range(0, myWave.Count);
                     GameObject newEnemyObj = ObjectPools.instance.GetPool(myWave[randomEnemyIndex]).GetObject();

@@ -20,7 +20,7 @@ public class CharacterSelectionController : MonoSingleton<CharacterSelectionCont
         UpdateText();
         playerLevel.text = "Player Level " + ProgressManager.GetLevel("Base");
         currentlySelected = new List<Character>();
-        Soundtrack.instance.MenuScreen();
+        Soundtrack.instance.CharacterSelectScreen();
     }
 
     public bool TrySelecting(Character character)

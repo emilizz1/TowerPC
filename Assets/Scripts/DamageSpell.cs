@@ -40,6 +40,10 @@ public class DamageSpell : Spell
     public override void StopSpell()
     {
         base.StopSpell();
+        if(duration > 0)
+        {
+            return;
+        }
         foreach (Tower tower in towersAffected)
         {
             DamageBuff damageBuff = tower.GetComponent<DamageBuff>();

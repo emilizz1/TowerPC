@@ -284,7 +284,7 @@ MonoBehaviour:
   useTime: 1.5
   particles: {fileID: 2040398930628634237}
   enemyPrefab: 3
-  enemiesToSpawn: 3
+  enemiesToSpawn: 2
 --- !u!1 &2040398930628634237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,8 +1310,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 6
-      repeatInterval: 0.5
+      cycleCount: 2
+      repeatInterval: 1.5
       probability: 1
   SizeModule:
     enabled: 1
@@ -5110,7 +5110,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5265,11 +5265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6435142817210964769, guid: 8badf032f8c4986438abb390aa799816, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.90630776
       objectReference: {fileID: 0}
     - target: {fileID: 6435142817210964769, guid: 8badf032f8c4986438abb390aa799816, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.42261833
       objectReference: {fileID: 0}
     - target: {fileID: 6435142817210964769, guid: 8badf032f8c4986438abb390aa799816, type: 3}
       propertyPath: m_LocalRotation.y

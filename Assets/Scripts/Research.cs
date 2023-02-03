@@ -10,6 +10,7 @@ public class Research : ScriptableObject
     public int tier;
     public string explanation;
     public bool displayIcon;
+    public ResearchType researchType;
 
     public virtual void Researched()
     {
@@ -17,5 +18,21 @@ public class Research : ScriptableObject
         {
             GlobalBuffIcons.instance.DisplayBuff(sprite, explanation);
         }
+        Analytics.instance.Researched(name);
+    }
+
+    [Serializable]
+    public enum ResearchType
+    {
+        Card,
+        Castle,
+        Charges,
+        Cost,
+        Currency,
+        Experience,
+        Hand,
+        Marketplace,
+        Terrain,
+        Stats
     }
 }

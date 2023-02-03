@@ -64,4 +64,13 @@ public class Deck : MonoSingleton<Deck>
         yield return new WaitForSeconds(3f);
         newCardsButton.interactable = true;
     }
+
+    public void OpenShowcase()
+    {
+        if (deckCards.Count > 0 && TurnController.currentPhase == TurnController.TurnPhase.Preperation)
+        {
+            CardShowcase.instance.Open("Deck", deckCards);
+            SoundsController.instance.PlayOneShot("Click");
+        }
+    }
 }

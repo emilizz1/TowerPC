@@ -56,7 +56,7 @@ public class Money : MonoSingleton<Money>
             StartCoroutine(IncreaseCurrencyAmount(currentAmount, currentAmount + amount));
         }
         currentAmount += amount;
-        if(currentAmount > 100)
+        if(currentAmount > 120)
         {
             TipsManager.instance.CheckForTipUpgradeTower();
         }

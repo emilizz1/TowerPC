@@ -48,4 +48,13 @@ public class Discard : MonoSingleton<Discard>
         discardCards.Add(cardToAdd);
         amountText.text = discardCards.Count.ToString();
     }
+
+    public void OpenShowcase()
+    {
+        if (discardCards.Count > 0 && TurnController.currentPhase == TurnController.TurnPhase.Preperation)
+        {
+            CardShowcase.instance.Open("Discard", discardCards);
+            SoundsController.instance.PlayOneShot("Click");
+        }
+    }
 }

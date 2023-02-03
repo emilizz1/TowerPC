@@ -14,22 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - type: 0
-    amount: 0
-  - type: 1
-    amount: 21
-  - type: 2
     amount: 3
+  - type: 1
+    amount: 33
+  - type: 2
+    amount: 2
   - type: 50
     amount: 0
   - type: 3
     amount: 10
   - type: 25
-    amount: 14
+    amount: 10
   - type: 26
-    amount: 15
+    amount: 10
   - type: 27
     amount: 0
   - type: 75
     amount: 0
   - type: 28
     amount: 0
+  enemiesSkippedForFirstPlays: 

@@ -41,6 +41,14 @@ public class Soundtrack : MonoBehaviour
 
     public void MenuScreen()
     {
+        baseAudio.volume = 0f;
+        idleAudio.volume = 0f;
+        battleAudio.volume = 0f;
+    }
+
+    public void CharacterSelectScreen()
+    {
+        baseAudio.volume = 1f;
         idleAudio.volume = 0f;
         battleAudio.volume = 0f;
     }

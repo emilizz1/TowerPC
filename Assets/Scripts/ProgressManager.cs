@@ -9,8 +9,8 @@ public static class ProgressManager
 
     static bool initialized;
 
-    internal static int[] baseLevelUps = new int[] { 200, 300, 400, 550, 700, 850, 1100, 1300, 1500, 1800};
-    internal static int[] characterLevelUps = new int[] { 300, 550, 800, 1100, 1500, 1750 };
+    internal static int[] baseLevelUps = new int[] {150, 200, 300, 400, 550, 700, 850, 1050, 1250, 1450, 1650, 1900, 2150, 2400, 2650, 2900, 3200, 3500 };
+    internal static int[] characterLevelUps = new int[] {250, 500, 1000, 1500, 2250, 3000 };
 
     static void Initialize()
     {
@@ -23,7 +23,6 @@ public static class ProgressManager
         progress.Add("Knight", PlayerPrefs.GetInt("KnightProgress",0));
         progress.Add("Mage", PlayerPrefs.GetInt("MageProgress",0));
         progress.Add("Admiral", PlayerPrefs.GetInt("AdmiralProgress",0));
-
 
         levels.Add("Base", PlayerPrefs.GetInt("BaseLevel",1));
         levels.Add("Knight", PlayerPrefs.GetInt("KnightLevel",1));
@@ -57,15 +56,24 @@ public static class ProgressManager
         }
         progress[name] += change;
 
+        if (character ? (GetLevel(name) - 1) >= characterLevelUps.Length : (GetLevel(name)- 1) >= baseLevelUps.Length)
+        {
+            return;
+        }
+
         int levelUps = 0;
 
-        while(progress[name] > (character? characterLevelUps[GetLevel(name) - 1 + levelUps] : baseLevelUps[GetLevel(name) - 1 + levelUps]))
+        while (progress[name] > (character ? characterLevelUps[GetLevel(name) - 1 + levelUps] : baseLevelUps[GetLevel(name) - 1 + levelUps]))
         {
             progress[name] -= character ? characterLevelUps[GetLevel(name) - 1 + levelUps] : baseLevelUps[GetLevel(name) - 1 + levelUps];
             levelUps++;
+            if (character ? characterLevelUps.Length == GetLevel(name) - 1 + levelUps : baseLevelUps.Length == GetLevel(name) - 1 + levelUps)
+            {
+                break;
+            }
         }
 
-        if(levelUps> 0)
+        if (levelUps > 0)
         {
             ChangeLevel(name, levelUps);
         }
@@ -80,6 +88,13 @@ public static class ProgressManager
             Initialize();
         }
         levels[name] += change;
+        Analytics.instance.LevelUp(name, levels[name]);
         PlayerPrefs.SetInt(name + "Level", levels[name]);
+    }
+
+    public static void ResetProgress()
+    {
+        PlayerPrefs.DeleteAll();
+        Initialize();
     }
 }

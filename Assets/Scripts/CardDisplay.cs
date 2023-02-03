@@ -68,7 +68,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             activeCharges[i].SetActive(i < maxUses - cardToDisplay.timesUsed);
         }
 
-        chargesLayoutGroup.cellSize = maxUses > 5 ? new Vector2(9,9) : new Vector2(18,18);
+        chargesLayoutGroup.cellSize = maxUses > 5 ? maxUses > 7? new Vector2(9,9): new Vector2(12, 12) : new Vector2(18,18);
 
         costMoney.text = Mathf.Max(Mathf.CeilToInt(cardToDisplay.moneyCost * CostController.GetPlayingCostMultiplayer(cardToDisplay.cardType)) - CostController.currentTurnDiscount,0).ToString();
         costMana.text = Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount,0).ToString();
@@ -220,16 +220,21 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         else
         {
-            SoundsController.instance.PlayOneShot("Destroy");
-            LeanTween.move(gameObject, new Vector3(UnityEngine.Random.Range(2000f,2500f), UnityEngine.Random.Range(2000f, 2500f)), 1f);
-            LeanTween.rotate(gameObject, new Vector3(0f, 0f, 1000f), 1f);
-            StartCoroutine(ResetAfterTime(1f));
+            DestroyCard();
         }
 
-        if(Hand.instance.handCards.Count == 0)
+        if (Hand.instance.handCards.Count == 0)
         {
             TipsManager.instance.CheckForTipDrawMoreCards();
         }
+    }
+
+    public void DestroyCard()
+    {
+        SoundsController.instance.PlayOneShot("Destroy");
+        LeanTween.move(gameObject, new Vector3(UnityEngine.Random.Range(2000f, 2500f), UnityEngine.Random.Range(2000f, 2500f)), 1f);
+        LeanTween.rotate(gameObject, new Vector3(0f, 0f, 1000f), 1f);
+        StartCoroutine(ResetAfterTime(1f));
     }
 
     void CheckIfActivatable()
@@ -321,6 +326,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             front.SetActive(false);
             TowerCard towerCard = (TowerCard)displayedCard;
             TowerPlacer.towerToPlace = towerCard.towerPrefab;
+            TowerPlacer.towerPlaced = false;
             TowerPlacer.startingLevel = towerCard.cardLevel;
         }
         if (displayedCard.cardType == CardType.Action)

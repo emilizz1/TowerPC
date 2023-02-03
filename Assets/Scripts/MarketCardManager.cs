@@ -8,6 +8,10 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     [SerializeField] List<MarketCardDisplay> marketCardDisplays;
     public int basePrice;
     public CardHolder marketCards;
+
+    [SerializeField] int baseMarketSize;
+    [SerializeField] int baseForgeSize;
+    [SerializeField] int baseGraveyardSize;
     
     internal List<MarketDeck> marketDecks;
     bool noPrice;
@@ -15,6 +19,7 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     List<Card> baseMarketCards;
     List<Card> firstMarketCards;
     List<Card> secondMarketCards;
+    List<Card> playerCards = new List<Card>();
 
     void Start()
     {
@@ -25,11 +30,22 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
             marketDecks[i].CreateNewDeck();
         }
 
+        baseMarketCards = new List<Card>();
+        foreach(Card card in GetMarketCards(ProgressManager.GetLevel("Base"), marketCards))
+        {
+            baseMarketCards.Add(Instantiate(card));
+        }
+        firstMarketCards = new List<Card>();
 
-
-        baseMarketCards = GetMarketCards(ProgressManager.GetLevel("Base"), marketCards);
-        firstMarketCards = GetMarketCards(ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName), CharacterSelector.firstCharacter.marketCards);
-        secondMarketCards = GetMarketCards(ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName), CharacterSelector.secondCharacter.marketCards);
+        foreach (Card card in GetMarketCards(ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName), CharacterSelector.firstCharacter.marketCards))
+        {
+            firstMarketCards.Add(Instantiate(card));
+        }
+        secondMarketCards = new List<Card>();
+        foreach (Card card in GetMarketCards(ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName), CharacterSelector.secondCharacter.marketCards))
+        {
+            secondMarketCards.Add(Instantiate(card));
+        }
 
         for (int i = 0; i < marketDecks.Count; i++)
         {
@@ -58,73 +74,76 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
 
         foreach (Card card in baseMarketCards)
         {
+            Card cardToAdd = Instantiate( card);
             if (card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
             {
-                marketDecks[0].AddCard(card);
+                marketDecks[0].AddCard(cardToAdd);
             }
             if (card.cardType == CardType.Spell && card.cardLevel < 2 && deckIndex == 1)
             {
-                marketDecks[1].AddCard(card);
+                marketDecks[1].AddCard(cardToAdd);
             }
             if (card.cardType == CardType.Tower && card.cardLevel < 2 && deckIndex == 2)
             {
-                marketDecks[2].AddCard(card);
+                marketDecks[2].AddCard(cardToAdd);
             }
             if (card.cardLevel == 2 && deckIndex == 3)
             {
-                marketDecks[3].AddCard(card);
+                marketDecks[3].AddCard(cardToAdd);
             }
             if (card.cardLevel == 3 && deckIndex == 4)
             {
-                marketDecks[4].AddCard(card);
+                marketDecks[4].AddCard(cardToAdd);
             }
         }
 
         foreach (Card card in firstMarketCards)
         {
-            if(card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
+            Card cardToAdd = Instantiate(card);
+            if (card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
             {
-                marketDecks[0].AddCard(card);
+                marketDecks[0].AddCard(cardToAdd);
             }
             if (card.cardType == CardType.Spell && card.cardLevel < 2 && deckIndex == 1)
             {
-                marketDecks[1].AddCard(card);
+                marketDecks[1].AddCard(cardToAdd);
             }
             if (card.cardType == CardType.Tower && card.cardLevel < 2 && deckIndex == 2)
             {
-                marketDecks[2].AddCard(card);
+                marketDecks[2].AddCard(cardToAdd);
             }
             if(card.cardLevel == 2 && deckIndex == 3)
             {
-                marketDecks[3].AddCard(card);
+                marketDecks[3].AddCard(cardToAdd);
             }
             if(card.cardLevel == 3 && deckIndex == 4)
             {
-                marketDecks[4].AddCard(card);
+                marketDecks[4].AddCard(cardToAdd);
             }
         }
 
         foreach (Card card in secondMarketCards)
         {
+            Card cardToAdd = Instantiate(card);
             if (card.cardType == CardType.Action && card.cardLevel < 2 && deckIndex == 0)
             {
-                marketDecks[0].AddCard(card);
+                marketDecks[0].AddCard(cardToAdd);
             }
             if (card.cardType == CardType.Spell && card.cardLevel < 2 && deckIndex == 1)
             {
-                marketDecks[1].AddCard(card);
+                marketDecks[1].AddCard(cardToAdd);
             }
             if (card.cardType == CardType.Tower && card.cardLevel < 2 && deckIndex == 2)
             {
-                marketDecks[2].AddCard(card);
+                marketDecks[2].AddCard(cardToAdd);
             }
             if (card.cardLevel == 2 && deckIndex == 3)
             {
-                marketDecks[3].AddCard(card);
+                marketDecks[3].AddCard(cardToAdd);
             }
             if (card.cardLevel == 3 && deckIndex == 4)
             {
-                marketDecks[4].AddCard(card);
+                marketDecks[4].AddCard(cardToAdd);
             }
         }
     }
@@ -133,26 +152,119 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     {
         for (int i = 0; i < marketCardDisplays.Count; i++)
         {
-            if (marketDecks[i].deck.Count == 0)
+            if (i < baseMarketSize)
             {
-                if(marketDecks[i].discard.Count == 0)
+                marketCardDisplays[i].gameObject.SetActive(true);
+                if (marketDecks[i].deck.Count == 0)
                 {
-                    CreateStartingMarket(i);
+                    if (marketDecks[i].discard.Count == 0)
+                    {
+                        CreateStartingMarket(i);
+                    }
+                    marketDecks[i].ShuffleDeck();
                 }
-                marketDecks[i].ShuffleDeck();
+                Card cardToDisplay = marketDecks[i].deck[UnityEngine.Random.Range(0, marketDecks[i].deck.Count)];
+                marketCardDisplays[i].DisplayMarketCard(cardToDisplay, noPrice);
+                marketDecks[i].RemoveCard(cardToDisplay);
             }
-            Card cardToDisplay = marketDecks[i].deck[UnityEngine.Random.Range(0, marketDecks[i].deck.Count)];
-            marketCardDisplays[i].DisplayCard(cardToDisplay, noPrice);
-            marketDecks[i].RemoveCard(cardToDisplay);
+            else
+            {
+                marketCardDisplays[i].gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void DisplayNewForge()
+    {
+        playerCards = GatherAllPlayerCards();
+        for (int i = 0; i < marketCardDisplays.Count; i++)
+        {
+            if (i < baseForgeSize)
+            {
+                marketCardDisplays[i].gameObject.SetActive(true);
+
+                Card cardToDisplay = playerCards[UnityEngine.Random.Range(0, playerCards.Count)];
+                playerCards.Remove(cardToDisplay);
+
+                marketCardDisplays[i].DisplayForgeCard(cardToDisplay);
+            }
+            else
+            {
+                marketCardDisplays[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void DisplayNewGraveyard()
+    {
+        playerCards = GatherAllPlayerCards();
+        for (int i = 0; i < marketCardDisplays.Count; i++)
+        {
+            if (i < baseGraveyardSize)
+            {
+                marketCardDisplays[i].gameObject.SetActive(true);
+
+                Card cardToDisplay = playerCards[UnityEngine.Random.Range(0, playerCards.Count)];
+                playerCards.Remove(cardToDisplay);
+
+                marketCardDisplays[i].DisplayGraveyardCard(cardToDisplay);
+            }
+            else
+            {
+                marketCardDisplays[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    List<Card> GatherAllPlayerCards()
+    {
+        List<Card> playerCards = new List<Card>();
+
+        foreach(Card card in Deck.instance.deckCards)
+        {
+            if (card.cardLevel < 3)
+            {
+                playerCards.Add(card);
+            }
+        }
+
+        foreach (Card card in Discard.instance.discardCards)
+        {
+            if (card.cardLevel < 3)
+            {
+                playerCards.Add(card);
+            }
+        }
+
+        return playerCards;
     }
 
     public void CloseMarket()
     {
         for (int i = 0; i < marketCardDisplays.Count; i++)
         {
-            marketCardDisplays[i].DiscardMarketCard(i);
+            if (MarketWindow.instance.market)
+            {
+                if (i < baseMarketSize)
+                {
+                    marketCardDisplays[i].DiscardMarketCard(i);
+                }
+            }
+            else if (MarketWindow.instance.forge)
+            {
+                if( i < baseForgeSize)
+                {
+                    marketCardDisplays[i].DiscardForgeCard();
+                }
+            }
+            else
+            {
+                if (i < baseForgeSize)
+                {
+                    marketCardDisplays[i].DiscardGraveyardCard();
+                }
 
+            }
         }
     }
 
@@ -205,24 +317,22 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
         marketDecks.Add(newMarketDeck);
         marketDecks.Add(newMarketDeck);
 
-        marketCardDisplays[4].gameObject.SetActive(false);
-        marketCardDisplays[3].gameObject.SetActive(false);
-        marketCardDisplays[2].gameObject.SetActive(false);
-        marketCardDisplays.RemoveAt(4);
-        marketCardDisplays.RemoveAt(3);
-        marketCardDisplays.RemoveAt(2);
-
-        marketCardDisplays[0].transform.localPosition = new Vector3(-150f, 0f, 0f);
-        marketCardDisplays[1].transform.localPosition = new Vector3(150f, 0f, 0f);
+        baseMarketSize = 2;
 
         noPrice = true;
     }
 
     public void RecheckColors()
     {
-        foreach(MarketCardDisplay display in marketCardDisplays)
+        for (int i = 0; i < marketCardDisplays.Count; i++)
         {
-            display.CheckPriceColor();
+            if (MarketWindow.instance.market)
+            {
+                if (i < baseMarketSize)
+                {
+                    marketCardDisplays[i].CheckPriceColor();
+                }
+            }
         }
     }
 }

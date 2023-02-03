@@ -22,7 +22,7 @@ MonoBehaviour:
   - type: 50
     amount: 0
   - type: 3
-    amount: 15
+    amount: 17
   - type: 25
     amount: 0
   - type: 26
@@ -33,3 +33,4 @@ MonoBehaviour:
     amount: 0
   - type: 28
     amount: 0
+  enemiesSkippedForFirstPlays: 0300000002000000

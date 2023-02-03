@@ -23,4 +23,9 @@ public class MenuController : MonoSingleton<MenuController>
     {
         SceneManager.LoadScene(SceneManager.MENU);
     }
+
+    public void PressedResetProgress()
+    {
+        ProgressManager.ResetProgress();
+    }
 }

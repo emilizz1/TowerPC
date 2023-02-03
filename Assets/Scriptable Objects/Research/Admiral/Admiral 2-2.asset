@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
+  m_Name: Admiral 2-2
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: da6a7a6f6e7799b44bfcae36a47b9f2c, type: 3}
+  timeToResearch: 2
+  tier: 1
+  explanation: Gain "Pile of Coins" <sprite=0> card
+  displayIcon: 0
+  cardToGet: {fileID: 11400000, guid: 5952632495197694ebcabb8716a9a9b4, type: 2}

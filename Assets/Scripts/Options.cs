@@ -19,8 +19,8 @@ public class Options : MonoBehaviour
     const string RESOLUTION_WIDTH_SAVE = "resolutionWidth";
     const string RESOLUTION_HEIGHT_SAVE = "resolutionHeight";
     const string REFRESH_RATE_SAVE = "refreshRate";
-    const string SOUND_EFFECTS_SAVE = "refreshRate";
-    const string MUSIC_SAVE = "refreshRate";
+    const string SOUND_EFFECTS_SAVE = "soundEffects";
+    const string MUSIC_SAVE = "music";
 
     List<Resolution> resolutions;
     Resolution selectedResolution;
@@ -58,8 +58,10 @@ public class Options : MonoBehaviour
 
         float value = PlayerPrefs.GetFloat(SOUND_EFFECTS_SAVE, 1f);
         mixer.SetFloat("SoundEffect", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
+        soundSlider.value = value;
         value = PlayerPrefs.GetFloat(MUSIC_SAVE, 1f);
         mixer.SetFloat("Soundtrack", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
+        musicSlider.value = value;
 
         fullScreenToggle.isOn = PlayerPrefs.GetInt(FULL_SCREEN_SAVE, Screen.fullScreen ? 1 : 0) > 0;
 

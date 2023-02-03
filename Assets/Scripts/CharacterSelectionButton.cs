@@ -12,6 +12,7 @@ public class CharacterSelectionButton : MonoBehaviour
     [SerializeField] GameObject lockScreen;
     [SerializeField] Button button;
     [SerializeField] TextMeshProUGUI level;
+    [SerializeField] string selectSound;
 
     bool selected;
 
@@ -36,6 +37,7 @@ public class CharacterSelectionButton : MonoBehaviour
             CharacterSelectionController.instance.Deselected(character);
             selected = false;
             selectedBg.gameObject.SetActive(false);
+            SoundsController.instance.PlayOneShot("Click");
         }
         else
         {
@@ -43,6 +45,7 @@ public class CharacterSelectionButton : MonoBehaviour
             {
                 selectedBg.gameObject.SetActive(true);
                 selected = true;
+                SoundsController.instance.PlayOneShot(selectSound);
 
             }
         }

@@ -9,13 +9,13 @@ public static class TurnController
         Drawing,
         Preperation,
         EnemyWave,
-        Market,
+        CardModification,
         Destroy,
         Research
     }
 
     public static TurnPhase currentPhase = TurnPhase.Drawing;
-    public static int currentTurn;
+    public static int currentTurn= 0;
 
     public static void FinishedDrawing()
     {
@@ -72,22 +72,23 @@ public static class TurnController
             EnemyManager.instance.CheckIfGameWon();
             Soundtrack.instance.BattleEnd();
 
-            currentPhase = TurnPhase.Market;
-            if (!TipsManager.instance.marketSkipped)
+            currentPhase = TurnPhase.CardModification;
+
+            if (TipsManager.instance.marketSkipped)
             {
                 MarketWindow.instance.Open();
             }
             else
             {
                 TipsManager.instance.MarketSkipped();
-                FinishedBuying();
+                FinishedModifying();
             }
         }
     }
 
-    public static void FinishedBuying()
+    public static void FinishedModifying()
     {
-        if (currentPhase == TurnPhase.Market)
+        if (currentPhase == TurnPhase.CardModification)
         {
             currentPhase = TurnPhase.Drawing;
             CostController.currentTurnDiscount = 0;
