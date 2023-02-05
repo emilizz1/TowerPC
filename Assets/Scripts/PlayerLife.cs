@@ -130,4 +130,9 @@ public class PlayerLife : MonoSingleton<PlayerLife>
             castle.materials[i].color = rendererColors[i];
         }
     }
+
+    public  bool IsHealthMax()
+    {
+        return currentHP >= maxHp;
+    }
 }

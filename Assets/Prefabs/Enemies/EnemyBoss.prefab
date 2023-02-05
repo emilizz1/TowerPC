@@ -4996,10 +4996,10 @@ MonoBehaviour:
   damageNumbers: {fileID: 4231465422581661345}
   moneyOnKill: 5
   health:
-  - 500
-  - 400
-  - 200
-  speed: 1.5
+  - 450
+  - 360
+  - 180
+  speed: 1.6
   damage: 10
   special: {fileID: 5493753647873726625}
   poolName: 50
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6e11be5441fd7418ddd1ea372fd527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 4
+  cooldown: 6
   useTime: 2
   particles: {fileID: 1060160828352836340}
   enemyPrefab: 1

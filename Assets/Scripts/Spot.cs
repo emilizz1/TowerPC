@@ -122,6 +122,10 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             objBuilt = true;
             readyToBuild = false;
             TowerPlacer.allTowers.Add(tower);
+            if (TowerPlacer.allTowers.Count >= 50)
+            {
+                AchievementManager.TowersOnMap();
+            }
             Money.instance.UpdateIncome();
         }
     }

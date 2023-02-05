@@ -54,7 +54,8 @@ public class HandCardSlotController : MonoSingleton<HandCardSlotController>
         }
         return null;
     }
-    public CardDisplay GetRandomDisplay(CardDisplay excludeDisplay = null)
+
+    public CardDisplay GetRandomDisplayWithUpgradableCard(CardDisplay excludeDisplay = null)
     {
         List<CardDisplay> activeDisplays = new List<CardDisplay>();
         foreach(CardDisplay display in cardDisplays)
@@ -65,7 +66,10 @@ public class HandCardSlotController : MonoSingleton<HandCardSlotController>
             }
             else if (display.gameObject.activeInHierarchy && display.displayedCard != null)
             {
-                activeDisplays.Add(display);
+                if (display.displayedCard.cardLevel < 3)
+                {
+                    activeDisplays.Add(display);
+                }
             }
         }
         return activeDisplays[Random.Range(0, activeDisplays.Count)];

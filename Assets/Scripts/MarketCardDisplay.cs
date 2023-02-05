@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class MarketCardDisplay : MonoBehaviour
+public class MarketCardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] CardDisplay cardDisplay;
     [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] float spotCostMultiplayer;
+    [SerializeField] GameObject xIcon;
 
     int price;
     Card myCard;
+    Card myUpgradedCard;
     bool deckCard;
     bool bought;
     
@@ -20,12 +23,16 @@ public class MarketCardDisplay : MonoBehaviour
         myCard = Instantiate(card);
         cardDisplay.gameObject.SetActive(true);
         cardDisplay.transform.SetParent(transform);
+        cardDisplay.transform.rotation = Quaternion.identity;
         cardDisplay.transform.localPosition = new Vector3(0f, 120f, 0f);
         cardDisplay.DisplayCard(card);
         price = noPrice ? 0 : Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
-            spotCostMultiplayer * CostController.GetBuyingCostMultiplayer(card.cardType));
+            spotCostMultiplayer * CostController.GetMarketBuyingCostMultiplayer(card.cardType));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
+
+        myUpgradedCard = null;
+        xIcon.SetActive(false);
 
         CheckPriceColor();
     }
@@ -36,14 +43,18 @@ public class MarketCardDisplay : MonoBehaviour
         myCard = card;
         cardDisplay.gameObject.SetActive(true);
         cardDisplay.transform.SetParent(transform);
+        cardDisplay.transform.rotation = Quaternion.identity;
         deckCard = Deck.instance.deckCards.Contains(card);
         cardDisplay.transform.position = deckCard ? Deck.instance.deckTransform.position :  Discard.instance.discardTransform.position;
-        LeanTween.move(cardDisplay.gameObject, new Vector3(0f, 120f, 0f), 0.25f);
-        LeanTween.rotate(cardDisplay.gameObject, Vector3.zero, 0.25f);
+        LeanTween.moveLocal(cardDisplay.gameObject, new Vector3(0f, 120f, 0f), 0.5f);
         cardDisplay.DisplayCard(card);
-        price = 0;
+        price = Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
+            spotCostMultiplayer * CostController.GetForgeBuyingCostMultiplayer(card.cardType));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
+
+        myUpgradedCard = MarketWindow.instance.GetUpgradedCard(myCard);
+        xIcon.SetActive(false);
 
 
         if (deckCard)
@@ -65,15 +76,18 @@ public class MarketCardDisplay : MonoBehaviour
         myCard = card;
         cardDisplay.gameObject.SetActive(true);
         cardDisplay.transform.SetParent(transform);
+        cardDisplay.transform.rotation = Quaternion.identity;
         deckCard = Deck.instance.deckCards.Contains(card);
         cardDisplay.transform.position = deckCard ? Deck.instance.deckTransform.position : Discard.instance.discardTransform.position;
-        LeanTween.move(cardDisplay.gameObject, new Vector3(0f, 120f, 0f), 0.25f);
-        LeanTween.rotate(cardDisplay.gameObject, Vector3.zero, 0.25f);
+        LeanTween.moveLocal(cardDisplay.gameObject, new Vector3(0f, 120f, 0f), 0.5f);
         cardDisplay.DisplayCard(card);
-        price = 0;
+        price = Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
+            spotCostMultiplayer * CostController.GetGraveyardBuyingCostMultiplayer(card.cardType));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
 
+        myUpgradedCard = null;
+        xIcon.SetActive(false);
 
         if (deckCard)
         {
@@ -85,6 +99,33 @@ public class MarketCardDisplay : MonoBehaviour
         }
 
         CheckPriceColor();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(myUpgradedCard != null)
+        {
+            cardDisplay.DisplayCard(myUpgradedCard);
+        }
+        else if (MarketWindow.instance.graveyard)
+        {
+            xIcon.SetActive(true);
+
+        }
+
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (myUpgradedCard != null)
+        {
+            cardDisplay.DisplayCard( myCard);
+        }
+        else if (MarketWindow.instance.graveyard)
+        {
+            xIcon.SetActive(false);
+
+        }
     }
 
     public void CheckPriceColor()
@@ -113,30 +154,22 @@ public class MarketCardDisplay : MonoBehaviour
             else if (MarketWindow.instance.forge)
             {
                 SoundsController.instance.PlayOneShot("Buy");
-                Deck.instance.AddCard(GetUpgradedCard(myCard));
-                LeanTween.move(cardDisplay.gameObject, Deck.instance.deckTransform, 0.25f);
+                cardDisplay.DisplayCard(myUpgradedCard);
+                Deck.instance.AddCard(myUpgradedCard);
+                LeanTween.move(cardDisplay.gameObject, Deck.instance.deckTransform, 0.5f).setOnComplete(ResetCard);
             }
             else if (MarketWindow.instance.graveyard)
             {
                 cardDisplay.DestroyCard();
             }
             priceText.transform.parent.gameObject.SetActive(false);
+            MarketWindow.instance.CheckIfAllCardsUpgraded();
         }
     }
 
-    Card GetUpgradedCard(Card cardToUpgrade)
+    public void ResetCard()
     {
-        foreach(Card card in MarketWindow.instance.allCards.cardsCollection[0].cards)
-        {
-            if(card.cardName == cardToUpgrade.cardName)
-            {
-                if(card.cardLevel == cardToUpgrade.cardLevel + 1)
-                {
-                    return Instantiate(card);
-                }
-            }
-        }
-        return null;
+        cardDisplay.gameObject.SetActive(false);
     }
 
     public void DiscardMarketCard(int index)
@@ -151,7 +184,7 @@ public class MarketCardDisplay : MonoBehaviour
     {
         if (!bought)
         {
-            LeanTween.move(cardDisplay.gameObject, deckCard ? Deck.instance.deckTransform : Discard.instance.discardTransform, 0.25f);
+            LeanTween.move(cardDisplay.gameObject, deckCard ? Deck.instance.deckTransform : Discard.instance.discardTransform, 0.5f).setOnComplete(ResetCard);
             if (deckCard)
             {
                 Deck.instance.AddCard(myCard);
@@ -167,7 +200,7 @@ public class MarketCardDisplay : MonoBehaviour
     {
         if (!bought)
         {
-            LeanTween.move(cardDisplay.gameObject, deckCard ? Deck.instance.deckTransform : Discard.instance.discardTransform, 0.25f);
+            LeanTween.move(cardDisplay.gameObject, deckCard ? Deck.instance.deckTransform : Discard.instance.discardTransform, 0.5f).setOnComplete(ResetCard);
             if (deckCard)
             {
                 Deck.instance.AddCard(myCard);

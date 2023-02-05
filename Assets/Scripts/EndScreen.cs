@@ -43,6 +43,17 @@ public class EndScreen : MonoSingleton<EndScreen>
         bigName.text = nameText;
         SoundsController.instance.PlayOneShot(nameText == "Win!" ? "Win!" : "Lose");
 
+        if (nameText == "Win!")
+        {
+            if (TurnController.currentTurn == 30)
+            {
+                AchievementManager.FinishedWave30();
+            }
+            if (PlayerLife.instance.IsHealthMax())
+            {
+                AchievementManager.FullLifeFinish();
+            }
+        }
 
         PlayerPrefs.SetInt("GamesPlayed", EnemyManager.instance.currentPlay + 1);
         Analytics.instance.FinishedMatch();
@@ -156,7 +167,6 @@ public class EndScreen : MonoSingleton<EndScreen>
             }
         }
 
-        Debug.Log("First check " + ProgressManager.characterLevelUps.Length + "  " + (startingFirstCharacterLevel - 1));
         if (ProgressManager.characterLevelUps.Length != startingFirstCharacterLevel - 1)
         {
             progressToRemove = 0;

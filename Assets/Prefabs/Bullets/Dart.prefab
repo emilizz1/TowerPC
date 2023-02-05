@@ -251,5 +251,5 @@ MonoBehaviour:
   trail: {fileID: 487481798203065792}
   model: {fileID: 0}
   endParticles: {fileID: 0}
-  speed: 25
+  speed: 30
   audioSource: {fileID: 0}

@@ -22,6 +22,7 @@ public class ActionCard : Card
         {
             Money.instance.AddCurrency(addMoney, false);
             SoundsController.instance.PlayOneShot("Money");
+            AchievementManager.GoldGotFromCoins(addMoney);
         }
         if (addMana > 0)
         {

@@ -33,3 +33,5 @@ MonoBehaviour:
     cardToDisplay: {fileID: 11400000, guid: 45fe93fb23a77da40ba7ed1ba16ebed8, type: 2}
   - text: New Research Level Unlocked For Admiral
     cardToDisplay: {fileID: 0}
+  - text: Starting Card Upgraded For Admiral
+    cardToDisplay: {fileID: 11400000, guid: c62c48a620e33c04aa2a6c45f64a1605, type: 2}

@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
     [SerializeField] List<GameObject> levelUpRings;
     [SerializeField] GameObject canvas;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] Transform bulletSpawnPos;
 
     [Header("Stats")]
     public List<TowerStats> towerStats;
@@ -141,7 +142,7 @@ public class Tower : MonoBehaviour
     {
         GameObject newBullet = ObjectPools.instance.GetPool(bulletType).GetObject();
         newBullet.transform.parent = transform;
-        newBullet.transform.position = top.transform.position;
+        newBullet.transform.position = bulletSpawnPos.position;
         Bullet bullet = newBullet.GetComponent<Bullet>();
         bullet.damage = GetDamageMultiplied();
         bullet.SetTarget(currentTarget);

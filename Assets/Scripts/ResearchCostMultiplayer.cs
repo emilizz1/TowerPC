@@ -11,6 +11,7 @@ public class ResearchCostMultiplayer : Research
     [SerializeField] CardType type;
     [SerializeField] float amount;
     [SerializeField] CostMultipleyerApplied usedFor;
+    [SerializeField] CostMultipleyerAppliedShopType usedForType;
 
 
     public override void Researched()
@@ -23,7 +24,18 @@ public class ResearchCostMultiplayer : Research
 
         if(usedFor == CostMultipleyerApplied.buying)
         {
-            CostController.AddNewBuyingCostMultiplayer(type, amount);
+            switch (usedForType)
+            {
+                case (CostMultipleyerAppliedShopType.market):
+                    CostController.AddNewMarketBuyingCostMultiplayer(type, amount);
+                    break;
+                case (CostMultipleyerAppliedShopType.forge):
+                    CostController.AddNewForgeBuyingCostMultiplayer(type, amount);
+                    break;
+                case (CostMultipleyerAppliedShopType.graveyard):
+                    CostController.AddNewGraveyardBuyingCostMultiplayer(type, amount);
+                    break;
+            }
 
         }
     }
@@ -35,4 +47,12 @@ public enum CostMultipleyerApplied
 {
     playing,
     buying
+}
+
+[Serializable]
+public enum CostMultipleyerAppliedShopType
+{
+    market,
+    forge,
+    graveyard
 }

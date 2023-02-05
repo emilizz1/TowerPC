@@ -20,9 +20,6 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] bool handCard;
     [SerializeField] List<GameObject> cardLevel;
     [SerializeField] List<GameObject> cardLevelStars;
-    [SerializeField] List<GameObject> maxCharges;
-    [SerializeField] List<GameObject> activeCharges;
-    [SerializeField] GridLayoutGroup chargesLayoutGroup;
     [SerializeField] TweenAnimator notEnoughMoney;
     [SerializeField] TweenAnimator notEnoughMana;
 
@@ -57,18 +54,6 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
         keywords.text = keywordText;
-
-        int maxUses = cardToDisplay.maxUses + ChargesController.GetChargesAddition(cardToDisplay.cardType);
-        for (int i = 0; i < maxCharges.Count; i++)
-        {
-            maxCharges[i].SetActive(i < maxUses);
-        }
-        for (int i = 0; i < activeCharges.Count; i++)
-        {
-            activeCharges[i].SetActive(i < maxUses - cardToDisplay.timesUsed);
-        }
-
-        chargesLayoutGroup.cellSize = maxUses > 5 ? maxUses > 7? new Vector2(9,9): new Vector2(12, 12) : new Vector2(18,18);
 
         costMoney.text = Mathf.Max(Mathf.CeilToInt(cardToDisplay.moneyCost * CostController.GetPlayingCostMultiplayer(cardToDisplay.cardType)) - CostController.currentTurnDiscount,0).ToString();
         costMana.text = Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount,0).ToString();
@@ -107,15 +92,21 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!Cover.cover)
+        if (handCard)
         {
-            HandCardSlotController.instance.RearrengeCardSlotsWithSelectedCard(HandCardSlotController.instance.cardDisplays.IndexOf(this));
+            if (!Cover.cover)
+            {
+                HandCardSlotController.instance.RearrengeCardSlotsWithSelectedCard(HandCardSlotController.instance.cardDisplays.IndexOf(this));
+            }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        HandCardSlotController.instance.RearrangeCardSlots();
+        if (handCard)
+        {
+            HandCardSlotController.instance.RearrangeCardSlots();
+        }
     }
 
     IEnumerator Dragging()
@@ -175,6 +166,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     SpellPlacer.spellToPlace = null;
                     front.SetActive(true);
                     CardUsed();
+                    AchievementManager.SpellCasted();
                     HandCardSlotController.instance.RearrangeCardSlots();
                 }
                 else
@@ -213,15 +205,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 
         Hand.instance.handCards.Remove(displayedCard);
-        displayedCard.timesUsed++;
-        if (displayedCard.timesUsed < (displayedCard.maxUses + ChargesController.GetChargesAddition(displayedCard.cardType)))
-        {
-            Discard.instance.DiscardCardFromHand(this);
-        }
-        else
-        {
-            DestroyCard();
-        }
+        Discard.instance.DiscardCardFromHand(this);
 
         if (Hand.instance.handCards.Count == 0)
         {
@@ -313,7 +297,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         if (!Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount))
         {
-            notEnoughMoney.PerformTween(0);
+            notEnoughMana.PerformTween(0);
         }
         return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount) &&
             Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount);

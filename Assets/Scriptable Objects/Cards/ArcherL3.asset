@@ -21,8 +21,7 @@ MonoBehaviour:
   cardLevel: 3
   description: '<sprite=4> 6   <sprite=3> 4   <sprite=2> 2
 
-    <sprite=1> 0.7/s  
+    <sprite=1> 1.7/s  
     <sprite=0> 5'
   damageTypes: 00000000
-  maxUses: 3
   towerPrefab: {fileID: 1526630794712585043, guid: 645c3171a0fae3843a1b1823de379e23, type: 3}

@@ -7,6 +7,7 @@ public class TowerLevelUpSpell : Spell
 
     [SerializeField] ParticleSystem particles;
     [SerializeField] int levelsToLevelUp;
+    [SerializeField] GameObject rangeSprt;
 
     Tower myTower;
 
@@ -43,6 +44,7 @@ public class TowerLevelUpSpell : Spell
                 }
             }
         }
+        rangeSprt.SetActive(false);
         particles.Stop();
     }
 }

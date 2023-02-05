@@ -5,7 +5,9 @@ using System;
 
 public class TileManager : MonoSingleton<TileManager>
 {
-    [SerializeField] Tile startingTile;
+    [SerializeField] Tile startingTile1;
+    [SerializeField] Tile startingTile2;
+    [SerializeField] Tile startingTile3;
     [SerializeField] List<GameObject> tilePrefabs;
     [SerializeField] GameObject endTilePrefab;
 
@@ -22,6 +24,30 @@ public class TileManager : MonoSingleton<TileManager>
         reservedCoordinates = new List<Vector2>();
         reservedCoordinates.Add(new Vector2(0,0));
         tiles = new List<Tile>();
+
+        Tile startingTile = null;
+
+        if (ProgressManager.GetLevel("Base") >= 8)
+        {
+            startingTile1.gameObject.SetActive(false);
+            startingTile2.gameObject.SetActive(false);
+            startingTile = startingTile3;
+        }
+        else if (ProgressManager.GetLevel("Base") >= 4)
+        {
+            startingTile1.gameObject.SetActive(false);
+            startingTile3.gameObject.SetActive(false);
+            startingTile = startingTile2;
+
+        }        
+        else
+        {
+            startingTile2.gameObject.SetActive(false);
+            startingTile3.gameObject.SetActive(false);
+            startingTile = startingTile1;
+        }
+
+
         tiles.Add(startingTile);
         FillReservedCoordinates(startingTile, startingTile.coordinates);
         ChangeButtonInteractability(false);

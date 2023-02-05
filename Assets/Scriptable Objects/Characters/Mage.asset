@@ -33,3 +33,5 @@ MonoBehaviour:
     cardToDisplay: {fileID: 11400000, guid: 62ab798afabe74d4883efe9890eaea22, type: 2}
   - text: New Research Level Unlocked For Mage
     cardToDisplay: {fileID: 0}
+  - text: Starting Card Upgraded For Mage
+    cardToDisplay: {fileID: 11400000, guid: f75d64c9579266f4e874586750a34167, type: 2}

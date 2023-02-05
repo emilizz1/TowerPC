@@ -15,15 +15,15 @@ MonoBehaviour:
   cardName: Scroll Of Knowledge
   cardType: 1
   cardImage: {fileID: 21300000, guid: 0246d41336804474294ed193fc02a6f0, type: 3}
-  moneyCost: 6
-  manaCost: 13
+  moneyCost: 7
+  manaCost: 14
   buyCostMultiplayer: 1.83
   cardLevel: 1
   description: Advance research by one turn
   damageTypes: 
-  maxUses: 2
   addMoney: 0
   addMana: 0
   addHealth: 0
   drawCards: 0
   advanceResearch: 1
+  discount: 0

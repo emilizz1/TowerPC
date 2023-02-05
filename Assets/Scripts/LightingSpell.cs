@@ -76,6 +76,12 @@ public class LightingSpell : Spell
         enemies.Remove(enemy.GetComponent<Enemy>());
     }
 
+    public override void Activate()
+    {
+        base.Activate();
+        AchievementManager.StormPlaced();
+    }
+
     public override void StopSpell()
     {
         //base.StopSpell();
@@ -88,6 +94,7 @@ public class LightingSpell : Spell
         {
             return;
         }
+        AchievementManager.StormRemoved();
 
         StartCoroutine(StopingAnimation());
     }

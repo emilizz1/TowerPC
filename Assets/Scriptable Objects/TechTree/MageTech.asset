@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MageTech
   m_EditorClassIdentifier: 
   researches:
-  - {fileID: 11400000, guid: e13e8d7c87196544b95df0ff18f6c313, type: 2}
+  - {fileID: 11400000, guid: 2a8eaf1886189874c93290c5c82cd065, type: 2}
   - {fileID: 11400000, guid: 51b27c1500372ef448c56ff069bccb15, type: 2}
   - {fileID: 11400000, guid: 00ba512e40dec5544a71c439133c6161, type: 2}
   - {fileID: 11400000, guid: fe36260b7fa4b79428d2ddae705708f0, type: 2}

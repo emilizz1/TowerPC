@@ -41,3 +41,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
     - {fileID: 11400000, guid: 348b1a6d0dcee01428d3231c4ef10e50, type: 2}
     - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
+  - levelFrom: 8
+    cards:
+    - {fileID: 11400000, guid: d0c714479aad13b4b8462efc9d23fc8e, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+    - {fileID: 11400000, guid: 348b1a6d0dcee01428d3231c4ef10e50, type: 2}
+    - {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}

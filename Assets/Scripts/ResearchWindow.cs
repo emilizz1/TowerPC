@@ -19,7 +19,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     private void Start()
     {
-        int baseResearchLocked = ProgressManager.GetLevel("Base") >= 11 ? 0 : ProgressManager.GetLevel("Base") >= 5? 1:2;
+        int baseResearchLocked = ProgressManager.GetLevel("Base") >= 12 ? 0 : ProgressManager.GetLevel("Base") >= 7? 1:2;
         int firstResearchLocked = ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName) >= 7 ? 0 : ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName) >= 3? 1:2;
         int secondResearchLocked = ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) >= 7 ? 0 : ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) >= 3? 1:2;
         trees[0].SetupTree(defaultTechTree, baseResearchLocked);

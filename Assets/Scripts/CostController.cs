@@ -5,7 +5,9 @@ using UnityEngine;
 public static class CostController
 {
     public static Dictionary<CardType, float> playingCostMultiplayer = new Dictionary<CardType, float>();
-    public static Dictionary<CardType, float> buyingCostMultiplayer = new Dictionary<CardType, float>();
+    public static Dictionary<CardType, float> buyingMarketCostMultiplayer = new Dictionary<CardType, float>();
+    public static Dictionary<CardType, float> buyingForgeCostMultiplayer = new Dictionary<CardType, float>();
+    public static Dictionary<CardType, float> buyingGraveyardCostMultiplayer = new Dictionary<CardType, float>();
 
     public static int currentTurnDiscount;
 
@@ -21,15 +23,39 @@ public static class CostController
         }
     }
 
-    public static void AddNewBuyingCostMultiplayer(CardType type, float amount)
+    public static void AddNewMarketBuyingCostMultiplayer(CardType type, float amount)
     {
-        if (buyingCostMultiplayer.ContainsKey(type))
+        if (buyingMarketCostMultiplayer.ContainsKey(type))
         {
-            buyingCostMultiplayer[type] += amount;
+            buyingMarketCostMultiplayer[type] += amount;
         }
         else
         {
-            buyingCostMultiplayer.Add(type, amount);
+            buyingMarketCostMultiplayer.Add(type, amount);
+        }
+    }
+
+    public static void AddNewForgeBuyingCostMultiplayer(CardType type, float amount)
+    {
+        if (buyingForgeCostMultiplayer.ContainsKey(type))
+        {
+            buyingForgeCostMultiplayer[type] += amount;
+        }
+        else
+        {
+            buyingForgeCostMultiplayer.Add(type, amount);
+        }
+    }
+
+    public static void AddNewGraveyardBuyingCostMultiplayer(CardType type, float amount)
+    {
+        if (buyingGraveyardCostMultiplayer.ContainsKey(type))
+        {
+            buyingGraveyardCostMultiplayer[type] += amount;
+        }
+        else
+        {
+            buyingGraveyardCostMultiplayer.Add(type, amount);
         }
     }
 
@@ -50,18 +76,52 @@ public static class CostController
         return multiplayer;
     }
 
-    public static float GetBuyingCostMultiplayer(CardType type)
+    public static float GetMarketBuyingCostMultiplayer(CardType type)
     {
         float multiplayer = 1f;
 
-        if (buyingCostMultiplayer.ContainsKey(type))
+        if (buyingMarketCostMultiplayer.ContainsKey(type))
         {
-            multiplayer += buyingCostMultiplayer[type];
+            multiplayer += buyingMarketCostMultiplayer[type];
         }
 
-        if (buyingCostMultiplayer.ContainsKey(CardType.All))
+        if (buyingMarketCostMultiplayer.ContainsKey(CardType.All))
         {
-            multiplayer += buyingCostMultiplayer[CardType.All];
+            multiplayer += buyingMarketCostMultiplayer[CardType.All];
+        }
+
+        return multiplayer;
+    }
+
+    public static float GetForgeBuyingCostMultiplayer(CardType type)
+    {
+        float multiplayer = 1f;
+
+        if (buyingForgeCostMultiplayer.ContainsKey(type))
+        {
+            multiplayer += buyingForgeCostMultiplayer[type];
+        }
+
+        if (buyingForgeCostMultiplayer.ContainsKey(CardType.All))
+        {
+            multiplayer += buyingForgeCostMultiplayer[CardType.All];
+        }
+
+        return multiplayer;
+    }
+
+    public static float GetGraveyardBuyingCostMultiplayer(CardType type)
+    {
+        float multiplayer = 1f;
+
+        if (buyingGraveyardCostMultiplayer.ContainsKey(type))
+        {
+            multiplayer += buyingGraveyardCostMultiplayer[type];
+        }
+
+        if (buyingGraveyardCostMultiplayer.ContainsKey(CardType.All))
+        {
+            multiplayer += buyingGraveyardCostMultiplayer[CardType.All];
         }
 
         return multiplayer;
@@ -70,7 +130,9 @@ public static class CostController
     public static void Reset()
     {
         playingCostMultiplayer = new Dictionary<CardType, float>();
-        buyingCostMultiplayer = new Dictionary<CardType, float>();
+        buyingMarketCostMultiplayer = new Dictionary<CardType, float>();
+        buyingForgeCostMultiplayer = new Dictionary<CardType, float>();
+        buyingGraveyardCostMultiplayer = new Dictionary<CardType, float>();
         currentTurnDiscount = 0;
     }
 }

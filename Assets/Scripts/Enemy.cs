@@ -131,14 +131,18 @@ public class Enemy : MonoBehaviour
 
     public void ReachedEnd()
     {
-        PlayerLife.instance.ChangeHealthAmount(-damage);
-        StartCoroutine(ReturnAfterTimer());
-        EnemyManager.instance.EnemyRemoved(this);
+        if (!returning)
+        {
+            PlayerLife.instance.ChangeHealthAmount(-damage);
+            StartCoroutine(ReturnAfterTimer());
+            EnemyManager.instance.EnemyRemoved(this);
+            AchievementManager.EnemiesFinished();
+        }
     }
 
     public void DealDamage(List<float> damages, Color damageColor)
     {
-        if (!gameObject.activeInHierarchy || healthBar.fillAmount == 0f)
+        if (!gameObject.activeInHierarchy || currentHealth[0] <= 0f)
         {
             return;
         }
@@ -175,6 +179,7 @@ public class Enemy : MonoBehaviour
             {
                 Money.instance.AddCurrency(moneyOnKill, true);
                 EnemyManager.instance.enemiesKilled++;
+                AchievementManager.KilledEnemies();
             }
             StartCoroutine(ReturnAfterTimer());
             EnemyManager.instance.EnemyRemoved(this);

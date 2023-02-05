@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Spear Tower
   cardType: 0
   cardImage: {fileID: 21300000, guid: 8b9fc1901a150d549890815c13a8289c, type: 3}
-  moneyCost: 36
+  moneyCost: 27
   manaCost: 0
   buyCostMultiplayer: 1.83
   cardLevel: 1
@@ -26,5 +26,4 @@ MonoBehaviour:
 
     Fires faster at the same target'
   damageTypes: 00000000
-  maxUses: 4
   towerPrefab: {fileID: 4796524506784668451, guid: ba0707d2a8476d148848256e702f9168, type: 3}

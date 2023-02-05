@@ -16,7 +16,7 @@ MonoBehaviour:
   cardType: 2
   cardImage: {fileID: 21300000, guid: 4816402dee506e44586f515c0619c135, type: 3}
   moneyCost: 0
-  manaCost: 29
+  manaCost: 35
   buyCostMultiplayer: 1.66
   cardLevel: 2
   description: 'Deal damage to enemies
@@ -26,5 +26,4 @@ MonoBehaviour:
 
     Stays for 3 waves'
   damageTypes: 01000000
-  maxUses: 3
   spellPrefab: {fileID: 3346172960511143528, guid: 46589e21aed0d824bb3d56283963705c, type: 3}

@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493498874ece7de418451d53a57cc217, type: 3}
+  m_Script: {fileID: 11500000, guid: 02417d2eec2def74894a092cefb9f947, type: 3}
   m_Name: Admiral 3-2
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 614773506631c8b40b8ce6e8cd2ed568, type: 3}
   timeToResearch: 2
   tier: 2
-  explanation: All currently held cards have 3 additional charges
-  displayIcon: 0
-  researchType: 2
+  explanation: Upgrading cards in Forge is cheaper by 40%
+  displayIcon: 1
+  researchType: 3
   type: 3
-  amount: 3
+  amount: -0.4
   usedFor: 1
+  usedForType: 1

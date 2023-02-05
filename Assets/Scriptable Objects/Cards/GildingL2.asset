@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980698ea8986f8749be9e0f056d41284, type: 3}
+  m_Name: GildingL2
+  m_EditorClassIdentifier: 
+  cardName: Gilding
+  cardType: 1
+  cardImage: {fileID: 21300000, guid: 826d28b802034d64abca2245e8f7ffb0, type: 3}
+  moneyCost: 0
+  manaCost: 10
+  buyCostMultiplayer: 1.66
+  cardLevel: 2
+  description: Upgrade random card in hand
+  damageTypes: 
+  addMoney: 0
+  addMana: 0
+  addHealth: 0
+  drawCards: 0
+  advanceResearch: 0
+  discount: 0

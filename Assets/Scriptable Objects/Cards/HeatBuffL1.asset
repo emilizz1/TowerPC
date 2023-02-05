@@ -16,10 +16,9 @@ MonoBehaviour:
   cardType: 2
   cardImage: {fileID: 21300000, guid: b22ec6efeeab6454e8876998dcb077e8, type: 3}
   moneyCost: 0
-  manaCost: 13
+  manaCost: 9
   buyCostMultiplayer: 2.33
   cardLevel: 1
   description: Increases tower damage by 35%
   damageTypes: 
-  maxUses: 3
   spellPrefab: {fileID: 3882510687299103847, guid: 0ac1adeebaa10964dbbe3aa15a99c5a6, type: 3}

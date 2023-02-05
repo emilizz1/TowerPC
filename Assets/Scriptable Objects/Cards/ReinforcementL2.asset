@@ -15,13 +15,12 @@ MonoBehaviour:
   cardName: Reinforcement
   cardType: 1
   cardImage: {fileID: 21300000, guid: 2d346c053c5bcb544992c023933d302b, type: 3}
-  moneyCost: 10
-  manaCost: 10
+  moneyCost: 8
+  manaCost: 8
   buyCostMultiplayer: 2.66
   cardLevel: 2
   description: 'Draw 1 Card, all cards are cheaper by 7 coins and 7 mana '
   damageTypes: 
-  maxUses: 3
   addMoney: 0
   addMana: 0
   addHealth: 0

@@ -252,7 +252,7 @@ MonoBehaviour:
   trail: {fileID: 7799841776862677885}
   model: {fileID: 0}
   endParticles: {fileID: 3683894320642122407, guid: 6e1d1f6d81006b44c981a3f68974df98, type: 3}
-  speed: 30
+  speed: 35
   audioSource: {fileID: -1521311175394778811}
 --- !u!82 &-1521311175394778811
 AudioSource:

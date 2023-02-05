@@ -9,8 +9,8 @@ public static class ProgressManager
 
     static bool initialized;
 
-    internal static int[] baseLevelUps = new int[] {150, 200, 300, 400, 550, 700, 850, 1050, 1250, 1450, 1650, 1900, 2150, 2400, 2650, 2900, 3200, 3500 };
-    internal static int[] characterLevelUps = new int[] {250, 500, 1000, 1500, 2250, 3000 };
+    internal static int[] baseLevelUps = new int[] {150, 150, 200, 250, 300, 400, 450, 700, 850, 1050, 1250, 1450, 1650, 1900, 2150, 2400, 2650, 2900, 3200, 3500 };
+    internal static int[] characterLevelUps = new int[] {250, 400, 750, 1250, 1750, 2500, 3000 };
 
     static void Initialize()
     {
@@ -90,11 +90,24 @@ public static class ProgressManager
         levels[name] += change;
         Analytics.instance.LevelUp(name, levels[name]);
         PlayerPrefs.SetInt(name + "Level", levels[name]);
+        CheckIfMaxed();
     }
 
     public static void ResetProgress()
     {
         PlayerPrefs.DeleteAll();
         Initialize();
+    }
+
+    public static void CheckIfMaxed()
+    {
+        if(GetLevel("Base")-1 >= characterLevelUps.Length &&
+            GetLevel("Knight") - 1 >= characterLevelUps.Length &&
+            GetLevel("Mage") - 1 >= characterLevelUps.Length &&
+            GetLevel("Admiral") - 1 >= characterLevelUps.Length 
+            )
+        {
+            AchievementManager.MaxedLevels();
+        }
     }
 }

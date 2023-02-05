@@ -15,9 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: ba05e7a632140ba40a032d70cd8ba1d4, type: 3}
   timeToResearch: 1
   tier: 1
-  explanation: Buying cards is cheaper by 10%
+  explanation: Buying cards is cheaper by 20%
   displayIcon: 1
   researchType: 3
   type: 3
-  amount: -0.1
+  amount: -0.2
   usedFor: 1
+  usedForType: 0

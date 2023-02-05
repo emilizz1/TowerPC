@@ -63,7 +63,7 @@ MonoBehaviour:
   trail: {fileID: 1598159195145530733}
   model: {fileID: 0}
   endParticles: {fileID: 0}
-  speed: 16
+  speed: 19
   audioSource: {fileID: 0}
 --- !u!1 &7622532565603206350
 GameObject:

@@ -16,10 +16,9 @@ MonoBehaviour:
   cardType: 2
   cardImage: {fileID: 21300000, guid: e0abbb5e261eede428c864f44211c4c5, type: 3}
   moneyCost: 0
-  manaCost: 18
+  manaCost: 11
   buyCostMultiplayer: 2.16
   cardLevel: 2
   description: Affected enemies give more gold when killed
   damageTypes: 
-  maxUses: 3
   spellPrefab: {fileID: 3346172960511143528, guid: 498d3e8a3f5d9344d83a4959c8c39caf, type: 3}

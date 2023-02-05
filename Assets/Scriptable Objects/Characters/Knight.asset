@@ -33,3 +33,5 @@ MonoBehaviour:
     cardToDisplay: {fileID: 11400000, guid: d0c714479aad13b4b8462efc9d23fc8e, type: 2}
   - text: New Research Level Unlocked For Knight
     cardToDisplay: {fileID: 0}
+  - text: Starting Card Upgraded For Knight
+    cardToDisplay: {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}

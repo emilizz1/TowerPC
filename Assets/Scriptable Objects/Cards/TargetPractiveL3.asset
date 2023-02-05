@@ -16,10 +16,9 @@ MonoBehaviour:
   cardType: 2
   cardImage: {fileID: 21300000, guid: 4188e07cbd0821b4d8cb324e3b425299, type: 3}
   moneyCost: 0
-  manaCost: 25
+  manaCost: 24
   buyCostMultiplayer: 2.5
   cardLevel: 3
   description: Level up Tower twice
   damageTypes: 
-  maxUses: 3
   spellPrefab: {fileID: 3882510687299103847, guid: 20b1d3ef2492f6b49965b06ba536bf35, type: 3}

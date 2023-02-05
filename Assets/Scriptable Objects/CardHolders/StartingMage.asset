@@ -12,12 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f092dc82316d1fe468bd567ba784cd7e, type: 3}
   m_Name: StartingMage
   m_EditorClassIdentifier: 
-  cards:
-  - {fileID: 11400000, guid: 41110b0de54f5d24fa373f087eb600ad, type: 2}
-  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
-  - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
-  - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
   cardsCollection:
   - levelFrom: 1
     cards:
@@ -46,4 +40,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 62ab798afabe74d4883efe9890eaea22, type: 2}
     - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
     - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
+    - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
+  - levelFrom: 8
+    cards:
+    - {fileID: 11400000, guid: f3770e7c7547dcf4bb9de800deb984b2, type: 2}
+    - {fileID: 11400000, guid: 62ab798afabe74d4883efe9890eaea22, type: 2}
+    - {fileID: 11400000, guid: 9e353342c07142a47952417511ae791f, type: 2}
+    - {fileID: 11400000, guid: f75d64c9579266f4e874586750a34167, type: 2}
     - {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}

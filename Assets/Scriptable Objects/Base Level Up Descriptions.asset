@@ -16,14 +16,16 @@ MonoBehaviour:
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
-    cardToDisplay: {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
-  - text: New Research Level Unlocked
+    cardToDisplay: {fileID: 11400000, guid: 361ab3d10520b214a84cdbeff64d579e, type: 2}
+  - text: Additional paths to castle
     cardToDisplay: {fileID: 0}
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Character Unloocked
+    cardToDisplay: {fileID: 0}
+  - text: New Research Level Unlocked
+    cardToDisplay: {fileID: 0}
+  - text: Additional paths to castle
     cardToDisplay: {fileID: 0}
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
@@ -40,11 +42,13 @@ MonoBehaviour:
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
-    cardToDisplay: {fileID: 11400000, guid: 361ab3d10520b214a84cdbeff64d579e, type: 2}
+    cardToDisplay: {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: f8e63422f184576409028177df34c18b, type: 2}
+  - text: New Waves Unloocked
+    cardToDisplay: {fileID: 0}
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Waves Unloocked

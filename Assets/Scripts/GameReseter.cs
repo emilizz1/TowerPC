@@ -12,6 +12,5 @@ public class GameReseter : MonoBehaviour
         SpellPlacer.Reset();
         TowerPlacer.Reset();
         TurnController.Reset();
-        ChargesController.Reset();
     }
 }

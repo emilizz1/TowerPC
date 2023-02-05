@@ -201,7 +201,7 @@ MonoBehaviour:
   trail: {fileID: 1673191979459218325}
   model: {fileID: 0}
   endParticles: {fileID: 0}
-  speed: 20
+  speed: 21
   audioSource: {fileID: 0}
 --- !u!1001 &6941906377111570046
 PrefabInstance:

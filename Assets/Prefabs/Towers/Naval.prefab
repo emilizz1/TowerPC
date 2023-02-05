@@ -153,6 +153,7 @@ MonoBehaviour:
   - {fileID: 3530073732552363174}
   canvas: {fileID: 4825318446151000804}
   audioSource: {fileID: -1277630609710043038}
+  bulletSpawnPos: {fileID: 3364892187113495077}
   towerStats:
   - fireRate: 1.2
     range: 6

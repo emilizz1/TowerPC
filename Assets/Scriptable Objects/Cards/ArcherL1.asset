@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Archer
   cardType: 0
   cardImage: {fileID: 21300000, guid: a4c16e13508db3a4db578dca9a5649cb, type: 3}
-  moneyCost: 17
+  moneyCost: 26
   manaCost: 0
   buyCostMultiplayer: 1.33
   cardLevel: 1
@@ -24,5 +24,4 @@ MonoBehaviour:
     <sprite=1> 1.5/s  
     <sprite=0> 4.5'
   damageTypes: 00000000
-  maxUses: 2
   towerPrefab: {fileID: 1526630794712585043, guid: 645c3171a0fae3843a1b1823de379e23, type: 3}
