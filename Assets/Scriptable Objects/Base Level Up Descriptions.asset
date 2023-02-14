@@ -17,7 +17,7 @@ MonoBehaviour:
     cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: 361ab3d10520b214a84cdbeff64d579e, type: 2}
-  - text: Additional paths to castle
+  - text: Normal difficulty unlocked
     cardToDisplay: {fileID: 0}
   - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}

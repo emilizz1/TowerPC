@@ -20,7 +20,7 @@ public class ResearchCurrency : Research
         {
             Mana.instance.AddRegen(manaRegenPerSecond);
         }
-        else  if(incomeIncreased > 0)
+        else  if(maxMana > 0)
         {
             Mana.instance.IncreaseMaxMana(maxMana);
         }

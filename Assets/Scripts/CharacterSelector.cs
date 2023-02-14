@@ -7,5 +7,6 @@ public static class CharacterSelector
     public static Character firstCharacter;
     public static Character secondCharacter;
 
+    public static int difficulty;
 
 }

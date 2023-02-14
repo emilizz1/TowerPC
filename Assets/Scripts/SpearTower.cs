@@ -15,7 +15,7 @@ public class SpearTower : Tower
         float extraFireRate = 1f;
         for (int i = 0; i < timesHit; i++)
         {
-            extraFireRate *= firerateIncreasesPerShot[currentLevel];
+            extraFireRate *=  firerateIncreasesPerShot[currentLevel];
         }
         return base.GetTimeToNextShot() * extraFireRate;
     }

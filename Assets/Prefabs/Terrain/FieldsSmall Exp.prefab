@@ -58,6 +58,7 @@ MonoBehaviour:
     - {fileID: 4025642262819242764}
     influence:
     - 0.052
+  desiredColor: {r: 0.827451, g: 0.83137256, b: 0.2784314, a: 1}
 --- !u!1001 &3775692802199099198
 PrefabInstance:
   m_ObjectHideFlags: 0

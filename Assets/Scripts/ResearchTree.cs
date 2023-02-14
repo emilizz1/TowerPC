@@ -90,11 +90,14 @@ public class ResearchTree : MonoBehaviour
 
     public bool HasResearchToComplete()
     {
-        foreach(ResearchNode node in nodes)
+        foreach (ResearchNode node in nodes)
         {
-            if(!node.researched && node.unlocked)
+            if (node.gameObject.activeInHierarchy)
             {
-                return true ;
+                if (!node.researched && node.unlocked)
+                {
+                    return true;
+                }
             }
         }
         return false;

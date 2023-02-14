@@ -15,10 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1a20c0a8d3047df418451660dfa18ec7, type: 3}
   timeToResearch: 2
   tier: 3
-  explanation: Increase max Mana by 50
+  explanation: Increase max Mana by 70
   displayIcon: 1
   researchType: 4
   manaRegenPerSecond: 0
-  maxMana: 50
+  maxMana: 70
   incomeIncreased: 0
   addMoney: 0

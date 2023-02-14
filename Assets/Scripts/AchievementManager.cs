@@ -54,23 +54,29 @@ public static class AchievementManager
 
     public static void FinishedWave30()
     {
-        bool completed = false;
-        SteamUserStats.GetAchievement(finishedWave, out completed);
-        if (!completed)
+        if (SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(finishedWave);
-            SteamUserStats.StoreStats();
+            bool completed = false;
+            SteamUserStats.GetAchievement(finishedWave, out completed);
+            if (!completed)
+            {
+                SteamUserStats.SetAchievement(finishedWave);
+                SteamUserStats.StoreStats();
+            }
         }
     }
 
     public static void AllDeckUpgraded()
     {
-        bool completed = false;
-        SteamUserStats.GetAchievement(allDeckUpgraded, out completed);
-        if (!completed)
+        if (SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(allDeckUpgraded);
-            SteamUserStats.StoreStats();
+            bool completed = false;
+            SteamUserStats.GetAchievement(allDeckUpgraded, out completed);
+            if (!completed)
+            {
+                SteamUserStats.SetAchievement(allDeckUpgraded);
+                SteamUserStats.StoreStats();
+            }
         }
     }
 
@@ -101,7 +107,6 @@ public static class AchievementManager
             enemiesKilled++;
             SteamUserStats.SetStat(enemiesKilledStat, enemiesKilled);
             SteamUserStats.StoreStats();
-            Debug.Log("Enemies: " + enemiesKilled);
 
             bool completed = false;
             SteamUserStats.GetAchievement(killedEnemies, out completed);
@@ -134,23 +139,29 @@ public static class AchievementManager
 
     public static void FullLifeFinish()
     {
-        bool completed = false;
-        SteamUserStats.GetAchievement(fullLife, out completed);
-        if (!completed)
+        if (SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(fullLife);
-            SteamUserStats.StoreStats();
+            bool completed = false;
+            SteamUserStats.GetAchievement(fullLife, out completed);
+            if (!completed)
+            {
+                SteamUserStats.SetAchievement(fullLife);
+                SteamUserStats.StoreStats();
+            }
         }
     }
 
     public static void TowersOnMap()
     {
-        bool completed = false;
-        SteamUserStats.GetAchievement(towersOnMap, out completed);
-        if (!completed)
+        if (SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(towersOnMap);
-            SteamUserStats.StoreStats();
+            bool completed = false;
+            SteamUserStats.GetAchievement(towersOnMap, out completed);
+            if (!completed)
+            {
+                SteamUserStats.SetAchievement(towersOnMap);
+                SteamUserStats.StoreStats();
+            }
         }
     }
 
@@ -175,24 +186,30 @@ public static class AchievementManager
 
     public static void MaxedLevels()
     {
-        bool completed = false;
-        SteamUserStats.GetAchievement(maxed, out completed);
-        if (!completed)
+        if (SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(maxed);
-            SteamUserStats.StoreStats();
+            bool completed = false;
+            SteamUserStats.GetAchievement(maxed, out completed);
+            if (!completed)
+            {
+                SteamUserStats.SetAchievement(maxed);
+                SteamUserStats.StoreStats();
+            }
         }
     }
 
     public static void StormPlaced()
     {
-        currentStorms++;
-        bool completed = false;
-        SteamUserStats.GetAchievement(storms, out completed);
-        if (!completed && currentStorms >= 5)
+        if (SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(storms);
-            SteamUserStats.StoreStats();
+            currentStorms++;
+            bool completed = false;
+            SteamUserStats.GetAchievement(storms, out completed);
+            if (!completed && currentStorms >= 5)
+            {
+                SteamUserStats.SetAchievement(storms);
+                SteamUserStats.StoreStats();
+            }
         }
     }
 

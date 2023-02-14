@@ -15,10 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 614773506631c8b40b8ce6e8cd2ed568, type: 3}
   timeToResearch: 2
   tier: 2
-  explanation: Upgrading cards in Forge is cheaper by 40%
+  explanation: Upgrading cards in Forge is cheaper by 35%
   displayIcon: 1
   researchType: 3
   type: 3
-  amount: -0.4
+  amount: -0.35
   usedFor: 1
   usedForType: 1

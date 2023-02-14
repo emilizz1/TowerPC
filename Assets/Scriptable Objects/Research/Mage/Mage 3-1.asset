@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 867b454b92428934db63420cd6514eee, type: 3}
   timeToResearch: 1
   tier: 2
-  explanation: Gain "Lightning Storm" <sprite=0> card
+  explanation: Gain "Lightning Storm" <sprite=0><sprite=0> card
   displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: 7eab3d7384f31894188f8df2210cf054, type: 2}
+  researchType: 0
+  cardToGet: {fileID: 11400000, guid: 62ab798afabe74d4883efe9890eaea22, type: 2}

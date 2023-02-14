@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a11f6bbd3d2ebe74e9ac0bdada558157, type: 3}
   timeToResearch: 1
   tier: 0
-  explanation: Gain "Mana Potion" card
+  explanation: Gain "Mana Potion"<sprite=0> card
   displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: abc2cc3bd5dc11c46ba863ab7bd38a4d, type: 2}
+  researchType: 0
+  cardToGet: {fileID: 11400000, guid: f75d64c9579266f4e874586750a34167, type: 2}

@@ -15,9 +15,9 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 6732d2f80f460a747a42042a6bca1609, type: 3}
   timeToResearch: 2
   tier: 2
-  explanation: Ignore first enemy damage to castle each wave
+  explanation: Ignore first two enemies damage to castle each wave
   displayIcon: 1
   researchType: 1
   maxHealthAddition: 0
   increaseRegen: 0
-  enemyDamageStoppedCount: 1
+  enemyDamageStoppedCount: 2

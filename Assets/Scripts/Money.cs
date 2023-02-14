@@ -117,7 +117,6 @@ public class Money : MonoSingleton<Money>
 
     public void UpdateIncome()
     {
-        int towerTax = TowerPlacer.allTowers.Count;
         int reduction = reductions[TurnController.currentTurn] + passiveIncome;
         int finalAmount = reduction;// - towerTax;
 

@@ -9,8 +9,8 @@ public static class ProgressManager
 
     static bool initialized;
 
-    internal static int[] baseLevelUps = new int[] {150, 150, 200, 250, 300, 400, 450, 700, 850, 1050, 1250, 1450, 1650, 1900, 2150, 2400, 2650, 2900, 3200, 3500 };
-    internal static int[] characterLevelUps = new int[] {250, 400, 750, 1250, 1750, 2500, 3000 };
+    internal static int[] baseLevelUps = new int[] {150, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050 };
+    internal static int[] characterLevelUps = new int[] {250, 400, 550, 800, 1000, 1250, 1500 };
 
     static void Initialize()
     {

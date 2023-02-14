@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c3fa18bc536552e418a656bda0bb89ad, type: 3}
   timeToResearch: 2
   tier: 2
-  explanation: Gain "Scroll of Knowledge" <sprite=0><sprite=0> card
+  explanation: Gain "Scroll of Knowledge" <sprite=0> card
   displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: 22e2029078c59c84b9788e149dae015d, type: 2}
+  researchType: 0
+  cardToGet: {fileID: 11400000, guid: 998d0f73d978c674b90bc28b060f5acf, type: 2}

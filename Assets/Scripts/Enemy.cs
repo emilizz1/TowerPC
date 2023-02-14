@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Image shieldBarBg; 
     [SerializeField] Image skillBar;
     [SerializeField] Image skillBarBg;
+    [SerializeField] Image healthBarCollums;
+    [SerializeField] Image armorBarCollums;
+    [SerializeField] Image shieldBarCollums;
     [SerializeField] MeshRenderer myRenderer;
     [SerializeField] AudioSource audioSource;
     [SerializeField] List<AudioClip> deathClips;
@@ -118,12 +121,15 @@ public class Enemy : MonoBehaviour
     {
         healthBar.fillAmount = currentHealth[0] / (health[0] + tempMaxHealth[0]);
         healthBarBg.fillAmount = healthBar.fillAmount > 0 ? 0.04f *  (1f - healthBar.fillAmount) + healthBar.fillAmount : 0f;
-      
+        healthBarCollums.pixelsPerUnitMultiplier = (float)(health[0] + tempMaxHealth[0]) / 40f;
+
         armorBar.fillAmount = currentHealth[1] / (health[1] + tempMaxHealth[1]);
         armorBarBg.fillAmount = armorBar.fillAmount > 0 ? 0.04f * (1 - armorBar.fillAmount) + armorBar.fillAmount : 0f;
+        armorBarCollums.pixelsPerUnitMultiplier = (float)(health[1] + tempMaxHealth[1]) / 40f;
 
         shieldBar.fillAmount = currentHealth[2] / (health[2] + tempMaxHealth[2]);
         shieldBarBg.fillAmount = shieldBar.fillAmount > 0 ? 0.04f * (1 - shieldBar.fillAmount) + shieldBar.fillAmount : 0f;
+        shieldBarCollums.pixelsPerUnitMultiplier = (float)(health[2] + tempMaxHealth[2]) / 40f;
 
         skillBar.fillAmount = currentSkill / 1f;
         skillBarBg.fillAmount = skillBar.fillAmount > 0 ? 0.04f * (1 - skillBar.fillAmount) + skillBar.fillAmount : 0f;

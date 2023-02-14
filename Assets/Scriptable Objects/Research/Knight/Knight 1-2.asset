@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 21a1c3ea6ea99d0489a5b7b1bc83c036, type: 3}
   timeToResearch: 1
   tier: 0
-  explanation: 'Gain "Archer Tower" <sprite=0> card '
+  explanation: 'Gain "Archer Tower" <sprite=0><sprite=0> card '
   displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: 9140f4efa69af364f822a559d4359537, type: 2}
+  researchType: 0
+  cardToGet: {fileID: 11400000, guid: d0c714479aad13b4b8462efc9d23fc8e, type: 2}

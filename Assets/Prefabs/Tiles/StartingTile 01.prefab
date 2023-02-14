@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1026868719020891838}
   terrainSpawnChance: 1
 --- !u!1 &399747616158124253
 GameObject:
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 5651633435475573457}
   terrainSpawnChance: 1
 --- !u!1 &1246176746796158987
 GameObject:
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 7317850102640553462}
   terrainSpawnChance: 1
 --- !u!1 &1806086402570637385
 GameObject:
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 5252743832516703887}
   terrainSpawnChance: 1
 --- !u!1 &1921136900913925682
 GameObject:
@@ -3001,8 +3001,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2497990588900425949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 1, z: 9}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children: []
   m_Father: {fileID: 2497990588790832790}
   m_RootOrder: 0
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 3647257679289195803}
   terrainSpawnChance: 1
 --- !u!1 &3038966541947679886
 GameObject:
@@ -4443,7 +4443,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7521070080935403066}
   m_Father: {fileID: 2497990588508818326}
   m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4522,7 +4523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 4350499721641305587}
   terrainSpawnChance: 0.5
 --- !u!1 &3775100771378302257
 GameObject:
@@ -5312,6 +5313,36 @@ Transform:
   m_Father: {fileID: 7882481004435488506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4350499721641305587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7521070080935403066}
+  m_Layer: 0
+  m_Name: New Game Object(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7521070080935403066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350499721641305587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 713481421548981970}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4394024504559596727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,6 +5961,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4659505981869304013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3099750625066778618}
+  m_Layer: 0
+  m_Name: New Game Object(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3099750625066778618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659505981869304013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3048192131703872119}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4850315349869810684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,7 +6407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 3733660638637143680}
   terrainSpawnChance: 1
 --- !u!1 &5342589681618523777
 GameObject:
@@ -7411,7 +7472,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3099750625066778618}
   m_Father: {fileID: 2497990588508818326}
   m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7490,7 +7552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 4659505981869304013}
   terrainSpawnChance: 0.5
 --- !u!1 &6560523494516816083
 GameObject:
@@ -8058,7 +8120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 8311606001590118372}
   terrainSpawnChance: 1
 --- !u!1 &7179524212461900384
 GameObject:
@@ -9099,7 +9161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 3598385316339613244}
   terrainSpawnChance: 1
 --- !u!1 &7853749578313279554
 GameObject:
@@ -11315,11 +11377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.90630776
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.42261833
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.y
@@ -11399,6 +11461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
+--- !u!1 &6432672504439430298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8930590486577530221, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
+  m_PrefabInstance: {fileID: 2497990588996458999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6432672504439430299 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
@@ -11426,8 +11493,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6432672504439430298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8930590486577530221, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
-  m_PrefabInstance: {fileID: 2497990588996458999}
-  m_PrefabAsset: {fileID: 0}

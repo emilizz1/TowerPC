@@ -8,6 +8,7 @@ public class TerrainBonus : MonoBehaviour
     public Tower.TowerStats statsMultiplayers;
     public TerrainType type;
     [SerializeField] AdjacentTerrain adjacentTerrain;
+    [SerializeField] Color desiredColor;
     
     [Serializable]
     public struct AdjacentTerrain

@@ -112,6 +112,9 @@ MonoBehaviour:
   shieldBarBg: {fileID: 275194966240291257}
   skillBar: {fileID: 8212222246378151459}
   skillBarBg: {fileID: 2185504001390274608}
+  healthBarCollums: {fileID: 4952017027210209097}
+  armorBarCollums: {fileID: 7315055219335226744}
+  shieldBarCollums: {fileID: 9038003115232697873}
   myRenderer: {fileID: 3925819566387613126}
   audioSource: {fileID: -5379513454379190358}
   deathClips:
@@ -358,7 +361,7 @@ TrailRenderer:
   m_Time: 0.25
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -537,11 +540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6435142817210964769, guid: 8badf032f8c4986438abb390aa799816, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90630776
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6435142817210964769, guid: 8badf032f8c4986438abb390aa799816, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261833
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6435142817210964769, guid: 8badf032f8c4986438abb390aa799816, type: 3}
       propertyPath: m_LocalRotation.y
@@ -636,6 +639,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4952017027210209097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5772052849534837514, guid: 8badf032f8c4986438abb390aa799816, type: 3}
+  m_PrefabInstance: {fileID: 1487149142215148611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &797208457216759459 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2284216293120103136, guid: 8badf032f8c4986438abb390aa799816, type: 3}
@@ -658,6 +672,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7315055219335226744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8153522711265878331, guid: 8badf032f8c4986438abb390aa799816, type: 3}
+  m_PrefabInstance: {fileID: 1487149142215148611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &275194966240291257 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1689652636417568250, guid: 8badf032f8c4986438abb390aa799816, type: 3}
@@ -672,6 +697,17 @@ MonoBehaviour:
 --- !u!114 &763614109782998419 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2178489598120147408, guid: 8badf032f8c4986438abb390aa799816, type: 3}
+  m_PrefabInstance: {fileID: 1487149142215148611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9038003115232697873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7624037478421453394, guid: 8badf032f8c4986438abb390aa799816, type: 3}
   m_PrefabInstance: {fileID: 1487149142215148611}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -734,6 +770,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 84651480f4ec3cb45bad49c0927b95b7, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84651480f4ec3cb45bad49c0927b95b7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84651480f4ec3cb45bad49c0927b95b7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 84651480f4ec3cb45bad49c0927b95b7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 84651480f4ec3cb45bad49c0927b95b7, type: 3}
       propertyPath: m_LocalPosition.x

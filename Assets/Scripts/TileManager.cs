@@ -27,13 +27,13 @@ public class TileManager : MonoSingleton<TileManager>
 
         Tile startingTile = null;
 
-        if (ProgressManager.GetLevel("Base") >= 8)
+        if (PlayerPrefs.GetInt("Difficulty", 0) == 2)
         {
             startingTile1.gameObject.SetActive(false);
             startingTile2.gameObject.SetActive(false);
             startingTile = startingTile3;
         }
-        else if (ProgressManager.GetLevel("Base") >= 4)
+        else if (PlayerPrefs.GetInt("Difficulty", 0) == 1)
         {
             startingTile1.gameObject.SetActive(false);
             startingTile3.gameObject.SetActive(false);

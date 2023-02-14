@@ -15,10 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 63c0c612706a69a43afddd2309754241, type: 3}
   timeToResearch: 2
   tier: 2
-  explanation: Upgrading Action cards in Forge is cheaper by 80%
+  explanation: Upgrading Action cards in Forge is cheaper by 90%
   displayIcon: 1
   researchType: 3
-  type: 3
-  amount: -0.8
+  type: 1
+  amount: -0.9
   usedFor: 1
   usedForType: 1

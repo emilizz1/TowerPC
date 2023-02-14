@@ -86,21 +86,19 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         damage2Text.text = "<sprite=2> " + (currentTower.towerStats[currentTower.currentLevel].damage[2] * currentTower.statsMultiplayers.damage[2]).ToString("F1");
         rangeText.text = "<sprite=0> " + (currentTower.towerStats[currentTower.currentLevel].range * currentTower.statsMultiplayers.range).ToString("F1");
         level.text = "Level: " + (currentTower.currentLevel + 1).ToString();
-        if (tower.currentLevel == tower.experienceNeeded.Count)
+        upgradeCost.transform.parent.parent.parent.gameObject.SetActive(!currentTower.MaxLevel());
+        if (currentTower.MaxLevel())
         {
-            experienceText.gameObject.SetActive(false);
-            experienceBar.gameObject.SetActive(false);
+            experienceBar.transform.parent.parent.gameObject.SetActive(false);
         }
         else
         {
-            experienceText.gameObject.SetActive(true);
-            experienceBar.gameObject.SetActive(true);
+            experienceBar.transform.parent.parent.gameObject.SetActive(true);
             experienceText.text = "Exp: " + currentTower.experience + " / " + currentTower.experienceNeeded[currentTower.currentLevel];
             experienceBar.fillAmount = (float)currentTower.experience / currentTower.experienceNeeded[currentTower.currentLevel];
+            upgradeCost.text = "Upgrade " + (currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience).ToString();    
         }
 
-        upgradeCost.transform.parent.parent.parent.gameObject.SetActive(!currentTower.MaxLevel());
-        upgradeCost.text = "Upgrade " + (currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience).ToString();
 
         if (string.IsNullOrEmpty(currentTower.specialText))
         {

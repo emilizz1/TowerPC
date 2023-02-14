@@ -15,10 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 3e6d0fee97b928f4980bd19723be5bfb, type: 3}
   timeToResearch: 2
   tier: 0
-  explanation: Removing cards in Graveyard is cheaper by 30%
+  explanation: Removing cards in Graveyard is cheaper by 40%
   displayIcon: 1
   researchType: 3
   type: 3
-  amount: -0.3
+  amount: -0.4
   usedFor: 1
   usedForType: 2

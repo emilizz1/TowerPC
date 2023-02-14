@@ -60,6 +60,7 @@ MonoBehaviour:
     influence:
     - 0.005
     - 0.015
+  desiredColor: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
 --- !u!1001 &3513467779412513760
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,10 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 859da6d912c9c744aae21682d58417a3, type: 3}
   timeToResearch: 1
   tier: 3
-  explanation: Increase income by 15
+  explanation: Increase income by 12
   displayIcon: 1
   researchType: 4
   manaRegenPerSecond: 0
   maxMana: 0
-  incomeIncreased: 15
+  incomeIncreased: 12
   addMoney: 0
