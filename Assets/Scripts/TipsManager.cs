@@ -26,9 +26,9 @@ public class TipsManager : MonoSingleton<TipsManager>
 
     private void Start()
     {
-        showedTipTower = PlayerPrefs.GetInt("TipTower", 0) == 2;
-        showedTipTerrain = PlayerPrefs.GetInt("TipTerrain", 0) == 2;
-        showedTipCards = PlayerPrefs.GetInt("TipCards", 0) == 0;
+        showedTipTower = PlayerPrefs.GetInt("TipTower", 0) == 3;
+        showedTipTerrain = PlayerPrefs.GetInt("TipTerrain", 0) == 5;
+        showedTipCards = PlayerPrefs.GetInt("TipCards", 0) == 2;
         showedPressingExpand = PlayerPrefs.GetInt("PressingExpand", 0) == 2;
         marketSkipped = PlayerPrefs.GetInt("marketSkipped", 0) == 2;
         marketTip = PlayerPrefs.GetInt("marketTip", 0) == 2;

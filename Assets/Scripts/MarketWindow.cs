@@ -38,7 +38,7 @@ public class MarketWindow : MonoSingleton<MarketWindow>
                 market = false;
                 MarketCardManager.instance.DisplayNewForge();
                 nameText.text = "Forge";
-                explanationText.text = "Upgrade your cards";
+                explanationText.text = "You may Upgrade your cards";
                 marketDecor.SetActive(false);
                 forgeDecor.SetActive(true);
                 graveyardDecor.SetActive(false);
@@ -49,7 +49,7 @@ public class MarketWindow : MonoSingleton<MarketWindow>
                 market = false;
                 MarketCardManager.instance.DisplayNewGraveyard();
                 nameText.text = "Graveyard";
-                explanationText.text = "Remove cards from your deck";
+                explanationText.text = "You may Remove your cards from deck";
                 marketDecor.SetActive(false);
                 forgeDecor.SetActive(false);
                 graveyardDecor.SetActive(true);
@@ -63,7 +63,7 @@ public class MarketWindow : MonoSingleton<MarketWindow>
                 forge = false;
                 MarketCardManager.instance.DisplayNewMarket();
                 nameText.text = "Market";
-                explanationText.text = "Buy new card";
+                explanationText.text = "You may buy new cards";
                 marketDecor.SetActive(true);
                 forgeDecor.SetActive(false);
                 graveyardDecor.SetActive(false);
@@ -74,7 +74,7 @@ public class MarketWindow : MonoSingleton<MarketWindow>
                 forge = false;
                 MarketCardManager.instance.DisplayNewGraveyard();
                 nameText.text = "Graveyard";
-                explanationText.text = "Remove cards from your deck";
+                explanationText.text = "You may Remove your cards from deck";
                 marketDecor.SetActive(false);
                 forgeDecor.SetActive(false);
                 graveyardDecor.SetActive(true);
@@ -88,7 +88,7 @@ public class MarketWindow : MonoSingleton<MarketWindow>
                 graveyard = false;
                 MarketCardManager.instance.DisplayNewForge();
                 nameText.text = "Forge";
-                explanationText.text = "Upgrade your cards";
+                explanationText.text = "You may Upgrade your cards";
                 marketDecor.SetActive(false);
                 forgeDecor.SetActive(true);
                 graveyardDecor.SetActive(false);
@@ -99,7 +99,7 @@ public class MarketWindow : MonoSingleton<MarketWindow>
                 graveyard = false;
                 MarketCardManager.instance.DisplayNewMarket();
                 nameText.text = "Market";
-                explanationText.text = "Buy new card";
+                explanationText.text = "You may buy new cards";
                 marketDecor.SetActive(true);
                 forgeDecor.SetActive(false);
                 graveyardDecor.SetActive(false);

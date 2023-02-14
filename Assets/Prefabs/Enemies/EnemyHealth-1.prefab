@@ -129,7 +129,7 @@ MonoBehaviour:
   speed: 1.35
   damage: 2
   special: {fileID: 0}
-  poolName: 0
+  poolName: 25
 --- !u!114 &1720457722180337641
 MonoBehaviour:
   m_ObjectHideFlags: 0

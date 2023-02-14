@@ -29,7 +29,7 @@ public class EnemyManager : MonoSingleton<EnemyManager>
     public void SpawnNextWave()
     {
         TurnController.StartedEnemyWave();
-        StartCoroutine(SpawnEnemies(enemyWaves[TurnController.currentTurn]));
+        StartCoroutine(SpawnEnemies(enemyWaves[TurnController.currentTurn - 1]));
     }
 
     IEnumerator SpawnEnemies(EnemyWave wave)

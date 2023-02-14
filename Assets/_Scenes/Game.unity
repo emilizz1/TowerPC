@@ -5616,18 +5616,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 452796589}
     m_Modifications:
-    - target: {fileID: 2050133360302725098, guid: 46cbffdba21b56844af8138ef101e4fd, type: 3}
-      propertyPath: wavesTargetByLevel.Array.data[5]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050133360302725098, guid: 46cbffdba21b56844af8138ef101e4fd, type: 3}
-      propertyPath: wavesTargetByLevel.Array.data[6]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050133360302725098, guid: 46cbffdba21b56844af8138ef101e4fd, type: 3}
-      propertyPath: wavesTargetByLevel.Array.data[7]
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2050133360302725099, guid: 46cbffdba21b56844af8138ef101e4fd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8723,10 +8711,6 @@ PrefabInstance:
     - target: {fileID: 8268071099466209729, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8268071099796370456, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}
-      propertyPath: reductions.Array.size
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fdc8129b4e5fdb4aacca280547c491a, type: 3}

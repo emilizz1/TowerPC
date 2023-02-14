@@ -26,7 +26,7 @@ public class LightController : MonoBehaviour
 
     private void Update()
     {
-        if (movePerTurn * (TurnController.currentTurn + 1) >= totalMove)
+        if (movePerTurn * (TurnController.currentTurn) >= totalMove)
         {
             time += Time.deltaTime;
             if (time >= updateTime)

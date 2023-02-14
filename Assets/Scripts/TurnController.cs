@@ -15,7 +15,7 @@ public static class TurnController
     }
 
     public static TurnPhase currentPhase = TurnPhase.Drawing;
-    public static int currentTurn= 0;
+    public static int currentTurn= 1;
 
     public static void FinishedDrawing()
     {
@@ -43,7 +43,7 @@ public static class TurnController
         {
             currentPhase = TurnPhase.Preperation;
             TileManager.instance.ChangeButtonInteractability(true);
-            if (currentTurn == 0)
+            if (currentTurn == 1)
             {
                 TipsManager.instance.CheckForTipPressingExpand();
             }
@@ -105,6 +105,6 @@ public static class TurnController
     public static void Reset()
     {
         currentPhase = TurnPhase.Drawing;
-        currentTurn = 0;
+        currentTurn = 1;
     }
 }

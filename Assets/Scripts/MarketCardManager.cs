@@ -243,27 +243,28 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     {
         for (int i = 0; i < marketCardDisplays.Count; i++)
         {
-            if (MarketWindow.instance.market)
-            {
-                if (i < baseMarketSize)
+            if (marketCardDisplays[i].gameObject.activeSelf) {
+                if (MarketWindow.instance.market)
                 {
-                    marketCardDisplays[i].DiscardMarketCard(i);
+                    if (i < baseMarketSize)
+                    {
+                        marketCardDisplays[i].DiscardMarketCard(i);
+                    }
                 }
-            }
-            else if (MarketWindow.instance.forge)
-            {
-                if( i < baseForgeSize)
+                else if (MarketWindow.instance.forge)
                 {
-                    marketCardDisplays[i].DiscardForgeCard();
+                    if (i < baseForgeSize)
+                    {
+                        marketCardDisplays[i].DiscardForgeCard();
+                    }
                 }
-            }
-            else
-            {
-                if (i < baseForgeSize)
+                else
                 {
-                    marketCardDisplays[i].DiscardGraveyardCard();
+                    if (i < baseForgeSize)
+                    {
+                        marketCardDisplays[i].DiscardGraveyardCard();
+                    }
                 }
-
             }
         }
     }

@@ -416,7 +416,6 @@ GameObject:
   - component: {fileID: 6509480797201740524}
   - component: {fileID: 3000322825356351303}
   - component: {fileID: 8102057219398860333}
-  - component: {fileID: 3117604791801197177}
   m_Layer: 0
   m_Name: Spot 3 0 (5)
   m_TagString: Untagged
@@ -501,21 +500,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3117604791801197177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394435020621055272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 1026868719020891838}
-  terrainSpawnChance: 1
 --- !u!1 &399747616158124253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,7 +1898,6 @@ GameObject:
   - component: {fileID: 1739993986093525398}
   - component: {fileID: 608675925558067525}
   - component: {fileID: 3689262862241684975}
-  - component: {fileID: 5243562031229004852}
   m_Layer: 0
   m_Name: Spot 7 0 (5)
   m_TagString: Untagged
@@ -1999,21 +1982,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5243562031229004852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764902747116114878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 7317850102640553462}
-  terrainSpawnChance: 1
 --- !u!1 &1806086402570637385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,11 +2909,7 @@ MonoBehaviour:
   - {fileID: 8008211091074765084}
   - {fileID: 2758182274631858857}
   - {fileID: 7751495135629393363}
-  - {fileID: 3117604791801197177}
-  - {fileID: 2885764801870552635}
   - {fileID: 8398818092036665884}
-  - {fileID: 495468959631303813}
-  - {fileID: 5243562031229004852}
   - {fileID: 4744231691940764517}
   - {fileID: 1446323987123334778}
   - {fileID: 9107426997152400507}
@@ -8022,7 +7986,6 @@ GameObject:
   - component: {fileID: 3950184421166657352}
   - component: {fileID: 5831909562079298406}
   - component: {fileID: 3019480078284169913}
-  - component: {fileID: 2885764801870552635}
   m_Layer: 0
   m_Name: Spot 4 0 (5)
   m_TagString: Untagged
@@ -8107,21 +8070,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2885764801870552635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7166743678737692385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 8311606001590118372}
-  terrainSpawnChance: 1
 --- !u!1 &7179524212461900384
 GameObject:
   m_ObjectHideFlags: 0
@@ -9063,7 +9011,6 @@ GameObject:
   - component: {fileID: 1738146673643089443}
   - component: {fileID: 5463448218484924475}
   - component: {fileID: 2769517341644348225}
-  - component: {fileID: 495468959631303813}
   m_Layer: 0
   m_Name: Spot 6 0 (5)
   m_TagString: Untagged
@@ -9148,21 +9095,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &495468959631303813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7678537215013074454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a194b03a125d5b4494047f4df800742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTile: {fileID: 8602985899372852191}
-  spawnPoint: {fileID: 3598385316339613244}
-  terrainSpawnChance: 1
 --- !u!1 &7853749578313279554
 GameObject:
   m_ObjectHideFlags: 0
@@ -11377,11 +11309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90630776
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261833
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.y

@@ -17,7 +17,7 @@ public class Debuff : MonoBehaviour
 
     internal virtual void Update()
     {
-        if(myEnemy.returning == true)
+        if(myEnemy.returning == true || !myEnemy.isActiveAndEnabled)
         {
             RemoveDebuff();
             Destroy(this);
