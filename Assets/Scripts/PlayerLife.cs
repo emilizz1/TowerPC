@@ -9,10 +9,11 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     [SerializeField] TextMeshProUGUI amountText;
     [SerializeField] Image fill;
     [SerializeField] MeshRenderer castle;
+    [SerializeField] List<GameObject> shields;
 
     internal int regen;
 
-    int maxHp;
+    internal int maxHp;
     internal int currentHP;
     int maxIgnoredEachRound;
     int currentIgnoredEachRound;
@@ -22,6 +23,7 @@ public class PlayerLife : MonoSingleton<PlayerLife>
 
     private void Start()
     {
+        regen = CharacterSelector.firstCharacter.characterName == "Hunter" || CharacterSelector.secondCharacter.characterName == "Hunter" ? 1 : 0;
         maxHp = CharacterSelector.firstCharacter.startingMaxHealth + CharacterSelector.secondCharacter.startingMaxHealth;
         currentHP = maxHp;
         fillNormalColor = fill.color;
@@ -36,24 +38,30 @@ public class PlayerLife : MonoSingleton<PlayerLife>
     {
         amountText.text = Mathf.Max(0, currentHP) + " / " + maxHp;
         fill.fillAmount = (float)currentHP / maxHp;
-        if(currentIgnoredEachRound > 0)
+        for (int i = 0; i < shields.Count; i++)
         {
-            fill.color = Color.grey;
-        }
-        else
-        {
-            fill.color = fillNormalColor;
+            shields[i].SetActive(i < currentIgnoredEachRound);
         }
     }
 
-    public void ChangeHealthAmount(int change)
+    public void ChangeHealthAmount(int change, bool ignoreShields = false)
     {
-        if(change < 0 && currentIgnoredEachRound > 0)
+        if (change < 0 && !ignoreShields)
         {
-            currentIgnoredEachRound--;
-            SoundsController.instance.PlayOneShot("Mana");
-            UpdateHealth();
-            return;
+            if(Mana.instance.shouldUseManaShield && Mana.instance.currentAmount >= 50)
+            {
+                Mana.instance.TryPaying(50);
+                SoundsController.instance.PlayOneShot("Mana");
+                return;
+
+            }
+            if (currentIgnoredEachRound > 0)
+            {
+                currentIgnoredEachRound--;
+                SoundsController.instance.PlayOneShot("Mana");
+                UpdateHealth();
+                return;
+            }
         }
         if(change < 0)
         {
@@ -77,6 +85,15 @@ public class PlayerLife : MonoSingleton<PlayerLife>
 
     public void Regen()
     {
+        if (GlobalConditionHolder.maxHP)
+        {
+            maxHp += 1;
+            currentHP += 1;
+        }
+        if (GlobalConditionHolder.upgradedGoldenCharm)
+        {
+            currentHP = Mathf.Clamp(currentHP + TurnController.actionsPlayed, 0, maxHp);
+        }
         currentHP = Mathf.Clamp(currentHP + regen, 0, maxHp);
         UpdateHealth();
     }

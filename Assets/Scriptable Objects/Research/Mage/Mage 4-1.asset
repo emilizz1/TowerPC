@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d560c512732034e861e87e3d203c5f, type: 3}
   m_Name: Mage 4-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6a3d9c6ad96f8a84a86d4e6cd60f4a28, type: 3}
-  timeToResearch: 2
+  sprite: {fileID: 21300000, guid: f21f65fff0736974589fb7742ccdc65e, type: 3}
+  timeToResearch: 3
   tier: 3
-  explanation: Double mana regen
+  researchName: Mana regeneration flame
+  researchNameText:
+    mTerm: Mage4-1Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Double mana regeneration
+  explanationText:
+    mTerm: Mage4-1Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   displayIcon: 1
-  researchType: 4
+  researchType: 5
   manaRegenPerSecond: 1
   maxMana: 0
   incomeIncreased: 0

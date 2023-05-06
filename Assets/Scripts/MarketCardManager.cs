@@ -10,8 +10,8 @@ public class MarketCardManager : MonoSingleton<MarketCardManager>
     public CardHolder marketCards;
 
     [SerializeField] int baseMarketSize;
-    [SerializeField] int baseForgeSize;
-    [SerializeField] int baseGraveyardSize;
+    public int baseForgeSize;
+    public int baseGraveyardSize;
     
     internal List<MarketDeck> marketDecks;
     bool noPrice;

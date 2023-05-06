@@ -6,6 +6,8 @@ public static class TowerPlacer
 {
     static internal List<Tower> allTowers = new List<Tower>();
 
+    static internal CastleTower castleTower;
+    static internal CastleTowerSecond castleTowerSecond;
     static internal GameObject towerToPlace;
     static internal int startingLevel;
     static internal bool towerPlaced;
@@ -24,5 +26,13 @@ public static class TowerPlacer
         towerToPlace = null;
         startingLevel = 0;
         towerPlaced = false;
+    }
+
+    public static void SecondCastleTowerUnlocked()
+    {
+        castleTowerSecond.gameObject.SetActive(true);
+        castleTowerSecond.PrepareTower(null);
+        castleTowerSecond.Activate();
+        castleTowerSecond.rangeSprite.gameObject.SetActive(false);
     }
 }

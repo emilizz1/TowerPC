@@ -24,6 +24,6 @@ MonoBehaviour:
     <sprite=1> 1/s  
     <sprite=0> 7.5
 
-    Double damage to Enemies with debuff'
+    Double damage to Enemies with a debuff'
   damageTypes: 01000000
   towerPrefab: {fileID: 4796524506784668451, guid: fadab5bbbac46854e8c8be50dd2e2a56, type: 3}

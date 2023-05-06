@@ -15,6 +15,11 @@ public class DebuffController : MonoSingleton<DebuffController>
         public float debuffTimer;
         public int maxDebuffs;
         public float effectAmount;
+
+        public void IncreaseMaxDebuffs()
+        {
+            maxDebuffs++;
+        }
     }
 
     public DebuffInfo GetInfo(string debuffName)
@@ -27,5 +32,13 @@ public class DebuffController : MonoSingleton<DebuffController>
             }
         }
         return new DebuffInfo();
+    }
+
+    public void AddAdditionalTime()
+    {
+        foreach (DebuffInfo debuff in allInfo)
+        {
+            debuff.IncreaseMaxDebuffs();
+        }
     }
 }

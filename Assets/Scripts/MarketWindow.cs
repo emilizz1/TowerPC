@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using I2.Loc;
 
 public class MarketWindow : MonoSingleton<MarketWindow>
 {
-    public CardHolder allCards;
 
     [SerializeField] TweenAnimator animator;
     [SerializeField] TextMeshProUGUI nameText;
@@ -13,98 +13,72 @@ public class MarketWindow : MonoSingleton<MarketWindow>
     [SerializeField] GameObject marketDecor;
     [SerializeField] GameObject forgeDecor;
     [SerializeField] GameObject graveyardDecor;
+    [SerializeField] LocalizedString marketName;
+    [SerializeField] LocalizedString marketDescription;
+    [SerializeField] LocalizedString forgeName;
+    [SerializeField] LocalizedString forgeDescription;
+    [SerializeField] LocalizedString graveyardName;
+    [SerializeField] LocalizedString graveyardDescription;
 
     internal bool market;
     internal bool forge;
     internal bool graveyard;
 
-    public void Open()
+    public void Open(int whatToOpen)
     {
         Cover.cover = true;
         animator.PerformTween(1);
 
-        OpenCorrectShop();
+        switch (whatToOpen)
+        {
+            case (0):
+                OpenMarket();
+                break;
+            case (1):
+                OpenForge();
+                break;
+            case (2):
+                OpenGraveyard();
+                break;
+        }
 
         TipsManager.instance.CheckForMarketTip();
     }
 
-    private void OpenCorrectShop()
+    private void OpenMarket()
     {
-        if (market)
-        {
-            if (Random.Range(0f, 1f) <= 0.5f)
-            {
-                forge = true;
-                market = false;
-                MarketCardManager.instance.DisplayNewForge();
-                nameText.text = "Forge";
-                explanationText.text = "You may Upgrade your cards";
-                marketDecor.SetActive(false);
-                forgeDecor.SetActive(true);
-                graveyardDecor.SetActive(false);
-            }
-            else
-            {
-                graveyard = true;
-                market = false;
-                MarketCardManager.instance.DisplayNewGraveyard();
-                nameText.text = "Graveyard";
-                explanationText.text = "You may Remove your cards from deck";
-                marketDecor.SetActive(false);
-                forgeDecor.SetActive(false);
-                graveyardDecor.SetActive(true);
-            }
-        }
-        else if (forge)
-        {
-            if (Random.Range(0f, 1f) <= 0.5f)
-            {
-                market = true;
-                forge = false;
-                MarketCardManager.instance.DisplayNewMarket();
-                nameText.text = "Market";
-                explanationText.text = "You may buy new cards";
-                marketDecor.SetActive(true);
-                forgeDecor.SetActive(false);
-                graveyardDecor.SetActive(false);
-            }
-            else
-            {
-                graveyard = true;
-                forge = false;
-                MarketCardManager.instance.DisplayNewGraveyard();
-                nameText.text = "Graveyard";
-                explanationText.text = "You may Remove your cards from deck";
-                marketDecor.SetActive(false);
-                forgeDecor.SetActive(false);
-                graveyardDecor.SetActive(true);
-            }
-        }
-        else
-        {
-            if (Random.Range(0f, 1f) <= 0.5f)
-            {
-                forge = true;
-                graveyard = false;
-                MarketCardManager.instance.DisplayNewForge();
-                nameText.text = "Forge";
-                explanationText.text = "You may Upgrade your cards";
-                marketDecor.SetActive(false);
-                forgeDecor.SetActive(true);
-                graveyardDecor.SetActive(false);
-            }
-            else
-            {
-                market = true;
-                graveyard = false;
-                MarketCardManager.instance.DisplayNewMarket();
-                nameText.text = "Market";
-                explanationText.text = "You may buy new cards";
-                marketDecor.SetActive(true);
-                forgeDecor.SetActive(false);
-                graveyardDecor.SetActive(false);
-            }
-        }
+        market = true;
+        forge = false;
+        MarketCardManager.instance.DisplayNewMarket();
+        nameText.text = marketName;
+        explanationText.text = marketDescription;
+        marketDecor.SetActive(true);
+        forgeDecor.SetActive(false);
+        graveyardDecor.SetActive(false);
+    }
+
+    private void OpenGraveyard()
+    {
+        graveyard = true;
+        market = false;
+        MarketCardManager.instance.DisplayNewGraveyard();
+        nameText.text = graveyardName;
+        explanationText.text = graveyardDescription;
+        marketDecor.SetActive(false);
+        forgeDecor.SetActive(false);
+        graveyardDecor.SetActive(true);
+    }
+
+    private void OpenForge()
+    {
+        forge = true;
+        market = false;
+        MarketCardManager.instance.DisplayNewForge();
+        nameText.text = forgeName;
+        explanationText.text = forgeDescription;
+        marketDecor.SetActive(false);
+        forgeDecor.SetActive(true);
+        graveyardDecor.SetActive(false);
     }
 
     public void Close()
@@ -113,21 +87,6 @@ public class MarketWindow : MonoSingleton<MarketWindow>
         MarketCardManager.instance.CloseMarket();
         animator.PerformTween(0);
         TurnController.FinishedModifying();
-    }
-
-    public Card GetUpgradedCard(Card cardToUpgrade)
-    {
-        foreach (Card card in MarketWindow.instance.allCards.cardsCollection[0].cards)
-        {
-            if (card.cardName == cardToUpgrade.cardName)
-            {
-                if (card.cardLevel == cardToUpgrade.cardLevel + 1)
-                {
-                    return Instantiate(card);
-                }
-            }
-        }
-        return null;
     }
 
     public void CheckIfAllCardsUpgraded()

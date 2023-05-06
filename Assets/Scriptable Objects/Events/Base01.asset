@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b891389cceafb7e42bde8d339123785e, type: 3}
+  m_Name: Base01
+  m_EditorClassIdentifier: 
+  nameText:
+    mTerm: Event_Base01Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  descriptionText:
+    mTerm: Event_Base01Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  type: 0
+  eventChoiceDatas:
+  - choiceDescription:
+      mTerm: Event_Base01Choice1
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 17
+    amountToAdd: 1
+    negativeEventEffect: 2
+    amountToRemove: 4
+  - choiceDescription:
+      mTerm: Event_Base01Choice2
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 2
+    amountToAdd: 8
+    negativeEventEffect: 6
+    amountToRemove: 1
+  - choiceDescription:
+      mTerm: Event_Base01Choice3
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 0
+    amountToAdd: 0
+    negativeEventEffect: 3
+    amountToRemove: 5

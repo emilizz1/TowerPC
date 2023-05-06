@@ -21,5 +21,4 @@ MonoBehaviour:
   cardLevel: 0
   description: 'Increases adjacent towers damage by 20% '
   damageTypes: 
-  maxUses: 2
   structurePrefab: {fileID: 4796524506784668451, guid: bd28f8447a9c7464098cd6803742494d, type: 3}

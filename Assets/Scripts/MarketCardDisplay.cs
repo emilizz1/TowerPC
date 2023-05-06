@@ -10,6 +10,7 @@ public class MarketCardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] float spotCostMultiplayer;
     [SerializeField] GameObject xIcon;
+    [SerializeField] List<float> cardPriceMultiplayerByTier;
 
     int price;
     Card myCard;
@@ -26,7 +27,7 @@ public class MarketCardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerEx
         cardDisplay.transform.rotation = Quaternion.identity;
         cardDisplay.transform.localPosition = new Vector3(0f, 120f, 0f);
         cardDisplay.DisplayCard(card);
-        price = noPrice ? 0 : Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
+        price = noPrice ? 0 : Mathf.CeilToInt(cardPriceMultiplayerByTier[card.cardTier] * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
             spotCostMultiplayer * CostController.GetMarketBuyingCostMultiplayer(card.cardType));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
@@ -48,12 +49,12 @@ public class MarketCardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerEx
         cardDisplay.transform.position = deckCard ? Deck.instance.deckTransform.position :  Discard.instance.discardTransform.position;
         LeanTween.moveLocal(cardDisplay.gameObject, new Vector3(0f, 120f, 0f), 0.5f);
         cardDisplay.DisplayCard(card);
-        price = Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
+        price = Mathf.CeilToInt(cardPriceMultiplayerByTier[card.cardTier] * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
             spotCostMultiplayer * CostController.GetForgeBuyingCostMultiplayer(card.cardType));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);
 
-        myUpgradedCard = MarketWindow.instance.GetUpgradedCard(myCard);
+        myUpgradedCard = CardHolderManager.instance.GetUpgradedCard(myCard);
         xIcon.SetActive(false);
 
 
@@ -81,7 +82,7 @@ public class MarketCardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerEx
         cardDisplay.transform.position = deckCard ? Deck.instance.deckTransform.position : Discard.instance.discardTransform.position;
         LeanTween.moveLocal(cardDisplay.gameObject, new Vector3(0f, 120f, 0f), 0.5f);
         cardDisplay.DisplayCard(card);
-        price = Mathf.CeilToInt(card.buyCostMultiplayer * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
+        price = Mathf.CeilToInt(cardPriceMultiplayerByTier[card.cardTier] * (MarketCardManager.instance.basePrice + TurnController.currentTurn) *
             spotCostMultiplayer * CostController.GetGraveyardBuyingCostMultiplayer(card.cardType));
         priceText.text = price.ToString();
         priceText.transform.parent.gameObject.SetActive(true);

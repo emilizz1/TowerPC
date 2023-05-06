@@ -10,13 +10,14 @@ public class CardInfoWindow : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("OpenedCardIntro", 0) == 1)
+        if (SavedData.savesData.openedCardIntro == 1)
         {
             gameObject.SetActive(false);
         }
         else
         {
-            PlayerPrefs.SetInt("OpenedCardIntro", 1);
+            SavedData.savesData.openedCardIntro = 1;
+            SavedData.Save();
             Cover.cover = true;
             Time.timeScale = 0f;
             open = true;

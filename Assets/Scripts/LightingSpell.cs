@@ -6,7 +6,7 @@ public class LightingSpell : Spell
 {
     [SerializeField] float dealDamageTimer;
     [SerializeField] List<float> damage;
-    [SerializeField] List<PasiveTowerStatsController.DamageTypes> damageType;
+    [SerializeField] List<DamageTypes> damageType;
     [SerializeField] List<ParticleSystem> particles;
 
     List<Enemy> enemies = new List<Enemy>();
@@ -15,7 +15,7 @@ public class LightingSpell : Spell
     {
         base.Start();
 
-        Tower.TowerStats damageBuff = PasiveTowerStatsController.GetStats(damageType);
+        TowerStats damageBuff = PasiveTowerStatsController.GetStats(damageType);
         if (damageBuff.damage != null)
         {
             damage[0] += damage[0] * damageBuff.damage[0];

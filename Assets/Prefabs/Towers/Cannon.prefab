@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 125c1cd7b1c490b4aabe111040b7037f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1526630794712585042}
-  - component: {fileID: 1526630794712585041}
+  - component: {fileID: -5808304409032460776}
   - component: {fileID: 4273345013492345057}
   - component: {fileID: -8228656436811982475}
   m_Layer: 2
@@ -121,7 +121,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1526630794712585041
+--- !u!114 &-5808304409032460776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,12 +130,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1526630794712585043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82e163f0d673332409e477c0aec8db14, type: 3}
+  m_Script: {fileID: 11500000, guid: 21cb28bc0838f9840b7352ba9e6892ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 5b134535ee2e2194ba630803ef8ed3cf, type: 3}
-  towerName: Tower
+  towerName: Cannon Tower
   specialText: If Armor is damaged by this then the Enemy is stuned
+  towerType: 7
   rangeSprite: {fileID: 8419676603040903247}
   top: {fileID: 3364892187113495077}
   sphere: {fileID: 4273345013492345057}
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b87c03545f3e64f94c8ff4fba7157a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1526630794712585041}
+  tower: {fileID: -5808304409032460776}
 --- !u!1 &4825318447596730831
 GameObject:
   m_ObjectHideFlags: 0

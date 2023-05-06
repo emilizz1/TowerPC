@@ -25,8 +25,6 @@ public class EnemyDebuffIconController : MonoBehaviour
     {
         foreach (Image iconImage in Icons)
         {
-            if (iconImage.enabled)
-            {
                 if (iconImage.sprite == icon)
                 {
                     iconImage.enabled = false;
@@ -35,21 +33,17 @@ public class EnemyDebuffIconController : MonoBehaviour
                     return;
 
                 }
-            }
         }
     }
 
     public void ResetIcons()
     {
+        int index = 0;
         foreach (Image iconImage in Icons)
         {
-            if (iconImage.enabled)
-            {
-                iconImage.enabled = false;
-                iconImage.sprite = null;
-                iconImage.transform.SetAsLastSibling();
-                return;
-            }
+            Debug.Log("Reset " + index++);
+            iconImage.enabled = false;
+            iconImage.sprite = null;
         }
     }
 }

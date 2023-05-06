@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using I2.Loc;
 
 public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
 {
@@ -20,8 +21,10 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
     [SerializeField] TextMeshProUGUI level;
     [SerializeField] TextMeshProUGUI specialText;
     [SerializeField] TextMeshProUGUI upgradeCost;
+    [SerializeField] LocalizedString levelText;
+    [SerializeField] LocalizedString upgradeText;
 
-    [SerializeField] List<string> targetingOptions;
+    [SerializeField] List<LocalizedString> targetingOptions;
 
     Tower currentTower;
     bool open;
@@ -85,7 +88,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         damage1Text.text = "<sprite=3> " + (currentTower.towerStats[currentTower.currentLevel].damage[1] * currentTower.statsMultiplayers.damage[1]).ToString("F1");
         damage2Text.text = "<sprite=2> " + (currentTower.towerStats[currentTower.currentLevel].damage[2] * currentTower.statsMultiplayers.damage[2]).ToString("F1");
         rangeText.text = "<sprite=0> " + (currentTower.towerStats[currentTower.currentLevel].range * currentTower.statsMultiplayers.range).ToString("F1");
-        level.text = "Level: " + (currentTower.currentLevel + 1).ToString();
+        level.text = levelText + " " + (currentTower.currentLevel + 1).ToString();
         upgradeCost.transform.parent.parent.parent.gameObject.SetActive(!currentTower.MaxLevel());
         if (currentTower.MaxLevel())
         {
@@ -96,7 +99,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
             experienceBar.transform.parent.parent.gameObject.SetActive(true);
             experienceText.text = "Exp: " + currentTower.experience + " / " + currentTower.experienceNeeded[currentTower.currentLevel];
             experienceBar.fillAmount = (float)currentTower.experience / currentTower.experienceNeeded[currentTower.currentLevel];
-            upgradeCost.text = "Upgrade " + (currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience).ToString();    
+            upgradeCost.text = upgradeText + " " + (currentTower.experienceNeeded[currentTower.currentLevel] - currentTower.experience).ToString();    
         }
 
 
@@ -108,6 +111,15 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         {
             specialText.gameObject.SetActive(true);
             specialText.text = currentTower.specialText;
+            switch (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(currentTower.towerType))
+            {
+                case (1):
+                    specialText.text = currentTower.specialFirstText;
+                    break;
+                case (2):
+                    specialText.text = currentTower.specialSecondText;
+                    break;
+            }
         }
 
         towerImage.sprite = currentTower.image;
@@ -153,40 +165,55 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         }
     }
 
-    public void ShowInfoWithTerrain(Tower tower, TerrainBonus terrain)
+    public void ShowInfoWithTerrain(Tower tower, List<TerrainBonus> terrains)
     {
         char quata = '"';
         string colorString = "<color=" + quata + "green" + quata + ">";
         ShowInfo(tower);
-        if (terrain.statsMultiplayers.range > 0)
+        TowerStats combinedStats = new TowerStats();
+        combinedStats.fireRate = 0f;
+        combinedStats.range = 0f;
+        combinedStats.damage = new List<float>();
+        for (int i = 0; i < 3; i++)
+        {
+            combinedStats.damage.Add(0f);
+        }
+
+        foreach(TerrainBonus terrain in terrains)
+        {
+            combinedStats.CombineStats(terrain.statsMultiplayers);
+        }
+
+        if (combinedStats.range > 0)
         {
             rangeText.text = "<sprite=0> " + colorString +
-                (currentTower.towerStats[currentTower.currentLevel].range * (currentTower.statsMultiplayers.range + terrain.statsMultiplayers.range)).ToString("F1")
-                + " (+" + (terrain.statsMultiplayers.range * 100).ToString() + "%)";
+                (currentTower.towerStats[currentTower.currentLevel].range * (currentTower.statsMultiplayers.range + combinedStats.range)).ToString("F1")
+                + " (+" + (combinedStats.range * 100).ToString() + "%)";
+            tower.SetupRange(combinedStats.range);
         }
-        if (terrain.statsMultiplayers.fireRate > 0)
-        {
+        if (combinedStats.fireRate != 0f)
+        {// 1 / 0.33 * (1 - 0) 3.03       1 / 0.33 * (1 - 0) 3.03
             fireRateText.text = "<sprite=1> " + colorString +
-                  ( 1f / (currentTower.towerStats[currentTower.currentLevel].fireRate *  (currentTower.statsMultiplayers.fireRate + terrain.statsMultiplayers.fireRate))).ToString("F1")
-                  + " (+" + (terrain.statsMultiplayers.fireRate * 100).ToString() + "%)";
+                  ( 1f / (currentTower.towerStats[currentTower.currentLevel].fireRate *  (currentTower.statsMultiplayers.fireRate + combinedStats.fireRate))).ToString("F1")
+                  + " (+" + ((combinedStats.fireRate+ 1) * 100).ToString() + "%)";
         }
-        if (terrain.statsMultiplayers.damage[0] > 0)
+        if (combinedStats.damage[0] > 0)
         {
             damage0Text.text = "<sprite=4> " + colorString +
-                (currentTower.towerStats[currentTower.currentLevel].damage[0] * (currentTower.statsMultiplayers.damage[0] + terrain.statsMultiplayers.damage[0])).ToString("F1")
-                + " (+" + (terrain.statsMultiplayers.damage[0] * 100).ToString() + "%)";
+                (currentTower.towerStats[currentTower.currentLevel].damage[0] * (currentTower.statsMultiplayers.damage[0] + combinedStats.damage[0])).ToString("F1")
+                + " (+" + (combinedStats.damage[0] * 100).ToString() + "%)";
         }
-        if (terrain.statsMultiplayers.damage[1] > 0)
+        if (combinedStats.damage[1] > 0)
         {
             damage1Text.text = "<sprite=3> " + colorString +
-                (currentTower.towerStats[currentTower.currentLevel].damage[1] * (currentTower.statsMultiplayers.damage[1] + terrain.statsMultiplayers.damage[1])).ToString("F1")
-                + " (+" + (terrain.statsMultiplayers.damage[1] * 100).ToString() + "%)";
+                (currentTower.towerStats[currentTower.currentLevel].damage[1] * (currentTower.statsMultiplayers.damage[1] + combinedStats.damage[1])).ToString("F1")
+                + " (+" + (combinedStats.damage[1] * 100).ToString() + "%)";
         }
-        if (terrain.statsMultiplayers.damage[2] > 0)
+        if (combinedStats.damage[2] > 0)
         {
             damage2Text.text = "<sprite=2> " + colorString +
-                (currentTower.towerStats[currentTower.currentLevel].damage[2] * (currentTower.statsMultiplayers.damage[2] + terrain.statsMultiplayers.damage[2])).ToString("F1")
-                + " (+" + (terrain.statsMultiplayers.damage[2] * 100).ToString() + "%)";
+                (currentTower.towerStats[currentTower.currentLevel].damage[2] * (currentTower.statsMultiplayers.damage[2] + combinedStats.damage[2])).ToString("F1")
+                + " (+" + (combinedStats.damage[2] * 100).ToString() + "%)";
         }
     }
 

@@ -19,11 +19,11 @@ MonoBehaviour:
   manaCost: 20
   buyCostMultiplayer: 2.5
   cardLevel: 3
-  description: Advance research by two turns
+  description: Advance research by two waves
   damageTypes: 
-  maxUses: 2
   addMoney: 0
   addMana: 0
   addHealth: 0
   drawCards: 0
   advanceResearch: 2
+  discount: 0

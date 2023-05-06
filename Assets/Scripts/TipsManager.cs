@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using I2.Loc;
 
 public class TipsManager : MonoSingleton<TipsManager>
 {
     [SerializeField] TweenAnimator animator;
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] string upgradeTowerText;
-    [SerializeField] string terrainText;
-    [SerializeField] string drawMoreCardsText;
-    [SerializeField] string pressingExpandText;
-    [SerializeField] string marketText;
+    [SerializeField] LocalizedString upgradeTowerText;
+    [SerializeField] LocalizedString terrainText;
+    [SerializeField] LocalizedString drawMoreCardsText;
+    [SerializeField] LocalizedString pressingExpandText;
+    [SerializeField] LocalizedString marketText;
 
     internal bool marketSkipped;
 
@@ -26,12 +27,12 @@ public class TipsManager : MonoSingleton<TipsManager>
 
     private void Start()
     {
-        showedTipTower = PlayerPrefs.GetInt("TipTower", 0) == 3;
-        showedTipTerrain = PlayerPrefs.GetInt("TipTerrain", 0) == 5;
-        showedTipCards = PlayerPrefs.GetInt("TipCards", 0) == 2;
-        showedPressingExpand = PlayerPrefs.GetInt("PressingExpand", 0) == 2;
-        marketSkipped = PlayerPrefs.GetInt("marketSkipped", 0) == 2;
-        marketTip = PlayerPrefs.GetInt("marketTip", 0) == 2;
+        showedTipTower = SavedData.savesData.tipTower == 3; 
+        showedTipTerrain = SavedData.savesData.tipTerrain == 5;
+        showedTipCards = SavedData.savesData.tipCards == 2;
+        showedPressingExpand = SavedData.savesData.tipPressingExpand == 2;
+        marketSkipped = SavedData.savesData.marketSkipped == 2;
+        marketTip = SavedData.savesData.tipMarket == 2;
     }
 
 
@@ -41,7 +42,8 @@ public class TipsManager : MonoSingleton<TipsManager>
         {
             animator.PerformTween(0);
             text.text = upgradeTowerText;
-            PlayerPrefs.SetInt("TipTower", PlayerPrefs.GetInt("TipTower", 0) + 1);
+            SavedData.savesData.tipTower += 1;
+            SavedData.Save();
             showedTipTower = true;
         }
     }
@@ -61,7 +63,8 @@ public class TipsManager : MonoSingleton<TipsManager>
                 {
                     animator.PerformTween(0);
                     text.text = terrainText;
-                    PlayerPrefs.SetInt("TipTerrain", PlayerPrefs.GetInt("TipTerrain", 0) + 1 );
+                    SavedData.savesData.tipTerrain += 1;
+                    SavedData.Save();
                     showedTipTerrain = true;
                 }
             }
@@ -74,7 +77,8 @@ public class TipsManager : MonoSingleton<TipsManager>
         {
             animator.PerformTween(0);
             text.text = drawMoreCardsText;
-            PlayerPrefs.SetInt("TipCards", PlayerPrefs.GetInt("TipCards", 0) + 1);
+            SavedData.savesData.tipCards += 1;
+            SavedData.Save();
             showedTipCards = true;
         }
     }
@@ -85,7 +89,8 @@ public class TipsManager : MonoSingleton<TipsManager>
         {
             animator.PerformTween(0);
             text.text = pressingExpandText;
-            PlayerPrefs.SetInt("PressingExpand", PlayerPrefs.GetInt("PressingExpand", 0) + 1);
+            SavedData.savesData.tipPressingExpand += 1;
+            SavedData.Save();
             showedPressingExpand = true;
             StartCoroutine( Hand.instance.FirstTurnWaitToPlayACard());
         }
@@ -93,7 +98,8 @@ public class TipsManager : MonoSingleton<TipsManager>
 
     public void MarketSkipped()
     {
-        PlayerPrefs.SetInt("marketSkipped", PlayerPrefs.GetInt("marketSkipped", 0) + 1);
+        SavedData.savesData.marketSkipped += 1;
+        SavedData.Save();
         marketSkipped = true;
     }
 
@@ -103,7 +109,8 @@ public class TipsManager : MonoSingleton<TipsManager>
         {
             animator.PerformTween(0);
             text.text = marketText;
-            PlayerPrefs.SetInt("marketTip", PlayerPrefs.GetInt("marketTip", 0) + 1);
+            SavedData.savesData.tipMarket += 1;
+            SavedData.Save();
             marketTip = true;
         }
     }

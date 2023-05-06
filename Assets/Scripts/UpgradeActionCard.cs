@@ -13,12 +13,18 @@ public class UpgradeActionCard : ActionCard
         CardDisplay selectedCard = HandCardSlotController.instance.GetRandomDisplayWithUpgradableCard(HandCardSlotController.instance.GetDisplayByCard(this));
 
         Hand.instance.handCards.Remove(selectedCard.displayedCard);
-        Card newCard = MarketWindow.instance.GetUpgradedCard(selectedCard.displayedCard);
+        Card newCard = CardHolderManager.instance.GetUpgradedCard(selectedCard.displayedCard);
         selectedCard.DisplayCard(newCard);
         Hand.instance.handCards.Add(newCard);
 
         selectedCard.FlashCard();
         SoundsController.instance.PlayOneShot("Blessing");
+
+        TurnController.actionsPlayed++;
+        if (GlobalConditionHolder.firstAction && TurnController.actionsPlayed == 1)
+        {
+            PlayAction();
+        }
     }
 
     public override bool CanItBePlayed()

@@ -126,9 +126,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3b8b72c62a7de4943b074ebe75dcd95f, type: 3}
   damageNumbers: {fileID: 3566509306372098629}
   moneyOnKill: 2
-  health:
-  - 15
-  - 30
+  maxHealth:
+  - 20
+  - 40
   - 0
   speed: 1.2
   damage: 2

@@ -24,17 +24,34 @@ public class PoisonDebuff : Debuff
 
     internal override void Update()
     {
+        if (GlobalConditionHolder.poisonDisabled)
+        {
+            return;
+        }
         base.Update();
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
             timer = DAMAGE_TIMER;
-            myEnemy.DealDamage(damage, Color.green);
+            if (GlobalConditionHolder.doublePoisonDamage)
+            {
+                List<float> doubledDamage = new List<float>();
+                doubledDamage.Add(damage[0] * 2f);
+                doubledDamage.Add(damage[1] * 2f);
+                doubledDamage.Add(damage[2] * 2f);
+                myEnemy.DealDamage(doubledDamage, Color.green, GlobalConditionHolder.poisonKills ? myEnemy.moneyOnKill : 0);
+                return;
+            }
+            myEnemy.DealDamage(damage, Color.green, GlobalConditionHolder.poisonKills? myEnemy.moneyOnKill : 0);
         }
     }
 
     internal override void ApplyDebuff()
     {
+        if (GlobalConditionHolder.poisonDisabled)
+        {
+            return;
+        }
         myEnemy.debuffIcons.AddNewIcon(info.icon);
     }
 

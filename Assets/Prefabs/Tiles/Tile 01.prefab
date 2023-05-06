@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 2826859217777948335}
   - component: {fileID: 399764543931199520}
   - component: {fileID: 162909349217352062}
+  - component: {fileID: 7779332484170841816}
   m_Layer: 0
   m_Name: Spot 9 0 (5)
   m_TagString: Untagged
@@ -485,6 +486,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &7779332484170841816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490906934896718017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &512260364592695055
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +877,7 @@ GameObject:
   - component: {fileID: 6887258468916319880}
   - component: {fileID: 2620885198649677726}
   - component: {fileID: 3465428766155189677}
+  - component: {fileID: 1756360017636862895}
   m_Layer: 0
   m_Name: Spot 1 0 (5)
   m_TagString: Untagged
@@ -962,6 +976,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &1756360017636862895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895120440839406463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914951511362464080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1173,7 @@ GameObject:
   - component: {fileID: 2171534056076138049}
   - component: {fileID: 2693786130659707627}
   - component: {fileID: 6815207181651884848}
+  - component: {fileID: 7412463519337708559}
   m_Layer: 0
   m_Name: Spot 7 0 (5)
   m_TagString: Untagged
@@ -1245,6 +1272,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &7412463519337708559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021917455298839738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1098921412880402253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1611,7 @@ GameObject:
   - component: {fileID: 4608286907773796419}
   - component: {fileID: 7359144768347318569}
   - component: {fileID: 4400949471671870845}
+  - component: {fileID: 1124485399744321292}
   m_Layer: 0
   m_Name: Spot 3 0 (5)
   m_TagString: Untagged
@@ -1670,6 +1710,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &1124485399744321292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380904964728803884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1489814189493872796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,6 +2393,7 @@ GameObject:
   - component: {fileID: 5030552545577075260}
   - component: {fileID: 5934444861221211038}
   - component: {fileID: 7124199547686118680}
+  - component: {fileID: 3746128913584188130}
   m_Layer: 0
   m_Name: Spot 5 0 (5)
   m_TagString: Untagged
@@ -2439,6 +2492,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &3746128913584188130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179294228373209889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2189698288708516313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,6 +2547,7 @@ GameObject:
   - component: {fileID: 4165204795626167904}
   - component: {fileID: 7959246895210295454}
   - component: {fileID: 3659672258794686963}
+  - component: {fileID: 5969854410907338278}
   m_Layer: 0
   m_Name: Spot 5 0 (2)
   m_TagString: Untagged
@@ -2580,6 +2646,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &5969854410907338278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219812418851117928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2317212414608495993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2671,7 @@ GameObject:
   - component: {fileID: 8088820754389089816}
   - component: {fileID: 1422964502254604759}
   - component: {fileID: 3390525738770507807}
+  - component: {fileID: 7444623747783253780}
   m_Layer: 0
   m_Name: Spot 5 0 (6)
   m_TagString: Untagged
@@ -2691,6 +2770,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &7444623747783253780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317212414608495993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2326989277079617640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,6 +2997,7 @@ GameObject:
   - component: {fileID: 6707620902187664956}
   - component: {fileID: 4198909670469439377}
   - component: {fileID: 603055306701453768}
+  - component: {fileID: 6564228990588738988}
   m_Layer: 0
   m_Name: Spot 5 0 (9)
   m_TagString: Untagged
@@ -3004,6 +3096,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &6564228990588738988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2484225443143410477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2521251013861283862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,6 +3973,7 @@ GameObject:
   - component: {fileID: 3630048697136151584}
   - component: {fileID: 979650052349914631}
   - component: {fileID: 8465252590101656663}
+  - component: {fileID: 1653019681323457063}
   m_Layer: 0
   m_Name: Spot 5 0 (3)
   m_TagString: Untagged
@@ -3967,6 +4072,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &1653019681323457063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374544479091361765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3398702205123481900
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,6 +4595,24 @@ MonoBehaviour:
   - {fileID: 951365213917479557}
   - {fileID: 3742766632910579803}
   - {fileID: 4614507430082511916}
+  roadSpots:
+  - {fileID: 5335569457937517044}
+  - {fileID: 5969854410907338278}
+  - {fileID: 1653019681323457063}
+  - {fileID: 8878492985736104034}
+  - {fileID: 1756360017636862895}
+  - {fileID: 3061178340739299918}
+  - {fileID: 1124485399744321292}
+  - {fileID: 1710996266083829370}
+  - {fileID: 3746128913584188130}
+  - {fileID: 5453092983254882740}
+  - {fileID: 7412463519337708559}
+  - {fileID: 7286770978135056950}
+  - {fileID: 7779332484170841816}
+  - {fileID: 7444623747783253780}
+  - {fileID: 3733498165844077137}
+  - {fileID: 7739603982651038934}
+  - {fileID: 6564228990588738988}
 --- !u!1 &3817363655079598041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5743,6 +5878,7 @@ GameObject:
   - component: {fileID: 3169047043990895113}
   - component: {fileID: 7487872009477572795}
   - component: {fileID: 9061931783082732247}
+  - component: {fileID: 3061178340739299918}
   m_Layer: 0
   m_Name: Spot 2 0 (5)
   m_TagString: Untagged
@@ -5841,6 +5977,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &3061178340739299918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558092228566425792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4809809776832147769
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,6 +6682,7 @@ GameObject:
   - component: {fileID: 5409847847516955197}
   - component: {fileID: 8333722105325497688}
   - component: {fileID: 5765771133976688844}
+  - component: {fileID: 7739603982651038934}
   m_Layer: 0
   m_Name: Spot 5 0 (8)
   m_TagString: Untagged
@@ -6632,6 +6781,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &7739603982651038934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490372734298784605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5494818622889679197
 GameObject:
   m_ObjectHideFlags: 0
@@ -7349,6 +7510,7 @@ GameObject:
   - component: {fileID: 8890638525869465123}
   - component: {fileID: 2268701564172453875}
   - component: {fileID: 4546094502448757058}
+  - component: {fileID: 8878492985736104034}
   m_Layer: 0
   m_Name: Spot 5 0 (4)
   m_TagString: Untagged
@@ -7447,6 +7609,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &8878492985736104034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505709528562400512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6543579212326200384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7804,6 +7978,7 @@ GameObject:
   - component: {fileID: 6717626861219206546}
   - component: {fileID: 1959913541643038441}
   - component: {fileID: 6306799409928326241}
+  - component: {fileID: 7286770978135056950}
   m_Layer: 0
   m_Name: Spot 8 0 (5)
   m_TagString: Untagged
@@ -7902,6 +8077,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &7286770978135056950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868490044326131637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6973041404732450210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9073,6 +9260,7 @@ GameObject:
   - component: {fileID: 5770431830242023414}
   - component: {fileID: 7703556440993667768}
   - component: {fileID: 1265005317449667872}
+  - component: {fileID: 5335569457937517044}
   m_Layer: 0
   m_Name: Spot 5 0 (1)
   m_TagString: Untagged
@@ -9171,6 +9359,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &5335569457937517044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440970474683643889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7694743038344305665
 GameObject:
   m_ObjectHideFlags: 0
@@ -10088,6 +10288,7 @@ GameObject:
   - component: {fileID: 5098004312431039586}
   - component: {fileID: 4591415500848985533}
   - component: {fileID: 4493729295264221503}
+  - component: {fileID: 1710996266083829370}
   m_Layer: 0
   m_Name: Spot 4 0 (5)
   m_TagString: Untagged
@@ -10186,6 +10387,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &1710996266083829370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441371157420302821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8495314723202814248
 GameObject:
   m_ObjectHideFlags: 0
@@ -10961,6 +11174,7 @@ GameObject:
   - component: {fileID: 4855702360471339854}
   - component: {fileID: 340213277022509957}
   - component: {fileID: 6180294036867401285}
+  - component: {fileID: 3733498165844077137}
   m_Layer: 0
   m_Name: Spot 5 0 (7)
   m_TagString: Untagged
@@ -11059,6 +11273,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &3733498165844077137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8941985272432786669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8997912618191872274
 GameObject:
   m_ObjectHideFlags: 0
@@ -11072,6 +11298,7 @@ GameObject:
   - component: {fileID: 6738145927135278911}
   - component: {fileID: 3476752976026176581}
   - component: {fileID: 1202715451426222977}
+  - component: {fileID: 5453092983254882740}
   m_Layer: 0
   m_Name: Spot 6 0 (5)
   m_TagString: Untagged
@@ -11170,6 +11397,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &5453092983254882740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997912618191872274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9044650917134307488
 GameObject:
   m_ObjectHideFlags: 0
@@ -11433,19 +11672,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90630776
+      value: -0.00000003961597
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261833
+      value: -0.000000018473234
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.90630776
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.42261833
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11610,19 +11849,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90630776
+      value: -0.00000003961597
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261833
+      value: -0.000000018473234
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.90630776
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.42261833
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11694,22 +11933,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
+--- !u!1 &5698694824092990344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8930590486577530221, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
+  m_PrefabInstance: {fileID: 3817363654878478053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5698694824092990345 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
   m_PrefabInstance: {fileID: 3817363654878478053}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5698694823443652775 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8930590487487962690, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
-  m_PrefabInstance: {fileID: 3817363654878478053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5698694823443652774 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8930590487487962691, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
@@ -11721,11 +11954,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5698694824092990344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8930590486577530221, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
+--- !u!114 &5698694823443652775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8930590487487962690, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
   m_PrefabInstance: {fileID: 3817363654878478053}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5698694823069701273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11787,19 +12026,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.90630776
+      value: -0.00000003961597
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261833
+      value: -0.000000018473234
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.90630776
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.42261833
       objectReference: {fileID: 0}
     - target: {fileID: 8930590486577530220, guid: ac0ad20d3870e12478c213cf071f0c44, type: 3}
       propertyPath: m_AnchoredPosition.x

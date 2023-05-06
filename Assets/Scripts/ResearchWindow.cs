@@ -2,29 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using I2.Loc;
 
 public class ResearchWindow : MonoSingleton<ResearchWindow>
 {
     [SerializeField] TweenAnimator tweenAnimator;
-    [SerializeField] Image currentlyResearchingImage;
     [SerializeField] List<ResearchTree> trees;
     [SerializeField] TechTreeHolder defaultTechTree;
     [SerializeField] GameObject button;
     [SerializeField] Image characterIcon0;
     [SerializeField] Image characterIcon1;
 
+    [Header("Research Info")]
+    [SerializeField] TextMeshProUGUI researchName;
+    [SerializeField] TextMeshProUGUI wavesNeeded;
+    [SerializeField] TextMeshProUGUI explanation;
+    [SerializeField] CardDisplay researchDisplay;
+    [SerializeField] Image icon;
+    [SerializeField] LocalizedString wavesToCompleteText;
+    [SerializeField] LocalizedString effectText;
+
     ResearchNode currentlyResearching;
     internal bool shouldOpenWindow = true;
+    internal bool skipNextResearchResult;
     bool opened;
 
     private void Start()
     {
-        int baseResearchLocked = ProgressManager.GetLevel("Base") >= 12 ? 0 : ProgressManager.GetLevel("Base") >= 7? 1:2;
+        int baseResearchLocked = ProgressManager.GetLevel("Base") >= 8 ? 0 : ProgressManager.GetLevel("Base") >= 5? 1:2;
         int firstResearchLocked = ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName) >= 7 ? 0 : ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName) >= 3? 1:2;
         int secondResearchLocked = ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) >= 7 ? 0 : ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) >= 3? 1:2;
-        trees[0].SetupTree(defaultTechTree, baseResearchLocked);
-        trees[1].SetupTree(CharacterSelector.firstCharacter.techTree, firstResearchLocked);
-        trees[2].SetupTree(CharacterSelector.secondCharacter.techTree, secondResearchLocked);
+        trees[0].SetupTree(CharacterSelector.firstCharacter.techTree, firstResearchLocked);
+        trees[1].SetupTree(CharacterSelector.secondCharacter.techTree, secondResearchLocked);
+        trees[2].SetupTree(defaultTechTree, baseResearchLocked);
 
         characterIcon0.sprite = CharacterSelector.firstCharacter.icon;
         characterIcon1.sprite = CharacterSelector.secondCharacter.icon;
@@ -32,16 +43,20 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
 
     public void AdvanceResearch()
     {
+
         if (currentlyResearching != null)
         {
+            if (currentlyResearching.researched)
+            {
+                return;
+            }
             float prevProgress = (float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch;
             currentlyResearching.Advanced();
             ResearchButton.instance.UpdateFill(prevProgress, (float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch, 1f);
-            if(currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
+            if (currentlyResearching.currentProgress >= currentlyResearching.research.timeToResearch)
             {
                 if (IsThereResearchToComplete())
                 {
-                    currentlyResearchingImage.transform.parent.gameObject.SetActive(false);
                     button.SetActive(false);
                     shouldOpenWindow = true;
                 }
@@ -70,17 +85,25 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     {
         if (currentlyResearching != research)
         {
-            currentlyResearchingImage.transform.parent.gameObject.SetActive(true);
-            ResearchButton.instance.UpdateFill(currentlyResearching == null ? 0f : ((float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch),
-                (float)research.currentProgress / research.research.timeToResearch, 0.5f);
-            if(currentlyResearching != null)
+            if (currentlyResearching != null)
             {
                 currentlyResearching.Deselected();
             }
             currentlyResearching = research;
-            currentlyResearchingImage.sprite = research.research.sprite;
-            button.SetActive(true);
+            ResearchButton.instance.UpdateFill(currentlyResearching == null ? 0f : ((float)currentlyResearching.currentProgress / currentlyResearching.research.timeToResearch),
+                (float)research.currentProgress / research.research.timeToResearch, 0.5f);
+
             shouldOpenWindow = false;
+            DisplayResearch();
+
+            if (research.unlocked && !research.researched)
+            {
+                button.SetActive(true);
+            }
+            else
+            {
+                button.SetActive(false);
+            }            
         }
     }
 
@@ -106,16 +129,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
         {
             tree.PlayAnimations();
         }
-
-        if(currentlyResearching == null)
-        {
-            currentlyResearchingImage.transform.parent.gameObject.SetActive(false);
-        }
-        else
-        {
-            currentlyResearchingImage.transform.parent.gameObject.SetActive(true);
-
-        }
+        DisplayResearch();
     }
 
     public void Close()
@@ -137,6 +151,27 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
         {
             shouldOpenWindow = true;
         }
+    }
 
+    public void DisplayResearch()
+    {
+        if(currentlyResearching == null)
+        {
+            return;
+        }
+        researchName.text = currentlyResearching.research.researchName;
+        wavesNeeded.text = wavesToCompleteText + " " + (currentlyResearching.research.timeToResearch - currentlyResearching.currentProgress);
+        explanation.text = effectText + " " + currentlyResearching.research.explanation;
+        icon.sprite = currentlyResearching.research.sprite;
+        if (currentlyResearching.cardResearch)
+        {
+            ResearchGetCard researchCard = (ResearchGetCard)currentlyResearching.research;
+            researchDisplay.DisplayCard(researchCard.cardToGet);
+            researchDisplay.gameObject.SetActive(true);
+        }
+        else
+        {
+            researchDisplay.gameObject.SetActive(false);
+        }
     }
 }

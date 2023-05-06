@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b891389cceafb7e42bde8d339123785e, type: 3}
+  m_Name: Hunter03
+  m_EditorClassIdentifier: 
+  nameText:
+    mTerm: Event_Hunter03Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  descriptionText:
+    mTerm: Event_Hunter03Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  type: 4
+  eventChoiceDatas:
+  - choiceDescription:
+      mTerm: Event_Hunter03Choice1
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 0
+    amountToAdd: 0
+    negativeEventEffect: 1
+    amountToRemove: 35
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_Hunter03Choice2
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 16
+    amountToAdd: 0
+    negativeEventEffect: 0
+    amountToRemove: 0
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_Hunter03Choice3
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 4
+    amountToAdd: 999
+    negativeEventEffect: 6
+    amountToRemove: 1
+    cardToGet: {fileID: 0}

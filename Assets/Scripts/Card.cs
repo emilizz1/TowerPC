@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using I2.Loc;
 
 
 [Serializable]
@@ -21,9 +22,35 @@ public class Card : ScriptableObject
     public Sprite cardImage;
     public int moneyCost;
     public int manaCost;
-    public float buyCostMultiplayer;
+    public int cardTier;
     public int cardLevel;
-    [TextArea(15,20)]
+    public LocalizedString descriptionText;
+    [TextArea(10,10)]
     public string description;
-    public List<PasiveTowerStatsController.DamageTypes> damageTypes;
+    public List<DamageTypes> damageTypes;
+    public CardTags cardTag;
+    public CardCollectionType cardCollectionType;
+
+    public virtual string GetDescription()
+    {
+        return descriptionText;
+    }
+}
+
+[Serializable]
+public enum CardTags
+{
+    None,
+    Improvement
+}
+
+[Serializable]
+public enum CardCollectionType
+{
+    None,
+    Base,
+    Knight,
+    Mage,
+    Admiral,
+    Hunter
 }

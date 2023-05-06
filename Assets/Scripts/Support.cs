@@ -16,6 +16,14 @@ public class Support : Structure
         mySpot = GetComponentInParent<Spot>();
         adjacentSpots = mySpot.myTile.GetAdjacentSpots(mySpot, true);
 
+        foreach(Tile tile in TileManager.instance.GetAdjacentTiles(mySpot.myTile.transform.position))
+        {
+            foreach(Spot spot in tile.GetAdjacentSpots(mySpot, true))
+            {
+                adjacentSpots.Add(spot);
+            }
+        }
+
         if(adjacentSpots.Count != 4)
         {
             TileManager.OnTilePlaced += NewTileAdded;

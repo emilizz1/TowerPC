@@ -5,7 +5,7 @@ using System;
 
 public class TerrainBonus : MonoBehaviour
 {
-    public Tower.TowerStats statsMultiplayers;
+    public TowerStats statsMultiplayers;
     public TerrainType type;
     [SerializeField] AdjacentTerrain adjacentTerrain;
     [SerializeField] Color desiredColor;
@@ -34,7 +34,7 @@ public class TerrainBonus : MonoBehaviour
 
     public enum TerrainType
     {
-        forrest,
+        forest,
         field,
         snow,
         mountain,
@@ -46,15 +46,30 @@ public class TerrainBonus : MonoBehaviour
     void Start()
     {
         mySpot = GetComponentInParent<Spot>();
-        mySpot.terrainBonus.Add( this);
+        mySpot.terrainBonus.Add(this);
+        mySpot.NewTerrainAdded(this);
 
-        foreach(Spot spot in mySpot.myTile.GetAdjacentSpots(mySpot))
+        foreach (Spot spot in mySpot.myTile.GetAdjacentSpots(mySpot))
         {
             GameObject newTerrrain = adjacentTerrain.GetTerrain();
-            if(newTerrrain != null)
+            if (newTerrrain != null)
             {
                 Instantiate(newTerrrain, spot.transform);
             }
+        }
+
+        DoubleBonuses();
+    }
+
+    public void DoubleBonuses()
+    {
+        if (GlobalConditionHolder.terrainBonusesIncreased)
+        {
+            statsMultiplayers.range *= 1.5f;
+            statsMultiplayers.fireRate *= 1.5f;
+            statsMultiplayers.damage[0] *= 1.5f;
+            statsMultiplayers.damage[1] *= 1.5f;
+            statsMultiplayers.damage[2] *= 1.5f;
         }
     }
 

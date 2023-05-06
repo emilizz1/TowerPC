@@ -13,43 +13,23 @@ MonoBehaviour:
   m_Name: Base Level Up Descriptions
   m_EditorClassIdentifier: 
   levelUpDescriptions:
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: 361ab3d10520b214a84cdbeff64d579e, type: 2}
   - text: Normal difficulty unlocked
-    cardToDisplay: {fileID: 0}
-  - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Character Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Research Level Unlocked
     cardToDisplay: {fileID: 0}
-  - text: Additional paths to castle
-    cardToDisplay: {fileID: 0}
-  - text: New Waves Unloocked
+  - text: Hard difficulty unlocked
     cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: 413a644af6b958c489766143b4f1f5fb, type: 2}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
   - text: New Research Level Unlocked
-    cardToDisplay: {fileID: 0}
-  - text: New Waves Unloocked
     cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: c782e3242fae31c41b724d8c26e0ee42, type: 2}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: 1d391e025b5d07944aadafef7f90252d, type: 2}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
   - text: New Card Added To Market
     cardToDisplay: {fileID: 11400000, guid: f8e63422f184576409028177df34c18b, type: 2}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}
-  - text: New Waves Unloocked
-    cardToDisplay: {fileID: 0}

@@ -38,25 +38,34 @@ public class CameraMovement : MonoSingleton<CameraMovement>
 
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            change.y -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+            if(Input.GetAxis("Mouse ScrollWheel") > 0 && change.y -1 > zoomMin)
+            {
+                change += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * transform.forward;
+
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && change.y + 1 < zoomMax)
+            {
+                change += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * transform.forward;
+
+            }
             change.y = Mathf.Clamp(change.y, zoomMin, zoomMax);
         }
 
         prevPos = Input.mousePosition;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.mousePosition.y > Screen.height - 10f)
         {
             change.z += movementSpeed;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.mousePosition.x < 10f )
         {
             change.x -= movementSpeed;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y < 10f)
         {
             change.z -= movementSpeed;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x > Screen.width - 10f)
         {
             change.x += movementSpeed;
         }

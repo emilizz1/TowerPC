@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using I2.Loc;
 using System;
 
 public class Tower : MonoBehaviour
 {
     public Sprite image;
     public string towerName;
-    public string specialText;
+    public LocalizedString specialText;
+    public LocalizedString specialFirstText;
+    public LocalizedString specialSecondText;
+    public TowerType towerType;
 
     [Header("Components")]
     public Transform rangeSprite;
@@ -19,45 +23,14 @@ public class Tower : MonoBehaviour
     [SerializeField] List<GameObject> levelUpRings;
     [SerializeField] GameObject canvas;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] Transform bulletSpawnPos;
+    public Transform bulletSpawnPos;
 
     [Header("Stats")]
     public List<TowerStats> towerStats;
     public List<int> experienceNeeded;
-    public List<PasiveTowerStatsController.DamageTypes> damageTypes;
+    public List<DamageTypes> damageTypes;
     [SerializeField] ObjectPools.PoolNames bulletType;
     [SerializeField] AudioClip shootSound;
-
-    [Serializable]
-    public struct TowerStats
-    {
-        public float fireRate;
-        public float range;
-        public List<float> damage;
-
-        public void CombineStats(TowerStats newStats)
-        {
-            fireRate += newStats.fireRate;
-            range += newStats.range;
-
-            if(newStats.damage == null)
-            {
-                return;
-            }
-
-            if(damage == null)
-            {
-                damage = new List<float>();
-                damage.Add(0);
-                damage.Add(0);
-                damage.Add(0);
-            }
-
-            damage[0] += newStats.damage.Count > 0? newStats.damage[0]: 0;
-            damage[1] += newStats.damage.Count > 1 ? newStats.damage[1] : 0;
-            damage[2] += newStats.damage.Count > 2 ? newStats.damage[2] : 0;
-        }
-    }
 
     public enum TargetSelectOptions
     {
@@ -75,15 +48,19 @@ public class Tower : MonoBehaviour
     internal TowerStats statsMultiplayers = new TowerStats();
     internal int experience;
     internal int currentLevel;
-
+    internal int additionalGoldPerKill = 0;
+    
     List<EnemyMovement> reachableEnemies = new List<EnemyMovement>();
     internal GameObject currentTarget;
-    float timeUntilShot;
+    internal float timeUntilShot;
 
-    bool active;
+    Spot mySpot;
 
-    public void PrepareTower()
+    internal bool active;
+
+    public virtual void PrepareTower(Spot spot)
     {
+        mySpot = spot;
         statsMultiplayers.fireRate = 1f;
         statsMultiplayers.range = 1f;
         statsMultiplayers.damage = new List<float>();
@@ -98,7 +75,7 @@ public class Tower : MonoBehaviour
         SetupRange();
     }
 
-    public void SetupRange(float additionalRange = 0)
+    public virtual void SetupRange(float additionalRange = 0)
     {
         sphere.radius = towerStats[currentLevel].range * (statsMultiplayers.range + additionalRange);
         float rangeSpriteScale = (towerStats[currentLevel].range * (statsMultiplayers.range + additionalRange)) / DEFAULT_RANGE_SPRITE_RADIUS;
@@ -111,7 +88,7 @@ public class Tower : MonoBehaviour
         currentTarget = null;
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (active)
         {
@@ -145,6 +122,7 @@ public class Tower : MonoBehaviour
         newBullet.transform.position = bulletSpawnPos.position;
         Bullet bullet = newBullet.GetComponent<Bullet>();
         bullet.damage = GetDamageMultiplied();
+        bullet.additionalGoldOnKill = additionalGoldPerKill;
         bullet.SetTarget(currentTarget);
         if (shootingParticles != null)
         {
@@ -165,7 +143,7 @@ public class Tower : MonoBehaviour
         return finalDamage;
     }
 
-    void AddExperience()
+    public virtual void AddExperience()
     {
         if(MaxLevel())
         {
@@ -180,7 +158,7 @@ public class Tower : MonoBehaviour
         TowerInfoWindow.instance.UpdateInfo(this);
     }
 
-    public void LevelUp()
+    public virtual void LevelUp()
     {
         experience -= experienceNeeded[currentLevel];
         levelUpRings[currentLevel].SetActive(true);
@@ -194,7 +172,7 @@ public class Tower : MonoBehaviour
         SetupRange();
     }
 
-    void FindTarget()
+    public void FindTarget()
     {
         currentTarget = null;
 
@@ -323,7 +301,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public void Activate()
+    public virtual void Activate()
     {
         for (int i = 0; i < currentLevel; i++)
         {
@@ -332,7 +310,10 @@ public class Tower : MonoBehaviour
         audioSource.clip = SoundsController.instance.GetAudioClip("TowerPlaced");
         audioSource.Play();
         SetupRange();
-        canvas.SetActive(true);
+        if (canvas != null)
+        {
+            canvas.SetActive(true);
+        }
         active = true;
         rangeSprite.gameObject.SetActive(false);
     }
@@ -362,5 +343,47 @@ public class Tower : MonoBehaviour
     public bool MaxLevel() 
     {
         return currentLevel == experienceNeeded.Count;
+    }
+}
+
+
+[Serializable]
+public struct TowerStats
+{
+    public float fireRate;
+    public float range;
+    public List<float> damage;
+
+    public void CombineStats(TowerStats newStats)
+    {
+        fireRate -= newStats.fireRate;
+        range += newStats.range;
+
+        if (newStats.damage == null)
+        {
+            return;
+        }
+
+        if (damage == null)
+        {
+            damage = new List<float>();
+            damage.Add(0);
+            damage.Add(0);
+            damage.Add(0);
+        }
+
+        damage[0] += newStats.damage.Count > 0 ? newStats.damage[0] : 0;
+        damage[1] += newStats.damage.Count > 1 ? newStats.damage[1] : 0;
+        damage[2] += newStats.damage.Count > 2 ? newStats.damage[2] : 0;
+    }
+
+    public void RemoveStats(TowerStats statsToRemove)
+    {
+        fireRate += statsToRemove.fireRate;
+        range -= statsToRemove.range;
+
+        damage[0] -= statsToRemove.damage.Count > 0 ? statsToRemove.damage[0] : 0;
+        damage[1] -= statsToRemove.damage.Count > 1 ? statsToRemove.damage[1] : 0;
+        damage[2] -= statsToRemove.damage.Count > 2 ? statsToRemove.damage[2] : 0;
     }
 }

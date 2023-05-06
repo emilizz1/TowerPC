@@ -9,7 +9,7 @@ public static class ProgressManager
 
     static bool initialized;
 
-    internal static int[] baseLevelUps = new int[] {150, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050 };
+    internal static int[] baseLevelUps = new int[] { 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     internal static int[] characterLevelUps = new int[] {250, 400, 550, 800, 1000, 1250, 1500 };
 
     static void Initialize()
@@ -19,15 +19,15 @@ public static class ProgressManager
         progress = new Dictionary<string, int>();
         levels = new Dictionary<string, int>();
 
-        progress.Add("Base", PlayerPrefs.GetInt("BaseProgress",0));
-        progress.Add("Knight", PlayerPrefs.GetInt("KnightProgress",0));
-        progress.Add("Mage", PlayerPrefs.GetInt("MageProgress",0));
-        progress.Add("Admiral", PlayerPrefs.GetInt("AdmiralProgress",0));
+        progress.Add("Base", SavedData.savesData.baseProgress);
+        progress.Add("Knight", SavedData.savesData.knightProgress);
+        progress.Add("Mage", SavedData.savesData.mageProgress);
+        progress.Add("Admiral", SavedData.savesData.admiralProgress);
 
-        levels.Add("Base", PlayerPrefs.GetInt("BaseLevel",1));
-        levels.Add("Knight", PlayerPrefs.GetInt("KnightLevel",1));
-        levels.Add("Mage", PlayerPrefs.GetInt("MageLevel",1));
-        levels.Add("Admiral", PlayerPrefs.GetInt("AdmiralLevel",1));
+        levels.Add("Base", SavedData.savesData.baseLevel);
+        levels.Add("Knight", SavedData.savesData.knightLevel);
+        levels.Add("Mage", SavedData.savesData.mageLevel);
+        levels.Add("Admiral", SavedData.savesData.admiralLevel);
     }
 
     public static int GetProgress(string name)
@@ -67,7 +67,7 @@ public static class ProgressManager
         {
             progress[name] -= character ? characterLevelUps[GetLevel(name) - 1 + levelUps] : baseLevelUps[GetLevel(name) - 1 + levelUps];
             levelUps++;
-            if (character ? characterLevelUps.Length == GetLevel(name) - 1 + levelUps : baseLevelUps.Length == GetLevel(name) - 1 + levelUps)
+            if (character ? characterLevelUps.Length >= GetLevel(name) - 1 + levelUps : baseLevelUps.Length >= GetLevel(name) - 1 + levelUps)
             {
                 break;
             }
@@ -78,7 +78,22 @@ public static class ProgressManager
             ChangeLevel(name, levelUps);
         }
 
-        PlayerPrefs.SetInt(name + "Progress", progress[name]);
+        switch (name)
+        {
+            case ("Base"):
+                SavedData.savesData.baseProgress = progress[name];
+                break;
+            case ("Knight"):
+                SavedData.savesData.knightProgress = progress[name];
+                break;
+            case ("Mage"):
+                SavedData.savesData.mageProgress = progress[name];
+                break;
+            case ("Admiral"):
+                SavedData.savesData.admiralProgress = progress[name];
+                break;
+        }
+        SavedData.Save();
     }
 
     public static void ChangeLevel(string name, int change)
@@ -89,7 +104,23 @@ public static class ProgressManager
         }
         levels[name] += change;
         Analytics.instance.LevelUp(name, levels[name]);
-        PlayerPrefs.SetInt(name + "Level", levels[name]);
+
+        switch (name)
+        {
+            case ("Base"):
+                SavedData.savesData.baseLevel = levels[name];
+                break;
+            case ("Knight"):
+                SavedData.savesData.knightLevel = levels[name];
+                break;
+            case ("Mage"):
+                SavedData.savesData.mageLevel = levels[name];
+                break;
+            case ("Admiral"):
+                SavedData.savesData.admiralLevel = levels[name];
+                break;
+        }
+        SavedData.Save();
         CheckIfMaxed();
     }
 

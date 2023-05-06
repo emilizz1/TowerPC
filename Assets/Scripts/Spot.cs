@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using FirstGearGames.SmoothCameraShaker;
 
 public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,6 +13,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     internal List<TerrainBonus> terrainBonus = new List<TerrainBonus>();
 
     internal GameObject spotObj;
+    internal Tower secondTerrainGetter;
 
     internal bool objBuilt;
     bool readyToBuild;
@@ -55,33 +57,73 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             readyToBuild = true;
             TowerPlacer.towerPlaced = true;
-            spotObj = Instantiate(TowerPlacer.towerToPlace, transform.position, Quaternion.identity, spawnPoint.transform);
+            spotObj = Instantiate(TowerPlacer.towerToPlace, transform.position, RotationManager.instance.GetRotation(), spawnPoint.transform);
             spotObj.GetComponent<Tower>().currentLevel = TowerPlacer.startingLevel;
             Tower towerToPlace = spotObj.GetComponent<Tower>();
-            towerToPlace.PrepareTower();
+            towerToPlace.PrepareTower(this);
             if (terrainBonus.Count > 0)
             {
-                foreach (TerrainBonus terrain in terrainBonus)
+                if (spotObj.GetComponent<EnergyTower>())
                 {
-                    TowerInfoWindow.instance.ShowInfoWithTerrain(towerToPlace, terrain);
-                    if (terrain.statsMultiplayers.range > 0)
-                    {
-                        towerToPlace.SetupRange(terrain.statsMultiplayers.range);
-                    }
+                    GatherBonusesFromAdjacentTiles(towerToPlace);
+                }
+                else
+                {
+                    TowerInfoWindow.instance.ShowInfoWithTerrain(towerToPlace, terrainBonus);
                 }
             }
             else
             {
-                TowerInfoWindow.instance.ShowInfo(towerToPlace);
+                if (spotObj.GetComponent<EnergyTower>())
+                {
+                    GatherBonusesFromAdjacentTiles(towerToPlace);
+                }
+                else
+                {
+                    TowerInfoWindow.instance.ShowInfo(towerToPlace);
+                }
             }
         }
         else if (StructurePlacer.structureToPlace != null)
         {
             readyToBuild = true;
             StructurePlacer.structurePlaced = true;
-            spotObj = Instantiate(StructurePlacer.structureToPlace, transform.position, Quaternion.identity, spawnPoint.transform);
+            spotObj = Instantiate(StructurePlacer.structureToPlace, transform.position, RotationManager.instance.GetRotation(), spawnPoint.transform);
         }
 
+    }
+
+    private void GatherBonusesFromAdjacentTiles(Tower towerToPlace)
+    {
+        List<TerrainBonus> allBonuses = new List<TerrainBonus>(terrainBonus);
+        foreach (Spot spot in myTile.GetAdjacentSpots(this, true))
+        {
+            foreach (TerrainBonus bonus in spot.terrainBonus)
+            {
+                if (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(TowerType.Energy) == 1)
+                {
+                    allBonuses.Add(bonus);
+                }
+                   allBonuses.Add(bonus);
+            }
+        }
+
+        foreach (Tile tile in TileManager.instance.GetAdjacentTiles(myTile.transform.position))
+        {
+            foreach (Spot spot in tile.GetAdjacentSpots(this, true))
+            {
+                foreach (TerrainBonus bonus in spot.terrainBonus)
+                {
+                    if (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(TowerType.Energy) == 1)
+                    {
+                        allBonuses.Add(bonus);
+                    }
+                    allBonuses.Add(bonus);
+                }
+            }
+        }
+
+        TowerInfoWindow.instance.ShowInfoWithTerrain(towerToPlace, allBonuses);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -119,6 +161,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             TipsManager.instance.CheckForTipTerrain(terrainBonus.Count > 0);
             tower.Activate();
+            RotationManager.instance.Rotated();
             objBuilt = true;
             readyToBuild = false;
             TowerPlacer.allTowers.Add(tower);
@@ -127,6 +170,7 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 AchievementManager.TowersOnMap();
             }
             Money.instance.UpdateIncome();
+            CameraShakerHandler.Shake(CameraShake.instance.shakeData);
         }
     }
 
@@ -146,9 +190,11 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 structure.Activate(null);
             }
+            RotationManager.instance.Rotated();
             objBuilt = true;
             readyToBuild = false;
             StructurePlacer.allStructures.Add(structure);
+            CameraShakerHandler.Shake(CameraShake.instance.shakeData);
         }
     }
 
@@ -158,5 +204,36 @@ public class Spot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             Destroy(spotObj);
         }
+    }
+
+    public void NewTerrainAdded(TerrainBonus terrain)
+    {
+        if(spotObj != null)
+        {
+            Tower spotTower = spotObj.GetComponent<Tower>();
+            if (spotTower != null)
+            {
+                terrain.AddStats(spotTower);
+            }
+        }
+
+        if(secondTerrainGetter != null)
+        {
+            if(SecondTowerAbilityManager.instance.SecondSpecialUnlocked(TowerType.Energy) == 1)
+            {
+                terrain.AddStats(secondTerrainGetter);
+            }
+            terrain.AddStats(secondTerrainGetter);
+        }
+    }
+
+    public bool Empty()
+    {
+        return !objBuilt && terrainBonus.Count == 0;
+    }
+
+    public bool CornerSpot()
+    {
+        return myTile.GetAdjacentSpots(this).Count < 4;
     }
 }

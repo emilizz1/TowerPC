@@ -17,7 +17,7 @@ public class SpearTower : Tower
         {
             extraFireRate *=  firerateIncreasesPerShot[currentLevel];
         }
-        return base.GetTimeToNextShot() * extraFireRate;
+        return base.GetTimeToNextShot() * extraFireRate * (SecondTowerAbilityManager.instance.spearTowersPlaced *0.02f);
     }
 
     internal override void Shoot()
@@ -31,6 +31,19 @@ public class SpearTower : Tower
         {
             prevTarget = currentTarget;
             timesHit = 0;
+        }
+    }
+
+    public override void Activate()
+    {
+        base.Activate();
+        if (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(towerType) == 1)
+        {
+                TowerPlacer.castleTower.statsMultiplayers.fireRate += 0.04f;
+        }
+        else if (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(towerType) == 2)
+        {
+            SecondTowerAbilityManager.instance.spearTowersPlaced++;
         }
     }
 

@@ -15,13 +15,6 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject parent;
     [SerializeField] AudioMixer mixer;
 
-    const string FULL_SCREEN_SAVE = "fullscreen";
-    const string RESOLUTION_WIDTH_SAVE = "resolutionWidth";
-    const string RESOLUTION_HEIGHT_SAVE = "resolutionHeight";
-    const string REFRESH_RATE_SAVE = "refreshRate";
-    const string SOUND_EFFECTS_SAVE = "soundEffects";
-    const string MUSIC_SAVE = "music";
-
     List<Resolution> resolutions;
     Resolution selectedResolution;
     List<string> resolutionNames = new List<string>();
@@ -52,18 +45,18 @@ public class Options : MonoBehaviour
     void LoadSettings()
     {
         selectedResolution = new Resolution();
-        selectedResolution.width = PlayerPrefs.GetInt(RESOLUTION_WIDTH_SAVE, Screen.currentResolution.width);
-        selectedResolution.height = PlayerPrefs.GetInt(RESOLUTION_HEIGHT_SAVE, Screen.currentResolution.height);
-        selectedResolution.refreshRate = PlayerPrefs.GetInt(REFRESH_RATE_SAVE, Screen.currentResolution.refreshRate);
+        selectedResolution.width = SavedData.savesData.resolutionWidth;
+        selectedResolution.height = SavedData.savesData.resolutionHeight;
+        selectedResolution.refreshRate = SavedData.savesData.refreshRate;
 
-        float value = PlayerPrefs.GetFloat(SOUND_EFFECTS_SAVE, 1f);
+        float value = SavedData.savesData.soundEffects;
         mixer.SetFloat("SoundEffect", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
         soundSlider.value = value;
-        value = PlayerPrefs.GetFloat(MUSIC_SAVE, 1f);
+        value = SavedData.savesData.music;
         mixer.SetFloat("Soundtrack", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
         musicSlider.value = value;
 
-        fullScreenToggle.isOn = PlayerPrefs.GetInt(FULL_SCREEN_SAVE, Screen.fullScreen ? 1 : 0) > 0;
+        fullScreenToggle.isOn = SavedData.savesData.fullscreen > 0;
 
         Screen.SetResolution(
             selectedResolution.width,
@@ -88,7 +81,8 @@ public class Options : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-        PlayerPrefs.SetInt(FULL_SCREEN_SAVE, isFullscreen ? 1 : 0);
+        SavedData.savesData.fullscreen = isFullscreen ? 1 : 0;
+        SavedData.Save();
         SoundsController.instance.PlayOneShot("Click");
     }
 
@@ -120,20 +114,24 @@ public class Options : MonoBehaviour
     {
         selectedResolution = resolutions[resolutionIndex];
         Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt(RESOLUTION_WIDTH_SAVE, selectedResolution.width);
-        PlayerPrefs.SetInt(RESOLUTION_HEIGHT_SAVE, selectedResolution.height);
-        PlayerPrefs.SetInt(REFRESH_RATE_SAVE, selectedResolution.refreshRate);
+
+        SavedData.savesData.resolutionWidth = selectedResolution.width;
+        SavedData.savesData.resolutionHeight = selectedResolution.height;
+        SavedData.savesData.refreshRate = selectedResolution.refreshRate;
+        SavedData.Save();
     }
 
     public void SoundChanged(float value)
     {
-        PlayerPrefs.SetFloat(SOUND_EFFECTS_SAVE,value);
+        SavedData.savesData.soundEffects = value;
+        SavedData.Save();
         mixer.SetFloat("SoundEffect", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
     }
 
     public void MusicChanged(float value)
     {
-        PlayerPrefs.SetFloat(MUSIC_SAVE, value);
+        SavedData.savesData.music = value;
+        SavedData.Save();
         mixer.SetFloat("Soundtrack", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
     }
 

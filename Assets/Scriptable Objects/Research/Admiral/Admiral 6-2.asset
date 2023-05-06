@@ -9,13 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9007ee2e5c352f4287b71069579b7f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f45f3382325742e49bd01a9188a8d1c1, type: 3}
   m_Name: Admiral 6-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 9763001f303716d498fad399af36960f, type: 3}
+  sprite: {fileID: 21300000, guid: 4a798d6f62580bd4fac9a2567e10d90c, type: 3}
   timeToResearch: 2
   tier: 5
-  explanation: Removes all Level 0 cards from shop
-  displayIcon: 0
-  researchType: 7
-  changes: 1
+  researchName: Focused lookout
+  researchNameText:
+    mTerm: Admiral6-2Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Cannon Tower range increased by 5% for each action card played this
+    wave
+  explanationText:
+    mTerm: Admiral6-2Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  displayIcon: 1
+  researchType: 1
+  towerType: 7
+  outcome: 2

@@ -35,7 +35,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d01f37542845bf648ab2c2f7cc6c3834, type: 2}
     - {fileID: 11400000, guid: c68c48023f7864a4fbb72ce8255fa07f, type: 2}
     - {fileID: 11400000, guid: c68c48023f7864a4fbb72ce8255fa07f, type: 2}
-  - levelFrom: 3
+  - levelFrom: 2
     cards:
     - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
     - {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}
@@ -65,7 +65,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f57cb2426ed33e24ebc284406663a4a9, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
-  - levelFrom: 10
+  - levelFrom: 7
     cards:
     - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
     - {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}
@@ -99,7 +99,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f57cb2426ed33e24ebc284406663a4a9, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
-  - levelFrom: 14
+  - levelFrom: 9
     cards:
     - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
     - {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}
@@ -137,7 +137,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f57cb2426ed33e24ebc284406663a4a9, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
-  - levelFrom: 16
+  - levelFrom: 10
     cards:
     - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
     - {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}
@@ -179,7 +179,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f57cb2426ed33e24ebc284406663a4a9, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
     - {fileID: 11400000, guid: bee9638a81a4ffa41aef4dfb041a110f, type: 2}
-  - levelFrom: 18
+  - levelFrom: 11
     cards:
     - {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
     - {fileID: 11400000, guid: d3f6c104c174f0c43b0a12fa62d9ccb7, type: 2}

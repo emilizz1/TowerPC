@@ -33,6 +33,11 @@ public static class AchievementManager
 
     public static void CompleteAchievement(string name)
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam) 
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             SteamUserStats.GetStat(name, out trackedStat);
@@ -54,6 +59,11 @@ public static class AchievementManager
 
     public static void FinishedWave30()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             bool completed = false;
@@ -68,6 +78,11 @@ public static class AchievementManager
 
     public static void AllDeckUpgraded()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             bool completed = false;
@@ -82,6 +97,11 @@ public static class AchievementManager
 
     public static void GoldGotFromCoins(int amount)
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             SteamUserStats.GetStat(goldGotFromCoinsStat, out goldGotFromCoins);
@@ -101,6 +121,11 @@ public static class AchievementManager
 
     public static void KilledEnemies()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             SteamUserStats.GetStat(enemiesKilledStat, out enemiesKilled);
@@ -120,6 +145,11 @@ public static class AchievementManager
 
     public static void EnemiesFinished()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             SteamUserStats.GetStat(enemiesFinishedStat, out enemiesFinished);
@@ -129,7 +159,7 @@ public static class AchievementManager
 
             bool completed = false;
             SteamUserStats.GetAchievement(enemiesGotThough, out completed);
-            if (!completed && enemiesKilled >= 100)
+            if (!completed && enemiesFinished >= 100)
             {
                 SteamUserStats.SetAchievement(enemiesGotThough);
                 SteamUserStats.StoreStats();
@@ -139,6 +169,11 @@ public static class AchievementManager
 
     public static void FullLifeFinish()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             bool completed = false;
@@ -153,6 +188,11 @@ public static class AchievementManager
 
     public static void TowersOnMap()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             bool completed = false;
@@ -167,6 +207,11 @@ public static class AchievementManager
 
     public static void SpellCasted()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             SteamUserStats.GetStat(spellsCasterStat, out spellsCasted);
@@ -186,6 +231,11 @@ public static class AchievementManager
 
     public static void MaxedLevels()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             bool completed = false;
@@ -200,6 +250,11 @@ public static class AchievementManager
 
     public static void StormPlaced()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         if (SteamManager.Initialized)
         {
             currentStorms++;
@@ -215,6 +270,11 @@ public static class AchievementManager
 
     public static void StormRemoved()
     {
+        if (GameSettings.instance.demo || !GameSettings.instance.steam)
+        {
+            return;
+        }
+
         currentStorms--;
     }
 }

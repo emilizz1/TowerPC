@@ -12,13 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02417d2eec2def74894a092cefb9f947, type: 3}
   m_Name: Mage 1-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 3e6d0fee97b928f4980bd19723be5bfb, type: 3}
+  sprite: {fileID: 21300000, guid: b25650c8e8d89684699cee50d90825c3, type: 3}
   timeToResearch: 2
   tier: 0
-  explanation: Removing cards in Graveyard is cheaper by 40%
+  researchName: New graveyard equipment
+  researchNameText:
+    mTerm: Mage1-1Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Removing cards in graveyard is cheaper by 50%
+  explanationText:
+    mTerm: Mage1-1Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   displayIcon: 1
-  researchType: 3
+  researchType: 4
   type: 3
-  amount: -0.4
+  amount: -0.5
   usedFor: 1
   usedForType: 2

@@ -4,19 +4,12 @@ using UnityEngine;
 
 public static class PasiveTowerStatsController
 {
-    public static Dictionary<DamageTypes, Tower.TowerStats> pasiveStats = new Dictionary<DamageTypes, Tower.TowerStats>();
+    public static Dictionary<DamageTypes, TowerStats> pasiveStats = new Dictionary<DamageTypes, TowerStats>();
 
     public static int extraExperience;
 
-    public enum DamageTypes
-    {
-        Arrow,
-        Magic,
-        All,
-        None
-    }
 
-    public static void AddAdditionalPasiveStats(DamageTypes type, Tower.TowerStats stats)
+    public static void AddAdditionalPasiveStats(DamageTypes type, TowerStats stats)
     {
         AddNewStatToOldTowers(type, stats);
 
@@ -30,7 +23,7 @@ public static class PasiveTowerStatsController
         }
     }
 
-    static void AddNewStatToOldTowers(DamageTypes type, Tower.TowerStats stats)
+    static void AddNewStatToOldTowers(DamageTypes type, TowerStats stats)
     {
 
         foreach (Tower tower in TowerPlacer.allTowers)
@@ -43,9 +36,9 @@ public static class PasiveTowerStatsController
         }
     }
 
-    public static Tower.TowerStats GetStats(List<DamageTypes> types)
+    public static TowerStats GetStats(List<DamageTypes> types)
     {
-        Tower.TowerStats finalStats = new Tower.TowerStats();
+        TowerStats finalStats = new TowerStats();
 
         foreach(DamageTypes type in types)
         {
@@ -65,7 +58,14 @@ public static class PasiveTowerStatsController
 
     public static void Reset()
     {
-        pasiveStats = new Dictionary<DamageTypes, Tower.TowerStats>();
+        pasiveStats = new Dictionary<DamageTypes, TowerStats>();
         extraExperience = 0;
     }
+}
+public enum DamageTypes
+{
+    Arrow,
+    Magic,
+    All,
+    None
 }

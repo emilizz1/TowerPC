@@ -20,7 +20,7 @@ public class ExplosiveBullet : Bullet
         List<float> halfDamage = new List<float>();
         for (int i = 0; i < damage.Count; i++)
         {
-            halfDamage.Add(damage[i] / 2f);
+            halfDamage.Add(damage[i] / 2f * (1 + 0.1f * TurnController.actionsPlayed));
         }
         foreach (Enemy enemy in currentlyAliveEnemies)
         {
@@ -32,7 +32,7 @@ public class ExplosiveBullet : Bullet
             {
                 if (Vector3.Distance(target.transform.position, enemy.transform.position) < explosionRadius)
                 {
-                    enemy.GetComponent<Enemy>().DealDamage(halfDamage, damageColor);
+                    enemy.GetComponent<Enemy>().DealDamage(halfDamage, damageColor, additionalGoldOnKill + (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(TowerType.Naval) == 1 ? 1 : 0));
                 }
             }
         }

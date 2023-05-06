@@ -15,26 +15,26 @@ public class DifficultySelection : MonoBehaviour
 
     private void Start()
     {
-        if(ProgressManager.GetLevel("Base") >= 4)
+        if(SavedData.savesData.difficultiesUnlocked >= 1)
         {
             normalLock.SetActive(false);
             normalButtton.interactable = true;
         }
-        if(ProgressManager.GetLevel("Base") >= 8)
+        if(SavedData.savesData.difficultiesUnlocked >= 2)
         {
             hardLock.SetActive(false);
             hardButton.interactable = true;
         }
 
-        if(PlayerPrefs.GetInt("Difficulty" , 0) == 0)
+        if(SavedData.savesData.difficulty == 0)
         {
             EasyPressed();
         }
-        else if (PlayerPrefs.GetInt("Difficulty", 0) == 1)
+        else if (SavedData.savesData.difficulty == 1)
         {
             NoormalPressed();
         }
-        if (PlayerPrefs.GetInt("Difficulty", 0) == 2)
+        if (SavedData.savesData.difficulty == 2)
         {
             HardPressed();
         }
@@ -48,7 +48,8 @@ public class DifficultySelection : MonoBehaviour
 
         CharacterSelector.difficulty = 0;
 
-        PlayerPrefs.SetInt("Difficulty", 0);
+        SavedData.savesData.difficulty = 0;
+        SavedData.Save();
     }
 
     public void NoormalPressed()
@@ -59,7 +60,8 @@ public class DifficultySelection : MonoBehaviour
 
         CharacterSelector.difficulty = 1;
 
-        PlayerPrefs.SetInt("Difficulty", 1);
+        SavedData.savesData.difficulty = 1;
+        SavedData.Save();
     }
 
     public void HardPressed()
@@ -70,6 +72,7 @@ public class DifficultySelection : MonoBehaviour
 
         CharacterSelector.difficulty = 2;
 
-        PlayerPrefs.SetInt("Difficulty", 2);
+        SavedData.savesData.difficulty = 2;
+        SavedData.Save();
     }
 }

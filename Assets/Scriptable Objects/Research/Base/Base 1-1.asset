@@ -9,12 +9,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
+  m_Script: {fileID: 11500000, guid: 02417d2eec2def74894a092cefb9f947, type: 3}
   m_Name: Base 1-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: de56bdd56139f6d409055fc651cfdc2a, type: 3}
-  timeToResearch: 1
+  sprite: {fileID: 21300000, guid: f70bc53c060d4c84ebd5b3f6c1020d40, type: 3}
+  timeToResearch: 2
   tier: 0
-  explanation: Gain "Coins" card
-  displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: b70df3a1b291cbf4a8466498d20600f2, type: 2}
+  researchName: New storefront
+  researchNameText:
+    mTerm: Base1-1Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Buying cards is cheaper by 20%
+  explanationText:
+    mTerm: Base1-1Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  displayIcon: 1
+  researchType: 4
+  type: 3
+  amount: -0.2
+  usedFor: 1
+  usedForType: 0

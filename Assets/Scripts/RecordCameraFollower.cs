@@ -10,11 +10,11 @@ public class RecordCameraFollower : MonoSingleton<RecordCameraFollower>
 
     public void TileAdded(Vector2 placedTo)
     {
-        int maxCoordinate = Mathf.RoundToInt (Mathf.Max(Mathf.Abs(placedTo.x), Mathf.Abs(placedTo.y)));
-        if(maxCoordinate > currentStep)
-        {
-            currentStep++;
+       // int maxCoordinate = Mathf.RoundToInt (Mathf.Max(Mathf.Abs(placedTo.x), Mathf.Abs(placedTo.y)));
+       // if(maxCoordinate > currentStep)
+       // {
             animator.PerformTween(currentStep);
-        }
+        currentStep++;
+        // }
     }
 }

@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
 
     internal GameObject target;
     internal List<float> damage;
+    internal int additionalGoldOnKill;
 
     GameObject endParticleInstance;
     bool returning;
@@ -49,7 +50,7 @@ public class Bullet : MonoBehaviour
 
     internal virtual void TargetReached()
     {
-        target.GetComponent<Enemy>().DealDamage(damage, damageColor);
+        target.GetComponent<Enemy>().DealDamage(damage, damageColor, additionalGoldOnKill);
         if (endParticles != null)
         {
             endParticleInstance = Instantiate(endParticles, target.transform);
@@ -77,6 +78,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(endParticleInstance);
         }
+        additionalGoldOnKill = 0;
         ObjectPools.instance.GetPool(ObjectPools.PoolNames.basicBullet).ReturnObject(gameObject);
     }
 }

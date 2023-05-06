@@ -262,6 +262,12 @@ MonoBehaviour:
   amountText: {fileID: 1609763114122247018}
   cardDisplayPrefab: {fileID: 928959558136333459, guid: cb8d5cc215805d24e8bca59ec3b375f8, type: 3}
   animator: {fileID: 0}
+  discardText:
+    mTerm: Discard
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
 --- !u!1 &1609763114122247016
 GameObject:
   m_ObjectHideFlags: 0

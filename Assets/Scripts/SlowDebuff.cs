@@ -14,6 +14,10 @@ public class SlowDebuff : Debuff
 
     internal override void ApplyDebuff()
     {
+        if (GlobalConditionHolder.slowDisabled)
+        {
+            return;
+        }
         base.ApplyDebuff();
         myEnemy.movement.additionalSpeed -= info.effectAmount;
         myEnemy.debuffIcons.AddNewIcon(info.icon);

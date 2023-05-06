@@ -11,7 +11,7 @@ public class Structure : MonoBehaviour
     [SerializeField] GameObject canvas;
     [SerializeField] AudioSource audioSource;
 
-    bool active;
+    internal bool active;
 
     public virtual void Activate(TerrainBonus terrain)
     {
@@ -21,7 +21,7 @@ public class Structure : MonoBehaviour
             return;
         }
         active = true;
-        SoundsController.instance.GetAudioClip("TowerPlaced");
+       audioSource.clip = SoundsController.instance.GetAudioClip("TowerPlaced");
         audioSource.Play();
     }
 }

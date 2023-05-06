@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 6887258468916319880}
   - component: {fileID: 2620885198649677726}
   - component: {fileID: 3465428766155189677}
+  - component: {fileID: 1382405791622430557}
   m_Layer: 0
   m_Name: Spot 1 0 (5)
   m_TagString: Untagged
@@ -1053,6 +1054,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &1382405791622430557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895120440839406463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973879310463029449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,6 +2319,7 @@ GameObject:
   - component: {fileID: 4165204795626167904}
   - component: {fileID: 7959246895210295454}
   - component: {fileID: 3659672258794686963}
+  - component: {fileID: 4424176455334918041}
   m_Layer: 0
   m_Name: Spot 5 0 (2)
   m_TagString: Untagged
@@ -2404,6 +2418,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &4424176455334918041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219812418851117928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2223204567927096997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,6 +3011,7 @@ GameObject:
   - component: {fileID: 2771657070645226959}
   - component: {fileID: 2623433050072107945}
   - component: {fileID: 6056447297572254041}
+  - component: {fileID: 8410785497653273610}
   m_Layer: 0
   m_Name: Spot 3 0 (2)
   m_TagString: Untagged
@@ -3084,6 +3111,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3875363299569879386}
   terrainSpawnChance: 1
+--- !u!114 &8410785497653273610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568249941704789698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2820892361790799451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,6 +3562,7 @@ GameObject:
   - component: {fileID: 7740931168282464210}
   - component: {fileID: 8397759651338368715}
   - component: {fileID: 6304521436902552134}
+  - component: {fileID: 1363357138076296953}
   m_Layer: 0
   m_Name: Spot 2 0 (2)
   m_TagString: Untagged
@@ -3622,6 +3662,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3136483571898789936}
   terrainSpawnChance: 1
+--- !u!114 &1363357138076296953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215126160953324019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3272214719238962162
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,6 +4479,16 @@ MonoBehaviour:
   - {fileID: 951365213917479557}
   - {fileID: 3742766632910579803}
   - {fileID: 4614507430082511916}
+  roadSpots:
+  - {fileID: 549934836800790467}
+  - {fileID: 1363357138076296953}
+  - {fileID: 8410785497653273610}
+  - {fileID: 4896636068226813478}
+  - {fileID: 4424176455334918041}
+  - {fileID: 6499662154280956500}
+  - {fileID: 8838648437879587231}
+  - {fileID: 1382405791622430557}
+  - {fileID: 8285900786483989028}
 --- !u!1 &3817363655079598041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +5754,7 @@ GameObject:
   - component: {fileID: 3169047043990895113}
   - component: {fileID: 7487872009477572795}
   - component: {fileID: 9061931783082732247}
+  - component: {fileID: 8285900786483989028}
   m_Layer: 0
   m_Name: Spot 2 0 (5)
   m_TagString: Untagged
@@ -5790,6 +5853,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &8285900786483989028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558092228566425792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4730012956471327095
 GameObject:
   m_ObjectHideFlags: 0
@@ -6715,6 +6790,7 @@ GameObject:
   - component: {fileID: 8327957787458591954}
   - component: {fileID: 5494661456284922400}
   - component: {fileID: 6278952295744205237}
+  - component: {fileID: 4896636068226813478}
   m_Layer: 0
   m_Name: Spot 4 0 (2)
   m_TagString: Untagged
@@ -6814,6 +6890,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 8445040011475345600}
   terrainSpawnChance: 1
+--- !u!114 &4896636068226813478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574062620042538967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5634365474690242381
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,6 +8923,7 @@ GameObject:
   - component: {fileID: 3594943167606092708}
   - component: {fileID: 3979844035093141889}
   - component: {fileID: 5165248945017495787}
+  - component: {fileID: 8838648437879587231}
   m_Layer: 0
   m_Name: Spot 2 0 (4)
   m_TagString: Untagged
@@ -8934,6 +9023,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 5551917383000068161}
   terrainSpawnChance: 1
+--- !u!114 &8838648437879587231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7102190674830338307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7117098491895862372
 GameObject:
   m_ObjectHideFlags: 0
@@ -9343,6 +9444,7 @@ GameObject:
   - component: {fileID: 5770431830242023414}
   - component: {fileID: 7703556440993667768}
   - component: {fileID: 1265005317449667872}
+  - component: {fileID: 549934836800790467}
   m_Layer: 0
   m_Name: Spot 5 0 (1)
   m_TagString: Untagged
@@ -9441,6 +9543,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 0}
   terrainSpawnChance: 1
+--- !u!114 &549934836800790467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440970474683643889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7575929807036576845
 GameObject:
   m_ObjectHideFlags: 0
@@ -10784,6 +10898,7 @@ GameObject:
   - component: {fileID: 8531941380781199340}
   - component: {fileID: 8710497074415793619}
   - component: {fileID: 8769891986411622158}
+  - component: {fileID: 6499662154280956500}
   m_Layer: 0
   m_Name: Spot 2 0 (3)
   m_TagString: Untagged
@@ -10883,6 +10998,18 @@ MonoBehaviour:
   myTile: {fileID: 7004037675673740507}
   spawnPoint: {fileID: 3195012281290290843}
   terrainSpawnChance: 1
+--- !u!114 &6499662154280956500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528636687624155216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb080c41eb2e7e4bb951f40678ad9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8599150866962934258
 GameObject:
   m_ObjectHideFlags: 0

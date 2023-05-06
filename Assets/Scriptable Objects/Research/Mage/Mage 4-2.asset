@@ -9,16 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d560c512732034e861e87e3d203c5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 221dcabd7c94cf64cafcc16ada9671ee, type: 3}
   m_Name: Mage 4-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1a20c0a8d3047df418451660dfa18ec7, type: 3}
-  timeToResearch: 2
+  sprite: {fileID: 21300000, guid: 14976782f768e4e4489d77a0498b4a82, type: 3}
+  timeToResearch: 3
   tier: 3
-  explanation: Increase max Mana by 70
+  researchName: Improved spell seals
+  researchNameText:
+    mTerm: Mage4-2Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Spells stay for 1 more turn
+  explanationText:
+    mTerm: Mage4-2Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   displayIcon: 1
-  researchType: 4
-  manaRegenPerSecond: 0
-  maxMana: 70
-  incomeIncreased: 0
-  addMoney: 0
+  researchType: 2
+  singleResearch: 11

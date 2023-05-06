@@ -9,12 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
+  m_Script: {fileID: 11500000, guid: f45f3382325742e49bd01a9188a8d1c1, type: 3}
   m_Name: Mage 3-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 1fa98bb848ee8cc4781fe860e09283c3, type: 3}
-  timeToResearch: 1
+  sprite: {fileID: 21300000, guid: 50e708a15c994354c8b11624eb65dce9, type: 3}
+  timeToResearch: 2
   tier: 2
-  explanation: Gain "Snow Storm" <sprite=0> card
-  displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: fec50a2ecc96c7e4fb53a8d57a1ef724, type: 2}
+  researchName: Elemental combinations
+  researchNameText:
+    mTerm: Mage3-2Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Arcane Tower deals double damage to all enemies, but attack speed
+    is reduced by 20%
+  explanationText:
+    mTerm: Mage3-2Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  displayIcon: 1
+  researchType: 1
+  towerType: 2
+  outcome: 2

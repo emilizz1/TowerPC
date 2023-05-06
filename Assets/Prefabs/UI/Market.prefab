@@ -749,7 +749,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 321.00488}
-  m_SizeDelta: {x: 1000, y: 97.1934}
+  m_SizeDelta: {x: 1500, y: 97.1934}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5980892543040899654
 CanvasRenderer:
@@ -988,6 +988,42 @@ MonoBehaviour:
   marketDecor: {fileID: 1999074077682146506}
   forgeDecor: {fileID: 4186780789009595572}
   graveyardDecor: {fileID: 1200124942465880088}
+  marketName:
+    mTerm: Modification_MarketName
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  marketDescription:
+    mTerm: Modification_MarketDescription
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  forgeName:
+    mTerm: Modification_ForgeName
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  forgeDescription:
+    mTerm: Modification_ForgeDescription
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  graveyardName:
+    mTerm: Modification_GraveyardName
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  graveyardDescription:
+    mTerm: Modification_GraveyardDescription
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
 --- !u!114 &5357744665505003432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1122,7 @@ GameObject:
   - component: {fileID: 5357744665778491745}
   - component: {fileID: 5357744665778491747}
   - component: {fileID: 5357744665778491744}
+  - component: {fileID: 2529059776671646246}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1110,7 +1147,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 6.2}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5357744665778491747
 CanvasRenderer:
@@ -1170,9 +1207,9 @@ MonoBehaviour:
   m_fontSize: 54
   m_fontSizeBase: 54
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 54
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1209,6 +1246,45 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2529059776671646246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5357744665778491774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: CloseButton
+  mTermSecondary: 
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  AllowParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &5357744665933766185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1320,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 6}
-  m_SizeDelta: {x: 1000, y: 300}
+  m_SizeDelta: {x: 680.39, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5357744665933766186
 CanvasRenderer:
@@ -1304,9 +1380,9 @@ MonoBehaviour:
   m_fontSize: 80
   m_fontSizeBase: 80
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 80
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1480,9 +1556,9 @@ MonoBehaviour:
   - {fileID: 7938326061535406086}
   basePrice: 5
   marketCards: {fileID: 11400000, guid: 7197d7db3bee0a74085ff8409560d92f, type: 2}
-  baseMarketSize: 0
-  baseForgeSize: 0
-  baseGraveyardSize: 0
+  baseMarketSize: 5
+  baseForgeSize: 3
+  baseGraveyardSize: 2
 --- !u!114 &5357744667108530899
 MonoBehaviour:
   m_ObjectHideFlags: 0

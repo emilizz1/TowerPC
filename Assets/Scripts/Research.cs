@@ -2,15 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using I2.Loc;
 
 public class Research : ScriptableObject
 {
     public Sprite sprite;
     public int timeToResearch;
     public int tier;
+    public string researchName;
+    public LocalizedString researchNameText;
     public string explanation;
+    public LocalizedString explanationText;
     public bool displayIcon;
     public ResearchType researchType;
+
+    public virtual void Initialize()
+    {
+
+    }
 
     public virtual void Researched()
     {
@@ -25,14 +34,13 @@ public class Research : ScriptableObject
     public enum ResearchType
     {
         Card,
-        Castle,
-        Charges,
-        Cost,
+        SecondTowerAbility,
+        SingleCondition,
+        CastleHealth,
+        CostMultiplayer,
         Currency,
-        Experience,
         Hand,
-        Marketplace,
         Terrain,
-        Stats
+        TowerStats
     }
 }

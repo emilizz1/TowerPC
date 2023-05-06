@@ -19,7 +19,7 @@ MonoBehaviour:
   manaCost: 15
   buyCostMultiplayer: 1.33
   cardLevel: 1
-  description: Upgrade random card in hand
+  description: Upgrade a random card in hand
   damageTypes: 
   addMoney: 0
   addMana: 0

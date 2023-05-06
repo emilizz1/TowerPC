@@ -9,12 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
+  m_Script: {fileID: 11500000, guid: f45f3382325742e49bd01a9188a8d1c1, type: 3}
   m_Name: Admiral 2-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: da6a7a6f6e7799b44bfcae36a47b9f2c, type: 3}
+  sprite: {fileID: 21300000, guid: feb4aa752e204ac418159a951af06ce1, type: 3}
   timeToResearch: 2
   tier: 1
-  explanation: Gain "Pile of Coins" <sprite=0> card
-  displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: 5952632495197694ebcabb8716a9a9b4, type: 2}
+  researchName: Increased explosion shards
+  researchNameText:
+    mTerm: Admiral2-2Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Naval Tower explosion damage increased by 10% for each action played
+    this wave
+  explanationText:
+    mTerm: Admiral2-2Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  displayIcon: 1
+  researchType: 1
+  towerType: 8
+  outcome: 2

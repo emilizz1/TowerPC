@@ -46,12 +46,16 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         image.sprite = cardToDisplay.cardImage;
 
         string keywordText = displayedCard.cardType.ToString();
-        foreach (PasiveTowerStatsController.DamageTypes type in displayedCard.damageTypes)
+        foreach (DamageTypes type in displayedCard.damageTypes)
         {
-            if (type != PasiveTowerStatsController.DamageTypes.None)
+            if (type != DamageTypes.None)
             {
                 keywordText += ", " + type.ToString();
             }
+        }
+        if(cardToDisplay.cardTag != CardTags.None)
+        {
+            keywordText += ", " + cardToDisplay.cardTag.ToString();
         }
         keywords.text = keywordText;
 
@@ -62,7 +66,15 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         typeFg.color = CardTypeColors.GetColor(displayedCard.cardType);
 
-        description.text = cardToDisplay.description;
+        if (cardToDisplay.cardTag == CardTags.Improvement && GlobalConditionHolder.doubleImrpovementSpells)
+        {
+            SpellCard spellCard = (SpellCard)cardToDisplay;
+            description.text = spellCard.advancedDescription;
+        }
+        else
+        {
+            description.text = cardToDisplay.GetDescription();
+        }
 
         for (int i = 0; i < cardLevel.Count; i++)
         {
@@ -119,6 +131,16 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             newPos.z = 0f;
             transform.position = Input.mousePosition + diff;
             CheckIfActivatable();
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                dragging = false;
+                if (draggingCoroutine != null)
+                {
+                    StopCoroutine(draggingCoroutine);
+                }
+                ReturnCardToHand(); 
+            }
             yield return null;
         }
 
@@ -133,8 +155,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 if (TowerPlacer.towerPlaced)
                 {
-                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
-                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                    Money.instance.TryPaying(Mathf.Max( Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount),0));
+                    Mana.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
                     CardUsed();
                 }
 
@@ -147,8 +169,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             if (displayedCard.cardType == CardType.Action)
             {
-                Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
-                Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                Money.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
+                Mana.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
                 ActionCard actionCard = (ActionCard)displayedCard;
                 actionCard.PlayAction();
                 CardUsed();
@@ -160,8 +182,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 if (!SpellPlacer.spellPlaced)
                 {
-                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
-                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                    Money.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
+                    Mana.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
                     SpellPlacer.SpellPlaced();
                     SpellPlacer.spellToPlace = null;
                     front.SetActive(true);
@@ -183,8 +205,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 if (StructurePlacer.structurePlaced)
                 {
-                    Money.instance.TryPaying(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
-                    Mana.instance.TryPaying(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount));
+                    Money.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
+                    Mana.instance.TryPaying(Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType) - CostController.currentTurnDiscount), 0));
                     CardUsed();
                 }
 
@@ -204,6 +226,7 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void CardUsed()
     {
 
+        TurnController.cardsPlayed++;
         Hand.instance.handCards.Remove(displayedCard);
         Discard.instance.DiscardCardFromHand(this);
 
@@ -291,16 +314,16 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     bool CheckIfCardCanBePaid()
     {
-        if(!Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount))
+        if(!Money.instance.CheckAmount(Mathf.Max(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount,0)))
         {
             notEnoughMoney.PerformTween(0);
         }
-        if (!Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount))
+        if (!Mana.instance.CheckAmount(Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount, 0)))
         {
             notEnoughMana.PerformTween(0);
         }
-        return Money.instance.CheckAmount(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount) &&
-            Mana.instance.CheckAmount(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount);
+        return Money.instance.CheckAmount(Mathf.Max(Mathf.CeilToInt(displayedCard.moneyCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount, 0)) &&
+            Mana.instance.CheckAmount(Mathf.Max(Mathf.CeilToInt(displayedCard.manaCost * CostController.GetPlayingCostMultiplayer(displayedCard.cardType)) - CostController.currentTurnDiscount, 0));
     }
 
     private void ActivateCard()

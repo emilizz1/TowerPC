@@ -9,12 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
+  m_Script: {fileID: 11500000, guid: f45f3382325742e49bd01a9188a8d1c1, type: 3}
   m_Name: Knight 1-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: d18cb80e145bc804599bbfbfdc30e31c, type: 3}
-  timeToResearch: 1
+  sprite: {fileID: 21300000, guid: 4b61cfb0a0d4a5943a1d536a8f284e88, type: 3}
+  timeToResearch: 2
   tier: 0
-  explanation: Gain "Spear Tower" card
-  displayIcon: 0
-  cardToGet: {fileID: 11400000, guid: 38728a770d49f4e44afd7b7078d60032, type: 2}
+  researchName: Arrow manufacturing practice
+  researchNameText:
+    mTerm: Knight1-1Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Each Archer Tower increases Castle Tower damage by 5%
+  explanationText:
+    mTerm: Knight1-1Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  displayIcon: 1
+  researchType: 1
+  towerType: 0
+  outcome: 1

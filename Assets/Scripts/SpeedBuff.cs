@@ -15,13 +15,13 @@ public class SpeedBuff : Buff
     internal override void ApplyBuff()
     {
         base.ApplyBuff();
-        myTower.statsMultiplayers.fireRate += info.effectAmount;
+        myTower.statsMultiplayers.fireRate -= info.effectAmount;
     }
 
     internal override void RemoveBuff()
     {
         base.RemoveBuff();
-        myTower.statsMultiplayers.fireRate -= info.effectAmount;
+        myTower.statsMultiplayers.fireRate += info.effectAmount;
         stacks--;
 
         if(stacks == 0)

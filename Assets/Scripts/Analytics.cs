@@ -39,6 +39,7 @@ public class Analytics : MonoSingleton<Analytics>
             { "FirstCharName", CharacterSelector.firstCharacter.characterName},
             { "SecondCharLevel", ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) },
             { "SecondCharName", CharacterSelector.secondCharacter.characterName},
+            {"DifficultySelected", CharacterSelector.difficulty}
         };
 
         AnalyticsService.Instance.CustomData("MatchStart", parameters);
@@ -59,6 +60,7 @@ public class Analytics : MonoSingleton<Analytics>
             { "SecondCharLevel", ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName) },
             { "SecondCharName", CharacterSelector.secondCharacter.characterName},
             { "WavesPlayed", TurnController.currentTurn },
+            { "Difficulty",  CharacterSelector.difficulty},
         };
 
         AnalyticsService.Instance.CustomData("FinishedMatch", parameters);

@@ -37,6 +37,10 @@ public class Spell : MonoBehaviour
         {
             durationNumber.text = duration > 1 ? duration.ToString() : "";
         }
+        if (GlobalConditionHolder.additionalDuration)
+        {
+            duration++;
+        }
         active = false;
         enemiesInside = new List<GameObject>();
     }
@@ -81,6 +85,10 @@ public class Spell : MonoBehaviour
     {
         active = true;
         audioSource.Play();
+        if (GlobalConditionHolder.goldForSpells)
+        {
+            Money.instance.AddCurrency(SpellPlacer.activeSpells.Count, false);
+        }
         if (rangeSprite != null)
         {
             rangeSprite.gameObject.SetActive(false);

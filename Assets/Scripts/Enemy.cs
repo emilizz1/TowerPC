@@ -27,9 +27,9 @@ public class Enemy : MonoBehaviour
 
     [Header("Stats")]
     public int moneyOnKill;
-    [SerializeField] List<float> health;
-    [SerializeField] float speed = 3;
-    [SerializeField] int damage;
+    public List<float> maxHealth;
+    public float speed = 3;
+    public int damage;
     [SerializeField] EnemySpecial special;
     [SerializeField] ObjectPools.PoolNames poolName;
 
@@ -37,15 +37,24 @@ public class Enemy : MonoBehaviour
     internal List<float> tempMaxHealth;
     internal bool returning;
     internal bool summmoned;
+    internal bool invincable;
     float currentSkill;
     List<Color> rendererColors;
+    bool firstHitTaken;
+    float passiveDamageTimer;
+    List<float> passiveDamage = new List<float>();
+    internal int currentMoneyOnKill;
 
     void Start()
     {
         if (rendererColors == null)
         {
             SetupRendererColors();
-        } 
+        }
+
+        passiveDamage.Add(1f);
+        passiveDamage.Add(1f);
+        passiveDamage.Add(1f);
     }
 
     private void SetupRendererColors()
@@ -78,6 +87,16 @@ public class Enemy : MonoBehaviour
                 UpdateBars();
             }
         }
+
+        if (GlobalConditionHolder.enemyDamage)
+        {
+            passiveDamageTimer += Time.deltaTime;
+            if(passiveDamageTimer >= 1f)
+            {
+                passiveDamageTimer = 0f;
+                DealDamage(passiveDamage, Color.grey);
+            }
+        }
     }
 
     public void ResetEnemy()
@@ -102,9 +121,9 @@ public class Enemy : MonoBehaviour
         tempMaxHealth.Add(0);
 
         currentHealth = new List<float>();
-        currentHealth.Add(health[0]);
-        currentHealth.Add(health[1]);
-        currentHealth.Add(health[2]);
+        currentHealth.Add(maxHealth[0]);
+        currentHealth.Add(maxHealth[1]);
+        currentHealth.Add(maxHealth[2]);
         currentSkill = 0;
         if (special != null)
         {
@@ -113,23 +132,33 @@ public class Enemy : MonoBehaviour
 
         UpdateBars();
 
-        movement.ResetEnemy();
         debuffIcons.ResetIcons();
+        movement.ResetEnemy();
+
+        foreach(Debuff debuff in GetComponents<Debuff>())
+        {
+            Destroy(debuff);
+        }
+
+        currentMoneyOnKill = 0;
+        invincable = false;
+
+        firstHitTaken = false;
     }
 
     public void UpdateBars()
     {
-        healthBar.fillAmount = currentHealth[0] / (health[0] + tempMaxHealth[0]);
+        healthBar.fillAmount = currentHealth[0] / (maxHealth[0] + tempMaxHealth[0]);
         healthBarBg.fillAmount = healthBar.fillAmount > 0 ? 0.04f *  (1f - healthBar.fillAmount) + healthBar.fillAmount : 0f;
-        healthBarCollums.pixelsPerUnitMultiplier = (float)(health[0] + tempMaxHealth[0]) / 40f;
+        healthBarCollums.pixelsPerUnitMultiplier = (float)(maxHealth[0] + tempMaxHealth[0]) / 40f;
 
-        armorBar.fillAmount = currentHealth[1] / (health[1] + tempMaxHealth[1]);
+        armorBar.fillAmount = currentHealth[1] / (maxHealth[1] + tempMaxHealth[1]);
         armorBarBg.fillAmount = armorBar.fillAmount > 0 ? 0.04f * (1 - armorBar.fillAmount) + armorBar.fillAmount : 0f;
-        armorBarCollums.pixelsPerUnitMultiplier = (float)(health[1] + tempMaxHealth[1]) / 40f;
+        armorBarCollums.pixelsPerUnitMultiplier = (float)(maxHealth[1] + tempMaxHealth[1]) / 40f;
 
-        shieldBar.fillAmount = currentHealth[2] / (health[2] + tempMaxHealth[2]);
+        shieldBar.fillAmount = currentHealth[2] / (maxHealth[2] + tempMaxHealth[2]);
         shieldBarBg.fillAmount = shieldBar.fillAmount > 0 ? 0.04f * (1 - shieldBar.fillAmount) + shieldBar.fillAmount : 0f;
-        shieldBarCollums.pixelsPerUnitMultiplier = (float)(health[2] + tempMaxHealth[2]) / 40f;
+        shieldBarCollums.pixelsPerUnitMultiplier = (float)(maxHealth[2] + tempMaxHealth[2]) / 40f;
 
         skillBar.fillAmount = currentSkill / 1f;
         skillBarBg.fillAmount = skillBar.fillAmount > 0 ? 0.04f * (1 - skillBar.fillAmount) + skillBar.fillAmount : 0f;
@@ -146,15 +175,28 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void DealDamage(List<float> damages, Color damageColor)
+    public virtual void DealDamage(List<float> damages, Color damageColor, int additionalGoldOnKill = 0)
     {
-        if (!gameObject.activeInHierarchy || currentHealth[0] <= 0f)
+        if (!gameObject.activeInHierarchy || currentHealth[0] <= 0f || invincable)
         {
             return;
         }
 
-        float damagePercentageDone = 1f;
+        if (GlobalConditionHolder.noGold)
+        {
+            currentMoneyOnKill -= moneyOnKill;
+        }
 
+        if(GlobalConditionHolder.firstHitDoubleDamage && !firstHitTaken)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                damages[i] += damages[i];
+            }
+        }
+        firstHitTaken = true;
+
+        float damagePercentageDone = 1f;
 
         float damageToShow = 0f;
 
@@ -183,7 +225,7 @@ public class Enemy : MonoBehaviour
             healthBar.fillAmount = 0f;
             if (!summmoned)
             {
-                Money.instance.AddCurrency(moneyOnKill, true);
+                Money.instance.AddCurrency(currentMoneyOnKill + additionalGoldOnKill, true);
                 EnemyManager.instance.enemiesKilled++;
                 AchievementManager.KilledEnemies();
             }

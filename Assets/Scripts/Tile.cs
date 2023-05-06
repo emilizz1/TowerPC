@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 [Serializable]
 public class Lane
@@ -12,6 +13,9 @@ public class Lane
     public GameObject expandCanvas;
     public Button button;
     public bool open = true;
+    public List<Image> enemiesSprites;
+    public List<TextMeshProUGUI> enemiesAmount;
+
     internal Tile myTile;
     internal Lane prevLane;
 }
@@ -20,6 +24,7 @@ public class Tile : MonoBehaviour
 {
     public List<Lane> lanes;
     public List<Spot> allSpots;
+    public List<RoadSpot> roadSpots;
 
     internal Vector2 coordinates;
 
@@ -74,6 +79,10 @@ public class Tile : MonoBehaviour
             if (lane.expandCanvas != null)
             {
                 lane.expandCanvas.SetActive(lane.open);
+                if (lane.open && GlobalConditionHolder.showUpcomingEnemies)
+                {
+
+                }
             }
         }
     }
@@ -118,7 +127,7 @@ public class Tile : MonoBehaviour
         return laneEnds;
     }
 
-    public List<Spot> GetAdjacentSpots(Spot startingSpot, bool shouldIgnorTerrain = false)
+    public List<Spot> GetAdjacentSpots(Spot startingSpot, bool shouldIgnoreTerrain = false)
     {
         List<Spot> adjacentSpots = new List<Spot>();
         Vector3 spotPos = startingSpot.transform.position;
@@ -131,7 +140,7 @@ public class Tile : MonoBehaviour
         {
             if (spot.gameObject.activeSelf)
             {
-                if (shouldIgnorTerrain || spot.terrainBonus.Count == 0)
+                if (shouldIgnoreTerrain || spot.terrainBonus.Count == 0)
                 {
                     foreach (Vector3 looking in lookingFor)
                     {
@@ -140,6 +149,51 @@ public class Tile : MonoBehaviour
                             adjacentSpots.Add(spot);
                         }
                     }
+                }
+            }
+        }
+        return adjacentSpots;
+    }
+
+    public List<RoadSpot> GettAllRoadSpotsInTwoRange(Spot startingSpot)
+    {
+        List<RoadSpot> adjacentSpots = new List<RoadSpot>();
+        Vector3 spotPos = startingSpot.transform.position;
+        List<Vector3> lookingFor = new List<Vector3>();
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x+1, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x-1, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x+1, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x-1, spotPos.y, spotPos.z + 1));
+
+
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z+1));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z-1));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z+2));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z-2));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z+1));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z-1));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z-2));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z+2));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z-2));
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z-2));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z+2));
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z+2));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z+2));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z-2));
+
+        foreach (RoadSpot spot in roadSpots)
+        {
+            foreach (Vector3 looking in lookingFor)
+            {
+                if (spot.transform.position == looking)
+                {
+                    adjacentSpots.Add(spot);
                 }
             }
         }

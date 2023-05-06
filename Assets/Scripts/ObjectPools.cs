@@ -20,6 +20,7 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         enemyArmor = 1,
         enemyShield = 2,
         enemyHound = 3,
+        enemyBandit = 4,
 
         enemyHealthH = 25,
         enemyArmorH = 26,
@@ -34,7 +35,12 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         arrow =102,
         spear = 103,
         explosion = 104,
-        dart = 105
+        dart = 105,
+        crystal = 106,
+        energy = 107,
+        castleArrow = 108,
+
+        trap = 150
 
     }
 

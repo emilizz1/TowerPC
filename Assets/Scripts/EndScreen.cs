@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using I2.Loc;
 
 public class EndScreen : MonoSingleton<EndScreen>
 {
@@ -28,6 +29,20 @@ public class EndScreen : MonoSingleton<EndScreen>
     [SerializeField] List<EndScreenUnlock> endScreenUnlocks;
     [SerializeField] BaseLevelUpDescriptions baseLevelUpDescriptions;
 
+    [SerializeField] Character.LevelUpDescription newWavesDescription;
+    [SerializeField] Character.LevelUpDescription normalDifficultyDescription;
+    [SerializeField] Character.LevelUpDescription hardDifficultyDescription;
+    [SerializeField] Character.LevelUpDescription nightmareDifficultyDescription;
+
+    [SerializeField] LocalizedString winText;
+    [SerializeField] LocalizedString loseText;
+    [SerializeField] LocalizedString wavesText;
+    [SerializeField] LocalizedString enemiesText;
+    [SerializeField] LocalizedString demoMaxText;
+    [SerializeField] LocalizedString maxText;
+    [SerializeField] LocalizedString playerLevelText;
+    [SerializeField] LocalizedString levelText;
+
     int startingBaseLevel;
     int startingBaseProgress;
     int startingFirstCharacterProgress;
@@ -36,16 +51,23 @@ public class EndScreen : MonoSingleton<EndScreen>
     int startingSecondCharacterLevel;
 
     int unlocksShowed;
+    bool appeared;
     float timePassed = 0;
 
     public void Appear(string nameText)
     {
-        bigName.text = nameText;
+        if (appeared)
+        {
+            return;
+        }
+        appeared = true;
+
+        bigName.text = nameText == "Win!"? winText : loseText;
         SoundsController.instance.PlayOneShot(nameText == "Win!" ? "Win!" : "Lose");
 
         if (nameText == "Win!")
         {
-            if (TurnController.currentTurn == 30)
+            if (TurnController.currentTurn >= 30)
             {
                 AchievementManager.FinishedWave30();
             }
@@ -53,23 +75,71 @@ public class EndScreen : MonoSingleton<EndScreen>
             {
                 AchievementManager.FullLifeFinish();
             }
+
+            int winsBefore = SavedData.savesData.wins;
+            if(winsBefore < 10)
+            {
+                endScreenUnlocks[unlocksShowed].gameObject.SetActive(true);
+                endScreenUnlocks[unlocksShowed].Display(newWavesDescription);
+                unlocksShowed++;
+            }
+
+            if(SavedData.savesData.difficulty == 0)
+            {
+                if(SavedData.savesData.difficulty == 0)
+                {
+                    SavedData.savesData.difficultiesUnlocked = 1;
+                    endScreenUnlocks[unlocksShowed].gameObject.SetActive(true);
+                    endScreenUnlocks[unlocksShowed].Display(normalDifficultyDescription);
+                    unlocksShowed++;
+                }
+            }
+            else if (SavedData.savesData.difficulty == 1)
+            {
+                if (SavedData.savesData.difficulty == 1)
+                {
+                    SavedData.savesData.difficultiesUnlocked = 2;
+                    endScreenUnlocks[unlocksShowed].gameObject.SetActive(true);
+                    endScreenUnlocks[unlocksShowed].Display(hardDifficultyDescription);
+                    unlocksShowed++;
+                }
+            }
+            else if (SavedData.savesData.difficulty == 2)
+            {
+                if (SavedData.savesData.difficulty == 2)
+                {
+                    SavedData.savesData.difficultiesUnlocked = 3;
+                    endScreenUnlocks[unlocksShowed].gameObject.SetActive(true);
+                    endScreenUnlocks[unlocksShowed].Display(nightmareDifficultyDescription);
+                    unlocksShowed++;
+                }
+            }
+
+            SavedData.savesData.wins += 1;
         }
 
-        PlayerPrefs.SetInt("GamesPlayed", EnemyManager.instance.currentPlay + 1);
+        SavedData.savesData.gamesPlayed = EnemyManager.instance.currentPlay + 1;
+        SavedData.Save();
         Analytics.instance.FinishedMatch();
 
         Time.timeScale = 0f;
-        wavesSurvived.text = "Waves Survived: " + TurnController.currentTurn.ToString();
-        enemiesKilled.text = "Enemies Stopped: " + EnemyManager.instance.enemiesKilled;
+        wavesSurvived.text = wavesText +" " + TurnController.currentTurn.ToString();
+        enemiesKilled.text = enemiesText +" " + EnemyManager.instance.enemiesKilled;
 
         parent.SetActive(true);
 
         startingBaseLevel = ProgressManager.GetLevel("Base");
         startingBaseProgress = ProgressManager.GetProgress("Base");
-        baseLevel.text = "Player Level: " + startingBaseLevel;
-        if (ProgressManager.baseLevelUps.Length == startingBaseLevel - 1)
+        baseLevel.text = playerLevelText +" " + startingBaseLevel;
+
+        if(GameSettings.instance.demo && startingBaseLevel - 1 >= 2)
         {
-            baseProgress.text = "Max";
+            baseProgress.text = demoMaxText;
+            baseFill.fillAmount = 1f;
+        }
+        else if (ProgressManager.baseLevelUps.Length <= startingBaseLevel - 1)
+        {
+            baseProgress.text = maxText;
             baseFill.fillAmount = 1f;
         }
         else
@@ -80,11 +150,16 @@ public class EndScreen : MonoSingleton<EndScreen>
 
         startingFirstCharacterLevel = ProgressManager.GetLevel(CharacterSelector.firstCharacter.characterName);
         startingFirstCharacterProgress = ProgressManager.GetProgress(CharacterSelector.firstCharacter.characterName);
-        firstLevel.text = "Level: " + startingFirstCharacterLevel;
+        firstLevel.text = levelText +" " + startingFirstCharacterLevel;
         firstIcon.sprite = CharacterSelector.firstCharacter.icon;
-        if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel - 1)
+        if (GameSettings.instance.demo && startingFirstCharacterLevel - 1 >= 2)
         {
-            firstProgress.text = "Max";
+            firstProgress.text = demoMaxText;
+            firstFill.fillAmount = 1f;
+        }
+        else if (ProgressManager.characterLevelUps.Length <= startingFirstCharacterLevel - 1)
+        {
+            firstProgress.text = maxText;
             firstFill.fillAmount = 1f;
         }
         else
@@ -95,11 +170,16 @@ public class EndScreen : MonoSingleton<EndScreen>
 
         startingSecondCharacterLevel = ProgressManager.GetLevel(CharacterSelector.secondCharacter.characterName);
         startingSecondCharacterProgress = ProgressManager.GetProgress(CharacterSelector.secondCharacter.characterName);
-        secondLevel.text = "Level: " + startingSecondCharacterLevel;
+        secondLevel.text = levelText + " " + startingSecondCharacterLevel;
         secondIcon.sprite = CharacterSelector.secondCharacter.icon;
-        if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel - 1)
+        if (GameSettings.instance.demo && startingSecondCharacterLevel - 1 >= 2)
         {
-            secondProgress.text = "Max";
+            secondProgress.text = demoMaxText;
+            secondFill.fillAmount = 1f;
+        }
+        else if (ProgressManager.characterLevelUps.Length <= startingSecondCharacterLevel - 1)
+        {
+            secondProgress.text = maxText;
             secondFill.fillAmount = 1f;
         }
         else
@@ -120,7 +200,7 @@ public class EndScreen : MonoSingleton<EndScreen>
         int progressToRemove = 0;
         float startingValue = 0f;
 
-        if (ProgressManager.baseLevelUps.Length != startingBaseLevel - 1)
+        if (ProgressManager.baseLevelUps.Length >= startingBaseLevel - 1 || (GameSettings.instance.demo && 2 >= startingBaseLevel - 1))
         {
             startingValue = baseFill.fillAmount;
             while ((startingBaseProgress + EnemyManager.instance.enemiesKilled - progressToRemove) >= ProgressManager.baseLevelUps[startingBaseLevel - 1])
@@ -140,18 +220,24 @@ public class EndScreen : MonoSingleton<EndScreen>
 
                 progressToRemove += ProgressManager.baseLevelUps[startingBaseLevel - 1];
                 startingBaseLevel++;
-                baseLevel.text = "Player Level: " + startingBaseLevel;
+                baseLevel.text = playerLevelText + " " + startingBaseLevel;
                 startingValue = 0f;
-                if (ProgressManager.baseLevelUps.Length == startingBaseLevel - 1)
+                if (ProgressManager.baseLevelUps.Length <= startingBaseLevel - 1 || (GameSettings.instance.demo && 2 <= startingBaseLevel - 1))
                 {
                     break;
                 }
 
             }
 
-            if (ProgressManager.baseLevelUps.Length == startingBaseLevel - 1)
+
+            if (GameSettings.instance.demo && 2 <= startingBaseLevel - 1)
             {
-                baseProgress.text = "Max";
+                baseProgress.text = demoMaxText;
+                baseFill.fillAmount = 1f;
+            }
+            else if (ProgressManager.baseLevelUps.Length <= startingBaseLevel - 1)
+            {
+                baseProgress.text = maxText;
                 baseFill.fillAmount = 1f;
             }
             else
@@ -167,7 +253,7 @@ public class EndScreen : MonoSingleton<EndScreen>
             }
         }
 
-        if (ProgressManager.characterLevelUps.Length != startingFirstCharacterLevel - 1)
+        if (ProgressManager.characterLevelUps.Length >= startingFirstCharacterLevel - 1 || (GameSettings.instance.demo && 2 <= startingFirstCharacterLevel - 1))
         {
             progressToRemove = 0;
             startingValue = firstFill.fillAmount;
@@ -190,17 +276,22 @@ public class EndScreen : MonoSingleton<EndScreen>
 
                 progressToRemove += ProgressManager.characterLevelUps[startingFirstCharacterLevel - 1];
                 startingFirstCharacterLevel++;
-                firstLevel.text = "Level: " + startingFirstCharacterLevel;
+                firstLevel.text = levelText+ " " + startingFirstCharacterLevel;
                 startingValue = 0f;
-                if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel - 1)
+                if (ProgressManager.characterLevelUps.Length <= startingFirstCharacterLevel - 1 || (GameSettings.instance.demo && 2 <= startingFirstCharacterLevel - 1))
                 {
                     break;
                 }
             }
 
-            if (ProgressManager.characterLevelUps.Length == startingFirstCharacterLevel - 1)
+            if (GameSettings.instance.demo && 2 <= startingFirstCharacterLevel - 1)
             {
-                firstProgress.text = "Max";
+                firstProgress.text = demoMaxText;
+                firstFill.fillAmount = 1f;
+            }
+            else if (ProgressManager.characterLevelUps.Length <= startingFirstCharacterLevel - 1)
+            {
+                firstProgress.text = maxText;
                 firstFill.fillAmount = 1f;
             }
             else
@@ -216,7 +307,7 @@ public class EndScreen : MonoSingleton<EndScreen>
             }
         }
 
-        if (ProgressManager.characterLevelUps.Length != startingSecondCharacterLevel - 1)
+        if (ProgressManager.characterLevelUps.Length >= startingSecondCharacterLevel - 1 || (GameSettings.instance.demo && 2 <= startingSecondCharacterLevel - 1))
         {
             progressToRemove = 0;
             startingValue = secondFill.fillAmount;
@@ -238,19 +329,23 @@ public class EndScreen : MonoSingleton<EndScreen>
 
                 progressToRemove += ProgressManager.characterLevelUps[startingSecondCharacterLevel - 1];
                 startingSecondCharacterLevel++;
-                secondLevel.text = "Level: " + startingSecondCharacterLevel;
+                secondLevel.text = levelText + " " + startingSecondCharacterLevel;
                 startingValue = 0f;
-                if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel - 1)
+                if (ProgressManager.characterLevelUps.Length <= startingSecondCharacterLevel - 1 || (GameSettings.instance.demo  && 2 <= startingSecondCharacterLevel - 1))
                 {
                     break;
-
                 }
 
             }
 
-            if (ProgressManager.characterLevelUps.Length == startingSecondCharacterLevel - 1)
+            if (GameSettings.instance.demo && 2 <= startingSecondCharacterLevel - 1)
             {
-                secondProgress.text = "Max";
+                secondProgress.text = demoMaxText;
+                secondFill.fillAmount = 1f;
+            }
+            else if (ProgressManager.characterLevelUps.Length <= startingSecondCharacterLevel - 1)
+            {
+                secondProgress.text = maxText;
                 secondFill.fillAmount = 1f;
             }
             else

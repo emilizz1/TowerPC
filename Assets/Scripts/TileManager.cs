@@ -8,8 +8,21 @@ public class TileManager : MonoSingleton<TileManager>
     [SerializeField] Tile startingTile1;
     [SerializeField] Tile startingTile2;
     [SerializeField] Tile startingTile3;
+    [SerializeField] Tile startingTile4;
     [SerializeField] List<GameObject> tilePrefabs;
     [SerializeField] GameObject endTilePrefab;
+
+    [SerializeField] Material spotMaterial;
+    [SerializeField] Color spotEasy;
+    [SerializeField] Color spotNormal;
+    [SerializeField] Color spotHard;
+    [SerializeField] Color spotNightmare;
+
+    [SerializeField] Material waterMaterial;
+    [SerializeField] Color waterEasy;
+    [SerializeField] Color waterNormal;
+    [SerializeField] Color waterHard;
+    [SerializeField] Color waterNightmare;
 
     const float NEXT_TILE_PLACEMENT_DIFFERENCE = 9f;
 
@@ -27,24 +40,41 @@ public class TileManager : MonoSingleton<TileManager>
 
         Tile startingTile = null;
 
-        if (PlayerPrefs.GetInt("Difficulty", 0) == 2)
+        if (CharacterSelector.difficulty == 3)
         {
             startingTile1.gameObject.SetActive(false);
             startingTile2.gameObject.SetActive(false);
+            startingTile3.gameObject.SetActive(false);
             startingTile = startingTile3;
+            spotMaterial.color = spotNightmare;
+            waterMaterial.SetColor("Deep", waterNightmare);
         }
-        else if (PlayerPrefs.GetInt("Difficulty", 0) == 1)
+        else if (CharacterSelector.difficulty == 2)
+        {
+            startingTile1.gameObject.SetActive(false);
+            startingTile2.gameObject.SetActive(false);
+            startingTile4.gameObject.SetActive(false);
+            startingTile = startingTile3;
+            spotMaterial.color = spotHard;
+            waterMaterial.SetColor("Deep", waterHard);
+        }
+        else if (CharacterSelector.difficulty == 1)
         {
             startingTile1.gameObject.SetActive(false);
             startingTile3.gameObject.SetActive(false);
+            startingTile4.gameObject.SetActive(false);
             startingTile = startingTile2;
-
+            spotMaterial.color = spotNormal;
+            waterMaterial.SetColor("Deep", waterNormal);
         }        
         else
         {
             startingTile2.gameObject.SetActive(false);
             startingTile3.gameObject.SetActive(false);
+            startingTile4.gameObject.SetActive(false);
             startingTile = startingTile1;
+            spotMaterial.color = spotEasy;
+            waterMaterial.SetColor("Deep", waterEasy);
         }
 
 
@@ -84,11 +114,29 @@ public class TileManager : MonoSingleton<TileManager>
         }
         //FillReservedCoordinates(newTile);
 
+        //RecordCameraFollower.instance.TileAdded(posToPlace);
+
         tiles.Add(newTile);
         OnTilePlaced?.Invoke(newTile);
+        EnemyManager.instance.NewTileAdded(newTile, prevLane);
         EnemyManager.instance.SpawnNextWave();
         ActivateExpandButtons();
+
+        if (GlobalConditionHolder.fungus)
+        {
+            TerrainPlacer.instance.PopulateFungus();
+        }
+        if (GlobalConditionHolder.waterTiles)
+        {
+            TerrainPlacer.instance.PopulateWaterSpots(newTile);
+        }
+        if (GlobalConditionHolder.spikyPlant)
+        {
+            TerrainPlacer.instance.PopulateSpikyPlant(newTile);
+        }
     }
+
+
 
     void FillReservedCoordinates(Tile tile, Vector2 startingCoordinate)
     {
@@ -184,5 +232,32 @@ public class TileManager : MonoSingleton<TileManager>
             }
         }
         return closest;
+    }
+
+    public List<Tile> GetAdjacentTiles(Vector3 tilePos)
+    {
+        List<Tile> adjacentTiles = new List<Tile>();
+        
+        foreach (Tile tile in tiles)
+        {
+            if(tile.transform.position == new Vector3(tilePos.x + NEXT_TILE_PLACEMENT_DIFFERENCE, tilePos.y, tilePos.z))
+            {
+                adjacentTiles.Add(tile);
+            }
+            else if (tile.transform.position == new Vector3(tilePos.x - NEXT_TILE_PLACEMENT_DIFFERENCE, tilePos.y, tilePos.z))
+            {
+                adjacentTiles.Add(tile);
+            }
+            else if (tile.transform.position == new Vector3(tilePos.x, tilePos.y, tilePos.z + NEXT_TILE_PLACEMENT_DIFFERENCE))
+            {
+                adjacentTiles.Add(tile);
+            }
+            else if (tile.transform.position == new Vector3(tilePos.x, tilePos.y, tilePos.z - NEXT_TILE_PLACEMENT_DIFFERENCE))
+            {
+                adjacentTiles.Add(tile);
+            }
+        }
+
+        return adjacentTiles;
     }
 }

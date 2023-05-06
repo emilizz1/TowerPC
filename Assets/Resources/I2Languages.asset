@@ -1,0 +1,3696 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b0c553be8edd4682e9180fdd13e37, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier: 
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: CloseButton
+      TermType: 0
+      Description: 
+      Languages:
+      - Close
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Currencies_Mana
+      TermType: 0
+      Description: 
+      Languages:
+      - per second
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Currencies_Money
+      TermType: 0
+      Description: 
+      Languages:
+      - per wave
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Deck
+      TermType: 0
+      Description: 
+      Languages:
+      - Deck
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Discard
+      TermType: 0
+      Description: 
+      Languages:
+      - Discard
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Enemies
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Enemies stopped:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Hard
+      TermType: 0
+      Description: 
+      Languages:
+      - Unlocked Hard difficulty
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Lose
+      TermType: 0
+      Description: 
+      Languages:
+      - Lost
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Max
+      TermType: 0
+      Description: 
+      Languages:
+      - Max
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Menu
+      TermType: 0
+      Description: 
+      Languages:
+      - Menu
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_MoreWaves
+      TermType: 0
+      Description: 
+      Languages:
+      - More Waves Unlocked
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Nightmare
+      TermType: 0
+      Description: 
+      Languages:
+      - Unlocked Nightmare difficulty
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Normal
+      TermType: 0
+      Description: 
+      Languages:
+      - Unlocked Normal difficulty
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_PlayAgain
+      TermType: 0
+      Description: 
+      Languages:
+      - Play Again
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Waves
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Waves Survived:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End_Win
+      TermType: 0
+      Description: 
+      Languages:
+      - Win!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Expand
+      TermType: 0
+      Description: 
+      Languages:
+      - Expand
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Armor
+      TermType: 0
+      Description: 
+      Languages:
+      - <sprite=3> - Damage to Armor
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Coins
+      TermType: 0
+      Description: 
+      Languages:
+      - Coin cost to play the card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Card description
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_End
+      TermType: 0
+      Description: 
+      Languages:
+      - Tap anywhere to continue
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Health
+      TermType: 0
+      Description: 
+      Languages:
+      - <sprite=4> - Damage to Health
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Level
+      TermType: 0
+      Description: 
+      Languages:
+      - Card level, the higher the level the better the card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Mana
+      TermType: 0
+      Description: 
+      Languages:
+      - Mana cost to play the card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Card name
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Range
+      TermType: 0
+      Description: 
+      Languages:
+      - <sprite=0> - Attack Range
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Rate
+      TermType: 0
+      Description: 
+      Languages:
+      - <sprite=1> - Attack Rate
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Shields
+      TermType: 0
+      Description: 
+      Languages:
+      - <sprite=2> - Damage to Shields
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Info_Type
+      TermType: 0
+      Description: 
+      Languages:
+      - Card type, some research will reference these
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Menu_Options
+      TermType: 0
+      Description: 
+      Languages:
+      - Options
+      - Music
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Menu_Play
+      TermType: 0
+      Description: 
+      Languages:
+      - Play
+      - Sound Effects
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Menu_Quit
+      TermType: 0
+      Description: 
+      Languages:
+      - Quit
+      - Play
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Modification_ForgeDescription
+      TermType: 0
+      Description: 
+      Languages:
+      - You may Upgrade your cards
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Modification_ForgeName
+      TermType: 0
+      Description: 
+      Languages:
+      - Forge
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Modification_GraveyardDescription
+      TermType: 0
+      Description: 
+      Languages:
+      - You may Remove your cards from deck
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Modification_GraveyardName
+      TermType: 0
+      Description: 
+      Languages:
+      - Graveyard
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Modification_MarketDescription
+      TermType: 0
+      Description: 
+      Languages:
+      - You may buy new cards
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Modification_MarketName
+      TermType: 0
+      Description: 
+      Languages:
+      - Market
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: NewHand
+      TermType: 0
+      Description: 
+      Languages:
+      - New Hand
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Options_Fullscreen
+      TermType: 0
+      Description: 
+      Languages:
+      - Fullscreen
+      - Options
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Options_Music
+      TermType: 0
+      Description: 
+      Languages:
+      - Music
+      - Resolution
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Options_Resolution
+      TermType: 0
+      Description: 
+      Languages:
+      - Resolution
+      - Quit
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Options_Sound
+      TermType: 0
+      Description: 
+      Languages:
+      - Sound Effects
+      - Fullscreen
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Research_Effect
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Effect:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Research_Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Research
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Research_Waves
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Waves to Complete:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Admiral
+      TermType: 0
+      Description: 
+      Languages:
+      - Admiral
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_DemoMax
+      TermType: 0
+      Description: 
+      Languages:
+      - Demo Max
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Easy
+      TermType: 0
+      Description: 
+      Languages:
+      - Easy
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_FinishHard
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish game on Hard
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_FinishNormal
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish game on Normal
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_FinnishEasy
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish game on Easy
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Hard
+      TermType: 0
+      Description: 
+      Languages:
+      - Hard
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_HeroLevel
+      TermType: 0
+      Description: 
+      Languages:
+      - Level
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Hunter
+      TermType: 0
+      Description: 
+      Languages:
+      - Hunter
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Level
+      TermType: 0
+      Description: 
+      Languages:
+      - Player Level
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Mage
+      TermType: 0
+      Description: 
+      Languages:
+      - Mage
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Nightmare
+      TermType: 0
+      Description: 
+      Languages:
+      - Nightmare
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Normal
+      TermType: 0
+      Description: 
+      Languages:
+      - Normal
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_SelectHeroes
+      TermType: 0
+      Description: 
+      Languages:
+      - Select Heroes
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Selected
+      TermType: 0
+      Description: 
+      Languages:
+      - Selected
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Start
+      TermType: 0
+      Description: 
+      Languages:
+      - Start
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Selection_Warrior
+      TermType: 0
+      Description: 
+      Languages:
+      - Warrior
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tips_Draw
+      TermType: 0
+      Description: 
+      Languages:
+      - You can always draw new hand of cards by pressing the button above the deck
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tips_Expand
+      TermType: 0
+      Description: 
+      Languages:
+      - Pressing Expand will start enemy wave, build some towers before expanding
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tips_Market
+      TermType: 0
+      Description: 
+      Languages:
+      - Don't spend all your money, you will need it to build towers later
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tips_Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Tip!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tips_Terrain
+      TermType: 0
+      Description: 
+      Languages:
+      - Placing towers on terrain will give them different bonuses
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tips_UpgradeTower
+      TermType: 0
+      Description: 
+      Languages:
+      - You can upgrade towers by selecting them
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_First
+      TermType: 0
+      Description: 
+      Languages:
+      - First
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_HighestArmor
+      TermType: 0
+      Description: 
+      Languages:
+      - Highest Armor
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_HighestHealth
+      TermType: 0
+      Description: 
+      Languages:
+      - Highest Health
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_HighestShield
+      TermType: 0
+      Description: 
+      Languages:
+      - Highest Shield
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_Last
+      TermType: 0
+      Description: 
+      Languages:
+      - Last
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_Level
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Level:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_Upgrade
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Upgrade:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral1-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Golden coins
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral1-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Coin cards give 40% more coins
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral1-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Playing action card is cheaper by 15%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral2-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Enemies killed in Naval Tower explosion give 1 extra gold
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral2-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Naval Tower explosion damage increased by 10% for each action played this
+        wave
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral3-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain Pile of Coins card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral3-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain Reinforcement card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral4-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Buying action cards is cheaper by 50%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral4-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Upgrading action cards is cheaper by 80%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral5-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase income by 12
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral5-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Armor damage increased by 25%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral6-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Cannon Tower damage increased by 1 for each 20 golds stored
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral6-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Cannon Tower range increased by 5% for each action card played this wave
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral7-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - End of turn increase your gold by 5%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral7-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - First action each wave is played twice
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral1-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Improved time management skills
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral2-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Increased explosion shards
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral3-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Pile of Coins
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral3-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Reinforcement
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral4-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Inside deal with the marketplace
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral4-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Inside deal with the forge
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral5-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Ownership of the bank
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral5-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Armor weakspot investigation
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral6-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Golden cannon balls
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral6-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Focused lookout
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral7-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Loan service
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral7-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Advisors help
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage1-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - New graveyard equipment
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage1-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Simplified incantations
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage2-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Lightning Storm
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage2-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Snowstorm
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage3-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Elemental combinations
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage3-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Elemental combinations
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage4-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Mana regeneration flame
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage4-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Improved spell seals
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage5-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Extra crystal shards
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage5-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Snow element infusion
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage6-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - More potent magic
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage6-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Shield penetration charm
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage7-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Starting curse
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage7-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Elemental magic improvement
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage1-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Removing cards in graveyard is cheaper by 50%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage1-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Playing spells is cheaper by 20%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage2-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain Lightning Storm <sprite=0> card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage2-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain Snowstorm card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage3-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Arcane Tower deals triple damage to debuffed enemies
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage3-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Arcane Tower deals double damage to all enemies, but attack speed is reduced
+        by 20%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage4-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Double mana regeneration
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage4-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Spells stay for 1 more turn
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage5-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Crystal Tower hold 2 more charges
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage5-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Crystal Tower shots slow enemies
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage6-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Magic damage increased by 40%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage6-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Damage to shields increased by 30%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage7-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - First damage to each enemy is doubled
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mage7-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Debuffs can be applied an additional time
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Admiral2-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Golden explosion
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight1-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Arrow manufacturing practice
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight1-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Lookout training
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight2-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Spear Tower Card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight2-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Archer Tower Card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight3-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Serated Weapons
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight3-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Improved arrow edge
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight4-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Tested fletching
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight4-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Throwing practice
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight5-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Higher walls
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight5-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Wall spykes
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight6-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Cheaper building materials
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight6-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Cheaper tower blueprints
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight7-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Second ballista
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight7-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Stronger tower spells
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight1-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Each Archer Tower increases Castle Tower damage by 5%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight1-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Each Archer Tower increases all towers range by 1%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight2-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Get Spear Tower card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight2-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Get Archer Tower <sprite=0> card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight3-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase health damage by 25%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight3-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase arrow damage by 35%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight4-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Each Spear Tower increases Castle Tower attack speed by 2%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight4-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Each Spear Tower increases all Spear Towers attack speed by 1%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight5-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase castle max Health by 20
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight5-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - First 2 enemies that reached castle don't deal damage every wave
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight6-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Playing tower cards is cheaper by 20%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight6-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Buying tower cards is cheaper by 50%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight7-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Castle gains second Castle Tower
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Knight7-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Improvement spell effects doubled
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter1-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain Land Former card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter1-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain Poison Cloud card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter2-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Upgrading cards is cheaper by 20%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter2-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Playing structures is cheaper by 15%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter3-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Dart Tower placed on forest deals double damage
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter3-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Dart Tower damage is increased by 50% when damaging poisoned enemy
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter4-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Every time you finish a research gain 25 gold
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter4-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Enemies killed from poison give double gold
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter5-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Terrain bonuses are doubled
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter5-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Poison damage is doubled
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter6-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Energy Tower gains double bonuses from adjacent terrains
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter6-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Energy Tower shots poison enemies
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter7-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Double the amount of terrain that appears on new tiles
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter7-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - All enemies take 1 damage each second
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter1-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Land Former
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter1-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Poison Cloud
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter2-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - New tools for forge
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter3-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Power from forest
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter4-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Payment for knowledge
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter5-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Better adaptation to nature
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter6-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Better energy gathering
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter7-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Terraforming magic
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter2-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Cheaper construction materials
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter3-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Created for poisoned target
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter4-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Valuable research material
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter5-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - More potent poison
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter6-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Better energy gathering
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hunter7-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Cursed air
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base1-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - New storefront
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base2-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - New forge equipment
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base3-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Repair crew
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base4-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Market acquisition
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base5-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Document renegotiation
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base6-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Specilization
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base7-1Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Knowledgeable guards
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base1-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Approaching enemies lookout
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base2-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - New graveyard equipment
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base3-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Lucky charm
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base4-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Market squere investment
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base5-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Reselling salvage
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base6-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Specilization
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base7-2Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Increased options
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base1-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - See what enemies are coming
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base2-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Additional card choice in graveyard
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base3-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - More positive events
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base4-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Remove all level 0 cards from market
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base5-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Enemies give 1 extra coin, but have 25% more health, armor and shields, '
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base6-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base7-2Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase hand size by 2
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base1-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Buying cards is cheaper by 20%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base2-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Additional card choice in forge
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base3-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Castle is healed by 1 each wave
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base4-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Can't buy cards in the market, gain 2 cards for free
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base5-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Resets drawn new hand cost
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base6-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Gain card
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Base7-1Description
+      TermType: 0
+      Description: 
+      Languages:
+      - Towers earn double experience
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ArcaneTower0
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ArcaneTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ArcherTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ArcherTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CannonTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CannonTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CannonTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Coins
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CoinsImproved
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_DartTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_DartTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_DartTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Gilding
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_GoldenRain
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_GoldMine
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_HeatBuff
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_LandFormer
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_LightningStorm
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ManaPotion
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_NavalTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_NavalTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_NavalTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_PileOfCoins
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_PileOfCoinsImproved
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_PoisonCloud
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Reinforcement
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ScrollOfKnowledge
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Snowstorm
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_SpearTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_SpearTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_SpearTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Support
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_TargetPractice
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_WindBuff
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CrystalTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CrystalTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_CrystalTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_EnergyTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_EnergyTower1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_EnergyTower2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ShardStorm
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_ChosenTower
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_BallistaTargeting
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_BallistaBolt
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Trapper
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Engine
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Card_Curse
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Empty
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Stays
+      TermType: 0
+      Description: 
+      Languages:
+      - Stays for # of turns
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: KnightStarting
+      TermType: 0
+      Description: 
+      Languages:
+      - Castle has ballista
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: MageStarting
+      TermType: 0
+      Description: 
+      Languages:
+      - Enemy reaching castle does no damage if 50 mana can be paid
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AdmiralStarting
+      TermType: 0
+      Description: 
+      Languages:
+      - Starting income is doubled
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: HunterStarting
+      TermType: 0
+      Description: 
+      Languages:
+      - Castle is healed by 1 each wave
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral01Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral01Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral01Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral01Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral02Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral02Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral02Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral02Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral03Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral03Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral03Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral03Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral04Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral04Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral04Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Admiral04Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter01Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter01Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter01Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter01Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter02Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter02Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter02Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - fight fungus
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter02Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - join fungus
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter03Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Ransom for antidote
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter03Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter03Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter03Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter04Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter04Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter04Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter04Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter03Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Hunter01Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight01Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight01Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight01Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight01Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight02Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight02Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight02Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight02Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight03Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight03Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight03Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight03Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight04Name
+      TermType: 0
+      Description: 
+      Languages:
+      - material shortage
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight04Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight04Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Knight04Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage01Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage01Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage01Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage01Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage02Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage02Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage02Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage02Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage03Name
+      TermType: 0
+      Description: 
+      Languages:
+      - Winter tribe
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage03Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage03Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage03Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage04Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage04Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage04Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Mage04Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base01Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base01Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base01Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base01Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base01Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base02Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base02Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base02Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base02Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base02Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base03Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base03Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base03Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base03Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base03Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base04Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base04Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base04Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base04Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base04Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base05Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base05Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base05Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base05Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base06Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base06Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base06Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base06Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base07Name
+      TermType: 0
+      Description: 
+      Languages:
+      - flooding
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base07Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base07Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base07Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base08Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base08Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base08Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base08Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base09Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base09Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base09Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base09Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base10Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base10Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base10Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base10Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base11Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base11Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base11Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base11Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base12Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base12Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base12Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base12Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base13Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base13Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base13Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base13Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base14Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base14Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base14Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base14Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base15Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base15Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base15Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base15Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base15Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base16Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base16Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base16Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base16Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base17Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base17Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base17Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base17Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base18Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base18Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base18Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base18Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base18Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base19Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base19Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base19Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base19Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base20Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base20Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base20Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base20Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base21Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base21Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base21Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base21Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base22Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base22Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base22Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base22Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base23Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base23Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base23Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base23Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base24Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base24Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base24Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base24Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base25Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base25Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base25Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base25Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base26Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base26Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base26Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base26Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base26Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base27Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base27Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base27Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base27Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base28Name
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base28Description
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base28Choice1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base28Choice2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base28Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base17Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: 
+    mLanguages:
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Abkhazian
+      Code: ab
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbyRpiqgE7GYQvjB0el3JCq-VBVKlG_4_Ets2gsvwVm_N0zt15_3QihsA8fHufWNuG5g3A/exec
+    Google_SpreadsheetKey: 1ohsV0njpnOUVg7Knl8OkD_A0E4XPR1Ee0szRmg5kBKc
+    Google_SpreadsheetName: I2Loc Towers Deck Localization
+    Google_LastUpdatedVersion: 1682870947411
+    Google_Password: gooEilisgle0
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 0
+    Assets: []
+    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalCSVSeparator: ','
+    Spreadsheet_LocalCSVEncoding: utf-8
+    Spreadsheet_SpecializationAsRows: 1
+    Spreadsheet_SortRows: 1

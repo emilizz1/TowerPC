@@ -6,17 +6,13 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ResearchNode : MonoBehaviour
 {
     public Research research;
     [SerializeField] Image icon;
-    [SerializeField] Image progress;
-    [SerializeField] TextMeshProUGUI explanation;
-    [SerializeField] TextMeshProUGUI timeToComplete;
-    [SerializeField] Animator animator;
     [SerializeField] float timeToReveal;
-    [SerializeField] GameObject selected;
-    [SerializeField] CardDisplay cardDisplay;
+    [SerializeField] TweenAnimator coverAnimator;
+    [SerializeField] TweenAnimator sizeAnimator;
 
     internal List<ResearchNode> nextNodes = new List<ResearchNode>();
     internal ResearchNode sameLevelNodes;
@@ -24,8 +20,7 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     internal bool unlocked = false;
     internal bool researched;
 
-    bool exited;
-    bool cardResearch;
+    internal bool cardResearch;
     bool playedCompletedAnimation;
     bool playedUnlockAnimation;
 
@@ -35,13 +30,11 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (research != null)
         {
+            research.Initialize();
             icon.sprite = research.sprite;
-            explanation.text = research.explanation;
-            timeToComplete.text =  research.timeToResearch.ToString();
+
             if (research.researchType == Research.ResearchType.Card)
             {
-                ResearchGetCard researchCard = (ResearchGetCard)research;
-                cardDisplay.DisplayCard(researchCard.cardToGet);
                 cardResearch = true;
             }
             if (research.tier == 0)
@@ -54,7 +47,6 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void Advanced()
     {
         currentProgress++;
-        progress.fillAmount = (float)currentProgress / (float)research.timeToResearch;
         if (currentProgress >= research.timeToResearch)
         {
             Researched();
@@ -63,9 +55,15 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void Researched()
     {
-        selected.SetActive(false);
         researched = true;
-        research.Researched();
+        if (ResearchWindow.instance.skipNextResearchResult)
+        {
+            ResearchWindow.instance.skipNextResearchResult = false;
+        }
+        else
+        {
+            research.Researched();
+        }
         if (sameLevelNodes != null)
         {
             sameLevelNodes.Locked();
@@ -74,108 +72,76 @@ public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             node.Unlocked();
         }
+        if (GlobalConditionHolder.coinsFromResearch)
+        {
+            Money.instance.AddCurrency(25, false);
+        }
     }
 
     public void Unlocked()
     {
         unlocked = true;
-        animator.ResetTrigger("Hide");
+        //coverAnimator.PerformTween(1);
+        //sizeAnimator.PerformTween(1);
     }
 
     public void Locked()
     {
         unlocked = false;
-        animator.SetTrigger("Hide");
 
     }
 
     public void StartResearch()
     {
-        if (unlocked && !researched)
-        {
-            selected.SetActive(true);
-            SoundsController.instance.PlayOneShot("Click");
-            ResearchWindow.instance.NewResearchSelected(this);
-        }
+        SoundsController.instance.PlayOneShot("Click");
+        ResearchWindow.instance.NewResearchSelected(this);
     }
 
     public void PlayAnimations()
     {
         if(!playedCompletedAnimation && researched)
         {
+            sizeAnimator.PerformTween(0);
             playedCompletedAnimation = true;
-            animator.SetTrigger("Completed");
         }
 
         if (!playedUnlockAnimation && unlocked)
         {
-            playedUnlockAnimation = true;
-            animator.SetTrigger("Unlocked");
+            coverAnimator.PerformTween(1);
+            sizeAnimator.PerformTween(1);
+               playedUnlockAnimation = true;
         }
-    }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (!unlocked)
+        if(playedUnlockAnimation && !unlocked)
         {
-            exited = false;
-            StartCoroutine(RevealNotUnlocked());
-        }
-        if (cardResearch)
-        {
-            exited = false;
-            StartCoroutine(DisplayCard());
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (!unlocked)
-        {
-            exited = true;
-            animator.SetTrigger("Hide");
-        }
-        if (cardResearch)
-        {
-            exited = true;
-            cardDisplay.gameObject.SetActive(false);
-        }
-    }
-
-    IEnumerator RevealNotUnlocked()
-    {
-        yield return new WaitForSeconds(timeToReveal);
-        if (!exited)
-        {
-            animator.SetTrigger("Unlocked");
-            animator.ResetTrigger("Hide");
-        }
-    }
-
-
-
-    IEnumerator DisplayCard()
-    {
-        yield return new WaitForSeconds(timeToReveal);
-        if (!unlocked) 
-        {
-            yield return new WaitForSeconds(timeToReveal);
-        }
-        if (!exited)
-        {
-            cardDisplay.gameObject.SetActive(true);
+            coverAnimator.PerformTween(0);
+            sizeAnimator.PerformTween(0);
         }
     }
 
     public void PlayCompleteSound()
     {
-
         SoundsController.instance.PlayOneShot("Complete");
     }
 
     public void Deselected()
     {
-        selected.SetActive(false);
-        cardDisplay.gameObject.SetActive(false);
+    }
+
+    private void OnMouseEnter()
+    {
+        if(unlocked && !researched)
+        {
+            transform.localScale = new Vector3(0.85f, 0.85f, 1f);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (unlocked && !researched)
+        {
+            transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+
+        }
     }
 }

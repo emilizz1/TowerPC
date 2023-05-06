@@ -24,5 +24,4 @@ MonoBehaviour:
     <sprite=1> 1.4/s  
     <sprite=0> 4.5'
   damageTypes: 00000000
-  maxUses: 3
   towerPrefab: {fileID: 1526630794712585043, guid: 645c3171a0fae3843a1b1823de379e23, type: 3}

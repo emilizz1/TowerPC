@@ -9,16 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02417d2eec2def74894a092cefb9f947, type: 3}
+  m_Script: {fileID: 11500000, guid: c1e907a33c9581540898baf92c1fd233, type: 3}
   m_Name: Admiral 3-2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 614773506631c8b40b8ce6e8cd2ed568, type: 3}
-  timeToResearch: 2
+  sprite: {fileID: 21300000, guid: 4296489c35e4df443a129e4a338567cf, type: 3}
+  timeToResearch: 1
   tier: 2
-  explanation: Upgrading cards in Forge is cheaper by 35%
-  displayIcon: 1
-  researchType: 3
-  type: 3
-  amount: -0.35
-  usedFor: 1
-  usedForType: 1
+  researchName: Reinforcement
+  researchNameText:
+    mTerm: Admiral3-2Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Gain Reinforcement card
+  explanationText:
+    mTerm: Admiral3-2Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  displayIcon: 0
+  researchType: 0
+  cardToGet: {fileID: 11400000, guid: 3264f6800853df44b93cd4c1576d1e2e, type: 2}

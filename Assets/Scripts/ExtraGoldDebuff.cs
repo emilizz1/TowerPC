@@ -15,14 +15,14 @@ public class ExtraGoldDebuff : Debuff
     internal override void ApplyDebuff()
     {
         base.ApplyDebuff();
-        myEnemy.moneyOnKill += (int)info.effectAmount;
+        myEnemy.currentMoneyOnKill += (int)info.effectAmount;
         myEnemy.debuffIcons.AddNewIcon(info.icon);
     }
 
     internal override void RemoveDebuff()
     {
         base.RemoveDebuff();
-        myEnemy.moneyOnKill -= (int)info.effectAmount;
+        myEnemy.currentMoneyOnKill -= (int)info.effectAmount;
         myEnemy.debuffIcons.RemoveIcon(info.icon);
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   characterName: Mage
+  type: 3
   startingMoney: 40
   startingMana: 50
   startingMaxHealth: 10
@@ -22,16 +23,58 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ea488902565f3a0448143233b8a2b8a6, type: 3}
   levelUpDescriptions:
   - text: Starting Card Upgraded For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 11400000, guid: 7eab3d7384f31894188f8df2210cf054, type: 2}
   - text: New Research Level Unlocked For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 0}
   - text: Starting Card Upgraded For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 11400000, guid: f3770e7c7547dcf4bb9de800deb984b2, type: 2}
   - text: New Card Added To Market For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 11400000, guid: 4b0fee932a8aff84bab104c463775126, type: 2}
   - text: Starting Card Upgraded For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 11400000, guid: 62ab798afabe74d4883efe9890eaea22, type: 2}
   - text: New Research Level Unlocked For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 0}
   - text: Starting Card Upgraded For Mage
+    textTwo:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     cardToDisplay: {fileID: 11400000, guid: f75d64c9579266f4e874586750a34167, type: 2}

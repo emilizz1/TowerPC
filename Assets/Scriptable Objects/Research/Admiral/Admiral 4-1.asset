@@ -9,16 +9,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d560c512732034e861e87e3d203c5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 02417d2eec2def74894a092cefb9f947, type: 3}
   m_Name: Admiral 4-1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 859da6d912c9c744aae21682d58417a3, type: 3}
-  timeToResearch: 1
+  sprite: {fileID: 21300000, guid: 5ffbcffbc64d4bf48ad31d3c61ba7933, type: 3}
+  timeToResearch: 2
   tier: 3
-  explanation: Increase income by 12
+  researchName: Inside deal with the marketplace
+  researchNameText:
+    mTerm: Admiral4-1Name
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  explanation: Buying action cards is cheaper by 50%
+  explanationText:
+    mTerm: Admiral4-1Description
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   displayIcon: 1
   researchType: 4
-  manaRegenPerSecond: 0
-  maxMana: 0
-  incomeIncreased: 12
-  addMoney: 0
+  type: 1
+  amount: -0.5
+  usedFor: 1
+  usedForType: 0

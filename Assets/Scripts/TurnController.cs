@@ -11,11 +11,16 @@ public static class TurnController
         EnemyWave,
         CardModification,
         Destroy,
-        Research
+        Research,
+        Event
     }
 
     public static TurnPhase currentPhase = TurnPhase.Drawing;
     public static int currentTurn= 1;
+    public static int actionsPlayed;
+    public static int cardsPlayed;
+
+    static int eventTurn;
 
     public static void FinishedDrawing()
     {
@@ -32,6 +37,10 @@ public static class TurnController
                 TileManager.instance.ChangeButtonInteractability(true);
 
             }
+            Deck.instance.newCardsButton.interactable = true;
+            actionsPlayed = 0;
+            cardsPlayed = 0;
+            EnemyManager.instance.PrepareNextWave();
             PlayerLife.instance.NewRound();
             ObjectPools.instance.NewTurn();
         }
@@ -42,6 +51,7 @@ public static class TurnController
         if (currentPhase == TurnPhase.Research)
         {
             currentPhase = TurnPhase.Preperation;
+
             TileManager.instance.ChangeButtonInteractability(true);
             if (currentTurn == 1)
             {
@@ -55,6 +65,7 @@ public static class TurnController
         if (currentPhase == TurnPhase.Preperation)
         {
             Mana.instance.StartRegen();
+            Deck.instance.newCardsButton.interactable = false;
             currentPhase = TurnPhase.EnemyWave;
             Soundtrack.instance.BattleStart();
             TileManager.instance.ChangeButtonInteractability(false);
@@ -69,6 +80,7 @@ public static class TurnController
             SpellPlacer.StopAllSpells();
             TowerPlacer.ClearTowerTargets();
             Hand.instance.DiscardHand();
+            TileManager.instance.CheckForMisplacedTowers();
             EnemyManager.instance.CheckIfGameWon();
             Soundtrack.instance.BattleEnd();
 
@@ -76,7 +88,16 @@ public static class TurnController
 
             if (TipsManager.instance.marketSkipped)
             {
-                MarketWindow.instance.Open();
+
+                if (currentTurn % 2 == 0)
+                {
+                        EventWindow.instance.OpenEvent();                    
+                }
+                else
+                {
+                    EventWindow.instance.OpenBaseSelection();
+
+                }
             }
             else
             {
@@ -106,5 +127,6 @@ public static class TurnController
     {
         currentPhase = TurnPhase.Drawing;
         currentTurn = 1;
+        eventTurn = 0;
     }
 }

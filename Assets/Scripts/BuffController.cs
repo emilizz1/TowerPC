@@ -7,6 +7,7 @@ public class BuffController : MonoSingleton<BuffController>
 {
     public List<BuffInfo> allInfo;
 
+
     [Serializable]
     public struct BuffInfo
     {
@@ -14,6 +15,11 @@ public class BuffController : MonoSingleton<BuffController>
         public Sprite icon;
         public GameObject particles;
         public float effectAmount;
+
+        public void DoubleEffect()
+        {
+            effectAmount += effectAmount;
+        }
     }
 
     public BuffInfo GetInfo(string debuffName)
@@ -26,5 +32,13 @@ public class BuffController : MonoSingleton<BuffController>
             }
         }
         return new BuffInfo();
+    }
+
+    public void DoubleBuffPowerUnlocked()
+    {
+        for (int i = 0; i < allInfo.Count; i++)
+        {
+            allInfo[i].DoubleEffect();
+        }
     }
 }

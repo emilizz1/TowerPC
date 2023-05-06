@@ -8,6 +8,7 @@ public class ResearchTree : MonoBehaviour
     [SerializeField] GameObject nodePrefab;
     [SerializeField] List<GameObject> levelFive;
     [SerializeField] List<GameObject> levelSix;
+    [SerializeField] List<GameObject> levelSeven;
 
     List<ResearchNode> nodes;
 
