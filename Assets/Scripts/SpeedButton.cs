@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedButton : MonoBehaviour
+public class SpeedButton : MonoSingleton<SpeedButton>
 {
     [SerializeField] GameObject normalSpeedObj;
     [SerializeField] GameObject fasterSpeedObj;
@@ -12,7 +12,7 @@ public class SpeedButton : MonoBehaviour
     [SerializeField] float fasterSpeed;
     [SerializeField] float fastestSpeed;
 
-    int currentSpeed = 0;
+    internal int currentSpeed = 0;
 
     private void Start()
     {

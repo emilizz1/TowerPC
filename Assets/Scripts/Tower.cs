@@ -38,7 +38,10 @@ public class Tower : MonoBehaviour
         Last,
         HighestHealth,
         HighestArmor,
-        HighestShield
+        HighestShield,
+        LowestHealth,
+        LowestArmor,
+        LowestShield
     }
 
     const float DEFAULT_RANGE_SPRITE_RADIUS = 4f;
@@ -207,6 +210,15 @@ public class Tower : MonoBehaviour
             case (TargetSelectOptions.HighestShield):
                 currentTarget = GetTargetMaxShield().gameObject;
                 return;
+            case (TargetSelectOptions.LowestArmor):
+                currentTarget = GetTargetMinArmor().gameObject;
+                return;
+            case (TargetSelectOptions.LowestHealth):
+                currentTarget = GetTargetMinHealth().gameObject;
+                return;
+            case (TargetSelectOptions.LowestShield):
+                currentTarget = GetTargetMinShield().gameObject;
+                return;
         }
     }
 
@@ -277,6 +289,51 @@ public class Tower : MonoBehaviour
         foreach (EnemyMovement enemy in reachableEnemies)
         {
             if (enemy.enemy.currentHealth[2] > maxValue)
+            {
+                maxValue = enemy.enemy.currentHealth[2];
+                target = enemy;
+            }
+        }
+        return target;
+    }
+
+    EnemyMovement GetTargetMinArmor()
+    {
+        float maxValue = 9999999;
+        EnemyMovement target = reachableEnemies[0];
+        foreach (EnemyMovement enemy in reachableEnemies)
+        {
+            if (enemy.enemy.currentHealth[1] < maxValue)
+            {
+                maxValue = enemy.enemy.currentHealth[1];
+                target = enemy;
+            }
+        }
+        return target;
+    }
+
+    EnemyMovement GetTargetMinHealth()
+    {
+        float maxValue = 9999999;
+        EnemyMovement target = reachableEnemies[0];
+        foreach (EnemyMovement enemy in reachableEnemies)
+        {
+            if (enemy.enemy.currentHealth[0] < maxValue)
+            {
+                maxValue = enemy.enemy.currentHealth[0];
+                target = enemy;
+            }
+        }
+        return target;
+    }
+
+    EnemyMovement GetTargetMinShield()
+    {
+        float maxValue = 9999999;
+        EnemyMovement target = reachableEnemies[0];
+        foreach (EnemyMovement enemy in reachableEnemies)
+        {
+            if (enemy.enemy.currentHealth[2] < maxValue)
             {
                 maxValue = enemy.enemy.currentHealth[2];
                 target = enemy;

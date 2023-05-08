@@ -6,13 +6,14 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class ResearchNode : MonoBehaviour
+public class ResearchNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Research research;
     [SerializeField] Image icon;
     [SerializeField] float timeToReveal;
     [SerializeField] TweenAnimator coverAnimator;
     [SerializeField] TweenAnimator sizeAnimator;
+    public GameObject researchingIcon;
 
     internal List<ResearchNode> nextNodes = new List<ResearchNode>();
     internal ResearchNode sameLevelNodes;
@@ -32,6 +33,7 @@ public class ResearchNode : MonoBehaviour
         {
             research.Initialize();
             icon.sprite = research.sprite;
+            researchingIcon.SetActive(false);
 
             if (research.researchType == Research.ResearchType.Card)
             {
@@ -93,6 +95,7 @@ public class ResearchNode : MonoBehaviour
 
     public void StartResearch()
     {
+        researchingIcon.SetActive(true);
         SoundsController.instance.PlayOneShot("Click");
         ResearchWindow.instance.NewResearchSelected(this);
     }
@@ -126,21 +129,28 @@ public class ResearchNode : MonoBehaviour
 
     public void Deselected()
     {
+        researchingIcon.SetActive(false);
     }
 
-    private void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if(unlocked && !researched)
+        ResearchWindow.instance.DisplayResearch(this);
+        if (unlocked && !researched)
         {
-            transform.localScale = new Vector3(0.85f, 0.85f, 1f);
+            transform.localScale = new Vector3(1.1f, 1.1f, 1f);
         }
     }
 
-    private void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
+        if(ResearchWindow.instance.currentlyResearching != null)
+        {
+            ResearchWindow.instance.DisplayResearch(ResearchWindow.instance.currentlyResearching);
+
+        }
         if (unlocked && !researched)
         {
-            transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
 
         }
     }

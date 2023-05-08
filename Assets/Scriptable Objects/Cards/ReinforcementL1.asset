@@ -14,17 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Reinforcement
   cardType: 1
-  cardImage: {fileID: 21300000, guid: 2d346c053c5bcb544992c023933d302b, type: 3}
+  cardImage: {fileID: 21300000, guid: d93e849da118f9d4293a0c678dda8582, type: 3}
   moneyCost: 9
   manaCost: 8
-  buyCostMultiplayer: 2.33
+  cardTier: 0
   cardLevel: 1
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: 'Draw 1 Card, all cards are cheaper by 6 coins and 6 mana '
   damageTypes: 
-  maxUses: 2
+  cardTag: 0
+  cardCollectionType: 0
   addMoney: 0
   addMana: 0
   addHealth: 0
   drawCards: 1
   advanceResearch: 0
   discount: 6
+  alternativeDescription:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0

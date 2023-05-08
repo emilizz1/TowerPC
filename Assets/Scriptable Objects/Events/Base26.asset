@@ -25,6 +25,7 @@ MonoBehaviour:
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   type: 0
+  positivity: 0
   eventChoiceDatas:
   - choiceDescription:
       mTerm: Event_Base26Choice1
@@ -35,7 +36,7 @@ MonoBehaviour:
     positiveEventEffect: 2
     amountToAdd: 15
     negativeEventEffect: 1
-    amountToRemove: 40
+    amountToRemove: 999
     cardToGet: {fileID: 0}
   - choiceDescription:
       mTerm: Event_Base26Choice2

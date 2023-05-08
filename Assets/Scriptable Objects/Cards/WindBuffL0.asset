@@ -14,12 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Wind Buff
   cardType: 2
-  cardImage: {fileID: 21300000, guid: d02629533898d7142986fefc6abb80d5, type: 3}
+  cardImage: {fileID: 21300000, guid: 2353051b154f43644b2ee26ac4db5dd5, type: 3}
   moneyCost: 0
   manaCost: 15
-  buyCostMultiplayer: 2
+  cardTier: 0
   cardLevel: 0
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: Increases tower fire rate by 30%
   damageTypes: 
-  maxUses: 2
+  cardTag: 0
+  cardCollectionType: 0
   spellPrefab: {fileID: 3882510687299103847, guid: e59d99934ae955a47828968148f31aa9, type: 3}
+  advancedDescription: 
+  staysFor:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  spellDuration: 0

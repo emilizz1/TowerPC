@@ -14,16 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Pile of Coins
   cardType: 1
-  cardImage: {fileID: 21300000, guid: 1ca5d531c0f2f1047b6b5d1421a40b78, type: 3}
+  cardImage: {fileID: 21300000, guid: 82e4ad656926b244f992c1794a02b8de, type: 3}
   moneyCost: 0
   manaCost: 25
-  buyCostMultiplayer: 1.5
+  cardTier: 0
   cardLevel: 0
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: Add 50 Gold
   damageTypes: 
-  maxUses: 2
+  cardTag: 0
+  cardCollectionType: 0
   addMoney: 50
   addMana: 0
   addHealth: 0
   drawCards: 0
   advanceResearch: 0
+  discount: 0
+  alternativeDescription:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0

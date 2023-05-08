@@ -3667,6 +3667,86 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: TowerInfo_LowestArmor
+      TermType: 0
+      Description: 
+      Languages:
+      - Lowest Armor
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_LowestHealth
+      TermType: 0
+      Description: 
+      Languages:
+      - Lowest Health
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TowerInfo_LowestShield
+      TermType: 0
+      Description: 
+      Languages:
+      - Lowest Shield
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_SpecialName
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_SpecialDescription
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_SpecialChoiceMarket
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_SpecialChoiceForge
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_SpecialChoiceGraveyard
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_SpecialChoiceGold
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Event_Base08Choice3
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -3682,7 +3762,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbyRpiqgE7GYQvjB0el3JCq-VBVKlG_4_Ets2gsvwVm_N0zt15_3QihsA8fHufWNuG5g3A/exec
     Google_SpreadsheetKey: 1ohsV0njpnOUVg7Knl8OkD_A0E4XPR1Ee0szRmg5kBKc
     Google_SpreadsheetName: I2Loc Towers Deck Localization
-    Google_LastUpdatedVersion: 1682870947411
+    Google_LastUpdatedVersion: 1683469527247
     Google_Password: gooEilisgle0
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

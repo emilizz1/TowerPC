@@ -3,7 +3,17 @@ guid: 125c1cbf091304b4197b19fe2e5ddf70
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: custom1(Clone)
+    second: {fileID: 2100000, guid: 4d1946ebc6541eb4d9e087fbdeabd2af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foliage(Clone)
+    second: {fileID: 2100000, guid: f2b89fe7dde98534fa1a571598706ac2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

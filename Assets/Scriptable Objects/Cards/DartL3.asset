@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Dart
   cardType: 0
-  cardImage: {fileID: 21300000, guid: 10f13aae14add6d43b0a4d2cb1132a6e, type: 3}
+  cardImage: {fileID: 21300000, guid: bca8857f999b3ee4a95548160031e700, type: 3}
   moneyCost: 55
   manaCost: 0
-  buyCostMultiplayer: 3
+  cardTier: 0
   cardLevel: 3
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: '<sprite=4> 12   <sprite=3> 5   <sprite=2> 4
 
     <sprite=1> 1.4/s  
@@ -26,4 +32,21 @@ MonoBehaviour:
 
     Shots Poison Enemies'
   damageTypes: 00000000
+  cardTag: 0
+  cardCollectionType: 0
   towerPrefab: {fileID: 1526630794712585043, guid: 612e1d5ff81b9d142a018f1965c42097, type: 3}
+  towerType: 0
+  firstAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  secondAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  firstAbility: 
+  secondAbility: 

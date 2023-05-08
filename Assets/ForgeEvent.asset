@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b891389cceafb7e42bde8d339123785e, type: 3}
+  m_Name: ForgeEvent
+  m_EditorClassIdentifier: 
+  nameText:
+    mTerm: Event_SpecialName
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  descriptionText:
+    mTerm: Event_SpecialDescription
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  type: 5
+  positivity: 0
+  eventChoiceDatas:
+  - choiceDescription:
+      mTerm: Event_SpecialChoiceMarket
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 8
+    amountToAdd: 0
+    negativeEventEffect: 0
+    amountToRemove: 0
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_SpecialChoiceGraveyard
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 10
+    amountToAdd: 0
+    negativeEventEffect: 0
+    amountToRemove: 0
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_SpecialChoiceGold
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 1
+    amountToAdd: 5
+    negativeEventEffect: 0
+    amountToRemove: 0
+    cardToGet: {fileID: 0}

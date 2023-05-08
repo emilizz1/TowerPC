@@ -25,6 +25,7 @@ MonoBehaviour:
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   type: 0
+  positivity: 0
   eventChoiceDatas:
   - choiceDescription:
       mTerm: Event_Base08Choice1
@@ -45,6 +46,17 @@ MonoBehaviour:
       m_DontLocalizeParameters: 0
     positiveEventEffect: 1
     amountToAdd: 30
+    negativeEventEffect: 0
+    amountToRemove: 0
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_Base08Choice3
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+    positiveEventEffect: 0
+    amountToAdd: 0
     negativeEventEffect: 0
     amountToRemove: 0
     cardToGet: {fileID: 0}

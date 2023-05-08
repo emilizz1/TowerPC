@@ -13,13 +13,17 @@ MonoBehaviour:
   m_Name: AdmiralTech
   m_EditorClassIdentifier: 
   researches:
-  - {fileID: 11400000, guid: 0ae7b2c8ba2add54db35f5d8ba94f183, type: 2}
-  - {fileID: 11400000, guid: 190dfe051d62d30449d669f69451b6e5, type: 2}
-  - {fileID: 11400000, guid: bbebe8a8013f34141a545c4f3ea7a0b8, type: 2}
-  - {fileID: 11400000, guid: c260051b12859c74d8a4d09ee0312157, type: 2}
-  - {fileID: 11400000, guid: 4d74b2d697bb69e49901d7af777b895e, type: 2}
-  - {fileID: 11400000, guid: 815c907d7a96a794aba0f175fe1c7d3e, type: 2}
-  - {fileID: 11400000, guid: d8c37e44d86e0a94ca0ffa8e28d48f86, type: 2}
-  - {fileID: 11400000, guid: 5ab1b176ca625af4da7f5ac274ffc53f, type: 2}
-  - {fileID: 11400000, guid: 537c7a4eedfb02b4e9a356f632b48a71, type: 2}
-  - {fileID: 11400000, guid: f9cd3d3e01174c2498ecf5fbcbf3ae85, type: 2}
+  - {fileID: 11400000, guid: eccf64a4d77f18348b7ac2fbb205834c, type: 2}
+  - {fileID: 11400000, guid: 8d6ec7cb961621e489d529762b70951c, type: 2}
+  - {fileID: 11400000, guid: f9622522a4b72db4791ee29dabd02d10, type: 2}
+  - {fileID: 11400000, guid: ae493d47695f4334f91d292a45334da2, type: 2}
+  - {fileID: 11400000, guid: 40351ced07113f340a61286c561154ae, type: 2}
+  - {fileID: 11400000, guid: 0306c4d97947ce049a6d3f193cb40d81, type: 2}
+  - {fileID: 11400000, guid: 0a2ed773d5ad967419cac4584c3eacc1, type: 2}
+  - {fileID: 11400000, guid: 99b4996a13ec596419ecf416e76fc36d, type: 2}
+  - {fileID: 11400000, guid: 8927468ee00f3c444b771e5ad779ee34, type: 2}
+  - {fileID: 11400000, guid: 4c30c2a7c7ebf114688d1f803935c827, type: 2}
+  - {fileID: 11400000, guid: 18f9c20133d9248488972bdffb01452b, type: 2}
+  - {fileID: 11400000, guid: c418f18a0abe2ac41ae0bb76075c5955, type: 2}
+  - {fileID: 11400000, guid: 784e6f8357ec5d04ca8db9fca52b758b, type: 2}
+  - {fileID: 11400000, guid: 8587e09995931e543ac137cc66030e4f, type: 2}

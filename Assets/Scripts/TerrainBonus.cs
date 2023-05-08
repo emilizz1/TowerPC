@@ -38,7 +38,9 @@ public class TerrainBonus : MonoBehaviour
         field,
         snow,
         mountain,
-        aura
+        aura,
+        water,
+        ruin
     }
 
     Spot mySpot;

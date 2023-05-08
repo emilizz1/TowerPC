@@ -23,7 +23,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
     [SerializeField] LocalizedString wavesToCompleteText;
     [SerializeField] LocalizedString effectText;
 
-    ResearchNode currentlyResearching;
+    internal  ResearchNode currentlyResearching;
     internal bool shouldOpenWindow = true;
     internal bool skipNextResearchResult;
     bool opened;
@@ -94,7 +94,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
                 (float)research.currentProgress / research.research.timeToResearch, 0.5f);
 
             shouldOpenWindow = false;
-            DisplayResearch();
+            DisplayResearch(currentlyResearching);
 
             if (research.unlocked && !research.researched)
             {
@@ -129,7 +129,7 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
         {
             tree.PlayAnimations();
         }
-        DisplayResearch();
+        DisplayResearch(currentlyResearching);
     }
 
     public void Close()
@@ -153,19 +153,19 @@ public class ResearchWindow : MonoSingleton<ResearchWindow>
         }
     }
 
-    public void DisplayResearch()
+    public void DisplayResearch(ResearchNode researchToDisplay)
     {
-        if(currentlyResearching == null)
+        if(researchToDisplay == null)
         {
             return;
         }
-        researchName.text = currentlyResearching.research.researchName;
-        wavesNeeded.text = wavesToCompleteText + " " + (currentlyResearching.research.timeToResearch - currentlyResearching.currentProgress);
-        explanation.text = effectText + " " + currentlyResearching.research.explanation;
-        icon.sprite = currentlyResearching.research.sprite;
-        if (currentlyResearching.cardResearch)
+        researchName.text = researchToDisplay.research.researchName;
+        wavesNeeded.text = wavesToCompleteText + " " + (researchToDisplay.research.timeToResearch - researchToDisplay.currentProgress);
+        explanation.text = effectText + " " + researchToDisplay.research.explanation;
+        icon.sprite = researchToDisplay.research.sprite;
+        if (researchToDisplay.cardResearch)
         {
-            ResearchGetCard researchCard = (ResearchGetCard)currentlyResearching.research;
+            ResearchGetCard researchCard = (ResearchGetCard)researchToDisplay.research;
             researchDisplay.DisplayCard(researchCard.cardToGet);
             researchDisplay.gameObject.SetActive(true);
         }

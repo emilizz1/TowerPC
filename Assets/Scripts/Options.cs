@@ -56,7 +56,7 @@ public class Options : MonoBehaviour
         mixer.SetFloat("Soundtrack", value > 0.5f ? Mathf.Lerp(-40f, 0f, value) : Mathf.Lerp(-80f, 40f, value));
         musicSlider.value = value;
 
-        fullScreenToggle.isOn = SavedData.savesData.fullscreen > 0;
+        fullScreenToggle.isOn = (SavedData.savesData.fullscreen > 0);
 
         Screen.SetResolution(
             selectedResolution.width,
@@ -137,6 +137,13 @@ public class Options : MonoBehaviour
 
     public void OpenPopup()
     {
+        Time.timeScale = 0f;
         parent.SetActive(true);
+    }
+
+    public void ClosePopup()
+    {
+        Time.timeScale = SpeedButton.instance.currentSpeed;
+        parent.SetActive(false);        
     }
 }

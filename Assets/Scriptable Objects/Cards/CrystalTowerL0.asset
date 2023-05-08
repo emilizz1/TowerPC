@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0bb7574101a52459dc52dd6b1a9363, type: 3}
+  m_Name: CrystalTowerL0
+  m_EditorClassIdentifier: 
+  cardName: Arcane Tower
+  cardType: 0
+  cardImage: {fileID: 21300000, guid: 08d5f6939a9f4744da63eebf8e0e9f2f, type: 3}
+  moneyCost: 50
+  manaCost: 0
+  cardTier: 0
+  cardLevel: 0
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  description: '<sprite=4> 3   <sprite=3> 5   <sprite=2> 14
+
+    <sprite=1> 0.9/s  
+    <sprite=0> 6
+
+    Double damage to Enemies with a debuff'
+  damageTypes: 01000000
+  cardTag: 0
+  cardCollectionType: 0
+  towerPrefab: {fileID: 4796524506784668451, guid: fadab5bbbac46854e8c8be50dd2e2a56, type: 3}
+  towerType: 0
+  firstAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  secondAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  firstAbility: 
+  secondAbility: 

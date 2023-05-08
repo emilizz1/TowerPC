@@ -12,22 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b891389cceafb7e42bde8d339123785e, type: 3}
   m_Name: MarketEvent
   m_EditorClassIdentifier: 
-  nameText: 
-  descriptionText: 
+  nameText:
+    mTerm: Event_SpecialName
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  descriptionText:
+    mTerm: Event_SpecialDescription
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   type: 5
+  positivity: 0
   eventChoiceDatas:
-  - choiceDescription: 
+  - choiceDescription:
+      mTerm: Event_SpecialChoiceForge
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     positiveEventEffect: 9
     amountToAdd: 0
     negativeEventEffect: 0
     amountToRemove: 0
-  - choiceDescription: 
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_SpecialChoiceGraveyard
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     positiveEventEffect: 10
     amountToAdd: 0
     negativeEventEffect: 0
     amountToRemove: 0
-  - choiceDescription: 
+    cardToGet: {fileID: 0}
+  - choiceDescription:
+      mTerm: Event_SpecialChoiceGold
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
     positiveEventEffect: 1
     amountToAdd: 5
     negativeEventEffect: 0
     amountToRemove: 0
+    cardToGet: {fileID: 0}

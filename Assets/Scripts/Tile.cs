@@ -155,6 +155,56 @@ public class Tile : MonoBehaviour
         return adjacentSpots;
     }
 
+    public List<Spot> GetAdjacentSpotsInTwoRange(Spot startingSpot, bool shouldIgnoreTerrain = false)
+    {
+        List<Spot> adjacentSpots = new List<Spot>();
+        Vector3 spotPos = startingSpot.transform.position;
+        List<Vector3> lookingFor = new List<Vector3>();
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z + 1));
+
+
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z + 2));
+        lookingFor.Add(new Vector3(spotPos.x + 2, spotPos.y, spotPos.z - 2));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z + 1));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z - 1));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z - 2));
+        lookingFor.Add(new Vector3(spotPos.x - 2, spotPos.y, spotPos.z + 2));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z - 2));
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z - 2));
+        lookingFor.Add(new Vector3(spotPos.x - 1, spotPos.y, spotPos.z + 2));
+        lookingFor.Add(new Vector3(spotPos.x + 1, spotPos.y, spotPos.z + 2));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z + 2));
+        lookingFor.Add(new Vector3(spotPos.x, spotPos.y, spotPos.z - 2));
+        foreach (Spot spot in allSpots)
+        {
+            if (spot.gameObject.activeSelf)
+            {
+                if (shouldIgnoreTerrain || spot.terrainBonus.Count == 0)
+                {
+                    foreach (Vector3 looking in lookingFor)
+                    {
+                        if (spot.transform.position == looking)
+                        {
+                            adjacentSpots.Add(spot);
+                        }
+                    }
+                }
+            }
+        }
+        return adjacentSpots;
+    }
+
     public List<RoadSpot> GettAllRoadSpotsInTwoRange(Spot startingSpot)
     {
         List<RoadSpot> adjacentSpots = new List<RoadSpot>();

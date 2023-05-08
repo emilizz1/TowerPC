@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fd558b207626a4aae1f16f33955b75, type: 3}
+  m_Name: BlessL0
+  m_EditorClassIdentifier: 
+  cardName: Blessing
+  cardType: 1
+  cardImage: {fileID: 21300000, guid: 3a4e1558c7f2abb47bd8e872d8c87e66, type: 3}
+  moneyCost: 0
+  manaCost: 0
+  cardTier: 0
+  cardLevel: 0
+  descriptionText:
+    mTerm: Card_Engine
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  description: Draw 2 Cards
+  damageTypes: 
+  cardTag: 0
+  cardCollectionType: 0
+  addMoney: 0
+  addMana: 0
+  addHealth: 0
+  drawCards: 2
+  advanceResearch: 0
+  discount: 0
+  alternativeDescription:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0

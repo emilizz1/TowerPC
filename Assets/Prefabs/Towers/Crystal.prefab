@@ -5226,9 +5226,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04c7d24fc4b1014bb8ebedbe9f17609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 6f32f85f23fc2c44e955a9a1a1944402, type: 3}
+  image: {fileID: 21300000, guid: 08d5f6939a9f4744da63eebf8e0e9f2f, type: 3}
   towerName: Crystal
-  specialText: Stores shots <Needs rewrite>
+  specialText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  specialFirstText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  specialSecondText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  towerType: 0
   rangeSprite: {fileID: 8419676603040903247}
   top: {fileID: 3364892187113495077}
   sphere: {fileID: 4273345013492345057}
@@ -5320,6 +5338,8 @@ MonoBehaviour:
   - {fileID: 3357979720596186580}
   shootingSpeed: 0.15
   spinningTween: {fileID: 2938332526504348221}
+  activeBulletsCount: 0
+  activeBulletsCountUpgraded: 0
 --- !u!1 &3036573334648404324
 GameObject:
   m_ObjectHideFlags: 0

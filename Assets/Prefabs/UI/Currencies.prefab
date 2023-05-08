@@ -1865,7 +1865,7 @@ MonoBehaviour:
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
-  manaShield: {fileID: 0}
+  manaShield: {fileID: 88419604251284487}
 --- !u!1 &8268071099466209728
 GameObject:
   m_ObjectHideFlags: 0

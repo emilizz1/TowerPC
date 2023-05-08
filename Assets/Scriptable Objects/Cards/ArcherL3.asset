@@ -14,14 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Archer
   cardType: 0
-  cardImage: {fileID: 21300000, guid: a4c16e13508db3a4db578dca9a5649cb, type: 3}
+  cardImage: {fileID: 21300000, guid: 993680ccdbed98f448fcc34a46effd2c, type: 3}
   moneyCost: 36
   manaCost: 0
-  buyCostMultiplayer: 2
+  cardTier: 0
   cardLevel: 3
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: '<sprite=4> 6   <sprite=3> 4   <sprite=2> 2
 
     <sprite=1> 1.7/s  
     <sprite=0> 5'
   damageTypes: 00000000
+  cardTag: 0
+  cardCollectionType: 0
   towerPrefab: {fileID: 1526630794712585043, guid: 645c3171a0fae3843a1b1823de379e23, type: 3}
+  towerType: 0
+  firstAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  secondAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  firstAbility: 
+  secondAbility: 

@@ -8,8 +8,9 @@ using TMPro;
 
 public class EnemyAppearInfo : MonoSingleton<EnemyAppearInfo>
 {
+    public List<EnemyInfo> enemyInfos;
+
     [SerializeField] List<EnemyNotificationButton> notificationButtons;
-    [SerializeField] List<EnemyInfo> enemyInfos;
 
     [SerializeField] TweenAnimator animator;
     [SerializeField] Image infoDisplay;
@@ -109,6 +110,7 @@ public class EnemyAppearInfo : MonoSingleton<EnemyAppearInfo>
         damageText.text = enemy.damage.ToString();
         speedText.text = enemy.speed.ToString();
         ObjectPools.instance.GetPool(info.name).ReturnObject(enemy.gameObject);
+        Bestiary.instance.FillEnemyButtons();
     }
 
     public void CloseEnemyInfo()
@@ -129,6 +131,18 @@ public class EnemyAppearInfo : MonoSingleton<EnemyAppearInfo>
             }
         }
         return null;
+    }
+
+    public EnemyInfo GetInfoByType(ObjectPools.PoolNames enemy)
+    {
+        foreach(EnemyInfo info in enemyInfos)
+        {
+            if(enemy == info.name)
+            {
+                return info;
+            }
+        }
+        return new EnemyInfo();
     }
 }
 

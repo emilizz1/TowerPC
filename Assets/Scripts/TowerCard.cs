@@ -22,7 +22,7 @@ public class TowerCard : Card
         List<float> damage = myTower.GetDamageMultiplied();
         float range = myTower.towerStats[myTower.currentLevel].range * myTower.statsMultiplayers.range;
         string statsText = "<sprite=4> " + damage[0] + " <sprite=3> " + damage[1] + " <sprite=2> " + damage[2] +
-            " <sprite =1> " + myTower.GetTimeToNextShot() + " / s < sprite = 0 > " + range + "\n";
+            " <sprite =1> " + myTower.GetTimeToNextShot() + " / s < sprite = 0 > " + range + "/n";
 
         if(SecondTowerAbilityManager.instance.SecondSpecialUnlocked(myTower.towerType) == 1)
         {

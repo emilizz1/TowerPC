@@ -195,7 +195,7 @@ public class TowerInfoWindow : MonoSingleton<TowerInfoWindow>
         {// 1 / 0.33 * (1 - 0) 3.03       1 / 0.33 * (1 - 0) 3.03
             fireRateText.text = "<sprite=1> " + colorString +
                   ( 1f / (currentTower.towerStats[currentTower.currentLevel].fireRate *  (currentTower.statsMultiplayers.fireRate + combinedStats.fireRate))).ToString("F1")
-                  + " (+" + ((combinedStats.fireRate+ 1) * 100).ToString() + "%)";
+                  + " (+" + ((Mathf.Abs( combinedStats.fireRate)) * 100).ToString() + "%)";
         }
         if (combinedStats.damage[0] > 0)
         {

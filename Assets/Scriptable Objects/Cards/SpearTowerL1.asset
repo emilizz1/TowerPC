@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Spear Tower
   cardType: 0
-  cardImage: {fileID: 21300000, guid: 8b9fc1901a150d549890815c13a8289c, type: 3}
+  cardImage: {fileID: 21300000, guid: 1cf3614079a22c64c9be36493f2914d1, type: 3}
   moneyCost: 27
   manaCost: 0
-  buyCostMultiplayer: 1.83
+  cardTier: 0
   cardLevel: 1
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: '<sprite=4> 7   <sprite=3> 6   <sprite=2> 4
 
     <sprite=1> 1.3/s  
@@ -26,4 +32,21 @@ MonoBehaviour:
 
     Fires faster at the same target'
   damageTypes: 00000000
+  cardTag: 0
+  cardCollectionType: 0
   towerPrefab: {fileID: 4796524506784668451, guid: ba0707d2a8476d148848256e702f9168, type: 3}
+  towerType: 0
+  firstAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  secondAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  firstAbility: 
+  secondAbility: 

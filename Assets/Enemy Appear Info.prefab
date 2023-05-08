@@ -654,13 +654,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03aae48b5c8284d4c9b1e9616c798795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyInfos:
+  - name: 0
+    image: {fileID: 0}
+    enemyDescription:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+  - name: 1
+    image: {fileID: 0}
+    enemyDescription:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+  - name: 2
+    image: {fileID: 0}
+    enemyDescription:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+  - name: 3
+    image: {fileID: 0}
+    enemyDescription:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+  - name: 4
+    image: {fileID: 0}
+    enemyDescription:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
+  - name: 50
+    image: {fileID: 0}
+    enemyDescription:
+      mTerm: 
+      mRTL_IgnoreArabicFix: 0
+      mRTL_MaxLineLength: 0
+      mRTL_ConvertNumbers: 0
+      m_DontLocalizeParameters: 0
   notificationButtons:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  enemyInfos: []
   animator: {fileID: 8311959568642436117}
   infoDisplay: {fileID: 8311959568918026626}
   infoText: {fileID: 8311959568910457360}

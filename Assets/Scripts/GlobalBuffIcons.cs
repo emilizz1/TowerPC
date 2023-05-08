@@ -23,15 +23,15 @@ public class GlobalBuffIcons : MonoSingleton<GlobalBuffIcons>
         {
             DisplayBuff(knightSprite, knightText);
         }
-        else if (CharacterSelector.firstCharacter.characterName == "Mage" || CharacterSelector.secondCharacter.characterName == "Mage")
+        if (CharacterSelector.firstCharacter.characterName == "Mage" || CharacterSelector.secondCharacter.characterName == "Mage")
         {
             DisplayBuff(mageSprite, mageText);
         }
-        else if (CharacterSelector.firstCharacter.characterName == "Admiral" || CharacterSelector.secondCharacter.characterName == "Admiral")
+        if (CharacterSelector.firstCharacter.characterName == "Admiral" || CharacterSelector.secondCharacter.characterName == "Admiral")
         {
             DisplayBuff(admiralSprite, admiralText);
         }
-        else if (CharacterSelector.firstCharacter.characterName == "Hunter" || CharacterSelector.secondCharacter.characterName == "Hunter")
+        if (CharacterSelector.firstCharacter.characterName == "Hunter" || CharacterSelector.secondCharacter.characterName == "Hunter")
         {
             DisplayBuff(hunterSprite, hunterText);
         }

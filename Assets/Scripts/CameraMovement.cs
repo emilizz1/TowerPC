@@ -9,6 +9,8 @@ public class CameraMovement : MonoSingleton<CameraMovement>
     [SerializeField] float zoomSpeed;
     [SerializeField] float zoomMin;
     [SerializeField] float zoomMax;
+    [SerializeField] float maxX;
+    [SerializeField] float maxZ;
 
     Camera myCamera;
 
@@ -53,22 +55,26 @@ public class CameraMovement : MonoSingleton<CameraMovement>
 
         prevPos = Input.mousePosition;
 
-        if (Input.GetKey(KeyCode.W) || Input.mousePosition.y > Screen.height - 10f)
+        if (Input.GetKey(KeyCode.W) || Input.mousePosition.y > Screen.height - 3f)
         {
             change.z += movementSpeed;
         }
-        if (Input.GetKey(KeyCode.A) || Input.mousePosition.x < 10f )
+        if (Input.GetKey(KeyCode.A) || Input.mousePosition.x < 3f )
         {
             change.x -= movementSpeed;
         }
-        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y < 10f)
+        if (Input.GetKey(KeyCode.S) || Input.mousePosition.y < 3f)
         {
             change.z -= movementSpeed;
         }
-        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x > Screen.width - 10f)
+        if (Input.GetKey(KeyCode.D) || Input.mousePosition.x > Screen.width - 3f)
         {
             change.x += movementSpeed;
         }
+
+        change.x = Mathf.Clamp(change.x, -maxX, maxX);
+        change.z = Mathf.Clamp(change.z, -maxZ, maxZ);
+
         transform.position = change;
     }
 }

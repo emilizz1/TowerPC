@@ -23,17 +23,20 @@ public class ArcaneTower : Tower
         }
         List<float> normal = base.GetDamageMultiplied();
 
-        if (currentTarget.GetComponent<Debuff>())
+        if(currentTarget != null) 
         {
-            for (int i = 0; i < normal.Count; i++)
+            if (currentTarget.GetComponent<Debuff>())
             {
-                if (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(towerType) == 1)
+                for (int i = 0; i < normal.Count; i++)
                 {
-                    normal[i] *= 3;
-                }
-                else
-                {
-                    normal[i] *= 2;
+                    if (SecondTowerAbilityManager.instance.SecondSpecialUnlocked(towerType) == 1)
+                    {
+                        normal[i] *= 3;
+                    }
+                    else
+                    {
+                        normal[i] *= 2;
+                    }
                 }
             }
         }

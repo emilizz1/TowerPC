@@ -31,9 +31,13 @@ MonoBehaviour:
     m_DontLocalizeParameters: 0
   displayIcon: 0
   researchType: 0
-  cardToGet: {fileID: 0}
+  cardToGet: {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
   firstCharacter: 1
-  knightCards: []
-  mageCards: []
-  admiralCards: []
-  hunterCards: []
+  knightCards:
+  - {fileID: 11400000, guid: 1624bbe8ce93e464f97ffea4692957fc, type: 2}
+  mageCards:
+  - {fileID: 11400000, guid: 41110b0de54f5d24fa373f087eb600ad, type: 2}
+  admiralCards:
+  - {fileID: 11400000, guid: 495ae3da7c6870c479ebfca05e0091b8, type: 2}
+  hunterCards:
+  - {fileID: 11400000, guid: 361ab3d10520b214a84cdbeff64d579e, type: 2}

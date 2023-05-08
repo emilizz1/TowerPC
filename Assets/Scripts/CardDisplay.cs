@@ -22,6 +22,8 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] List<GameObject> cardLevelStars;
     [SerializeField] TweenAnimator notEnoughMoney;
     [SerializeField] TweenAnimator notEnoughMana;
+    [SerializeField] List<Color> tierColors;
+    [SerializeField] Image background;
 
     internal Card displayedCard;
 
@@ -81,13 +83,14 @@ public class CardDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             cardLevel[i].SetActive(i < cardToDisplay.cardLevel);
             cardLevelStars[i].SetActive(i < cardToDisplay.cardLevel);
         }
+        background.color = tierColors[cardToDisplay.cardLevel];
 
         back.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (handCard && !Cover.cover && !Input.GetMouseButton(1))
+        if (handCard && !Cover.cover && !Input.GetMouseButton(1) && displayedCard != CardHolderManager.instance.curseCard)
         {
             dragging = true;
             draggingCoroutine = StartCoroutine(Dragging());

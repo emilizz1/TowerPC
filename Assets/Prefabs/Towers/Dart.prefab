@@ -133,11 +133,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3fe3d22fa52564da244312bc614d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 10f13aae14add6d43b0a4d2cb1132a6e, type: 3}
+  image: {fileID: 21300000, guid: bca8857f999b3ee4a95548160031e700, type: 3}
   towerName: Dart
-  specialText: Shots Poison Enemies
-  specialFirstText: 
-  specialSecondText: 
+  specialText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  specialFirstText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  specialSecondText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   towerType: 6
   rangeSprite: {fileID: 8419676603040903247}
   top: {fileID: 3364892187113495077}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f36335e4da26744be1d0b5be407ce8, type: 3}
+  m_Name: KnightTech
+  m_EditorClassIdentifier: 
+  researches:
+  - {fileID: 11400000, guid: 9453e407e1de0044a9d8dc842db25fb5, type: 2}
+  - {fileID: 11400000, guid: 9a3f64eb1b96e68429705a7df720b233, type: 2}
+  - {fileID: 11400000, guid: 34d8859d2876d4f4d87430ad28fb5a98, type: 2}
+  - {fileID: 11400000, guid: 8bf646e6b1a0132419c32322d4b4c3c1, type: 2}
+  - {fileID: 11400000, guid: 57c05157692861743a93e4747f87fd12, type: 2}
+  - {fileID: 11400000, guid: cd2b94c1c01ee7645985b1c665c44b01, type: 2}
+  - {fileID: 11400000, guid: a2a85f7470a360349a57d2c83230e64b, type: 2}
+  - {fileID: 11400000, guid: 7f9dd28ce03f7b94b9901ee02b02ef94, type: 2}
+  - {fileID: 11400000, guid: a2a08321bc370ad4eb3dd29f67d23a81, type: 2}
+  - {fileID: 11400000, guid: e2b095e833c813d49abaed21b62cb586, type: 2}
+  - {fileID: 11400000, guid: fcca88e5372e0444c93d1ef7bef7c011, type: 2}
+  - {fileID: 11400000, guid: c4de8c09888ea4444a1288100cd0bd09, type: 2}
+  - {fileID: 11400000, guid: a741ffa496ddfad44853ffa5ccfb8257, type: 2}
+  - {fileID: 11400000, guid: 866b360f4204500459d47386a776f1b9, type: 2}

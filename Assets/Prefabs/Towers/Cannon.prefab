@@ -133,9 +133,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cb28bc0838f9840b7352ba9e6892ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 5b134535ee2e2194ba630803ef8ed3cf, type: 3}
+  image: {fileID: 21300000, guid: 306a41f26cf4660468d963e0376b81b2, type: 3}
   towerName: Cannon Tower
-  specialText: If Armor is damaged by this then the Enemy is stuned
+  specialText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  specialFirstText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  specialSecondText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   towerType: 7
   rangeSprite: {fileID: 8419676603040903247}
   top: {fileID: 3364892187113495077}

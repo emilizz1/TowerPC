@@ -35,7 +35,7 @@ public class CardInfoWindow : MonoBehaviour
                 Cover.cover = false;
                 if(Time.timeScale == 0f)
                 {
-                    Time.timeScale = 1f;
+                    Time.timeScale = SpeedButton.instance.currentSpeed;
                 }
             }
         }
@@ -52,7 +52,7 @@ public class CardInfoWindow : MonoBehaviour
 
             if (Time.timeScale == 0f)
             {
-                Time.timeScale = 1f;
+                Time.timeScale = SpeedButton.instance.currentSpeed;
             }
         }
     }

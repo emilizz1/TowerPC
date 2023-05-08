@@ -14,16 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Coins
   cardType: 1
-  cardImage: {fileID: 21300000, guid: 7219f81f88ac24046816a32e8dadc3ee, type: 3}
+  cardImage: {fileID: 21300000, guid: f9996ecf3eb9f0b468dbecee05d8d67b, type: 3}
   moneyCost: 0
   manaCost: 12
-  buyCostMultiplayer: 1.66
+  cardTier: 0
   cardLevel: 2
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: Add 35 Gold
   damageTypes: 
-  maxUses: 2
+  cardTag: 0
+  cardCollectionType: 0
   addMoney: 35
   addMana: 0
   addHealth: 0
   drawCards: 0
   advanceResearch: 0
+  discount: 0
+  alternativeDescription:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0

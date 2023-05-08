@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cb58edc8c5c724cb1a450caad39943, type: 3}
+  m_Name: Curse Card
+  m_EditorClassIdentifier: 
+  cardName: Curse
+  cardType: 0
+  cardImage: {fileID: 0}
+  moneyCost: 0
+  manaCost: 0
+  cardTier: 0
+  cardLevel: 0
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  description: 
+  damageTypes: 
+  cardTag: 0
+  cardCollectionType: 0

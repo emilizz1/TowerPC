@@ -63,6 +63,10 @@ public class CardShowcase : MonoSingleton<CardShowcase>
                         closeButton.SetActive(false);
                         break;
                     case (ShowcasePurpose.Upgrade):
+                        if(cardsToDisplay[i] == CardHolderManager.instance.curseCard)
+                        {
+                            cardDisplays[i].gameObject.SetActive(false);
+                        }
                         cardDisplays[i].button.interactable = true;
                         closeButton.SetActive(false);
                         break;

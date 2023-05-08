@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Arcane Tower
   cardType: 0
-  cardImage: {fileID: 21300000, guid: 296eee9b30197c24cbe00d66961cb4d7, type: 3}
+  cardImage: {fileID: 21300000, guid: 9746067bd7fb7d2459703a52c2c2fada, type: 3}
   moneyCost: 40
   manaCost: 15
-  buyCostMultiplayer: 2.66
+  cardTier: 0
   cardLevel: 2
+  descriptionText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
   description: '<sprite=4> 4   <sprite=3> 7   <sprite=2> 16
 
     <sprite=1> 1/s  
@@ -26,4 +32,21 @@ MonoBehaviour:
 
     Double damage to Enemies with a debuff'
   damageTypes: 01000000
+  cardTag: 0
+  cardCollectionType: 0
   towerPrefab: {fileID: 4796524506784668451, guid: fadab5bbbac46854e8c8be50dd2e2a56, type: 3}
+  towerType: 0
+  firstAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  secondAbilityText:
+    mTerm: 
+    mRTL_IgnoreArabicFix: 0
+    mRTL_MaxLineLength: 0
+    mRTL_ConvertNumbers: 0
+    m_DontLocalizeParameters: 0
+  firstAbility: 
+  secondAbility: 
