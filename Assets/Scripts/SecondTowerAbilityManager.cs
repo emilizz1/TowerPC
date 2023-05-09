@@ -75,5 +75,6 @@ public enum TowerType
     Energy,
     Dart,
     Cannon,
-    Naval
+    Naval,
+    Castle
 }

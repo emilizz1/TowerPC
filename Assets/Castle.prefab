@@ -548,7 +548,7 @@ MonoBehaviour:
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
-  towerType: 0
+  towerType: 1
   rangeSprite: {fileID: 6026455980800269578}
   top: {fileID: 6423220462451709682}
   sphere: {fileID: 4569945237570310064}
@@ -567,7 +567,7 @@ MonoBehaviour:
     - 20
   experienceNeeded: 
   damageTypes: 00000000
-  bulletType: 102
+  bulletType: 108
   shootSound: {fileID: 8300000, guid: b68ad6c8b724cc04ba4040bc0594d977, type: 3}
 --- !u!1 &2939900226690846443
 GameObject:
@@ -638,7 +638,7 @@ MonoBehaviour:
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
-  towerType: 0
+  towerType: 1
   rangeSprite: {fileID: 5422911222227529675}
   top: {fileID: 6901061834602332906}
   sphere: {fileID: 5193411621529708999}
@@ -657,7 +657,7 @@ MonoBehaviour:
     - 20
   experienceNeeded: 
   damageTypes: 00000000
-  bulletType: 102
+  bulletType: 108
   shootSound: {fileID: 8300000, guid: b68ad6c8b724cc04ba4040bc0594d977, type: 3}
 --- !u!135 &5193411621529708999
 SphereCollider:

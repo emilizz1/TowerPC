@@ -189,7 +189,7 @@ public class Event : ScriptableObject
             case (EventEffect.lowChance):
                 if(UnityEngine.Random.Range(0f,1f) <= 0.3f)
                 {
-                    Money.instance.AddCurrency(100, false);
+                    Money.instance.AddCurrency(120, false);
                 }
                 break;
             case (EventEffect.magicDamage):

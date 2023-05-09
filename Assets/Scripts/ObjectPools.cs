@@ -21,6 +21,9 @@ public class ObjectPools : MonoSingleton<ObjectPools>
         enemyShield = 2,
         enemyHound = 3,
         enemyBandit = 4,
+        enemyArmored = 5,
+        enemySpecialShield = 6,
+        enemySingleDamage = 7,
 
         enemyHealthH = 25,
         enemyArmorH = 26,

@@ -20,9 +20,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Image armorBarCollums;
     [SerializeField] Image shieldBarCollums;
     [SerializeField] MeshRenderer myRenderer;
-    [SerializeField] AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] List<AudioClip> deathClips;
-    [SerializeField] List<AudioClip> specialClips;
+    public List<AudioClip> specialClips;
     [SerializeField] DamageNumbers damageNumbers;
 
     [Header("Stats")]
@@ -164,7 +164,7 @@ public class Enemy : MonoBehaviour
         skillBarBg.fillAmount = skillBar.fillAmount > 0 ? 0.04f * (1 - skillBar.fillAmount) + skillBar.fillAmount : 0f;
     }
 
-    public void ReachedEnd()
+    public virtual void ReachedEnd()
     {
         if (!returning)
         {
